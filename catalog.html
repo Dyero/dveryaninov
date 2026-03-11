@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Каталог — Дверяив</title>
+  </head>
+<body class="page page_catalog">
+  <header class="header">
+    <div class="header__level header__level_1">
+      <div class="header__top-row">
+        <div class="header__location">
+          <img src="images/icon-location.svg" alt="" width="24" height="24" class="header__icon-img">
+          <span class="header__city">Чебксары</span>
+        </div>
+        <a class="header__link" href="contacts.html">Адреса салв</a>
+        <a class="header__link" href="about.html">О кмоаии</a>
+        <a class="header__link" href="contacts.html">Ктакты</a>
+        <div class="header__right">
+          <a class="header__link" href="#">Блг</a>
+          <a class="header__link" href="#">Пректы</a>
+        </div>
+      </div>
+    </div>
+    <div class="header__level header__level_2">
+      <nav class="header__nav">
+        <a class="header__nav-item" href="catalog.html" aria-current="page">Каталог</a>
+        <a class="header__nav-item" href="service.html">Услуги</a>
+        <a class="header__nav-item" href="#">Партерам</a>
+      </nav>
+      <a class="header__logo" href="index.html">
+        <img src="images/logo.svg" alt="Дверяив" width="196" height="59">
+      </a>
+      <div class="header__actions">
+        <a class="header__phone" href="tel:88005508869">8 800 550-88-69</a>
+        <button type="button" class="header__icon-btn" aria-label="Избрае">
+          <img src="images/icon-heart.svg" alt="" width="24" height="24">
+        </button>
+        <a href="cart.html" class="header__icon-btn" aria-label="Крзиа">
+          <img src="images/icon-bag.svg" alt="" width="24" height="24">
+        </a>
+        <button type="button" class="header__icon-btn" aria-label="Прфиль">
+          <img src="images/icon-user.svg" alt="" width="24" height="24">
+        </button>
+        <button type="button" class="header__icon-btn" aria-label="Писк">
+          <img src="images/icon-search.svg" alt="" width="24" height="24">
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="catalog-page">
+    <nav class="breadcrumbs catalog-page__breadcrumbs" aria-label="Хлебные крошки">
+      <a class="breadcrumbs__link" href="index.html">Главная</a>
+      <span class="breadcrumbs__sep">–</span>
+      <span class="breadcrumbs__current">Каталог</span>
+    </nav>
+
+    <h1 class="catalog-page__title">Каталог</h1>
+
+    <section class="collections" aria-labelledby="collections-title">
+      <div class="collections__head">
+        <h2 class="collections__title" id="collections-title">Коллекции</h2>
+      </div>
+
+      <div class="collections__grid">
+        <a class="collection-card" href="#catalog">
+          <div class="collection-card__image-wrap">
+            <img class="collection-card__image" src="images/hero-bg.svg" alt="" width="720" height="420">
+          </div>
+          <div class="collection-card__body">
+            <h3 class="collection-card__title">Кллекция «Мета»</h3>
+            <p class="collection-card__meta">12 мделей</p>
+          </div>
+        </a>
+
+        <a class="collection-card" href="#catalog">
+          <div class="collection-card__image-wrap">
+            <img class="collection-card__image" src="images/hero-bg.svg" alt="" width="720" height="420">
+          </div>
+          <div class="collection-card__body">
+            <h3 class="collection-card__title">Кллекция «Флай»</h3>
+            <p class="collection-card__meta">10 мделей</p>
+          </div>
+        </a>
+
+        <a class="collection-card" href="#catalog">
+          <div class="collection-card__image-wrap">
+            <img class="collection-card__image" src="images/hero-bg.svg" alt="" width="720" height="420">
+          </div>
+          <div class="collection-card__body">
+            <h3 class="collection-card__title">Кллекция «Ультра»</h3>
+            <p class="collection-card__meta">8 мделей</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="catalog" id="catalog" aria-labelledby="catalog-title">
+      <div class="catalog__head">
+        <h2 class="catalog__title" id="catalog-title">Общий каталг</h2>
+
+        <div class="catalog__controls" aria-label="Фильтры каталга">
+          <button class="catalog__chip" type="button">Межкмадатые</button>
+          <button class="catalog__chip" type="button">Вхдые</button>
+          <button class="catalog__chip" type="button">Скрытые</button>
+        </div>
+      </div>
+
+      <div class="section__cards section__cards_wrap catalog__grid">
+        <article class="card">
+          <div class="card__image-wrap">
+            <img class="card__image" src="images/card-door-1.svg" alt="Дверь Флай 8 ПГ" width="288" height="320">
+          </div>
+          <span class="card__badge">Нвика</span>
+          <h3 class="card__title"><a href="product.html?id=1">Дверь Флай 8 ПГ</a></h3>
+          <p class="card__price">т 58 600 </p>
+          <button type="button" class="card__action" aria-label="В крзиу"></button>
+        </article>
+
+        <article class="card">
+          <div class="card__image-wrap">
+            <img class="card__image" src="images/card-door-2.svg" alt="Дверь Ультра 5 ПГ" width="288" height="320">
+          </div>
+          <span class="card__badge">Нвика</span>
+          <h3 class="card__title"><a href="product.html?id=2">Дверь Ультра 5 ПГ</a></h3>
+          <p class="card__price">т 63 200 </p>
+          <button type="button" class="card__action" aria-label="В крзиу"></button>
+        </article>
+
+        <article class="card">
+          <div class="card__image-wrap">
+            <img class="card__image" src="images/card-door-3.svg" alt="Дверь Мета 1 ПГ Престиж" width="288" height="320">
+          </div>
+          <span class="card__badge">Нвика</span>
+          <h3 class="card__title"><a href="product.html?id=3">Дверь Мета 1 ПГ Престиж</a></h3>
+          <p class="card__price">т 48 900 </p>
+          <button type="button" class="card__action" aria-label="В крзиу"></button>
+        </article>
+
+        <article class="card">
+          <div class="card__image-wrap">
+            <img class="card__image" src="images/card-door-4.svg" alt="Дверь Сл 2 ПГ" width="288" height="320">
+          </div>
+          <span class="card__badge">Нвика</span>
+          <h3 class="card__title"><a href="product.html?id=4">Дверь Сл 2 ПГ</a></h3>
+          <p class="card__price">т 52 000 </p>
+          <button type="button" class="card__action" aria-label="В крзиу"></button>
+        </article>
+      </div>
+
+      <div class="catalog__more">
+        <button class="catalog__more-btn btn" type="button">Пказать ещё</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <a href="index.html"><img class="footer__logo" src="images/logo-footer.svg" alt="Дверяив" width="266" height="81"></a>
+        <div class="footer__contact">
+          <a class="footer__phone" href="tel:88005508869">8 800 550-88-69</a>
+          <p class="footer__hours">с 08:00 д 17:00 о МСК</p>
+        </div>
+        <div class="footer__social">
+          <p class="footer__social-title">Приседияйтесь</p>
+          <div class="footer__social-links"></div>
+        </div>
+        <div class="footer__email-block">
+          <p class="footer__label">П всем ворсам</p>
+          <a class="footer__email" href="mailto:design@dveryaninov.ru">design@dveryaninov.ru</a>
+        </div>
+      </div>
+      <div class="footer__columns">
+        <div class="footer__column">
+          <h4 class="footer__column-title">Каталог</h4>
+          <ul class="footer__list">
+            <li><a href="catalog.html">Межкмадатые двери</a></li>
+            <li><a href="#">Вхдые двери</a></li>
+            <li><a href="#">Скрытые двери</a></li>
+            <li><a href="#">Декративые рейки</a></li>
+            <li><a href="#">Стевые оаели</a></li>
+            <li><a href="#">Фуритура</a></li>
+          </ul>
+        </div>
+        <div class="footer__column">
+          <h4 class="footer__column-title">Услуги</h4>
+          <ul class="footer__list">
+            <li><a href="service.html">Выездй ксультат</a></li>
+            <li><a href="service.html">Дставка и уставка</a></li>
+          </ul>
+        </div>
+        <div class="footer__column">
+          <h4 class="footer__column-title">Ифрмация</h4>
+          <ul class="footer__list">
+            <li><a href="#">Оолата и гаратия</a></li>
+            <li><a href="#">Светы и рекмедации</a></li>
+            <li><a href="#">Дизайерам</a></li>
+            <li><a href="#">Партёрам</a></li>
+            <li><a href="contacts.html">Адреса салв</a></li>
+            <li><a href="contacts.html">Ктакты</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer__divider"></div>
+  </footer>
+</body>
+</html>
+
+
