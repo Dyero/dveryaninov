@@ -97,7 +97,7 @@
     const state = {
       // Шаг 1
       box: "Телескопический",
-      casing: "Телеско +",
+      casing: "Телескоп +",
       quantity: "5 шт",
       "height-add": "100 мм",
       threshold: "Без порога",
@@ -105,12 +105,12 @@
       size: "2000×600",
       finish: "RAL 9003",
       glazing: "Стекло 1",
-      pattern: "Узор 1",
+      pattern: "Без узора",
       opening: "Распашная",
       "opening-type": "Схема 1",
       // Шаг 3
       "handle-color": "Белый",
-      "lock-type": "Нажимное модели",
+      "lock-type": "Нажимные модели",
       "lock-color": "Белый",
       locker: "Завертка (WC)",
       hinges: "Скрытые",
@@ -202,16 +202,15 @@
       const target = e.target;
       if (!(target instanceof Element)) return;
 
-      // Раскрытие/схлопывание detail-toggle
-      const detailToggle = target.closest(".config-detail-toggle");
-      if (detailToggle) {
-        const isExpanded = detailToggle.getAttribute("aria-expanded") === "true";
-        detailToggle.setAttribute("aria-expanded", isExpanded ? "false" : "true");
-        
-        const options = detailToggle.closest(".config-detail-header")?.nextElementSibling;
-        if (options) {
-          options.hidden = isExpanded;
-        }
+      // Раскрытие/схлопывание по клику на весь заголовок или toggle
+      const detailHeader = target.closest(".config-detail-header");
+      if (detailHeader && !target.closest(".config-chip")) {
+        const toggle = detailHeader.querySelector(".config-detail-toggle");
+        if (!toggle) return;
+        const isExpanded = toggle.getAttribute("aria-expanded") === "true";
+        toggle.setAttribute("aria-expanded", isExpanded ? "false" : "true");
+        const options = detailHeader.nextElementSibling;
+        if (options) options.hidden = isExpanded;
         return;
       }
 
@@ -246,6 +245,8 @@
         syncStateFromPage();
         openModal(modal);
         initModalSelection();
+        addPriceBadges();
+        updateConfigTotal();
         setStep("config");
         return;
       }
@@ -294,6 +295,9 @@
             valueSpan.textContent = value;
           }
         }
+
+        // Обновляем итоговую цену
+        updateConfigTotal();
         return;
       }
 
@@ -332,12 +336,32 @@
       }
     });
 
+    function getChipsTotal() {
+      let total = 0;
+      modal.querySelectorAll('.config-chip_active[data-price]').forEach(function(chip) {
+        total += Number(chip.getAttribute('data-price')) || 0;
+      });
+      return total;
+    }
+
+    function addPriceBadges() {
+      modal.querySelectorAll('[data-pick][data-price]').forEach(function(chip) {
+        if (chip.querySelector('.config-chip__delta')) return;
+        var price = Number(chip.getAttribute('data-price')) || 0;
+        var badge = document.createElement('small');
+        badge.className = 'config-chip__delta';
+        badge.textContent = price > 0 ? '+\u2009' + formatPriceRub(price) + '\u00a0\u20bd' : 'база';
+        chip.appendChild(badge);
+      });
+    }
+
     function updateConfigTotal() {
       const itemsTotal = Array.from(modal?.querySelectorAll(".config-item") || [])
         .reduce((sum, item) => sum + calcItemTotal(item), 0);
+      const chipsTotal = getChipsTotal();
       const totalPriceEl = modal?.querySelector(".config-total-price");
       if (totalPriceEl) {
-        totalPriceEl.textContent = formatPriceRub(BASE_PRICE + itemsTotal);
+        totalPriceEl.textContent = formatPriceRub(BASE_PRICE + itemsTotal + chipsTotal);
       }
     }
 
