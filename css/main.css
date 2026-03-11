@@ -93,6 +93,9 @@ a {
   min-height: 100vh;
 }
 
+.page_index { background: #F3F3F3; }
+.page_cart  { background: #F9F9F9; }
+
 /* Breadcrumbs — shared */
 .breadcrumbs {
   display: flex;
@@ -3170,7 +3173,7 @@ a {
 .about-quality__bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(97, 16, 37, 0.9) 0%, rgba(60, 10, 25, 0.95) 100%);
+  background: var(--color-primary);
 }
 
 .about-quality__content {
