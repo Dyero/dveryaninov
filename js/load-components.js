@@ -2,7 +2,14 @@
 document.addEventListener('DOMContentLoaded', function() {
   fetch('header.html')
     .then(function(r) { return r.text(); })
-    .then(function(data) { document.body.insertAdjacentHTML('afterbegin', data); })
+    .then(function(data) {
+      document.body.insertAdjacentHTML('afterbegin', data);
+      if (window.DvAuth) {
+        DvAuth.updateHeaderUI();
+        DvAuth.initAuthModal();
+      }
+      document.dispatchEvent(new CustomEvent('headerReady'));
+    })
     .catch(function(e) { console.error('Header:', e); });
 
   fetch('footer.html')

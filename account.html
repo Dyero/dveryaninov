@@ -6,6 +6,7 @@
   <title>Личный кабинет — Дверянинов</title>
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/responsive.css">
+  <script src="js/auth.js"></script>
   <script src="js/load-components.js"></script>
 </head>
 <body class="page page_account">
@@ -22,6 +23,10 @@
     <div class="account-layout">
       <!-- Боковое меню -->
       <aside class="account-aside">
+        <div class="account-user-greeting">
+          <p class="account-user-greeting__name">—</p>
+          <p class="account-user-greeting__email">—</p>
+        </div>
         <nav class="account-nav">
           <div class="account-nav__item account-nav__item_active">
             <a class="account-nav__link" href="account.html" aria-current="page">История заказов</a>
@@ -36,135 +41,16 @@
           <div class="account-nav__item">
             <a class="account-nav__link" href="#">Составить обращение</a>
           </div>
+          <button type="button" class="account-nav__logout">Выйти</button>
         </nav>
       </aside>
 
-      <!-- Содержимое — список заказов -->
+      <!-- Содержимое — динамический список заказов -->
       <section class="account-orders" aria-label="Список заказов">
-
-        <!-- Заказ 1 -->
-        <div class="order-card">
-          <!-- Позиция: дверь -->
-          <div class="order-item">
-            <div class="order-item__image-wrap">
-              <img class="order-item__image" src="images/card-door-1.svg" alt="Дверь Флай 8 ПГ" width="140" height="215">
-            </div>
-            <div class="order-item__info">
-              <a class="order-item__title" href="product.html?id=1">Дверь Флай 8 ПГ</a>
-              <div class="order-item__specs">
-                <div class="order-item__spec"><span class="order-item__spec-label">Размер:</span><span class="order-item__spec-value">2500x50x100мм</span></div>
-                <div class="order-item__spec"><span class="order-item__spec-label">Цвет покрытия:</span><span class="order-item__spec-value">Серый</span></div>
-                <div class="order-item__spec"><span class="order-item__spec-label">Остекление:</span><span class="order-item__spec-value">Матовое стекло</span></div>
-                <div class="order-item__spec"><span class="order-item__spec-label">Тип открывания:</span><span class="order-item__spec-value">Распашная</span></div>
-                <div class="order-item__spec"><span class="order-item__spec-label">Сторона открывания:</span><span class="order-item__spec-value">Левая</span></div>
-                <div class="order-item__spec"><span class="order-item__spec-label">Кромка:</span><span class="order-item__spec-value">В цвет полотна</span></div>
-                <div class="order-item__spec"><span class="order-item__spec-label">Тип погонажа:</span><span class="order-item__spec-value">Телескопический</span></div>
-                <div class="order-item__spec"><span class="order-item__spec-label">Добор:</span><span class="order-item__spec-value">100 мм</span></div>
-                <div class="order-item__spec"><span class="order-item__spec-label">Наличники:</span><span class="order-item__spec-value">Комплект на 2 стороны</span></div>
-                <div class="order-item__spec"><span class="order-item__spec-label">Порог:</span><span class="order-item__spec-value">Без порога</span></div>
-                <div class="order-item__spec"><span class="order-item__spec-label">Тип замка:</span><span class="order-item__spec-value">Магнитный</span></div>
-                <div class="order-item__spec"><span class="order-item__spec-label">Запирание (Фиксатор):</span><span class="order-item__spec-value">Завёртка сантехническая (WC)</span></div>
-                <div class="order-item__spec"><span class="order-item__spec-label">Петли:</span><span class="order-item__spec-value">Скрытые</span></div>
-                <div class="order-item__spec"><span class="order-item__spec-label">Ограничитель:</span><span class="order-item__spec-value">Напольный</span></div>
-              </div>
-            </div>
-            <div class="order-item__price-block">
-              <span class="order-item__price-label">Цена за комплект</span>
-              <span class="order-item__price">52 799 ₽</span>
-            </div>
-          </div>
-
-          <!-- Позиция: ручка -->
-          <div class="order-item order-item_accessory">
-            <div class="order-item__image-wrap">
-              <img class="order-item__image order-item__image_sm" src="images/card-placeholder.svg" alt="Ручка Название" width="140" height="130">
-            </div>
-            <div class="order-item__info">
-              <span class="order-item__title">Ручка Название</span>
-              <div class="order-item__specs">
-                <div class="order-item__spec"><span class="order-item__spec-label">Цвет:</span><span class="order-item__spec-value">Матовый никель / дерево</span></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Позиция: погонаж -->
-          <div class="order-item order-item_accessory">
-            <div class="order-item__image-wrap">
-              <img class="order-item__image order-item__image_sm" src="images/card-placeholder.svg" alt="Погонаж" width="140" height="130">
-            </div>
-            <div class="order-item__info">
-              <span class="order-item__title">Погонаж</span>
-              <div class="order-item__specs">
-                <div class="order-item__spec"><span class="order-item__spec-label">Тип погонажа:</span><span class="order-item__spec-value">Телескопический</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Заказ 2 -->
-        <div class="order-card">
-          <div class="order-item">
-            <div class="order-item__image-wrap">
-              <img class="order-item__image" src="images/card-door-1.svg" alt="Дверь Флай 8 ПГ" width="140" height="215">
-            </div>
-            <div class="order-item__info">
-              <a class="order-item__title" href="product.html?id=1">Дверь Флай 8 ПГ</a>
-              <div class="order-item__specs">
-                <div class="order-item__spec"><span class="order-item__spec-label">Размер:</span><span class="order-item__spec-value">2500x50x100мм</span></div>
-                <div class="order-item__spec"><span class="order-item__spec-label">Цвет покрытия:</span><span class="order-item__spec-value">Серый</span></div>
-                <div class="order-item__spec"><span class="order-item__spec-label">Остекление:</span><span class="order-item__spec-value">Матовое стекло</span></div>
-                <div class="order-item__spec"><span class="order-item__spec-label">Тип открывания:</span><span class="order-item__spec-value">Распашная</span></div>
-                <div class="order-item__spec"><span class="order-item__spec-label">Сторона открывания:</span><span class="order-item__spec-value">Левая</span></div>
-                <div class="order-item__spec"><span class="order-item__spec-label">Кромка:</span><span class="order-item__spec-value">В цвет полотна</span></div>
-                <div class="order-item__spec"><span class="order-item__spec-label">Тип погонажа:</span><span class="order-item__spec-value">Телескопический</span></div>
-                <div class="order-item__spec"><span class="order-item__spec-label">Толщина стены:</span><span class="order-item__spec-value">75 мм</span></div>
-                <div class="order-item__spec"><span class="order-item__spec-label">Наличники:</span><span class="order-item__spec-value">Комплект на 2 стороны</span></div>
-                <div class="order-item__spec"><span class="order-item__spec-label">Порог:</span><span class="order-item__spec-value">Без порога</span></div>
-                <div class="order-item__spec"><span class="order-item__spec-label">Модель ручки:</span><span class="order-item__spec-value">Модель ручки</span></div>
-                <div class="order-item__spec"><span class="order-item__spec-label">Тип замка:</span><span class="order-item__spec-value">Магнитный</span></div>
-                <div class="order-item__spec"><span class="order-item__spec-label">Запирание (Фиксатор):</span><span class="order-item__spec-value">Завёртка (WC)</span></div>
-                <div class="order-item__spec"><span class="order-item__spec-label">Петли:</span><span class="order-item__spec-value">Скрытые</span></div>
-                <div class="order-item__spec"><span class="order-item__spec-label">Ограничитель:</span><span class="order-item__spec-value">Напольный</span></div>
-              </div>
-            </div>
-            <div class="order-item__price-block">
-              <span class="order-item__price-label">Цена за комплект</span>
-              <span class="order-item__price">52 799 ₽</span>
-            </div>
-          </div>
-        </div>
-
+        <!-- Заполняется через account.js -->
       </section>
     </div>
   </main>
-
-  <!-- Попап авторизации -->
-  <div class="auth-modal" id="auth-modal" role="dialog" aria-modal="true" aria-labelledby="auth-modal-title" aria-hidden="true">
-    <div class="auth-modal__backdrop" id="auth-modal-backdrop"></div>
-    <div class="auth-modal__panel">
-      <div class="auth-modal__header">
-        <h2 class="auth-modal__title" id="auth-modal-title">Вход в личный кабинет</h2>
-        <button type="button" class="auth-modal__close" id="auth-modal-close" aria-label="Закрыть">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <line x1="2" y1="2" x2="18" y2="18" stroke="#23272F" stroke-width="2"/>
-            <line x1="18" y1="2" x2="2" y2="18" stroke="#23272F" stroke-width="2"/>
-          </svg>
-        </button>
-      </div>
-      <form class="auth-form" id="auth-form" novalidate>
-        <div class="auth-form__field">
-          <label class="auth-form__label" for="auth-login">Логин</label>
-          <input class="auth-form__input" type="text" id="auth-login" name="login" autocomplete="username" required>
-        </div>
-        <div class="auth-form__field">
-          <label class="auth-form__label" for="auth-password">Пароль</label>
-          <input class="auth-form__input" type="password" id="auth-password" name="password" autocomplete="current-password" required>
-        </div>
-        <div class="auth-form__error" id="auth-error" aria-live="polite"></div>
-        <button type="submit" class="auth-form__btn">Войти</button>
-      </form>
-    </div>
-  </div>
 
   <nav class="mobile-menu" aria-label="Нижнее меню">
     <a class="mobile-menu__item" href="index.html">
@@ -189,7 +75,6 @@
     </a>
   </nav>
 
-  
   <script src="js/account.js"></script>
 </body>
 </html>

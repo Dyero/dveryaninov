@@ -497,9 +497,81 @@
     });
   }
 
+  function openCheckoutModal() {
+    var modal = document.getElementById('checkout-modal');
+    if (!modal) return;
+    var content = document.getElementById('checkout-content');
+    var success = document.getElementById('checkout-success');
+    if (content) content.hidden = false;
+    if (success) success.hidden = true;
+    if (window.DvAuth) {
+      var user = DvAuth.getCurrentUser();
+      if (user) {
+        var nameInput = modal.querySelector('[name="checkout-name"]');
+        if (nameInput && !nameInput.value) nameInput.value = user.name;
+      }
+    }
+    modal.setAttribute('aria-hidden', 'false');
+    document.documentElement.style.overflow = 'hidden';
+  }
+
+  function closeCheckoutModal() {
+    var modal = document.getElementById('checkout-modal');
+    if (!modal) return;
+    modal.setAttribute('aria-hidden', 'true');
+    document.documentElement.style.overflow = '';
+  }
+
+  function initCheckoutPage() {
+    if (!document.querySelector('.cart')) return;
+
+    var checkoutBtn = document.querySelector('.cart-summary__btn');
+    if (checkoutBtn) {
+      checkoutBtn.addEventListener('click', function() {
+        if (!getCart().length) return;
+        if (window.DvAuth && !DvAuth.isLoggedIn()) {
+          DvAuth.openAuthModal(function() { openCheckoutModal(); });
+        } else {
+          openCheckoutModal();
+        }
+      });
+    }
+
+    var modal = document.getElementById('checkout-modal');
+    if (!modal) return;
+
+    modal.querySelectorAll('[data-close-checkout]').forEach(function(btn) {
+      btn.addEventListener('click', closeCheckoutModal);
+    });
+    var backdrop = modal.querySelector('.checkout-modal__backdrop');
+    if (backdrop) backdrop.addEventListener('click', closeCheckoutModal);
+
+    var form = document.getElementById('checkout-form');
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var items = getCart();
+        if (!items.length) return;
+        if (window.DvAuth) DvAuth.saveOrder(items);
+        setCart([]);
+        var content = document.getElementById('checkout-content');
+        var success = document.getElementById('checkout-success');
+        if (content) content.hidden = true;
+        if (success) success.hidden = false;
+      });
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') {
+        closeCheckoutModal();
+      }
+    });
+  }
+
   initProductSelections();
   initConfigurator();
   initCartPage();
+  initCheckoutPage();
   initProductGallery();
 })();
 

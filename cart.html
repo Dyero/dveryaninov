@@ -6,6 +6,7 @@
   <title>Корзина — Дверянинов</title>
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/responsive.css">
+  <script src="js/auth.js"></script>
   <script src="js/load-components.js"></script>
 </head>
 <body class="page page_cart">
@@ -115,7 +116,52 @@
 
   <script src="js/shop.js"></script>
 
-  
+  <!-- Checkout modal -->
+  <div class="checkout-modal" id="checkout-modal" role="dialog" aria-modal="true" aria-labelledby="checkout-modal-title" aria-hidden="true">
+    <div class="checkout-modal__backdrop"></div>
+    <div class="checkout-modal__panel">
+      <div id="checkout-content">
+        <div class="checkout-modal__header">
+          <h2 class="checkout-modal__title" id="checkout-modal-title">Оформление заявки</h2>
+          <button type="button" class="checkout-modal__close" data-close-checkout aria-label="Закрыть">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <line x1="2" y1="2" x2="18" y2="18" stroke="currentColor" stroke-width="2"/>
+              <line x1="18" y1="2" x2="2" y2="18" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </button>
+        </div>
+        <form class="checkout-form" id="checkout-form" novalidate>
+          <div class="checkout-form__field">
+            <label class="checkout-form__label" for="checkout-name">Имя</label>
+            <input class="checkout-form__input" type="text" id="checkout-name" name="checkout-name" autocomplete="name" required>
+          </div>
+          <div class="checkout-form__field">
+            <label class="checkout-form__label" for="checkout-phone">Номер телефона</label>
+            <input class="checkout-form__input" type="tel" id="checkout-phone" name="checkout-phone" autocomplete="tel" required>
+          </div>
+          <div class="checkout-form__field">
+            <label class="checkout-form__label" for="checkout-address">Адрес доставки</label>
+            <input class="checkout-form__input" type="text" id="checkout-address" name="checkout-address" autocomplete="street-address">
+          </div>
+          <div class="checkout-form__field">
+            <label class="checkout-form__label" for="checkout-comment">Комментарий</label>
+            <textarea class="checkout-form__textarea" id="checkout-comment" name="checkout-comment" rows="3"></textarea>
+          </div>
+          <div class="checkout-form__error" id="checkout-error" aria-live="polite"></div>
+          <button type="submit" class="checkout-form__submit">Оформить заявку</button>
+        </form>
+      </div>
+      <div id="checkout-success" hidden>
+        <div class="checkout-success">
+          <div class="checkout-success__icon">&#10003;</div>
+          <h3 class="checkout-success__title">Заявка принята!</h3>
+          <p class="checkout-success__text">Мы свяжемся с вами в ближайшее время для уточнения деталей.</p>
+          <a class="checkout-success__link" href="account.html">Перейти в личный кабинет</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
 
