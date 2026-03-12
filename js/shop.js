@@ -140,20 +140,20 @@
     if (!modal) return;
 
     const state = {
-      // Шаг 1
-      box: "Телескопический",
-      casing: "Телескоп +",
-      quantity: "5 шт",
-      "height-add": "100 мм",
-      threshold: "Без порога",
-      // Шаг 2
+      // Шаг 1 — Конфигурация двери
       size: "2000×600",
       finish: "RAL 9003",
       glazing: "Стекло 1",
       pattern: "Без узора",
       opening: "Распашная",
       "opening-type": "Схема 1",
-      // Шаг 3
+      // Шаг 2 — Погонаж
+      box: "Телескопический",
+      casing: "Телескоп +",
+      quantity: "5 шт",
+      "height-add": "100 мм",
+      threshold: "Без порога",
+      // Шаг 3 — Фурнитура
       "handle-color": "Белый",
       "lock-type": "Нажимные модели",
       "lock-color": "Белый",
@@ -162,6 +162,10 @@
       "hinges-color": "Белый",
       stopper: "Напольный",
     };
+
+    // Экспортируем для интеграции с Битрикс: window.cfgState даёт доступ
+    // к каждому свойству как к отдельной переменной (state.size, state.finish, …)
+    window.cfgState = state;
 
     function calcItemTotal(item) {
       const priceText = item?.querySelector(".config-item__amount")?.textContent || "0";
@@ -238,39 +242,56 @@
           }
         }
       }
+
+      // При смене шага сбрасываем аккордеон: открываем только первый элемент нового шага
+      const newStepEl = modal.querySelector('[data-step="' + step + '"]');
+      if (newStepEl) {
+        modal.querySelectorAll(".config-detail-options").forEach((el) => { el.hidden = true; });
+        modal.querySelectorAll(".cfg-section__body").forEach((el) => { el.hidden = true; });
+        modal.querySelectorAll(".config-detail-toggle").forEach((btn) => {
+          btn.setAttribute("aria-expanded", "false");
+        });
+        openFirstAccordionItem(newStepEl);
+      }
     }
 
     function initModalSelection() {
-      // Синхронизируем все чипы с текущим состоянием
+      // 1. Синхронизируем активные чипы и значения в заголовках
       modal.querySelectorAll("[data-pick][data-value]").forEach((chip) => {
         const pick = chip.getAttribute("data-pick");
         const value = chip.getAttribute("data-value");
-        
         if (state[pick] === value) {
           chip.classList.add("config-chip_active");
-          
-          // Обновляем значение в заголовке
           const header = chip.closest(".config-detail-item")?.querySelector(".config-detail-header");
           if (header) {
             const valueSpan = header.querySelector(".config-detail-value");
-            if (valueSpan) {
-              valueSpan.textContent = value;
-            }
-          }
-          
-          // Раскрываем блок если есть выбранный чип
-          const parent = chip.closest(".config-detail-options");
-          if (parent) {
-            const toggle = parent.previousElementSibling?.querySelector(".config-detail-toggle");
-            if (toggle) {
-              toggle.setAttribute("aria-expanded", "true");
-              parent.hidden = false;
-            }
+            if (valueSpan) valueSpan.textContent = value;
           }
         } else {
           chip.classList.remove("config-chip_active");
         }
       });
+
+      // 2. Закрываем все аккордеон-элементы
+      modal.querySelectorAll(".config-detail-options").forEach((el) => { el.hidden = true; });
+      modal.querySelectorAll(".cfg-section__body").forEach((el) => { el.hidden = true; });
+      modal.querySelectorAll(".config-detail-toggle").forEach((btn) => {
+        btn.setAttribute("aria-expanded", "false");
+      });
+
+      // 3. Открываем первый аккордеон-элемент активного шага
+      openFirstAccordionItem(modal.querySelector(".config-step_active"));
+    }
+
+    function openFirstAccordionItem(stepEl) {
+      if (!stepEl) return;
+      // Ищем первый config-detail-item с toggle (пропускаем те, что без опций)
+      const firstItem = stepEl.querySelector(".config-detail-item .config-detail-toggle");
+      if (firstItem) {
+        firstItem.setAttribute("aria-expanded", "true");
+        const options = firstItem.closest(".config-detail-header")?.nextElementSibling;
+        if (options) options.hidden = false;
+      }
     }
 
     document.addEventListener("click", (e) => {
