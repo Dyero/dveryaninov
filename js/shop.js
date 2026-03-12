@@ -304,6 +304,19 @@
         const toggle = detailHeader.querySelector(".config-detail-toggle");
         if (!toggle) return;
         const isExpanded = toggle.getAttribute("aria-expanded") === "true";
+        // Закрываем все остальные аккордеоны в том же шаге
+        if (!isExpanded) {
+          const stepEl = detailHeader.closest(".config-step");
+          if (stepEl) {
+            stepEl.querySelectorAll(".config-detail-header").forEach((h) => {
+              if (h === detailHeader) return;
+              const t = h.querySelector(".config-detail-toggle");
+              if (t) t.setAttribute("aria-expanded", "false");
+              const opts = h.nextElementSibling;
+              if (opts) opts.classList.remove("is-open");
+            });
+          }
+        }
         toggle.setAttribute("aria-expanded", isExpanded ? "false" : "true");
         const options = detailHeader.nextElementSibling;
         if (options) options.classList.toggle("is-open", !isExpanded);
@@ -832,11 +845,7 @@
     if (checkoutBtn) {
       checkoutBtn.addEventListener('click', function() {
         if (!getCart().length) return;
-        if (window.DvAuth && !DvAuth.isLoggedIn()) {
-          DvAuth.openAuthModal(function() { openCheckoutModal(); });
-        } else {
-          openCheckoutModal();
-        }
+        openCheckoutModal();
       });
     }
 
@@ -897,6 +906,27 @@
         var success = document.getElementById('checkout-success');
         if (content) content.hidden = true;
         if (success) success.hidden = false;
+      });
+    }
+
+    // Кнопки входа/регистрации под формой для гостей
+    var loginBtn = document.getElementById('checkout-login-btn');
+    var registerBtn = document.getElementById('checkout-register-btn');
+    if (loginBtn && window.DvAuth) {
+      loginBtn.addEventListener('click', function() {
+        closeCheckoutModal();
+        DvAuth.openAuthModal(function() { openCheckoutModal(); });
+      });
+    }
+    if (registerBtn && window.DvAuth) {
+      registerBtn.addEventListener('click', function() {
+        closeCheckoutModal();
+        var modal2 = document.getElementById('auth-modal');
+        if (modal2) {
+          var regTab = modal2.querySelector('[data-auth-tab="register"]');
+          if (regTab) regTab.click();
+        }
+        DvAuth.openAuthModal(function() { openCheckoutModal(); });
       });
     }
 
@@ -1039,7 +1069,12 @@
             </dl>
             <div class="wishlist-card__footer">
               <span class="wishlist-card__price">${item.price ? formatPriceRub(item.price) + "\u00a0\u20bd" : "Цена по запросу"}</span>
-              <a class="wishlist-card__cart-btn wishlist-card__cfg-btn" href="${url}">Конфигуратор</a>
+              <div class="wishlist-card__actions">
+                <button type="button" class="wishlist-card__add-cart-btn" aria-label="Добавить в корзину" data-wishlist-to-cart="${item.id}">
+                  <img src="images/icon-bag.svg" alt="" width="20" height="20">
+                </button>
+                <a class="wishlist-card__cart-btn wishlist-card__cfg-btn" href="${url}">Конфигуратор</a>
+              </div>
             </div>
           </div>
           <button type="button" class="wishlist-card__remove" aria-label="Убрать из избранного" data-wishlist-remove="${item.id}">${CLOSE_SVG}</button>
@@ -1056,6 +1091,17 @@
         const id = removeBtn.getAttribute("data-wishlist-remove");
         setWishlist(getWishlist().filter((x) => x.id !== id));
         renderWishlist();
+        return;
+      }
+
+      const addCartBtn = e.target.closest("[data-wishlist-to-cart]");
+      if (addCartBtn) {
+        const id = addCartBtn.getAttribute("data-wishlist-to-cart");
+        const wl = getWishlist();
+        const found = wl.find((x) => x.id === id);
+        if (found) addToCart({ id: found.id, title: found.title, price: found.price, image: found.image, qty: 1 });
+        addCartBtn.setAttribute("aria-label", "Добавлено!");
+        setTimeout(() => addCartBtn.setAttribute("aria-label", "Добавить в корзину"), 1500);
         return;
       }
 
