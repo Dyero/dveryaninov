@@ -199,15 +199,45 @@
       }
     }
 
+    // Конфигурация шагов: изображение, текст кнопки «Далее»
+    const stepConfig = {
+      config:   { img: "images/card-door-1.svg",  alt: "Вид двери",       nextLabel: "ВЫБРАТЬ ПОГОНАЖ →",   nextStep: "molding"  },
+      molding:  { img: "images/Альберта.png",      alt: "Погонаж",          nextLabel: "ВЫБРАТЬ ФУРНИТУРУ →", nextStep: "hardware" },
+      hardware: { img: "images/card-door-1.svg",  alt: "Ручка",            nextLabel: "СОХРАНИТЬ И ВЫЙТИ →", nextStep: null       },
+    };
+
     function setStep(step) {
+      // Переключаем секции параметров
       modal.querySelectorAll("[data-step]").forEach((el) => {
         el.classList.toggle("config-step_active", el.getAttribute("data-step") === step);
       });
-      modal.querySelectorAll("[data-step-tab]").forEach((btn) => {
-        const active = btn.getAttribute("data-step-tab") === step;
-        btn.classList.toggle("modal__tab_active", active);
-        btn.setAttribute("aria-selected", active ? "true" : "false");
+
+      // Переключаем активный шаг степпера
+      modal.querySelectorAll(".cfg-stepper__step").forEach((el) => {
+        const isActive = el.getAttribute("data-step-tab") === step;
+        el.classList.toggle("cfg-stepper__step_active", isActive);
       });
+
+      // Обновляем изображение и кнопку «Далее»
+      const cfg = stepConfig[step];
+      if (cfg) {
+        const imgEl = document.getElementById("cfgImageEl");
+        if (imgEl) { imgEl.src = cfg.img; imgEl.alt = cfg.alt; }
+
+        const nextBtn = document.getElementById("cfgNextBtn");
+        if (nextBtn) {
+          nextBtn.textContent = cfg.nextLabel;
+          if (cfg.nextStep) {
+            nextBtn.setAttribute("data-next-step", cfg.nextStep);
+            nextBtn.removeAttribute("data-add-to-cart-close");
+            nextBtn.style.display = "";
+          } else {
+            // Последний шаг — кнопка "Сохранить и выйти" закрывает
+            nextBtn.removeAttribute("data-next-step");
+            nextBtn.setAttribute("data-add-to-cart-close", "true");
+          }
+        }
+      }
     }
 
     function initModalSelection() {
@@ -259,6 +289,25 @@
         return;
       }
 
+      // Клик по шагу степпера
+      const stepTab = target.closest(".cfg-stepper__step[data-step-tab]");
+      if (stepTab) {
+        setStep(stepTab.getAttribute("data-step-tab"));
+        return;
+      }
+
+      // Раскрытие секции (Модель ручки и т.п.)
+      const sectionToggle = target.closest("[data-section-toggle]");
+      if (sectionToggle) {
+        const toggle = sectionToggle.querySelector(".config-detail-toggle");
+        const body = sectionToggle.closest(".cfg-section")?.querySelector(".cfg-section__body");
+        if (!toggle || !body) return;
+        const isExpanded = toggle.getAttribute("aria-expanded") === "true";
+        toggle.setAttribute("aria-expanded", isExpanded ? "false" : "true");
+        body.hidden = isExpanded;
+        return;
+      }
+
       // Раскрытие/схлопывание item-toggle
       const itemToggle = target.closest(".config-item__toggle");
       if (itemToggle) {
@@ -272,16 +321,21 @@
         return;
       }
 
-      // Кнопки изменения количества
+      // Кнопки изменения количества (cfg-item и config-item)
       const qtyBtn = target.closest("[data-qty-decrease], [data-qty-increase]");
       if (qtyBtn) {
-        const input = qtyBtn.closest(".config-item__qty")?.querySelector(".config-qty-input");
+        const qtyWrap = qtyBtn.closest(".cfg-item__qty, .config-item__qty");
+        const input = qtyWrap?.querySelector(".cfg-qty-input, .config-qty-input");
         if (input) {
           const curr = Number(input.value) || 0;
           input.value = qtyBtn.hasAttribute("data-qty-decrease")
             ? Math.max(0, curr - 1)
             : curr + 1;
-          updateItemTotal(qtyBtn.closest(".config-item"));
+          // пересчёт суммы для cfg-item или config-item
+          const cfgItem = qtyBtn.closest(".cfg-item");
+          const configItem = qtyBtn.closest(".config-item");
+          if (cfgItem) updateConfigTotal();
+          else if (configItem) updateItemTotal(configItem);
         }
         return;
       }
@@ -346,7 +400,7 @@
         return;
       }
 
-      if (target.closest("[data-add-to-cart]")) {
+      if (target.closest("[data-add-to-cart]") || target.closest("[data-add-to-cart-close]")) {
         const titleEl = document.querySelector(".product__title");
         const priceEl = document.querySelector(".product__price");
         const imgEl = document.querySelector(".product__main-image img");
@@ -357,10 +411,28 @@
 
         // Получаем цену с конфигуратора
         const configTotalText = modal?.querySelector(".config-total-price")?.textContent || "0";
-        const totalPrice = Number(configTotalText.replace(/\s/g, "")) || basePrice;
+        const totalPrice = Number(configTotalText.replace(/\s/g, "").replace(/\u00a0/g, "")) || basePrice;
 
-        // Собираем выбранные аксессуары (фурнитура с qty > 0)
+        // Собираем выбранные аксессуары из cfg-item (новые карточки)
         const accessories = [];
+        modal.querySelectorAll(".cfg-item").forEach((item) => {
+          const qtyInput = item.querySelector(".cfg-qty-input");
+          const qty = Number(qtyInput?.value) || 0;
+          if (qty > 0) {
+            const accTitle = item.querySelector(".cfg-item__name")?.textContent.trim() || "";
+            const spec = item.querySelector(".cfg-item__spec")?.textContent.trim() || "";
+            const price = Number(item.querySelector(".config-item__amount")?.textContent.replace(/[^\d]/g, "")) || 0;
+            accessories.push({
+              id: `acc-${Date.now()}-${Math.random().toString(36).slice(2)}`,
+              title: accTitle,
+              spec,
+              qty,
+              price,
+              oldPrice: 0,
+            });
+          }
+        });
+        // Также cfg-item со старыми config-item (если есть)
         modal.querySelectorAll(".config-item").forEach((item) => {
           const qtyInput = item.querySelector(".config-qty-input");
           const qty = Number(qtyInput?.value) || 0;
@@ -396,9 +468,11 @@
 
     // Обработка изменения количества через ввод с клавиатуры
     modal?.addEventListener("input", (e) => {
-      if (e.target.classList.contains("config-qty-input")) {
+      if (e.target.classList.contains("config-qty-input") || e.target.classList.contains("cfg-qty-input")) {
         e.target.value = Math.max(0, Number(e.target.value) || 0);
-        updateItemTotal(e.target.closest(".config-item"));
+        const configItem = e.target.closest(".config-item");
+        if (configItem) updateItemTotal(configItem);
+        else updateConfigTotal();
       }
     });
 
@@ -422,12 +496,20 @@
     }
 
     function updateConfigTotal() {
-      const itemsTotal = Array.from(modal?.querySelectorAll(".config-item") || [])
+      // Считаем cfg-item (новые карточки фурнитуры)
+      const cfgItemsTotal = Array.from(modal?.querySelectorAll(".cfg-item") || [])
+        .reduce((sum, item) => {
+          const price = Number(item.querySelector(".config-item__amount")?.textContent.replace(/\s/g, "")) || 0;
+          const qty = Math.max(0, Number(item.querySelector(".cfg-qty-input")?.value) || 0);
+          return sum + price * qty;
+        }, 0);
+      // Считаем config-item (старые, если останутся)
+      const configItemsTotal = Array.from(modal?.querySelectorAll(".config-item") || [])
         .reduce((sum, item) => sum + calcItemTotal(item), 0);
       const chipsTotal = getChipsTotal();
       const totalPriceEl = modal?.querySelector(".config-total-price");
       if (totalPriceEl) {
-        totalPriceEl.textContent = formatPriceRub(BASE_PRICE + itemsTotal + chipsTotal);
+        totalPriceEl.textContent = formatPriceRub(BASE_PRICE + cfgItemsTotal + configItemsTotal + chipsTotal);
       }
     }
 
@@ -784,45 +866,69 @@
     const empty = document.getElementById("wishlist-empty");
     if (!grid) return;
 
-    const items = getWishlist();
-    if (!items.length) {
-      if (empty) empty.hidden = false;
-      grid.hidden = true;
+    function renderWishlist() {
+      const items = getWishlist();
+      grid.innerHTML = "";
+
+      if (!items.length) {
+        grid.hidden = true;
+        if (empty) empty.hidden = false;
+        updateWishlistBadge();
+        return;
+      }
+
+      grid.hidden = false;
+      if (empty) empty.hidden = true;
+
+      items.forEach((item) => {
+        const article = document.createElement("article");
+        article.className = "cart-item";
+        article.innerHTML = `
+          <div class="cart-item__image-wrap">
+            <img class="cart-item__image" src="${item.image || "images/card-door-1.svg"}" alt="${item.title}" width="120" height="120">
+          </div>
+          <div class="cart-item__info">
+            <h3 class="cart-item__title"><a href="product.html">${item.title}</a></h3>
+            <div class="cart-item__details">
+              <span class="cart-item__detail">${item.price ? formatPriceRub(item.price) + "\u00a0\u20bd" : ""}</span>
+            </div>
+          </div>
+          <button type="button" class="wishlist-item__cart-btn" aria-label="Добавить в корзину" data-wishlist-to-cart="${item.id}">В корзину</button>
+          <button type="button" class="cart-item__remove" aria-label="Убрать из избранного" data-wishlist-remove="${item.id}">×</button>
+        `;
+        grid.appendChild(article);
+      });
+
       updateWishlistBadge();
-      return;
     }
-
-    grid.hidden = false;
-    if (empty) empty.hidden = true;
-
-    items.forEach((item) => {
-      const card = document.createElement("div");
-      card.className = "card";
-      card.innerHTML = `
-        <div class="card__image-wrap">
-          <img class="card__image" src="${item.image || "images/card-door-1.svg"}" alt="${item.title}" width="288">
-        </div>
-        <h3 class="card__title"><a href="product.html">${item.title}</a></h3>
-        <p class="card__price">${formatPriceRub(item.price)}&nbsp;₽</p>
-        <button type="button" class="card__action card__action_active" aria-label="Убрать из избранного" data-wishlist-remove="${item.id}"></button>
-      `;
-      grid.appendChild(card);
-    });
 
     grid.addEventListener("click", (e) => {
       const removeBtn = e.target.closest("[data-wishlist-remove]");
-      if (!removeBtn) return;
-      const id = removeBtn.getAttribute("data-wishlist-remove");
-      setWishlist(getWishlist().filter((x) => x.id !== id));
-      removeBtn.closest(".card")?.remove();
-      updateWishlistBadge();
-      if (!getWishlist().length) {
-        grid.hidden = true;
-        if (empty) empty.hidden = false;
+      if (removeBtn) {
+        const id = removeBtn.getAttribute("data-wishlist-remove");
+        setWishlist(getWishlist().filter((x) => x.id !== id));
+        renderWishlist();
+        return;
+      }
+
+      const cartBtn = e.target.closest("[data-wishlist-to-cart]");
+      if (cartBtn) {
+        const id = cartBtn.getAttribute("data-wishlist-to-cart");
+        const item = getWishlist().find((x) => x.id === id);
+        if (item) {
+          addToCart({
+            id: `p-${Date.now()}`,
+            title: item.title,
+            price: item.price,
+            image: item.image,
+            qty: 1,
+          });
+          window.location.href = "cart.html";
+        }
       }
     });
 
-    updateWishlistBadge();
+    renderWishlist();
   }
 
   initProductSelections();

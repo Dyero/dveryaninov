@@ -345,392 +345,356 @@
     </a>
   </nav>
 
-  <div class="modal" id="configModal" aria-hidden="true">
-    <div class="modal__backdrop" data-close-config></div>
-    <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="configTitle">
-      <div class="modal__header">
-        <h2 class="modal__title" id="configTitle">Конфигуратор</h2>
-        <button class="modal__close" type="button" aria-label="Закрыть" data-close-config>×</button>
-      </div>
+  <!-- Конфигуратор: полноэкранный попап -->
+  <div class="cfg-modal" id="configModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Конфигуратор двери">
 
-      <div class="modal__tabs" role="tablist" aria-label="Шаги конфигуратора">
-        <button class="modal__tab modal__tab_active" type="button" role="tab" aria-selected="true" data-step-tab="config">Конфигуратор</button>
-        <button class="modal__tab" type="button" role="tab" aria-selected="false" data-step-tab="molding">Погонаж</button>
-        <button class="modal__tab" type="button" role="tab" aria-selected="false" data-step-tab="hardware">Фурнитура</button>
-      </div>
-
-      <div class="modal__body">
-        <!-- Шаг 1: Конфигуратор -->
-        <section class="config-step config-step_active" data-step="config" aria-label="Конфигуратор">
-          <div class="config-layout">
-            <div class="config-layout__left">
-              <div class="config-layout__image">
-                <img src="images/card-door-1.svg" alt="Вид двери в интерьере" width="400" height="520">
-              </div>
-            </div>
-            <div class="config-layout__right">
-              <div class="config-details">
-
-                <div class="config-detail-item">
-                  <div class="config-detail-header">
-                    <span class="config-detail-label">Тип погонажа</span>
-                    <span class="config-detail-value">Телескопический</span>
-                    <button class="config-detail-toggle" type="button" aria-expanded="false" aria-label="Показать опции"></button>
-                  </div>
-                  <div class="config-detail-options" hidden>
-                    <button type="button" class="config-chip" data-pick="box" data-price="0" data-value="Стандарт">Стандарт</button>
-                    <button type="button" class="config-chip config-chip_active" data-pick="box" data-price="2000" data-value="Телескопический">Телескопический</button>
-                  </div>
-                </div>
-
-                <div class="config-detail-item">
-                  <div class="config-detail-header">
-                    <span class="config-detail-label">Наличник</span>
-                    <span class="config-detail-value">Телескоп +</span>
-                    <button class="config-detail-toggle" type="button" aria-expanded="false" aria-label="Показать опции"></button>
-                  </div>
-                  <div class="config-detail-options" hidden>
-                    <button type="button" class="config-chip" data-pick="casing" data-price="0" data-value="Прямой">Прямой</button>
-                    <button type="button" class="config-chip config-chip_active" data-pick="casing" data-price="1500" data-value="Телескоп +">Телескоп +</button>
-                    <button type="button" class="config-chip" data-pick="casing" data-price="3000" data-value="Фигурный">Фигурный</button>
-                  </div>
-                </div>
-
-                <div class="config-detail-item">
-                  <div class="config-detail-header">
-                    <span class="config-detail-label">Комплект</span>
-                    <span class="config-detail-value">5 шт</span>
-                    <button class="config-detail-toggle" type="button" aria-expanded="false" aria-label="Показать опции"></button>
-                  </div>
-                  <div class="config-detail-options" hidden>
-                    <button type="button" class="config-chip" data-pick="quantity" data-price="0" data-value="1 шт">1 шт</button>
-                    <button type="button" class="config-chip" data-pick="quantity" data-price="1000" data-value="2 шт">2 шт</button>
-                    <button type="button" class="config-chip" data-pick="quantity" data-price="2000" data-value="3 шт">3 шт</button>
-                    <button type="button" class="config-chip config-chip_active" data-pick="quantity" data-price="3500" data-value="5 шт">5 шт</button>
-                    <button type="button" class="config-chip" data-pick="quantity" data-price="7000" data-value="10 шт">10 шт</button>
-                  </div>
-                </div>
-
-                <div class="config-detail-item">
-                  <div class="config-detail-header">
-                    <span class="config-detail-label">Добор высоты</span>
-                    <span class="config-detail-value">100 мм</span>
-                    <button class="config-detail-toggle" type="button" aria-expanded="false" aria-label="Показать опции"></button>
-                  </div>
-                  <div class="config-detail-options" hidden>
-                    <button type="button" class="config-chip" data-pick="height-add" data-price="0" data-value="50 мм">50 мм</button>
-                    <button type="button" class="config-chip config-chip_active" data-pick="height-add" data-price="500" data-value="100 мм">100 мм</button>
-                    <button type="button" class="config-chip" data-pick="height-add" data-price="1000" data-value="150 мм">150 мм</button>
-                    <button type="button" class="config-chip" data-pick="height-add" data-price="1500" data-value="200 мм">200 мм</button>
-                  </div>
-                </div>
-
-                <div class="config-detail-item">
-                  <div class="config-detail-header">
-                    <span class="config-detail-label">Порог</span>
-                    <span class="config-detail-value">Без порога</span>
-                    <button class="config-detail-toggle" type="button" aria-expanded="false" aria-label="Показать опции"></button>
-                  </div>
-                  <div class="config-detail-options" hidden>
-                    <button type="button" class="config-chip config-chip_active" data-pick="threshold" data-price="0" data-value="Без порога">Без порога</button>
-                    <button type="button" class="config-chip" data-pick="threshold" data-price="2500" data-value="Автоматический порог">Автоматический порог</button>
-                    <button type="button" class="config-chip" data-pick="threshold" data-price="1200" data-value="С порогом">С порогом</button>
-                  </div>
-                </div>
-
-              </div>
-
-              <div class="modal__footer">
-                <button class="modal__btn" type="button" data-next-step="molding">Далее</button>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Шаг 2: Погонаж -->
-        <section class="config-step" data-step="molding" aria-label="Погонаж">
-          <div class="config-layout">
-            <div class="config-layout__left">
-              <div class="config-layout__image">
-                <img src="images/Альберта.png" alt="Схема погонажа" width="400" height="520">
-              </div>
-            </div>
-            <div class="config-layout__right">
-              <div class="config-details">
-
-                <div class="config-detail-item">
-                  <div class="config-detail-header">
-                    <span class="config-detail-label">Модель</span>
-                    <span class="config-detail-value">Альберта 1</span>
-                  </div>
-                </div>
-
-                <div class="config-detail-item">
-                  <div class="config-detail-header">
-                    <span class="config-detail-label">Размер полотна</span>
-                    <span class="config-detail-value">2000×600</span>
-                    <button class="config-detail-toggle" type="button" aria-expanded="false" aria-label="Показать опции"></button>
-                  </div>
-                  <div class="config-detail-options" hidden>
-                    <button type="button" class="config-chip config-chip_active" data-pick="size" data-price="0" data-value="2000×600">2000×600</button>
-                    <button type="button" class="config-chip" data-pick="size" data-price="1500" data-value="2000×700">2000×700</button>
-                    <button type="button" class="config-chip" data-pick="size" data-price="3000" data-value="2000×800">2000×800</button>
-                    <button type="button" class="config-chip" data-pick="size" data-price="5000" data-value="2000×900">2000×900</button>
-                  </div>
-                </div>
-
-                <div class="config-detail-item">
-                  <div class="config-detail-header">
-                    <span class="config-detail-label">Покрытие</span>
-                    <span class="config-detail-value">RAL 9003</span>
-                    <button class="config-detail-toggle" type="button" aria-expanded="false" aria-label="Показать опции"></button>
-                  </div>
-                  <div class="config-detail-options" hidden>
-                    <button type="button" class="config-chip config-chip_active" data-pick="finish" data-price="0" data-value="RAL 9003">RAL 9003</button>
-                    <button type="button" class="config-chip" data-pick="finish" data-price="2500" data-value="Дуб">Дуб</button>
-                    <button type="button" class="config-chip" data-pick="finish" data-price="3500" data-value="Орех">Орех</button>
-                  </div>
-                </div>
-
-                <div class="config-detail-item">
-                  <div class="config-detail-header">
-                    <span class="config-detail-label">Остекление</span>
-                    <span class="config-detail-value">Стекло 1</span>
-                    <button class="config-detail-toggle" type="button" aria-expanded="false" aria-label="Показать опции"></button>
-                  </div>
-                  <div class="config-detail-options" hidden>
-                    <button type="button" class="config-chip config-chip_active" data-pick="glazing" data-price="0" data-value="Стекло 1">Стекло 1</button>
-                    <button type="button" class="config-chip" data-pick="glazing" data-price="1500" data-value="Стекло 2">Стекло 2</button>
-                  </div>
-                </div>
-
-                <div class="config-detail-item">
-                  <div class="config-detail-header">
-                    <span class="config-detail-label">Узор стекла</span>
-                    <span class="config-detail-value">Без узора</span>
-                    <button class="config-detail-toggle" type="button" aria-expanded="false" aria-label="Показать опции"></button>
-                  </div>
-                  <div class="config-detail-options" hidden>
-                    <button type="button" class="config-chip config-chip_active" data-pick="pattern" data-price="0" data-value="Без узора">Без узора</button>
-                    <button type="button" class="config-chip" data-pick="pattern" data-price="800" data-value="Узор 1">Узор 1</button>
-                    <button type="button" class="config-chip" data-pick="pattern" data-price="1500" data-value="Узор 2">Узор 2</button>
-                  </div>
-                </div>
-
-                <div class="config-detail-item">
-                  <div class="config-detail-header">
-                    <span class="config-detail-label">Вариант открывания</span>
-                    <span class="config-detail-value">Распашная</span>
-                    <button class="config-detail-toggle" type="button" aria-expanded="false" aria-label="Показать опции"></button>
-                  </div>
-                  <div class="config-detail-options" hidden>
-                    <button type="button" class="config-chip config-chip_active" data-pick="opening" data-price="0" data-value="Распашная">Распашная</button>
-                    <button type="button" class="config-chip" data-pick="opening" data-price="5000" data-value="Раздвижная">Раздвижная</button>
-                  </div>
-                </div>
-
-                <div class="config-detail-item">
-                  <div class="config-detail-header">
-                    <span class="config-detail-label">Схема открывания</span>
-                    <span class="config-detail-value">Схема 1</span>
-                    <button class="config-detail-toggle" type="button" aria-expanded="false" aria-label="Показать опции"></button>
-                  </div>
-                  <div class="config-detail-options" hidden>
-                    <button type="button" class="config-chip config-chip_active" data-pick="opening-type" data-price="0" data-value="Схема 1">Схема 1</button>
-                    <button type="button" class="config-chip" data-pick="opening-type" data-price="500" data-value="Схема 2">Схема 2</button>
-                    <button type="button" class="config-chip" data-pick="opening-type" data-price="1000" data-value="Схема 3">Схема 3</button>
-                    <button type="button" class="config-chip" data-pick="opening-type" data-price="1500" data-value="Схема 4">Схема 4</button>
-                  </div>
-                </div>
-
-              </div>
-
-              <div class="modal__footer">
-                <button class="modal__btn modal__btn_secondary" type="button" data-prev-step="config">Назад</button>
-                <button class="modal__btn" type="button" data-next-step="hardware">Далее</button>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Шаг 3: Фурнитура -->
-        <section class="config-step" data-step="hardware" aria-label="Фурнитура">
-          <div class="config-layout">
-            <div class="config-layout__left">
-              <div class="config-layout__image">
-                <img src="images/Альберта.png" alt="Варианты фурнитуры" width="400" height="520">
-              </div>
-            </div>
-            <div class="config-layout__right">
-              <div class="config-items">
-
-                <!-- Ручка первая -->
-                <div class="config-item">
-                  <div class="config-item__header">
-                    <button class="config-item__toggle" type="button" aria-expanded="true" aria-label="Развернуть"></button>
-                    <div class="config-item__info">
-                      <h4 class="config-item__title">Ручка Стандарт</h4>
-                      <p class="config-item__spec">Длина 120 мм, хром</p>
-                    </div>
-                    <div class="config-item__price">
-                      <span class="config-item__amount">1200</span>
-                      <span class="config-item__currency">₽/шт</span>
-                    </div>
-                  </div>
-                  <div class="config-item__body">
-                    <div class="config-item__row">
-                      <label class="config-item__label">Количество:</label>
-                      <div class="config-item__qty">
-                        <button type="button" class="config-qty-btn" data-qty-decrease aria-label="Уменьшить">−</button>
-                        <input type="number" class="config-qty-input" value="1" min="1" data-item="handle-1">
-                        <button type="button" class="config-qty-btn" data-qty-increase aria-label="Увеличить">+</button>
-                      </div>
-                    </div>
-                    <div class="config-item__total">
-                      <span class="config-item__total-label">Итого:</span>
-                      <span class="config-item__total-price"><span class="total-amount">1200</span> ₽</span>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Ручка вторая -->
-                <div class="config-item">
-                  <div class="config-item__header">
-                    <button class="config-item__toggle" type="button" aria-expanded="false" aria-label="Развернуть"></button>
-                    <div class="config-item__info">
-                      <h4 class="config-item__title">Ручка Премиум</h4>
-                      <p class="config-item__spec">Длина 140 мм, латунь</p>
-                    </div>
-                    <div class="config-item__price">
-                      <span class="config-item__amount">2400</span>
-                      <span class="config-item__currency">₽/шт</span>
-                    </div>
-                  </div>
-                  <div class="config-item__body" hidden>
-                    <div class="config-item__row">
-                      <label class="config-item__label">Количество:</label>
-                      <div class="config-item__qty">
-                        <button type="button" class="config-qty-btn" data-qty-decrease aria-label="Уменьшить">−</button>
-                        <input type="number" class="config-qty-input" value="0" min="0" data-item="handle-2">
-                        <button type="button" class="config-qty-btn" data-qty-increase aria-label="Увеличить">+</button>
-                      </div>
-                    </div>
-                    <div class="config-item__total">
-                      <span class="config-item__total-label">Итого:</span>
-                      <span class="config-item__total-price"><span class="total-amount">0</span> ₽</span>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-
-              <div class="config-details">
-
-                <div class="config-detail-item">
-                  <div class="config-detail-header">
-                    <span class="config-detail-label">Цвет ручки</span>
-                    <span class="config-detail-value">Белый</span>
-                    <button class="config-detail-toggle" type="button" aria-expanded="false" aria-label="Показать опции"></button>
-                  </div>
-                  <div class="config-detail-options" hidden>
-                    <button type="button" class="config-chip config-chip_active" data-pick="handle-color" data-price="0" data-value="Белый">Белый</button>
-                    <button type="button" class="config-chip" data-pick="handle-color" data-price="500" data-value="Чёрный">Чёрный</button>
-                    <button type="button" class="config-chip" data-pick="handle-color" data-price="1500" data-value="Золото">Золото</button>
-                  </div>
-                </div>
-
-                <div class="config-detail-item">
-                  <div class="config-detail-header">
-                    <span class="config-detail-label">Тип замка</span>
-                    <span class="config-detail-value">Нажимные модели</span>
-                    <button class="config-detail-toggle" type="button" aria-expanded="false" aria-label="Показать опции"></button>
-                  </div>
-                  <div class="config-detail-options" hidden>
-                    <button type="button" class="config-chip config-chip_active" data-pick="lock-type" data-price="0" data-value="Нажимные модели">Нажимные модели</button>
-                    <button type="button" class="config-chip" data-pick="lock-type" data-price="1500" data-value="С ключом">С ключом</button>
-                  </div>
-                </div>
-
-                <div class="config-detail-item">
-                  <div class="config-detail-header">
-                    <span class="config-detail-label">Цвет замка</span>
-                    <span class="config-detail-value">Белый</span>
-                    <button class="config-detail-toggle" type="button" aria-expanded="false" aria-label="Показать опции"></button>
-                  </div>
-                  <div class="config-detail-options" hidden>
-                    <button type="button" class="config-chip config-chip_active" data-pick="lock-color" data-price="0" data-value="Белый">Белый</button>
-                    <button type="button" class="config-chip" data-pick="lock-color" data-price="500" data-value="Чёрный">Чёрный</button>
-                  </div>
-                </div>
-
-                <div class="config-detail-item">
-                  <div class="config-detail-header">
-                    <span class="config-detail-label">Фиксатор</span>
-                    <span class="config-detail-value">Завертка (WC)</span>
-                    <button class="config-detail-toggle" type="button" aria-expanded="false" aria-label="Показать опции"></button>
-                  </div>
-                  <div class="config-detail-options" hidden>
-                    <button type="button" class="config-chip config-chip_active" data-pick="locker" data-price="0" data-value="Завертка (WC)">Завертка (WC)</button>
-                    <button type="button" class="config-chip" data-pick="locker" data-price="1000" data-value="Защёлка">Защёлка</button>
-                  </div>
-                </div>
-
-                <div class="config-detail-item">
-                  <div class="config-detail-header">
-                    <span class="config-detail-label">Петли</span>
-                    <span class="config-detail-value">Скрытые</span>
-                    <button class="config-detail-toggle" type="button" aria-expanded="false" aria-label="Показать опции"></button>
-                  </div>
-                  <div class="config-detail-options" hidden>
-                    <button type="button" class="config-chip config-chip_active" data-pick="hinges" data-price="2000" data-value="Скрытые">Скрытые</button>
-                    <button type="button" class="config-chip" data-pick="hinges" data-price="0" data-value="Накладные">Накладные</button>
-                  </div>
-                </div>
-
-                <div class="config-detail-item">
-                  <div class="config-detail-header">
-                    <span class="config-detail-label">Цвет петель</span>
-                    <span class="config-detail-value">Белый</span>
-                    <button class="config-detail-toggle" type="button" aria-expanded="false" aria-label="Показать опции"></button>
-                  </div>
-                  <div class="config-detail-options" hidden>
-                    <button type="button" class="config-chip config-chip_active" data-pick="hinges-color" data-price="0" data-value="Белый">Белый</button>
-                    <button type="button" class="config-chip" data-pick="hinges-color" data-price="500" data-value="Чёрный">Чёрный</button>
-                  </div>
-                </div>
-
-                <div class="config-detail-item">
-                  <div class="config-detail-header">
-                    <span class="config-detail-label">Ограничитель</span>
-                    <span class="config-detail-value">Напольный</span>
-                    <button class="config-detail-toggle" type="button" aria-expanded="false" aria-label="Показать опции"></button>
-                  </div>
-                  <div class="config-detail-options" hidden>
-                    <button type="button" class="config-chip config-chip_active" data-pick="stopper" data-price="500" data-value="Напольный">Напольный</button>
-                    <button type="button" class="config-chip" data-pick="stopper" data-price="1000" data-value="Магнитный">Магнитный</button>
-                    <button type="button" class="config-chip" data-pick="stopper" data-price="0" data-value="Без">Без</button>
-                  </div>
-                </div>
-
-              </div>
-
-              <div class="config-summary">
-                <div class="config-summary__row">
-                  <span class="config-summary__label">Итоговая цена:</span>
-                  <span class="config-summary__value"><span class="config-total-price">52 000</span>&nbsp;₽</span>
-                </div>
-              </div>
-
-              <div class="modal__footer">
-                <button class="modal__btn modal__btn_secondary" type="button" data-prev-step="molding">Назад</button>
-                <button class="modal__btn" type="button" data-add-to-cart>Добавить в корзину</button>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
+    <!-- Левая половина — изображение (меняется по шагам) -->
+    <div class="cfg-modal__image" id="cfgImage">
+      <img src="images/card-door-1.svg" alt="Изображение двери" id="cfgImageEl">
     </div>
-  </div>
+
+    <!-- Правая половина — параметры -->
+    <div class="cfg-modal__side">
+
+      <!-- Кнопка закрыть -->
+      <button class="cfg-modal__close" type="button" aria-label="Закрыть конфигуратор" data-close-config>Закрыть ×</button>
+
+      <!-- Пронумерованный степпер -->
+      <div class="cfg-stepper" aria-label="Шаги конфигуратора">
+        <div class="cfg-stepper__step cfg-stepper__step_active" data-step-tab="config">
+          <span class="cfg-stepper__num">1</span>
+          <span class="cfg-stepper__label">Конфигурация двери</span>
+        </div>
+        <span class="cfg-stepper__line" aria-hidden="true"></span>
+        <div class="cfg-stepper__step" data-step-tab="molding">
+          <span class="cfg-stepper__num">2</span>
+          <span class="cfg-stepper__label">Погонаж</span>
+        </div>
+        <span class="cfg-stepper__line" aria-hidden="true"></span>
+        <div class="cfg-stepper__step" data-step-tab="hardware">
+          <span class="cfg-stepper__num">3</span>
+          <span class="cfg-stepper__label">Фурнитура</span>
+        </div>
+      </div>
+
+      <!-- Прокручиваемый блок с параметрами -->
+      <div class="cfg-modal__params">
+
+        <!-- ШАГ 1: Конфигурация двери -->
+        <section class="config-step config-step_active" data-step="config" aria-label="Конфигурация двери">
+
+          <div class="config-detail-item">
+            <div class="config-detail-header">
+              <span class="config-detail-label">Модель</span>
+              <span class="config-detail-value">Альберта 1</span>
+            </div>
+          </div>
+
+          <div class="config-detail-item">
+            <div class="config-detail-header">
+              <span class="config-detail-label">Размер полотна</span>
+              <span class="config-detail-value">2000×600</span>
+              <button class="config-detail-toggle" type="button" aria-expanded="false" aria-label="Показать опции"></button>
+            </div>
+            <div class="config-detail-options" hidden>
+              <button type="button" class="config-chip config-chip_active" data-pick="size" data-price="0" data-value="2000×600">2000×600</button>
+              <button type="button" class="config-chip" data-pick="size" data-price="1500" data-value="2000×700">2000×700</button>
+              <button type="button" class="config-chip" data-pick="size" data-price="3000" data-value="2000×800">2000×800</button>
+              <button type="button" class="config-chip" data-pick="size" data-price="5000" data-value="2000×900">2000×900</button>
+            </div>
+          </div>
+
+          <div class="config-detail-item">
+            <div class="config-detail-header">
+              <span class="config-detail-label">Покрытие</span>
+              <span class="config-detail-value">RAL 9003</span>
+              <button class="config-detail-toggle" type="button" aria-expanded="false" aria-label="Показать опции"></button>
+            </div>
+            <div class="config-detail-options" hidden>
+              <button type="button" class="config-chip config-chip_active" data-pick="finish" data-price="0" data-value="RAL 9003">RAL 9003</button>
+              <button type="button" class="config-chip" data-pick="finish" data-price="2500" data-value="Дуб">Дуб</button>
+              <button type="button" class="config-chip" data-pick="finish" data-price="3500" data-value="Орех">Орех</button>
+            </div>
+          </div>
+
+          <div class="config-detail-item">
+            <div class="config-detail-header">
+              <span class="config-detail-label">Остекление</span>
+              <span class="config-detail-value">Стекло 1</span>
+              <button class="config-detail-toggle" type="button" aria-expanded="false" aria-label="Показать опции"></button>
+            </div>
+            <div class="config-detail-options" hidden>
+              <button type="button" class="config-chip config-chip_active" data-pick="glazing" data-price="0" data-value="Стекло 1">Стекло 1</button>
+              <button type="button" class="config-chip" data-pick="glazing" data-price="1500" data-value="Стекло 2">Стекло 2</button>
+            </div>
+          </div>
+
+          <div class="config-detail-item">
+            <div class="config-detail-header">
+              <span class="config-detail-label">Узор стекла</span>
+              <span class="config-detail-value">Без узора</span>
+              <button class="config-detail-toggle" type="button" aria-expanded="false" aria-label="Показать опции"></button>
+            </div>
+            <div class="config-detail-options" hidden>
+              <button type="button" class="config-chip config-chip_active" data-pick="pattern" data-price="0" data-value="Без узора">Без узора</button>
+              <button type="button" class="config-chip" data-pick="pattern" data-price="800" data-value="Узор 1">Узор 1</button>
+              <button type="button" class="config-chip" data-pick="pattern" data-price="1500" data-value="Узор 2">Узор 2</button>
+            </div>
+          </div>
+
+          <div class="config-detail-item">
+            <div class="config-detail-header">
+              <span class="config-detail-label">Вариант открывания</span>
+              <span class="config-detail-value">Распашная</span>
+              <button class="config-detail-toggle" type="button" aria-expanded="false" aria-label="Показать опции"></button>
+            </div>
+            <div class="config-detail-options" hidden>
+              <button type="button" class="config-chip config-chip_active" data-pick="opening" data-price="0" data-value="Распашная">Распашная</button>
+              <button type="button" class="config-chip" data-pick="opening" data-price="5000" data-value="Раздвижная">Раздвижная</button>
+            </div>
+          </div>
+
+          <div class="config-detail-item">
+            <div class="config-detail-header">
+              <span class="config-detail-label">Тип открывания</span>
+              <span class="config-detail-value">Схема 1</span>
+              <button class="config-detail-toggle" type="button" aria-expanded="false" aria-label="Показать опции"></button>
+            </div>
+            <div class="config-detail-options" hidden>
+              <button type="button" class="config-chip config-chip_active" data-pick="opening-type" data-price="0" data-value="Схема 1">Схема 1</button>
+              <button type="button" class="config-chip" data-pick="opening-type" data-price="500" data-value="Схема 2">Схема 2</button>
+              <button type="button" class="config-chip" data-pick="opening-type" data-price="1000" data-value="Схема 3">Схема 3</button>
+              <button type="button" class="config-chip" data-pick="opening-type" data-price="1500" data-value="Схема 4">Схема 4</button>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- ШАГ 2: Погонаж -->
+        <section class="config-step" data-step="molding" aria-label="Погонаж">
+
+          <div class="config-detail-item">
+            <div class="config-detail-header">
+              <span class="config-detail-label">Тип погонажа</span>
+              <span class="config-detail-value">Телескопический</span>
+              <button class="config-detail-toggle" type="button" aria-expanded="false" aria-label="Показать опции"></button>
+            </div>
+            <div class="config-detail-options" hidden>
+              <button type="button" class="config-chip" data-pick="box" data-price="0" data-value="Стандарт">Стандарт</button>
+              <button type="button" class="config-chip config-chip_active" data-pick="box" data-price="2000" data-value="Телескопический">Телескопический</button>
+            </div>
+          </div>
+
+          <div class="config-detail-item">
+            <div class="config-detail-header">
+              <span class="config-detail-label">Наличник</span>
+              <span class="config-detail-value">Телескоп +</span>
+              <button class="config-detail-toggle" type="button" aria-expanded="false" aria-label="Показать опции"></button>
+            </div>
+            <div class="config-detail-options" hidden>
+              <button type="button" class="config-chip" data-pick="casing" data-price="0" data-value="Прямой">Прямой</button>
+              <button type="button" class="config-chip config-chip_active" data-pick="casing" data-price="1500" data-value="Телескоп +">Телескоп +</button>
+              <button type="button" class="config-chip" data-pick="casing" data-price="3000" data-value="Фигурный">Фигурный</button>
+            </div>
+          </div>
+
+          <div class="config-detail-item">
+            <div class="config-detail-header">
+              <span class="config-detail-label">Количество</span>
+              <span class="config-detail-value">5 шт</span>
+              <button class="config-detail-toggle" type="button" aria-expanded="false" aria-label="Показать опции"></button>
+            </div>
+            <div class="config-detail-options" hidden>
+              <button type="button" class="config-chip" data-pick="quantity" data-price="0" data-value="1 шт">1 шт</button>
+              <button type="button" class="config-chip" data-pick="quantity" data-price="1000" data-value="2 шт">2 шт</button>
+              <button type="button" class="config-chip" data-pick="quantity" data-price="2000" data-value="3 шт">3 шт</button>
+              <button type="button" class="config-chip config-chip_active" data-pick="quantity" data-price="3500" data-value="5 шт">5 шт</button>
+              <button type="button" class="config-chip" data-pick="quantity" data-price="7000" data-value="10 шт">10 шт</button>
+            </div>
+          </div>
+
+          <div class="config-detail-item">
+            <div class="config-detail-header">
+              <span class="config-detail-label">Добор</span>
+              <span class="config-detail-value">100 мм</span>
+              <button class="config-detail-toggle" type="button" aria-expanded="false" aria-label="Показать опции"></button>
+            </div>
+            <div class="config-detail-options" hidden>
+              <button type="button" class="config-chip" data-pick="height-add" data-price="0" data-value="50 мм">50 мм</button>
+              <button type="button" class="config-chip config-chip_active" data-pick="height-add" data-price="500" data-value="100 мм">100 мм</button>
+              <button type="button" class="config-chip" data-pick="height-add" data-price="1000" data-value="150 мм">150 мм</button>
+              <button type="button" class="config-chip" data-pick="height-add" data-price="1500" data-value="200 мм">200 мм</button>
+            </div>
+          </div>
+
+          <div class="config-detail-item">
+            <div class="config-detail-header">
+              <span class="config-detail-label">Порог</span>
+              <span class="config-detail-value">Без порога</span>
+              <button class="config-detail-toggle" type="button" aria-expanded="false" aria-label="Показать опции"></button>
+            </div>
+            <div class="config-detail-options" hidden>
+              <button type="button" class="config-chip config-chip_active" data-pick="threshold" data-price="0" data-value="Без порога">Без порога</button>
+              <button type="button" class="config-chip" data-pick="threshold" data-price="2500" data-value="Автоматический">Автоматический</button>
+              <button type="button" class="config-chip" data-pick="threshold" data-price="1200" data-value="С порогом">С порогом</button>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- ШАГ 3: Фурнитура -->
+        <section class="config-step" data-step="hardware" aria-label="Фурнитура">
+
+          <!-- Секция: Модель ручки (карточки товаров) -->
+          <div class="cfg-section">
+            <div class="cfg-section__header config-detail-header cfg-section__header_toggle" data-section-toggle>
+              <span class="config-detail-label">Модель ручки</span>
+              <button class="config-detail-toggle config-detail-toggle_minus" type="button" aria-expanded="true" aria-label="Свернуть"></button>
+            </div>
+            <div class="cfg-section__body" id="cfgHandleSection">
+
+              <!-- Ручка Стандарт -->
+              <div class="cfg-item">
+                <div class="cfg-item__thumb" aria-hidden="true"></div>
+                <div class="cfg-item__info">
+                  <span class="cfg-item__name config-item__title">Ручка Стандарт</span>
+                  <span class="cfg-item__spec config-item__spec">Длина 120 мм, хром</span>
+                </div>
+                <div class="cfg-item__qty">
+                  <button type="button" class="cfg-qty-btn" data-qty-decrease aria-label="Уменьшить">−</button>
+                  <input type="number" class="cfg-qty-input config-qty-input" value="1" min="0" data-item="handle-1" aria-label="Количество">
+                  <button type="button" class="cfg-qty-btn" data-qty-increase aria-label="Увеличить">+</button>
+                </div>
+                <div class="cfg-item__price">
+                  <span class="config-item__amount">1200</span>
+                  <span class="cfg-item__currency">₽/шт</span>
+                </div>
+              </div>
+
+              <!-- Ручка Премиум -->
+              <div class="cfg-item">
+                <div class="cfg-item__thumb" aria-hidden="true"></div>
+                <div class="cfg-item__info">
+                  <span class="cfg-item__name config-item__title">Ручка Премиум</span>
+                  <span class="cfg-item__spec config-item__spec">Длина 140 мм, латунь</span>
+                </div>
+                <div class="cfg-item__qty">
+                  <button type="button" class="cfg-qty-btn" data-qty-decrease aria-label="Уменьшить">−</button>
+                  <input type="number" class="cfg-qty-input config-qty-input" value="0" min="0" data-item="handle-2" aria-label="Количество">
+                  <button type="button" class="cfg-qty-btn" data-qty-increase aria-label="Увеличить">+</button>
+                </div>
+                <div class="cfg-item__price">
+                  <span class="config-item__amount">2400</span>
+                  <span class="cfg-item__currency">₽/шт</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Параметры фурнитуры -->
+          <div class="config-detail-item">
+            <div class="config-detail-header">
+              <span class="config-detail-label">Цвет ручки</span>
+              <span class="config-detail-value">Белый</span>
+              <button class="config-detail-toggle" type="button" aria-expanded="false" aria-label="Показать опции"></button>
+            </div>
+            <div class="config-detail-options" hidden>
+              <button type="button" class="config-chip config-chip_active" data-pick="handle-color" data-price="0" data-value="Белый">Белый</button>
+              <button type="button" class="config-chip" data-pick="handle-color" data-price="500" data-value="Чёрный">Чёрный</button>
+              <button type="button" class="config-chip" data-pick="handle-color" data-price="1500" data-value="Золото">Золото</button>
+            </div>
+          </div>
+
+          <div class="config-detail-item">
+            <div class="config-detail-header">
+              <span class="config-detail-label">Тип замка</span>
+              <span class="config-detail-value">Нажимные модели</span>
+              <button class="config-detail-toggle" type="button" aria-expanded="false" aria-label="Показать опции"></button>
+            </div>
+            <div class="config-detail-options" hidden>
+              <button type="button" class="config-chip config-chip_active" data-pick="lock-type" data-price="0" data-value="Нажимные модели">Нажимные модели</button>
+              <button type="button" class="config-chip" data-pick="lock-type" data-price="1500" data-value="С ключом">С ключом</button>
+            </div>
+          </div>
+
+          <div class="config-detail-item">
+            <div class="config-detail-header">
+              <span class="config-detail-label">Цвет замка</span>
+              <span class="config-detail-value">Белый</span>
+              <button class="config-detail-toggle" type="button" aria-expanded="false" aria-label="Показать опции"></button>
+            </div>
+            <div class="config-detail-options" hidden>
+              <button type="button" class="config-chip config-chip_active" data-pick="lock-color" data-price="0" data-value="Белый">Белый</button>
+              <button type="button" class="config-chip" data-pick="lock-color" data-price="500" data-value="Чёрный">Чёрный</button>
+            </div>
+          </div>
+
+          <div class="config-detail-item">
+            <div class="config-detail-header">
+              <span class="config-detail-label">Запирание</span>
+              <span class="config-detail-value">Завертка (WC)</span>
+              <button class="config-detail-toggle" type="button" aria-expanded="false" aria-label="Показать опции"></button>
+            </div>
+            <div class="config-detail-options" hidden>
+              <button type="button" class="config-chip config-chip_active" data-pick="locker" data-price="0" data-value="Завертка (WC)">Завертка (WC)</button>
+              <button type="button" class="config-chip" data-pick="locker" data-price="1000" data-value="Защёлка">Защёлка</button>
+            </div>
+          </div>
+
+          <div class="config-detail-item">
+            <div class="config-detail-header">
+              <span class="config-detail-label">Петли</span>
+              <span class="config-detail-value">Скрытые</span>
+              <button class="config-detail-toggle" type="button" aria-expanded="false" aria-label="Показать опции"></button>
+            </div>
+            <div class="config-detail-options" hidden>
+              <button type="button" class="config-chip config-chip_active" data-pick="hinges" data-price="2000" data-value="Скрытые">Скрытые</button>
+              <button type="button" class="config-chip" data-pick="hinges" data-price="0" data-value="Накладные">Накладные</button>
+            </div>
+          </div>
+
+          <div class="config-detail-item">
+            <div class="config-detail-header">
+              <span class="config-detail-label">Цвет петель</span>
+              <span class="config-detail-value">Белый</span>
+              <button class="config-detail-toggle" type="button" aria-expanded="false" aria-label="Показать опции"></button>
+            </div>
+            <div class="config-detail-options" hidden>
+              <button type="button" class="config-chip config-chip_active" data-pick="hinges-color" data-price="0" data-value="Белый">Белый</button>
+              <button type="button" class="config-chip" data-pick="hinges-color" data-price="500" data-value="Чёрный">Чёрный</button>
+            </div>
+          </div>
+
+          <div class="config-detail-item">
+            <div class="config-detail-header">
+              <span class="config-detail-label">Ограничитель</span>
+              <span class="config-detail-value">Напольный</span>
+              <button class="config-detail-toggle" type="button" aria-expanded="false" aria-label="Показать опции"></button>
+            </div>
+            <div class="config-detail-options" hidden>
+              <button type="button" class="config-chip config-chip_active" data-pick="stopper" data-price="500" data-value="Напольный">Напольный</button>
+              <button type="button" class="config-chip" data-pick="stopper" data-price="1000" data-value="Магнитный">Магнитный</button>
+              <button type="button" class="config-chip" data-pick="stopper" data-price="0" data-value="Без">Без</button>
+            </div>
+          </div>
+
+        </section>
+
+      </div><!-- /.cfg-modal__params -->
+
+      <!-- Фиксированный футер с ценой и кнопками -->
+      <div class="cfg-modal__footer">
+        <div class="cfg-modal__price">Цена: от <strong><span class="config-total-price">52 000</span>&nbsp;₽</strong></div>
+        <div class="cfg-modal__actions">
+          <button class="cfg-btn cfg-btn_outline" type="button" data-add-to-cart>ДОБАВИТЬ В КОРЗИНУ</button>
+          <button class="cfg-btn cfg-btn_fill" type="button" data-next-step="molding" id="cfgNextBtn">ВЫБРАТЬ ПОГОНАЖ →</button>
+        </div>
+      </div>
+
+    </div><!-- /.cfg-modal__side -->
+
+  </div><!-- /#configModal -->
 
   <script src="js/product.js"></script>
   <script src="js/shop.js"></script>
