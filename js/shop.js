@@ -1027,7 +1027,7 @@
             </dl>
             <div class="wishlist-card__footer">
               <span class="wishlist-card__price">${item.price ? formatPriceRub(item.price) + "\u00a0\u20bd" : "Цена по запросу"}</span>
-              <button type="button" class="wishlist-card__cart-btn" data-wishlist-to-cart="${item.id}">В корзину</button>
+              <a class="wishlist-card__cart-btn wishlist-card__cfg-btn" href="${url}">Конфигуратор</a>
             </div>
           </div>
           <button type="button" class="wishlist-card__remove" aria-label="Убрать из избранного" data-wishlist-remove="${item.id}">${CLOSE_SVG}</button>
@@ -1047,21 +1047,7 @@
         return;
       }
 
-      const cartBtn = e.target.closest("[data-wishlist-to-cart]");
-      if (cartBtn) {
-        const id = cartBtn.getAttribute("data-wishlist-to-cart");
-        const item = getWishlist().find((x) => x.id === id);
-        if (item) {
-          addToCart({
-            id: `p-${Date.now()}`,
-            title: item.title,
-            price: item.price,
-            image: item.image,
-            qty: 1,
-          });
-          window.location.href = "cart.html";
-        }
-      }
+      // cfg link is a native <a>, no JS needed
     });
 
     renderWishlist();
