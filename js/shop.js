@@ -1,5 +1,6 @@
 (() => {
   const CART_KEY = "dveryaninov_cart_v1";
+  const WISHLIST_KEY = "dveryaninov_wishlist_v1";
 
   function safeJsonParse(value, fallback) {
     try {
@@ -21,6 +22,50 @@
     const items = getCart();
     items.push(item);
     setCart(items);
+  }
+
+  function getWishlist() {
+    return safeJsonParse(localStorage.getItem(WISHLIST_KEY) || "[]", []);
+  }
+
+  function setWishlist(items) {
+    localStorage.setItem(WISHLIST_KEY, JSON.stringify(items));
+  }
+
+  function isInWishlist(id) {
+    return getWishlist().some((x) => x.id === id);
+  }
+
+  function toggleWishlist(item) {
+    const items = getWishlist();
+    const idx = items.findIndex((x) => x.id === item.id);
+    if (idx !== -1) {
+      items.splice(idx, 1);
+    } else {
+      items.push(item);
+    }
+    setWishlist(items);
+    return idx === -1;
+  }
+
+  function updateWishlistBadge() {
+    const count = getWishlist().length;
+    const btn = document.getElementById("header-wishlist-btn");
+    if (!btn) return;
+    let badge = btn.querySelector(".header__wishlist-count");
+    if (count > 0) {
+      btn.classList.add("has-items");
+      if (!badge) {
+        badge = document.createElement("span");
+        badge.className = "header__wishlist-count";
+        btn.style.position = "relative";
+        btn.appendChild(badge);
+      }
+      badge.textContent = count;
+    } else {
+      btn.classList.remove("has-items");
+      if (badge) badge.remove();
+    }
   }
 
   function formatPriceRub(value) {
@@ -314,6 +359,26 @@
         const configTotalText = modal?.querySelector(".config-total-price")?.textContent || "0";
         const totalPrice = Number(configTotalText.replace(/\s/g, "")) || basePrice;
 
+        // Собираем выбранные аксессуары (фурнитура с qty > 0)
+        const accessories = [];
+        modal.querySelectorAll(".config-item").forEach((item) => {
+          const qtyInput = item.querySelector(".config-qty-input");
+          const qty = Number(qtyInput?.value) || 0;
+          if (qty > 0) {
+            const accTitle = item.querySelector(".config-item__title")?.textContent.trim() || "";
+            const spec = item.querySelector(".config-item__spec")?.textContent.trim() || "";
+            const price = Number(item.querySelector(".config-item__amount")?.textContent.replace(/[^\d]/g, "")) || 0;
+            accessories.push({
+              id: `acc-${Date.now()}-${Math.random().toString(36).slice(2)}`,
+              title: accTitle,
+              spec,
+              qty,
+              price,
+              oldPrice: 0,
+            });
+          }
+        });
+
         addToCart({
           id: `p-${Date.now()}`,
           title,
@@ -321,6 +386,7 @@
           image: imgEl ? imgEl.getAttribute("src") : "",
           qty: 1,
           options: { ...state },
+          accessories,
         });
 
         closeModal(modal);
@@ -423,6 +489,38 @@
         </div>
         <button type="button" class="cart-item__remove" aria-label="Удалить товар" data-cart-remove="${it.id}">×</button>
       `;
+
+      // Аксессуары (фурнитура) — отображаем внутри того же фрейма
+      if (it.accessories && it.accessories.length > 0) {
+        const accSection = document.createElement("div");
+        accSection.className = "cart-item__accessories";
+        it.accessories.forEach((acc) => {
+          const accEl = document.createElement("div");
+          accEl.className = "cart-accessory";
+          const accLineTotal = (Number(acc.price) || 0) * (Number(acc.qty) || 1);
+          accEl.innerHTML = `
+            <div class="cart-accessory__img-wrap">
+              <img class="cart-accessory__img" src="images/card-door-1.svg" alt="">
+            </div>
+            <div class="cart-accessory__info">
+              <span class="cart-accessory__name">${acc.title}</span>
+              <span class="cart-accessory__spec">${acc.spec}</span>
+            </div>
+            <div class="cart-accessory__qty">
+              <button type="button" class="cart-accessory__qty-btn" aria-label="Уменьшить" data-acc-dec="${acc.id}" data-acc-item="${it.id}">−</button>
+              <input type="number" class="cart-accessory__qty-input" value="${acc.qty}" min="1" readonly>
+              <button type="button" class="cart-accessory__qty-btn" aria-label="Увеличить" data-acc-inc="${acc.id}" data-acc-item="${it.id}">+</button>
+            </div>
+            <div class="cart-accessory__pricing">
+              <span class="cart-accessory__price">${formatPriceRub(accLineTotal)} ₽</span>
+              ${acc.oldPrice ? `<span class="cart-accessory__old-price">${formatPriceRub(acc.oldPrice)} ₽</span>` : ""}
+            </div>
+          `;
+          accSection.appendChild(accEl);
+        });
+        article.appendChild(accSection);
+      }
+
       itemsWrap.appendChild(article);
     });
 
@@ -453,6 +551,27 @@
         if (x) x.qty = Math.max(1, (Number(x.qty) || 1) - 1);
         setCart(itemsNow);
         changed = true;
+      }
+
+      // Аксессуары: изменение количества
+      const accIncId = t.getAttribute("data-acc-inc");
+      const accDecId = t.getAttribute("data-acc-dec");
+      const accItemId = t.getAttribute("data-acc-item");
+
+      if (accIncId || accDecId) {
+        const cartItem = itemsNow.find((x) => x.id === accItemId);
+        if (cartItem && cartItem.accessories) {
+          const acc = cartItem.accessories.find((a) => a.id === (accIncId || accDecId));
+          if (acc) {
+            if (accIncId) {
+              acc.qty = (Number(acc.qty) || 1) + 1;
+            } else {
+              acc.qty = Math.max(1, (Number(acc.qty) || 1) - 1);
+            }
+            setCart(itemsNow);
+            changed = true;
+          }
+        }
       }
 
       if (changed) window.location.reload();
@@ -592,10 +711,127 @@
     });
   }
 
+  function initWishlistBtn() {
+    const btn = document.querySelector(".product__btn_wishlist");
+    if (!btn) return;
+    const titleEl = document.querySelector(".product__title");
+    const priceEl = document.querySelector(".product__price");
+    const imgEl = document.querySelector(".product__main-image img");
+    const title = titleEl ? titleEl.textContent.trim() : "Товар";
+    const id = `w-${title.replace(/\s+/g, "-").toLowerCase()}`;
+
+    function refreshWishlistBtn() {
+      if (isInWishlist(id)) {
+        btn.classList.add("product__btn_wishlist_active");
+        btn.setAttribute("aria-label", "Убрать из избранного");
+      } else {
+        btn.classList.remove("product__btn_wishlist_active");
+        btn.setAttribute("aria-label", "В избранное");
+      }
+      updateWishlistBadge();
+    }
+
+    btn.addEventListener("click", () => {
+      const price = Number(
+        ((priceEl ? priceEl.textContent : "0").match(/\d[\d\s]*/)?.[0] || "0").replace(/\s/g, "")
+      );
+      const image = imgEl ? imgEl.getAttribute("src") : "";
+      toggleWishlist({ id, title, price, image });
+      refreshWishlistBtn();
+    });
+
+    refreshWishlistBtn();
+  }
+
+  function initCardWishlist() {
+    const cards = document.querySelectorAll(".card");
+    cards.forEach((card) => {
+      const btn = card.querySelector(".card__action");
+      if (!btn) return;
+      const titleEl = card.querySelector(".card__title");
+      const priceEl = card.querySelector(".card__price");
+      const imgEl = card.querySelector(".card__image");
+      const title = titleEl ? titleEl.textContent.trim() : "Товар";
+      const id = `w-${title.replace(/\s+/g, "-").toLowerCase()}`;
+
+      function refreshCardBtn() {
+        if (isInWishlist(id)) {
+          btn.classList.add("card__action_active");
+          btn.setAttribute("aria-label", "Убрать из избранного");
+        } else {
+          btn.classList.remove("card__action_active");
+          btn.setAttribute("aria-label", "В избранное");
+        }
+      }
+
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const price = Number(((priceEl ? priceEl.textContent : "0").replace(/[^\d]/g, ""))) || 0;
+        const image = imgEl ? imgEl.getAttribute("src") : "";
+        toggleWishlist({ id, title, price, image });
+        refreshCardBtn();
+        updateWishlistBadge();
+      });
+
+      refreshCardBtn();
+    });
+    updateWishlistBadge();
+  }
+
+  function initWishlistPage() {
+    const grid = document.getElementById("wishlist-grid");
+    const empty = document.getElementById("wishlist-empty");
+    if (!grid) return;
+
+    const items = getWishlist();
+    if (!items.length) {
+      if (empty) empty.hidden = false;
+      grid.hidden = true;
+      updateWishlistBadge();
+      return;
+    }
+
+    grid.hidden = false;
+    if (empty) empty.hidden = true;
+
+    items.forEach((item) => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `
+        <div class="card__image-wrap">
+          <img class="card__image" src="${item.image || "images/card-door-1.svg"}" alt="${item.title}" width="288">
+        </div>
+        <h3 class="card__title"><a href="product.html">${item.title}</a></h3>
+        <p class="card__price">${formatPriceRub(item.price)}&nbsp;₽</p>
+        <button type="button" class="card__action card__action_active" aria-label="Убрать из избранного" data-wishlist-remove="${item.id}"></button>
+      `;
+      grid.appendChild(card);
+    });
+
+    grid.addEventListener("click", (e) => {
+      const removeBtn = e.target.closest("[data-wishlist-remove]");
+      if (!removeBtn) return;
+      const id = removeBtn.getAttribute("data-wishlist-remove");
+      setWishlist(getWishlist().filter((x) => x.id !== id));
+      removeBtn.closest(".card")?.remove();
+      updateWishlistBadge();
+      if (!getWishlist().length) {
+        grid.hidden = true;
+        if (empty) empty.hidden = false;
+      }
+    });
+
+    updateWishlistBadge();
+  }
+
   initProductSelections();
   initConfigurator();
   initCartPage();
   initCheckoutPage();
   initProductGallery();
+  initWishlistBtn();
+  initCardWishlist();
+  initWishlistPage();
 })();
 

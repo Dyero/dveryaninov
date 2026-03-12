@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Избранное — Дверянинов</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script src="js/auth.js"></script>
+  <script src="js/load-components.js"></script>
+</head>
+<body class="page page_wishlist">
+
+  <main class="wishlist-page">
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+      <a class="breadcrumbs__link" href="index.html">Главная</a>
+      <span class="breadcrumbs__sep">–</span>
+      <span class="breadcrumbs__current">Избранное</span>
+    </nav>
+
+    <h1 class="wishlist-page__title">Избранное</h1>
+
+    <div class="wishlist-page__grid" id="wishlist-grid"></div>
+
+    <div class="wishlist-empty" id="wishlist-empty" hidden>
+      <p class="wishlist-empty__text">В избранном пока нет товаров</p>
+      <a href="catalog.html" class="wishlist-empty__link">Перейти в каталог</a>
+    </div>
+  </main>
+
+  <nav class="mobile-menu" aria-label="Нижнее меню">
+    <a class="mobile-menu__item" href="index.html">
+      <span class="mobile-menu__icon" aria-hidden="true"></span>
+      <span class="mobile-menu__label">Главная</span>
+    </a>
+    <a class="mobile-menu__item" href="catalog.html">
+      <span class="mobile-menu__icon mobile-menu__icon_catalog" aria-hidden="true"></span>
+      <span class="mobile-menu__label">Каталог</span>
+    </a>
+    <a class="mobile-menu__item mobile-menu__item_active" href="wishlist.html" aria-current="page">
+      <span class="mobile-menu__icon mobile-menu__icon_about" aria-hidden="true"></span>
+      <span class="mobile-menu__label">Избранное</span>
+    </a>
+    <a class="mobile-menu__item" href="contacts.html">
+      <span class="mobile-menu__icon mobile-menu__icon_contacts" aria-hidden="true"></span>
+      <span class="mobile-menu__label">Контакты</span>
+    </a>
+    <a class="mobile-menu__item" href="cart.html">
+      <span class="mobile-menu__icon mobile-menu__icon_cart" aria-hidden="true"></span>
+      <span class="mobile-menu__label">Корзина</span>
+    </a>
+  </nav>
+
+  <script src="js/shop.js"></script>
+</body>
+</html>
