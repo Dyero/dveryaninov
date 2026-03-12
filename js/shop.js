@@ -522,141 +522,186 @@
   function initCartPage() {
     const cartRoot = document.querySelector(".cart");
     if (!cartRoot) return;
-
     const itemsWrap = cartRoot.querySelector(".cart__items");
     const summaryTotal = cartRoot.querySelector(".cart-summary__pay");
     const summarySum = cartRoot.querySelector(".cart-summary__sum");
-
+    const cartSummary = cartRoot.querySelector(".cart-summary");
+    const cartMeta = document.getElementById("cart-meta");
     if (!itemsWrap) return;
 
-    const items = getCart();
-    if (!items.length) return;
+    const OPTION_LABELS = {
+      size: "Размер",
+      finish: "Цвет покрытия",
+      glazing: "Остекление",
+      pattern: "Узор стекла",
+      opening: "Тип открывания",
+      "opening-type": "Схема открывания",
+      box: "Тип погонажа",
+      casing: "Наличники",
+      quantity: "Количество",
+      "height-add": "Добор",
+      threshold: "Порог",
+      "handle-color": "Цвет ручки",
+      "lock-type": "Тип замка",
+      "lock-color": "Цвет замка",
+      locker: "Запирание (Фиксатор)",
+      hinges: "Петли",
+      "hinges-color": "Цвет петель",
+      stopper: "Ограничитель",
+    };
 
-    itemsWrap.innerHTML = "";
+    function pluralItems(n) {
+      if (n % 10 === 1 && n % 100 !== 11) return "ТОВАР";
+      if (n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20)) return "ТОВАРА";
+      return "ТОВАРОВ";
+    }
 
-    let total = 0;
-    let count = 0;
+    function renderCart() {
+      const items = getCart();
+      itemsWrap.innerHTML = "";
+      if (cartMeta) cartMeta.innerHTML = "";
 
-    items.forEach((it) => {
-      const lineTotal = (Number(it.price) || 0) * (Number(it.qty) || 1);
-      total += lineTotal;
-      count += Number(it.qty) || 1;
+      if (!items.length) {
+        itemsWrap.innerHTML = '<p class="cart-empty">Корзина пуста. <a href="catalog.html">Перейти в каталог →</a></p>';
+        if (cartSummary) cartSummary.hidden = true;
+        return;
+      }
+      if (cartSummary) cartSummary.hidden = false;
 
-      const details = it.options
-        ? Object.entries(it.options)
-            .map(([k, v]) => `${k}: ${v}`)
-            .join(" • ")
-        : "";
-
-      const article = document.createElement("article");
-      article.className = "cart-item";
-      article.innerHTML = `
-        <div class="cart-item__image-wrap">
-          <img class="cart-item__image" src="${it.image || "images/card-door-1.svg"}" alt="" width="120" height="120">
-        </div>
-        <div class="cart-item__info">
-          <h3 class="cart-item__title">${it.title || "Товар"}</h3>
-          <div class="cart-item__details">
-            <span class="cart-item__detail">${details || "Комплектация: по выбору"}</span>
-          </div>
-        </div>
-        <div class="cart-item__quantity">
-          <button type="button" class="cart-item__qty-btn" aria-label="Уменьшить" data-cart-dec="${it.id}">−</button>
-          <input type="number" class="cart-item__qty-input" value="${it.qty || 1}" min="1" readonly>
-          <button type="button" class="cart-item__qty-btn" aria-label="Увеличить" data-cart-inc="${it.id}">+</button>
-        </div>
-        <div class="cart-item__price">
-          <span class="cart-item__price-value">${formatPriceRub(lineTotal)}</span>
-          <span class="cart-item__currency">₽</span>
-        </div>
-        <button type="button" class="cart-item__remove" aria-label="Удалить товар" data-cart-remove="${it.id}">×</button>
-      `;
-
-      // Аксессуары (фурнитура) — отображаем внутри того же фрейма
-      if (it.accessories && it.accessories.length > 0) {
-        const accSection = document.createElement("div");
-        accSection.className = "cart-item__accessories";
-        it.accessories.forEach((acc) => {
-          const accEl = document.createElement("div");
-          accEl.className = "cart-accessory";
-          const accLineTotal = (Number(acc.price) || 0) * (Number(acc.qty) || 1);
-          accEl.innerHTML = `
-            <div class="cart-accessory__img-wrap">
-              <img class="cart-accessory__img" src="images/card-door-1.svg" alt="">
-            </div>
-            <div class="cart-accessory__info">
-              <span class="cart-accessory__name">${acc.title}</span>
-              <span class="cart-accessory__spec">${acc.spec}</span>
-            </div>
-            <div class="cart-accessory__qty">
-              <button type="button" class="cart-accessory__qty-btn" aria-label="Уменьшить" data-acc-dec="${acc.id}" data-acc-item="${it.id}">−</button>
-              <input type="number" class="cart-accessory__qty-input" value="${acc.qty}" min="1" readonly>
-              <button type="button" class="cart-accessory__qty-btn" aria-label="Увеличить" data-acc-inc="${acc.id}" data-acc-item="${it.id}">+</button>
-            </div>
-            <div class="cart-accessory__pricing">
-              <span class="cart-accessory__price">${formatPriceRub(accLineTotal)} ₽</span>
-              ${acc.oldPrice ? `<span class="cart-accessory__old-price">${formatPriceRub(acc.oldPrice)} ₽</span>` : ""}
-            </div>
-          `;
-          accSection.appendChild(accEl);
-        });
-        article.appendChild(accSection);
+      const totalCount = items.reduce(function (s, x) { return s + (Number(x.qty) || 1); }, 0);
+      if (cartMeta) {
+        cartMeta.innerHTML =
+          '<span class="cart-meta__count">' + totalCount + ' ' + pluralItems(totalCount) + '</span>' +
+          '<button type="button" class="cart-meta__clear" id="cart-clear-btn">Очистить корзину</button>';
+        var clearBtn = document.getElementById("cart-clear-btn");
+        if (clearBtn) {
+          clearBtn.addEventListener("click", function () { setCart([]); renderCart(); });
+        }
       }
 
-      itemsWrap.appendChild(article);
-    });
+      var total = 0;
+      items.forEach(function (it) {
+        total += (Number(it.price) || 0) * (Number(it.qty) || 1);
 
-    const totalText = `${formatPriceRub(total)} ₽`;
-    if (summaryTotal) summaryTotal.textContent = totalText;
-    if (summarySum) summarySum.textContent = totalText;
+        var detailRowsHtml = "";
+        if (it.options) {
+          Object.entries(it.options).forEach(function (entry) {
+            var k = entry[0], v = entry[1];
+            if (v && String(v).trim() !== "") {
+              var label = OPTION_LABELS[k] || k;
+              detailRowsHtml +=
+                '<div class="cart-item__detail-row">' +
+                '<span class="cart-item__detail-label">' + label + ':</span>' +
+                '<span class="cart-item__detail-value">' + v + '</span>' +
+                '</div>';
+            }
+          });
+        }
+        if (!detailRowsHtml) {
+          detailRowsHtml =
+            '<div class="cart-item__detail-row">' +
+            '<span class="cart-item__detail-label">Комплектация:</span>' +
+            '<span class="cart-item__detail-value">по выбору</span>' +
+            '</div>';
+        }
 
-    document.addEventListener("click", (e) => {
-      const t = e.target;
+        var priceText = it.price > 0
+          ? formatPriceRub(it.price) + "\u00a0\u20bd"
+          : "Цена по запросу";
+
+        var article = document.createElement("article");
+        article.className = "cart-item";
+        article.innerHTML =
+          '<div class="cart-item__image-wrap">' +
+            '<img class="cart-item__image" src="' + (it.image || "images/card-door-1.svg") + '" alt="" width="120" height="160">' +
+          '</div>' +
+          '<div class="cart-item__info">' +
+            '<div class="cart-item__info-header">' +
+              '<h3 class="cart-item__title">' + (it.title || "Товар") + '</h3>' +
+              '<div class="cart-item__actions">' +
+                '<a class="cart-item__action-btn" href="catalog.html">Добавить ещё дверь</a>' +
+                '<span class="cart-item__action-sep">|</span>' +
+                '<a class="cart-item__action-btn" href="product.html">Редактировать</a>' +
+                '<span class="cart-item__action-sep">|</span>' +
+                '<button type="button" class="cart-item__action-btn cart-item__action-btn_danger" data-cart-remove="' + it.id + '">Удалить</button>' +
+              '</div>' +
+            '</div>' +
+            '<p class="cart-item__price-line">' + priceText + '</p>' +
+            '<dl class="cart-item__details">' + detailRowsHtml + '</dl>' +
+          '</div>';
+
+        if (it.accessories && it.accessories.length > 0) {
+          var accSection = document.createElement("div");
+          accSection.className = "cart-item__accessories";
+          it.accessories.forEach(function (acc) {
+            var accEl = document.createElement("div");
+            accEl.className = "cart-accessory";
+            var unitPrice = Number(acc.price) || 0;
+            accEl.innerHTML =
+              '<div class="cart-accessory__img-wrap">' +
+                '<img class="cart-accessory__img" src="' + (acc.image || "images/card-door-1.svg") + '" alt="">' +
+              '</div>' +
+              '<div class="cart-accessory__info">' +
+                '<span class="cart-accessory__name">' + acc.title + '</span>' +
+                '<span class="cart-accessory__spec">' + acc.spec + '</span>' +
+              '</div>' +
+              '<div class="cart-accessory__qty">' +
+                '<button type="button" class="cart-accessory__qty-btn" aria-label="Уменьшить" data-acc-dec="' + acc.id + '" data-acc-item="' + it.id + '">−</button>' +
+                '<input type="number" class="cart-accessory__qty-input" value="' + acc.qty + '" min="1" readonly>' +
+                '<button type="button" class="cart-accessory__qty-btn" aria-label="Увеличить" data-acc-inc="' + acc.id + '" data-acc-item="' + it.id + '">+</button>' +
+              '</div>' +
+              '<div class="cart-accessory__pricing">' +
+                '<span class="cart-accessory__price">' + formatPriceRub(unitPrice) + '\u00a0\u20bd</span>' +
+                (acc.oldPrice ? '<span class="cart-accessory__old-price">' + formatPriceRub(acc.oldPrice) + '\u00a0\u20bd</span>' : '') +
+              '</div>';
+            accSection.appendChild(accEl);
+          });
+          article.appendChild(accSection);
+        }
+        itemsWrap.appendChild(article);
+      });
+
+      var totalText = formatPriceRub(total) + "\u00a0\u20bd";
+      if (summaryTotal) summaryTotal.textContent = totalText;
+      if (summarySum) summarySum.textContent = totalText;
+    }
+
+    renderCart();
+
+    document.addEventListener("click", function (e) {
+      var t = e.target;
       if (!(t instanceof Element)) return;
-
-      const itemsNow = getCart();
-      const removeId = t.getAttribute("data-cart-remove");
-      const incId = t.getAttribute("data-cart-inc");
-      const decId = t.getAttribute("data-cart-dec");
-
-      let changed = false;
+      if (!t.closest(".cart-page")) return;
+      var itemsNow = getCart();
+      var removeId = t.getAttribute("data-cart-remove");
+      var incId = t.getAttribute("data-cart-inc");
+      var decId = t.getAttribute("data-cart-dec");
+      var changed = false;
       if (removeId) {
-        setCart(itemsNow.filter((x) => x.id !== removeId));
+        setCart(itemsNow.filter(function (x) { return x.id !== removeId; }));
         changed = true;
       } else if (incId) {
-        const x = itemsNow.find((x) => x.id === incId);
-        if (x) x.qty = (Number(x.qty) || 1) + 1;
-        setCart(itemsNow);
-        changed = true;
+        var xi = itemsNow.find(function (x) { return x.id === incId; });
+        if (xi) { xi.qty = (Number(xi.qty) || 1) + 1; setCart(itemsNow); changed = true; }
       } else if (decId) {
-        const x = itemsNow.find((x) => x.id === decId);
-        if (x) x.qty = Math.max(1, (Number(x.qty) || 1) - 1);
-        setCart(itemsNow);
-        changed = true;
+        var xd = itemsNow.find(function (x) { return x.id === decId; });
+        if (xd) { xd.qty = Math.max(1, (Number(xd.qty) || 1) - 1); setCart(itemsNow); changed = true; }
       }
-
-      // Аксессуары: изменение количества
-      const accIncId = t.getAttribute("data-acc-inc");
-      const accDecId = t.getAttribute("data-acc-dec");
-      const accItemId = t.getAttribute("data-acc-item");
-
+      var accIncId = t.getAttribute("data-acc-inc");
+      var accDecId = t.getAttribute("data-acc-dec");
+      var accItemId = t.getAttribute("data-acc-item");
       if (accIncId || accDecId) {
-        const cartItem = itemsNow.find((x) => x.id === accItemId);
+        var cartItem = itemsNow.find(function (x) { return x.id === accItemId; });
         if (cartItem && cartItem.accessories) {
-          const acc = cartItem.accessories.find((a) => a.id === (accIncId || accDecId));
+          var acc = cartItem.accessories.find(function (a) { return a.id === (accIncId || accDecId); });
           if (acc) {
-            if (accIncId) {
-              acc.qty = (Number(acc.qty) || 1) + 1;
-            } else {
-              acc.qty = Math.max(1, (Number(acc.qty) || 1) - 1);
-            }
+            acc.qty = accIncId ? (Number(acc.qty) || 1) + 1 : Math.max(1, (Number(acc.qty) || 1) - 1);
             setCart(itemsNow);
             changed = true;
           }
         }
       }
-
-      if (changed) window.location.reload();
+      if (changed) renderCart();
     });
   }
 

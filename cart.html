@@ -20,31 +20,37 @@
 
     <h1 class="cart-page__title">Корзина</h1>
 
+    <div class="cart-meta" id="cart-meta"></div>
+
     <div class="cart">
       <div class="cart__items">
         <article class="cart-item">
           <div class="cart-item__image-wrap">
-            <img class="cart-item__image" src="images/card-door-1.svg" alt="Дверь Флай 8 ПГ" width="120" height="120">
+            <img class="cart-item__image" src="images/card-door-1.svg" alt="Дверь Флай 8 ПГ" width="120" height="160">
           </div>
           <div class="cart-item__info">
-            <h3 class="cart-item__title">Дверь Флай 8 ПГ</h3>
-            <div class="cart-item__details">
-              <span class="cart-item__detail">Размер: 2000×600</span>
-              <span class="cart-item__detail">Покрытие: RAL 9003</span>
+            <div class="cart-item__info-header">
+              <h3 class="cart-item__title">Дверь Флай 8 ПГ</h3>
+              <div class="cart-item__actions">
+                <a class="cart-item__action-btn" href="catalog.html">Добавить ещё дверь</a>
+                <span class="cart-item__action-sep">|</span>
+                <a class="cart-item__action-btn" href="product.html">Редактировать</a>
+                <span class="cart-item__action-sep">|</span>
+                <button type="button" class="cart-item__action-btn cart-item__action-btn_danger">Удалить</button>
+              </div>
             </div>
+            <p class="cart-item__price-line">58 600&nbsp;₽</p>
+            <dl class="cart-item__details">
+              <div class="cart-item__detail-row">
+                <span class="cart-item__detail-label">Размер:</span>
+                <span class="cart-item__detail-value">2000×600</span>
+              </div>
+              <div class="cart-item__detail-row">
+                <span class="cart-item__detail-label">Цвет покрытия:</span>
+                <span class="cart-item__detail-value">RAL 9003</span>
+              </div>
+            </dl>
           </div>
-          <div class="cart-item__quantity">
-            <button type="button" class="cart-item__qty-btn" aria-label="Уменьшить">−</button>
-            <input type="number" class="cart-item__qty-input" value="1" min="1" readonly>
-            <button type="button" class="cart-item__qty-btn" aria-label="Увеличить">+</button>
-          </div>
-          <div class="cart-item__price">
-            <span class="cart-item__price-value">58 600</span>
-            <span class="cart-item__currency">₽</span>
-          </div>
-          <button type="button" class="cart-item__remove" aria-label="Удалить товар">×</button>
-
-          <!-- Аксессуары — в том же фрейме, что и дверь -->
           <div class="cart-item__accessories">
             <div class="cart-accessory">
               <div class="cart-accessory__img-wrap">
@@ -69,25 +75,31 @@
 
         <article class="cart-item">
           <div class="cart-item__image-wrap">
-            <img class="cart-item__image" src="images/card-door-2.svg" alt="Дверь Ультра 5 ПГ" width="120" height="120">
+            <img class="cart-item__image" src="images/card-door-2.svg" alt="Дверь Ультра 5 ПГ" width="120" height="160">
           </div>
           <div class="cart-item__info">
-            <h3 class="cart-item__title">Дверь Ультра 5 ПГ</h3>
-            <div class="cart-item__details">
-              <span class="cart-item__detail">Размер: 2000×700</span>
-              <span class="cart-item__detail">Покрытие: RAL 9003</span>
+            <div class="cart-item__info-header">
+              <h3 class="cart-item__title">Дверь Ультра 5 ПГ</h3>
+              <div class="cart-item__actions">
+                <a class="cart-item__action-btn" href="catalog.html">Добавить ещё дверь</a>
+                <span class="cart-item__action-sep">|</span>
+                <a class="cart-item__action-btn" href="product.html">Редактировать</a>
+                <span class="cart-item__action-sep">|</span>
+                <button type="button" class="cart-item__action-btn cart-item__action-btn_danger">Удалить</button>
+              </div>
             </div>
+            <p class="cart-item__price-line">Цена по запросу</p>
+            <dl class="cart-item__details">
+              <div class="cart-item__detail-row">
+                <span class="cart-item__detail-label">Размер:</span>
+                <span class="cart-item__detail-value">2000×700</span>
+              </div>
+              <div class="cart-item__detail-row">
+                <span class="cart-item__detail-label">Цвет покрытия:</span>
+                <span class="cart-item__detail-value">RAL 9003</span>
+              </div>
+            </dl>
           </div>
-          <div class="cart-item__quantity">
-            <button type="button" class="cart-item__qty-btn" aria-label="Уменьшить">−</button>
-            <input type="number" class="cart-item__qty-input" value="2" min="1" readonly>
-            <button type="button" class="cart-item__qty-btn" aria-label="Увеличить">+</button>
-          </div>
-          <div class="cart-item__price">
-            <span class="cart-item__price-value">117 200</span>
-            <span class="cart-item__currency">₽</span>
-          </div>
-          <button type="button" class="cart-item__remove" aria-label="Удалить товар">×</button>
         </article>
       </div>
 
