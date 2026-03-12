@@ -2252,9 +2252,15 @@ a {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  padding: 12px 0 0;
+  max-height: 0;
+  padding-top: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding-top 0.25s ease;
 }
-.config-detail-options[hidden] { display: none !important; }
+.config-detail-options.is-open {
+  max-height: 600px;
+  padding-top: 12px;
+}
 
 /* Config items (т?вар?ые о?зиции) */
 .config-items {
@@ -5026,7 +5032,7 @@ a.order-item__title:hover {
 .cfg-modal__image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
 }
 

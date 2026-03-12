@@ -246,7 +246,7 @@
       // При смене шага сбрасываем аккордеон: открываем только первый элемент нового шага
       const newStepEl = modal.querySelector('[data-step="' + step + '"]');
       if (newStepEl) {
-        modal.querySelectorAll(".config-detail-options").forEach((el) => { el.hidden = true; });
+        modal.querySelectorAll(".config-detail-options").forEach((el) => { el.classList.remove("is-open"); });
         modal.querySelectorAll(".cfg-section__body").forEach((el) => { el.hidden = true; });
         modal.querySelectorAll(".config-detail-toggle").forEach((btn) => {
           btn.setAttribute("aria-expanded", "false");
@@ -273,7 +273,7 @@
       });
 
       // 2. Закрываем все аккордеон-элементы
-      modal.querySelectorAll(".config-detail-options").forEach((el) => { el.hidden = true; });
+      modal.querySelectorAll(".config-detail-options").forEach((el) => { el.classList.remove("is-open"); });
       modal.querySelectorAll(".cfg-section__body").forEach((el) => { el.hidden = true; });
       modal.querySelectorAll(".config-detail-toggle").forEach((btn) => {
         btn.setAttribute("aria-expanded", "false");
@@ -290,7 +290,7 @@
       if (firstItem) {
         firstItem.setAttribute("aria-expanded", "true");
         const options = firstItem.closest(".config-detail-header")?.nextElementSibling;
-        if (options) options.hidden = false;
+        if (options) options.classList.add("is-open");
       }
     }
 
@@ -306,7 +306,7 @@
         const isExpanded = toggle.getAttribute("aria-expanded") === "true";
         toggle.setAttribute("aria-expanded", isExpanded ? "false" : "true");
         const options = detailHeader.nextElementSibling;
-        if (options) options.hidden = isExpanded;
+        if (options) options.classList.toggle("is-open", !isExpanded);
         return;
       }
 
