@@ -837,12 +837,48 @@
     var backdrop = modal.querySelector('.checkout-modal__backdrop');
     if (backdrop) backdrop.addEventListener('click', closeCheckoutModal);
 
+    // Phone mask for checkout form
+    var checkoutPhone = document.getElementById('checkout-phone');
+    if (checkoutPhone) {
+      checkoutPhone.addEventListener('focus', function() {
+        if (!checkoutPhone.value) checkoutPhone.value = '+7 (';
+      });
+      checkoutPhone.addEventListener('input', function() {
+        var digits = checkoutPhone.value.replace(/\D/g, '');
+        if (digits.startsWith('8')) digits = '7' + digits.slice(1);
+        if (!digits.startsWith('7')) digits = '7' + digits;
+        digits = digits.slice(0, 11);
+        var r = '+7';
+        if (digits.length > 1) r += ' (' + digits.slice(1, 4);
+        if (digits.length >= 4) r += ')';
+        if (digits.length > 4) r += ' ' + digits.slice(4, 7);
+        if (digits.length > 7) r += '-' + digits.slice(7, 9);
+        if (digits.length > 9) r += '-' + digits.slice(9, 11);
+        checkoutPhone.value = r;
+      });
+    }
+
     var form = document.getElementById('checkout-form');
     if (form) {
       form.addEventListener('submit', function(e) {
         e.preventDefault();
         var items = getCart();
         if (!items.length) return;
+        var errEl = document.getElementById('checkout-error');
+        var nameEl = modal.querySelector('[name="checkout-name"]');
+        var phoneEl = document.getElementById('checkout-phone');
+        if (nameEl && !nameEl.value.trim()) {
+          if (errEl) errEl.textContent = 'Введите имя';
+          return;
+        }
+        if (phoneEl) {
+          var digits = phoneEl.value.replace(/\D/g, '');
+          if (digits.length < 11) {
+            if (errEl) errEl.textContent = 'Введите корректный номер телефона';
+            return;
+          }
+        }
+        if (errEl) errEl.textContent = '';
         if (window.DvAuth) DvAuth.saveOrder(items);
         setCart([]);
         var content = document.getElementById('checkout-content');
@@ -932,6 +968,21 @@
     const empty = document.getElementById("wishlist-empty");
     if (!grid) return;
 
+    // Map product URL by title keywords
+    function getProductUrl(title) {
+      const t = title.toLowerCase();
+      if (t.includes('флай') || t.includes('fly'))     return 'product-fly-8-pg.html';
+      if (t.includes('ультра') || t.includes('ultra')) return 'product-ultra-5-pg.html';
+      if (t.includes('мета') || t.includes('meta'))   return 'product-meta-1-pg.html';
+      if (t.includes('сол') || t.includes('sol'))     return 'product-sol-2-pg.html';
+      return 'product.html';
+    }
+
+    const CLOSE_SVG = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <line x1="2" y1="2" x2="14" y2="14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="14" y1="2" x2="2" y2="14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </svg>`;
+
     function renderWishlist() {
       const items = getWishlist();
       grid.innerHTML = "";
@@ -947,20 +998,39 @@
       if (empty) empty.hidden = true;
 
       items.forEach((item) => {
+        const url = getProductUrl(item.title || '');
         const article = document.createElement("article");
-        article.className = "cart-item";
+        article.className = "wishlist-card";
         article.innerHTML = `
-          <div class="cart-item__image-wrap">
-            <img class="cart-item__image" src="${item.image || "images/card-door-1.svg"}" alt="${item.title}" width="120" height="120">
-          </div>
-          <div class="cart-item__info">
-            <h3 class="cart-item__title"><a href="product.html">${item.title}</a></h3>
-            <div class="cart-item__details">
-              <span class="cart-item__detail">${item.price ? formatPriceRub(item.price) + "\u00a0\u20bd" : ""}</span>
+          <a class="wishlist-card__image-wrap" href="${url}">
+            <img class="wishlist-card__image" src="${item.image || "images/card-door-1.svg"}" alt="${item.title}" width="200" height="280">
+          </a>
+          <div class="wishlist-card__body">
+            <h3 class="wishlist-card__title"><a class="wishlist-card__title-link" href="${url}">${item.title}</a></h3>
+            <dl class="wishlist-card__specs">
+              <div class="wishlist-card__spec-row">
+                <dt class="wishlist-card__spec-label">Категория</dt>
+                <dd class="wishlist-card__spec-value">Межкомнатная дверь</dd>
+              </div>
+              <div class="wishlist-card__spec-row">
+                <dt class="wishlist-card__spec-label">Тип</dt>
+                <dd class="wishlist-card__spec-value">Полотно глухое</dd>
+              </div>
+              <div class="wishlist-card__spec-row">
+                <dt class="wishlist-card__spec-label">Открывание</dt>
+                <dd class="wishlist-card__spec-value">Левое / правое</dd>
+              </div>
+              <div class="wishlist-card__spec-row">
+                <dt class="wishlist-card__spec-label">Покрытие</dt>
+                <dd class="wishlist-card__spec-value">Эмаль, шпон</dd>
+              </div>
+            </dl>
+            <div class="wishlist-card__footer">
+              <span class="wishlist-card__price">${item.price ? formatPriceRub(item.price) + "\u00a0\u20bd" : "Цена по запросу"}</span>
+              <button type="button" class="wishlist-card__cart-btn" data-wishlist-to-cart="${item.id}">В корзину</button>
             </div>
           </div>
-          <button type="button" class="wishlist-item__cart-btn" aria-label="Добавить в корзину" data-wishlist-to-cart="${item.id}">В корзину</button>
-          <button type="button" class="cart-item__remove" aria-label="Убрать из избранного" data-wishlist-remove="${item.id}">×</button>
+          <button type="button" class="wishlist-card__remove" aria-label="Убрать из избранного" data-wishlist-remove="${item.id}">${CLOSE_SVG}</button>
         `;
         grid.appendChild(article);
       });

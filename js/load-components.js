@@ -29,6 +29,7 @@
     '    </a>',
     '    <div class="header__actions">',
     '      <a class="header__phone" href="tel:88005508869">8 800 550-88-69</a>',
+    '      <button type="button" class="header__callback-btn" id="header-callback-btn">Заказать звонок</button>',
     '      <a href="wishlist.html" id="header-wishlist-btn" class="header__icon-btn" aria-label="Избранное" style="position:relative">',
     '        <img src="images/icon-heart.svg" alt="" width="24" height="24">',
     '      </a>',
@@ -120,6 +121,43 @@
     { title: 'Мета 1 ПГ Престиж', url: 'product-meta-1-pg.html', desc: 'Межкомнатная дверь' },
     { title: 'Сол 2 ПГ', url: 'product-sol-2-pg.html', desc: 'Межкомнатная дверь' }
   ];
+
+  var CALL_MODAL_HTML = [
+    '<div class="call-modal" id="call-modal" role="dialog" aria-modal="true" aria-labelledby="call-modal-title" aria-hidden="true">',
+    '  <div class="call-modal__backdrop"></div>',
+    '  <div class="call-modal__panel">',
+    '    <button type="button" class="call-modal__close" id="call-modal-close" aria-label="Закрыть">',
+    '      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">',
+    '        <line x1="2" y1="2" x2="18" y2="18" stroke="currentColor" stroke-width="2"/>',
+    '        <line x1="18" y1="2" x2="2" y2="18" stroke="currentColor" stroke-width="2"/>',
+    '      </svg>',
+    '    </button>',
+    '    <div class="call-modal__icon" aria-hidden="true">',
+    '      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">',
+    '        <path d="M8 6C8 6 6 6 6 8C6 10 6 15 10 19C14 23 19 24 21 24C23 24 24 22.5 24.5 21.5C25 20.5 24.5 18 23.5 17.5L21 16.5C20 16 18.5 16.5 18 17C17.5 17.5 16.5 19 16.5 19C16.5 19 14 18 12 16C10 14 9 11.5 9 11.5C9 11.5 10.5 10.5 11 10C11.5 9.5 12 8 11.5 7L10.5 4.5C10 3.5 8.5 3 8 3" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>',
+    '      </svg>',
+    '    </div>',
+    '    <h2 class="call-modal__title" id="call-modal-title">Заказать звонок</h2>',
+    '    <p class="call-modal__subtitle">Оставьте свои данные, и мы перезвоним вам в течение 30 минут</p>',
+    '    <form class="call-modal__form" id="call-modal-form" novalidate>',
+    '      <div class="call-modal__field">',
+    '        <label class="call-modal__label" for="call-name">Ваше имя</label>',
+    '        <input class="call-modal__input" type="text" id="call-name" name="name" autocomplete="name" placeholder="Иван Иванов" required>',
+    '      </div>',
+    '      <div class="call-modal__field">',
+    '        <label class="call-modal__label" for="call-phone">Номер телефона</label>',
+    '        <input class="call-modal__input call-modal__input_phone" type="tel" id="call-phone" name="phone" autocomplete="tel" placeholder="+7 (___) ___-__-__" required>',
+    '      </div>',
+    '      <div class="call-modal__error" aria-live="polite"></div>',
+    '      <button type="submit" class="call-modal__submit">Перезвоните мне</button>',
+    '    </form>',
+    '    <div class="call-modal__success" id="call-modal-success" hidden>',
+    '      <div class="call-modal__success-icon" aria-hidden="true">&#10003;</div>',
+    '      <p class="call-modal__success-text">Заявка принята! Мы перезвоним вам в течение 30 минут.</p>',
+    '    </div>',
+    '  </div>',
+    '</div>'
+  ].join('\n');
 
   var FOOTER_HTML = [
     '<footer class="footer">',
@@ -237,6 +275,100 @@
     });
   }
 
+  function formatPhone(raw) {
+    var digits = raw.replace(/\D/g, '');
+    if (digits.startsWith('8')) digits = '7' + digits.slice(1);
+    if (!digits.startsWith('7')) digits = '7' + digits;
+    digits = digits.slice(0, 11);
+    var result = '+7';
+    if (digits.length > 1) result += ' (' + digits.slice(1, 4);
+    if (digits.length >= 4) result += ')';
+    if (digits.length > 4) result += ' ' + digits.slice(4, 7);
+    if (digits.length > 7) result += '-' + digits.slice(7, 9);
+    if (digits.length > 9) result += '-' + digits.slice(9, 11);
+    return result;
+  }
+
+  function initCallModal() {
+    document.body.insertAdjacentHTML('beforeend', CALL_MODAL_HTML);
+    var modal    = document.getElementById('call-modal');
+    var closeBtn = document.getElementById('call-modal-close');
+    var openBtn  = document.getElementById('header-callback-btn');
+    var form     = document.getElementById('call-modal-form');
+    var phoneInput = document.getElementById('call-phone');
+    var successEl  = document.getElementById('call-modal-success');
+
+    function openCallModal() {
+      if (successEl) successEl.hidden = true;
+      if (form) form.hidden = false;
+      var errEl = modal.querySelector('.call-modal__error');
+      if (errEl) errEl.textContent = '';
+      modal.setAttribute('aria-hidden', 'false');
+      document.documentElement.style.overflow = 'hidden';
+      setTimeout(function() {
+        var nameInput = document.getElementById('call-name');
+        if (nameInput) nameInput.focus();
+      }, 50);
+    }
+
+    function closeCallModal() {
+      modal.setAttribute('aria-hidden', 'true');
+      document.documentElement.style.overflow = '';
+    }
+
+    if (openBtn) openBtn.addEventListener('click', openCallModal);
+    if (closeBtn) closeBtn.addEventListener('click', closeCallModal);
+    var backdrop = modal.querySelector('.call-modal__backdrop');
+    if (backdrop) backdrop.addEventListener('click', closeCallModal);
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') closeCallModal();
+    });
+
+    if (phoneInput) {
+      phoneInput.addEventListener('input', function() {
+        var pos = phoneInput.selectionStart;
+        var prev = phoneInput.value;
+        var formatted = formatPhone(phoneInput.value);
+        phoneInput.value = formatted;
+        // restore cursor approximately
+        if (formatted.length > prev.length) phoneInput.selectionStart = phoneInput.selectionEnd = formatted.length;
+        else phoneInput.selectionStart = phoneInput.selectionEnd = Math.min(pos, formatted.length);
+      });
+      phoneInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Backspace') {
+          var val = phoneInput.value;
+          // Remove trailing non-digit
+          var pos = phoneInput.selectionStart;
+          if (pos > 0 && !/\d/.test(val[pos-1])) {
+            e.preventDefault();
+            phoneInput.value = val.slice(0, pos-1) + val.slice(pos);
+            phoneInput.selectionStart = phoneInput.selectionEnd = pos-1;
+          }
+        }
+      });
+      phoneInput.addEventListener('focus', function() {
+        if (!phoneInput.value) phoneInput.value = '+7 (';
+      });
+    }
+
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var nameVal  = (document.getElementById('call-name') || {}).value || '';
+        var phoneVal = phoneInput ? phoneInput.value : '';
+        var errEl    = modal.querySelector('.call-modal__error');
+        if (!nameVal.trim()) { if (errEl) errEl.textContent = 'Введите имя'; return; }
+        var digits = phoneVal.replace(/\D/g, '');
+        if (digits.length < 11) { if (errEl) errEl.textContent = 'Введите корректный номер телефона'; return; }
+        if (errEl) errEl.textContent = '';
+        if (form) form.hidden = true;
+        if (successEl) successEl.hidden = false;
+        setTimeout(closeCallModal, 3000);
+      });
+    }
+  }
+
   function insertHeader() {
     document.body.insertAdjacentHTML('afterbegin', HEADER_HTML);
     if (window.DvAuth) {
@@ -244,6 +376,7 @@
       DvAuth.initAuthModal();
     }
     initSearch();
+    initCallModal();
     document.dispatchEvent(new CustomEvent('headerReady'));
   }
 
