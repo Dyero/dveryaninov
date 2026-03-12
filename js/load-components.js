@@ -38,7 +38,7 @@
     '      <button type="button" class="header__icon-btn header__profile-btn" aria-label="Профиль">',
     '        <img src="images/icon-user.svg" alt="" width="24" height="24">',
     '      </button>',
-    '      <button type="button" class="header__icon-btn" aria-label="Поиск">',
+    '      <button type="button" id="header-search-btn" class="header__icon-btn header__search-btn" aria-label="Поиск">',
     '        <img src="images/icon-search.svg" alt="" width="24" height="24">',
     '      </button>',
     '    </div>',
@@ -96,6 +96,31 @@
     '</div>'
   ].join('\n');
 
+  var SEARCH_OVERLAY_HTML = [
+    '<div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-label="Поиск" aria-hidden="true">',
+    '  <div class="search-overlay__backdrop"></div>',
+    '  <div class="search-overlay__panel">',
+    '    <div class="search-overlay__field">',
+    '      <input class="search-overlay__input" type="search" id="search-input" placeholder="Поиск по моделям дверей..." autocomplete="off" aria-label="Введите запрос">',
+    '      <button type="button" class="search-overlay__close" id="search-close" aria-label="Закрыть поиск">',
+    '        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">',
+    '          <line x1="2" y1="2" x2="18" y2="18" stroke="currentColor" stroke-width="2"/>',
+    '          <line x1="18" y1="2" x2="2" y2="18" stroke="currentColor" stroke-width="2"/>',
+    '        </svg>',
+    '      </button>',
+    '    </div>',
+    '    <ul class="search-overlay__results" id="search-results" role="listbox" aria-label="Результаты поиска"></ul>',
+    '  </div>',
+    '</div>'
+  ].join('\n');
+
+  var SEARCH_PRODUCTS = [
+    { title: 'Флай 8 ПГ', url: 'product-fly-8-pg.html', desc: 'Межкомнатная дверь' },
+    { title: 'Ультра 5 ПГ', url: 'product-ultra-5-pg.html', desc: 'Межкомнатная дверь' },
+    { title: 'Мета 1 ПГ Престиж', url: 'product-meta-1-pg.html', desc: 'Межкомнатная дверь' },
+    { title: 'Сол 2 ПГ', url: 'product-sol-2-pg.html', desc: 'Межкомнатная дверь' }
+  ];
+
   var FOOTER_HTML = [
     '<footer class="footer">',
     '  <div class="footer__top">',
@@ -150,12 +175,75 @@
     '</footer>'
   ].join('\n');
 
+  function initSearch() {
+    document.body.insertAdjacentHTML('beforeend', SEARCH_OVERLAY_HTML);
+    var overlay  = document.getElementById('search-overlay');
+    var input    = document.getElementById('search-input');
+    var results  = document.getElementById('search-results');
+    var closeBtn = document.getElementById('search-close');
+    var openBtn  = document.getElementById('header-search-btn');
+
+    function escHtml(s) {
+      return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+
+    function renderResults(query) {
+      var q = query.trim().toLowerCase();
+      if (!q) {
+        results.innerHTML = '';
+        results.hidden = true;
+        return;
+      }
+      var matches = SEARCH_PRODUCTS.filter(function(p) {
+        return p.title.toLowerCase().indexOf(q) !== -1 || p.desc.toLowerCase().indexOf(q) !== -1;
+      });
+      if (!matches.length) {
+        results.innerHTML = '<li class="search-overlay__no-results">Ничего не найдено</li>';
+        results.hidden = false;
+        return;
+      }
+      results.innerHTML = matches.map(function(p) {
+        return '<li class="search-overlay__item" role="option">' +
+          '<a class="search-overlay__link" href="' + escHtml(p.url) + '">' +
+            '<span class="search-overlay__item-title">' + escHtml(p.title) + '</span>' +
+            '<span class="search-overlay__item-desc">' + escHtml(p.desc) + '</span>' +
+          '</a>' +
+        '</li>';
+      }).join('');
+      results.hidden = false;
+    }
+
+    function openSearch() {
+      overlay.setAttribute('aria-hidden', 'false');
+      document.documentElement.style.overflow = 'hidden';
+      setTimeout(function() { input.focus(); }, 50);
+    }
+
+    function closeSearch() {
+      overlay.setAttribute('aria-hidden', 'true');
+      document.documentElement.style.overflow = '';
+      input.value = '';
+      results.innerHTML = '';
+      results.hidden = true;
+    }
+
+    if (openBtn) openBtn.addEventListener('click', openSearch);
+    if (closeBtn) closeBtn.addEventListener('click', closeSearch);
+    var backdrop = overlay.querySelector('.search-overlay__backdrop');
+    if (backdrop) backdrop.addEventListener('click', closeSearch);
+    input.addEventListener('input', function() { renderResults(input.value); });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && overlay.getAttribute('aria-hidden') === 'false') closeSearch();
+    });
+  }
+
   function insertHeader() {
     document.body.insertAdjacentHTML('afterbegin', HEADER_HTML);
     if (window.DvAuth) {
       DvAuth.updateHeaderUI();
       DvAuth.initAuthModal();
     }
+    initSearch();
     document.dispatchEvent(new CustomEvent('headerReady'));
   }
 

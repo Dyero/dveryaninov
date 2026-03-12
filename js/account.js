@@ -103,9 +103,112 @@
     });
   }
 
+  function initPanelSwitching() {
+    var navLinks = document.querySelectorAll('.account-nav__link[data-panel]');
+    var heading  = document.getElementById('account-page-heading');
+    var panels   = {
+      orders:  document.getElementById('panel-orders'),
+      profile: document.getElementById('panel-profile')
+    };
+    var titles = { orders: 'История заказов', profile: 'Личные данные' };
+
+    navLinks.forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        var target = link.getAttribute('data-panel');
+        // update nav active state
+        navLinks.forEach(function(l) {
+          var item = l.closest('.account-nav__item');
+          item.classList.toggle('account-nav__item_active', l === link);
+          l.removeAttribute('aria-current');
+        });
+        link.setAttribute('aria-current', 'page');
+        // show/hide panels
+        Object.keys(panels).forEach(function(key) {
+          if (panels[key]) panels[key].hidden = key !== target;
+        });
+        // update heading
+        if (heading) heading.textContent = titles[target] || '';
+        // populate profile form when switching to it
+        if (target === 'profile') populateProfileForm();
+      });
+    });
+  }
+
+  function populateProfileForm() {
+    var user = window.DvAuth ? DvAuth.getCurrentUser() : null;
+    if (!user) return;
+    var nameInput   = document.getElementById('pf-name');
+    var emailInput  = document.getElementById('pf-email');
+    if (nameInput)  nameInput.value  = user.name  || '';
+    if (emailInput) emailInput.value = user.email || '';
+    // clear password fields and messages
+    ['pf-pass-current','pf-pass-new','pf-pass-confirm'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) el.value = '';
+    });
+    var errEl = document.querySelector('.account-profile-form__error');
+    var okEl  = document.querySelector('.account-profile-form__success');
+    if (errEl) errEl.textContent = '';
+    if (okEl)  okEl.textContent  = '';
+  }
+
+  function initProfileForm() {
+    var form = document.getElementById('profile-form');
+    if (!form) return;
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var errEl       = form.querySelector('.account-profile-form__error');
+      var okEl        = form.querySelector('.account-profile-form__success');
+      var newName     = form.querySelector('#pf-name')         ? form.querySelector('#pf-name').value.trim()         : '';
+      var newEmail    = form.querySelector('#pf-email')        ? form.querySelector('#pf-email').value.trim()        : '';
+      var curPass     = form.querySelector('#pf-pass-current') ? form.querySelector('#pf-pass-current').value        : '';
+      var newPass     = form.querySelector('#pf-pass-new')     ? form.querySelector('#pf-pass-new').value            : '';
+      var confPass    = form.querySelector('#pf-pass-confirm') ? form.querySelector('#pf-pass-confirm').value        : '';
+
+      if (errEl) errEl.textContent = '';
+      if (okEl)  okEl.textContent  = '';
+
+      if (!newName) { if (errEl) errEl.textContent = 'Имя не может быть пустым'; return; }
+      if (!newEmail) { if (errEl) errEl.textContent = 'Email не может быть пустым'; return; }
+
+      if (newPass || confPass || curPass) {
+        if (!curPass) { if (errEl) errEl.textContent = 'Введите текущий пароль'; return; }
+        if (!newPass) { if (errEl) errEl.textContent = 'Введите новый пароль'; return; }
+        if (newPass !== confPass) { if (errEl) errEl.textContent = 'Пароли не совпадают'; return; }
+        if (newPass.length < 6)  { if (errEl) errEl.textContent = 'Пароль должен содержать минимум 6 символов'; return; }
+      }
+
+      var auth = window.DvAuth;
+      if (!auth) return;
+      var res = auth.updateProfile(newName, newEmail, newPass || null, curPass || null);
+      if (!res.ok) { if (errEl) errEl.textContent = res.error; return; }
+
+      // update greeting
+      var nameEl  = document.querySelector('.account-user-greeting__name');
+      var emailEl = document.querySelector('.account-user-greeting__email');
+      if (nameEl)  nameEl.textContent  = res.user.name;
+      if (emailEl) emailEl.textContent = res.user.email;
+
+      // update header profile link
+      var profileLink = document.querySelector('.header__profile-link .header__user-name');
+      if (profileLink) profileLink.textContent = res.user.name;
+
+      // clear password fields
+      ['pf-pass-current','pf-pass-new','pf-pass-confirm'].forEach(function(id) {
+        var el = document.getElementById(id);
+        if (el) el.value = '';
+      });
+
+      if (okEl) okEl.textContent = 'Данные обновлены';
+    });
+  }
+
   function showAccountPage() {
     renderOrders();
     initLogout();
+    initPanelSwitching();
+    initProfileForm();
   }
 
   function requireAuth(auth) {

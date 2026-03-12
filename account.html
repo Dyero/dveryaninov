@@ -18,7 +18,7 @@
       <span class="breadcrumbs__current">История заказов</span>
     </nav>
 
-    <h1 class="account-page__title">История заказов</h1>
+    <h1 class="account-page__title" id="account-page-heading">История заказов</h1>
 
     <div class="account-layout">
       <!-- Боковое меню -->
@@ -28,9 +28,12 @@
           <p class="account-user-greeting__email">—</p>
         </div>
         <nav class="account-nav">
-          <div class="account-nav__item account-nav__item_active">
-            <a class="account-nav__link" href="account.html" aria-current="page">История заказов</a>
+          <div class="account-nav__item account-nav__item_active" data-nav="orders">
+            <a class="account-nav__link" href="#" data-panel="orders" aria-current="page">История заказов</a>
             <span class="account-nav__marker"></span>
+          </div>
+          <div class="account-nav__item" data-nav="profile">
+            <a class="account-nav__link" href="#" data-panel="profile">Данные</a>
           </div>
           <div class="account-nav__item">
             <a class="account-nav__link" href="#">Избранное</a>
@@ -46,8 +49,41 @@
       </aside>
 
       <!-- Содержимое — динамический список заказов -->
-      <section class="account-orders" aria-label="Список заказов">
+      <section class="account-orders" id="panel-orders" aria-label="Список заказов">
         <!-- Заполняется через account.js -->
+      </section>
+
+      <!-- Вкладка: Личные данные -->
+      <section class="account-profile-panel" id="panel-profile" aria-label="Личные данные" hidden>
+        <h2 class="account-profile-panel__title">Личные данные</h2>
+        <form class="account-profile-form" id="profile-form" novalidate>
+          <div class="account-profile-form__group">
+            <label class="account-profile-form__label" for="pf-name">Имя</label>
+            <input class="account-profile-form__input" type="text" id="pf-name" name="name" autocomplete="name" required>
+          </div>
+          <div class="account-profile-form__group">
+            <label class="account-profile-form__label" for="pf-email">Email</label>
+            <input class="account-profile-form__input" type="email" id="pf-email" name="email" autocomplete="email" required>
+          </div>
+          <div class="account-profile-form__divider">
+            <span class="account-profile-form__divider-label">Смена пароля</span>
+          </div>
+          <div class="account-profile-form__group">
+            <label class="account-profile-form__label" for="pf-pass-current">Текущий пароль</label>
+            <input class="account-profile-form__input" type="password" id="pf-pass-current" name="current-password" autocomplete="current-password">
+          </div>
+          <div class="account-profile-form__group">
+            <label class="account-profile-form__label" for="pf-pass-new">Новый пароль</label>
+            <input class="account-profile-form__input" type="password" id="pf-pass-new" name="new-password" autocomplete="new-password">
+          </div>
+          <div class="account-profile-form__group">
+            <label class="account-profile-form__label" for="pf-pass-confirm">Повторите новый пароль</label>
+            <input class="account-profile-form__input" type="password" id="pf-pass-confirm" name="confirm-password" autocomplete="new-password">
+          </div>
+          <div class="account-profile-form__error" aria-live="polite"></div>
+          <div class="account-profile-form__success" aria-live="polite"></div>
+          <button type="submit" class="account-profile-form__btn">Сохранить изменения</button>
+        </form>
       </section>
     </div>
   </main>

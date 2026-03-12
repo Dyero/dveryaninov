@@ -1007,7 +1007,7 @@ a {
 .product__main-image img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   display: block;
 }
 
@@ -2236,6 +2236,7 @@ a {
   gap: 8px;
   padding: 12px 0 0;
 }
+.config-detail-options[hidden] { display: none !important; }
 
 /* Config items (т?вар?ые о?зиции) */
 .config-items {
@@ -4257,6 +4258,100 @@ a {
   gap: clamp(16px, 2.5vw, 24px);
 }
 
+/* Account profile panel */
+.account-profile-panel {
+  background: var(--color-white);
+  padding: clamp(24px, 3vw, 40px);
+}
+
+.account-profile-panel__title {
+  margin: 0 0 clamp(20px, 3vw, 32px);
+  font-family: var(--font-heading);
+  font-weight: 550;
+  font-size: clamp(18px, 2.5vw, 24px);
+}
+
+.account-profile-form {
+  display: grid;
+  gap: 16px;
+  max-width: 420px;
+}
+
+.account-profile-form__group {
+  display: grid;
+  gap: 6px;
+}
+
+.account-profile-form__label {
+  font-size: 13px;
+  color: var(--color-text-light);
+  font-weight: 500;
+}
+
+.account-profile-form__input {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 15px;
+  font-family: var(--font-main);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-header);
+  color: var(--color-text);
+  outline: none;
+  transition: border-color 0.15s;
+  box-sizing: border-box;
+}
+
+.account-profile-form__input:focus {
+  border-color: var(--color-primary);
+}
+
+.account-profile-form__divider {
+  position: relative;
+  padding: 8px 0 0;
+  border-top: 1px solid var(--color-border);
+  margin-top: 4px;
+}
+
+.account-profile-form__divider-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.account-profile-form__error {
+  font-size: 13px;
+  color: #c0392b;
+  min-height: 18px;
+}
+
+.account-profile-form__success {
+  font-size: 13px;
+  color: #27ae60;
+  min-height: 18px;
+}
+
+.account-profile-form__btn {
+  display: inline-block;
+  padding: 12px 28px;
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-size: 14px;
+  font-family: var(--font-main);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.15s;
+  margin-top: 4px;
+}
+
+.account-profile-form__btn:hover {
+  opacity: 0.88;
+}
+
 .account-empty {
   padding: clamp(40px, 6vw, 64px) 0;
   text-align: center;
@@ -4427,12 +4522,135 @@ a.order-item__title:hover {
 }
 
 .header__profile-link {
+  width: auto !important;
+  max-width: 160px;
+  height: auto !important;
+  padding: 2px 6px;
   text-decoration: none;
   color: var(--color-text);
 }
 
 .header__profile-link:hover {
   color: var(--color-primary);
+}
+
+/* ==========================================
+   SEARCH OVERLAY
+   ========================================== */
+
+.search-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: clamp(60px, 10vh, 120px);
+}
+
+.search-overlay[aria-hidden="true"] {
+  display: none;
+}
+
+.search-overlay__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.search-overlay__panel {
+  position: relative;
+  z-index: 1;
+  width: min(640px, calc(100vw - 32px));
+  background: var(--color-white);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.18);
+}
+
+.search-overlay__field {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.search-overlay__input {
+  flex: 1;
+  padding: 16px 20px;
+  font-size: 16px;
+  font-family: var(--font-main);
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--color-text);
+}
+
+.search-overlay__input::placeholder {
+  color: var(--color-text-light);
+}
+
+.search-overlay__close {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-light);
+}
+
+.search-overlay__close:hover {
+  color: var(--color-primary);
+}
+
+.search-overlay__results {
+  list-style: none;
+  margin: 0;
+  padding: 8px 0;
+}
+
+.search-overlay__results[hidden] {
+  display: none;
+}
+
+.search-overlay__item {
+  border-bottom: 1px solid var(--color-bg-header);
+}
+
+.search-overlay__item:last-child {
+  border-bottom: none;
+}
+
+.search-overlay__link {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 14px 20px;
+  text-decoration: none;
+  color: var(--color-text);
+  transition: background 0.15s;
+}
+
+.search-overlay__link:hover {
+  background: var(--color-bg-header);
+}
+
+.search-overlay__item-title {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.search-overlay__item-desc {
+  font-size: 13px;
+  color: var(--color-text-light);
+}
+
+.search-overlay__no-results {
+  padding: 16px 20px;
+  font-size: 14px;
+  color: var(--color-text-light);
+  text-align: center;
 }
 
 /* ==========================================

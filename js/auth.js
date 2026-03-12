@@ -97,6 +97,37 @@
     return getAllOrders().filter(function (o) { return o.userId === user.id; });
   }
 
+  function updateProfile(newName, newEmail, newPassword, currentPassword) {
+    var sess  = getSession();
+    if (!sess) return { ok: false, error: 'Не авторизован' };
+    var users = getUsers();
+    var idx   = -1;
+    for (var i = 0; i < users.length; i++) {
+      if (users[i].id === sess.id) { idx = i; break; }
+    }
+    if (idx === -1) return { ok: false, error: 'Пользователь не найден' };
+    var user = users[idx];
+    if (newPassword) {
+      if (!currentPassword || user.password !== currentPassword) {
+        return { ok: false, error: 'Неверный текущий пароль' };
+      }
+      user.password = newPassword;
+    }
+    if (newEmail && newEmail !== user.email) {
+      var taken = users.some(function(u, j) {
+        return j !== idx && u.email.toLowerCase() === newEmail.toLowerCase();
+      });
+      if (taken) return { ok: false, error: 'Email уже используется' };
+      user.email = newEmail;
+    }
+    if (newName) user.name = newName;
+    users[idx] = user;
+    setUsers(users);
+    var newSess = { id: user.id, name: user.name, email: user.email };
+    store(SESSION_KEY, newSess);
+    return { ok: true, user: newSess };
+  }
+
   /* ---- HTML escape ---- */
   function esc(str) {
     return String(str)
@@ -239,6 +270,7 @@
     logout:         logout,
     saveOrder:      saveOrder,
     getUserOrders:  getUserOrders,
+    updateProfile:  updateProfile,
     openAuthModal:  openAuthModal,
     closeAuthModal: closeAuthModal,
     updateHeaderUI: updateHeaderUI,
