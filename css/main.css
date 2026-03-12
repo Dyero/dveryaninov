@@ -4399,6 +4399,8 @@ a {
   display: grid;
   gap: clamp(16px, 2.5vw, 24px);
 }
+.account-orders[hidden],
+.account-profile-panel[hidden] { display: none !important; }
 
 /* Account profile panel */
 .account-profile-panel {
@@ -5401,4 +5403,116 @@ a.order-item__title:hover {
     text-align: center;
     padding: 14px 10px;
   }
+}
+
+/* ===== Request modals (Нужен замер / Нужна консультация) ===== */
+.req-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+.req-modal[aria-hidden="true"] { display: none; }
+.req-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+.req-modal__panel {
+  position: relative;
+  z-index: 1;
+  width: min(440px, 100%);
+  background: var(--color-white);
+  padding: clamp(28px, 4vw, 48px) clamp(24px, 4vw, 44px);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.18);
+}
+.req-modal__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-light);
+  font-size: 16px;
+  transition: color 0.15s;
+}
+.req-modal__close:hover { color: var(--color-primary); }
+.req-modal__title {
+  margin: 0 0 8px;
+  font-family: var(--font-heading);
+  font-weight: 550;
+  font-size: clamp(20px, 3vw, 26px);
+}
+.req-modal__subtitle {
+  margin: 0 0 24px;
+  font-size: 14px;
+  color: var(--color-text-light);
+  line-height: 1.5;
+}
+.req-modal__form {
+  display: grid;
+  gap: 14px;
+}
+.req-modal__field { display: grid; gap: 6px; }
+.req-modal__label {
+  font-size: 13px;
+  color: var(--color-text-light);
+  font-weight: 500;
+}
+.req-modal__input {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 15px;
+  font-family: var(--font-main);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-header);
+  color: var(--color-text);
+  outline: none;
+  transition: border-color 0.15s;
+  box-sizing: border-box;
+}
+.req-modal__input:focus { border-color: var(--color-primary); }
+.req-modal__error {
+  font-size: 13px;
+  color: #c0392b;
+  min-height: 16px;
+}
+.req-modal__submit {
+  width: 100%;
+  padding: 14px;
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-size: 14px;
+  font-family: var(--font-main);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.15s;
+  margin-top: 4px;
+}
+.req-modal__submit:hover { opacity: 0.88; }
+.req-modal__success {
+  padding: 16px 0 8px;
+  text-align: center;
+}
+.req-modal__success-icon {
+  font-size: 40px;
+  color: #27ae60;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+.req-modal__success-text {
+  font-size: 15px;
+  color: var(--color-text);
 }

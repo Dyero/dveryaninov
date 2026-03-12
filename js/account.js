@@ -140,8 +140,10 @@
     if (!user) return;
     var nameInput   = document.getElementById('pf-name');
     var emailInput  = document.getElementById('pf-email');
+    var phoneInput  = document.getElementById('pf-phone');
     if (nameInput)  nameInput.value  = user.name  || '';
     if (emailInput) emailInput.value = user.email || '';
+    if (phoneInput) phoneInput.value = user.phone || '';
     // clear password fields and messages
     ['pf-pass-current','pf-pass-new','pf-pass-confirm'].forEach(function(id) {
       var el = document.getElementById(id);
@@ -162,6 +164,7 @@
       var okEl        = form.querySelector('.account-profile-form__success');
       var newName     = form.querySelector('#pf-name')         ? form.querySelector('#pf-name').value.trim()         : '';
       var newEmail    = form.querySelector('#pf-email')        ? form.querySelector('#pf-email').value.trim()        : '';
+      var newPhone    = form.querySelector('#pf-phone')        ? form.querySelector('#pf-phone').value.trim()        : '';
       var curPass     = form.querySelector('#pf-pass-current') ? form.querySelector('#pf-pass-current').value        : '';
       var newPass     = form.querySelector('#pf-pass-new')     ? form.querySelector('#pf-pass-new').value            : '';
       var confPass    = form.querySelector('#pf-pass-confirm') ? form.querySelector('#pf-pass-confirm').value        : '';
@@ -181,7 +184,7 @@
 
       var auth = window.DvAuth;
       if (!auth) return;
-      var res = auth.updateProfile(newName, newEmail, newPass || null, curPass || null);
+      var res = auth.updateProfile(newName, newEmail, newPhone, newPass || null, curPass || null);
       if (!res.ok) { if (errEl) errEl.textContent = res.error; return; }
 
       // update greeting

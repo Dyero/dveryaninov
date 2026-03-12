@@ -44,7 +44,7 @@
       }
     }
     if (!user) return { ok: false, error: 'Неверный логин или пароль' };
-    var sess = { id: user.id, name: user.name, email: user.email };
+    var sess = { id: user.id, name: user.name, email: user.email, phone: user.phone || '' };
     store(SESSION_KEY, sess);
     return { ok: true, user: sess };
   }
@@ -97,7 +97,7 @@
     return getAllOrders().filter(function (o) { return o.userId === user.id; });
   }
 
-  function updateProfile(newName, newEmail, newPassword, currentPassword) {
+  function updateProfile(newName, newEmail, newPhone, newPassword, currentPassword) {
     var sess  = getSession();
     if (!sess) return { ok: false, error: 'Не авторизован' };
     var users = getUsers();
@@ -121,9 +121,10 @@
       user.email = newEmail;
     }
     if (newName) user.name = newName;
+    if (newPhone !== undefined) user.phone = newPhone;
     users[idx] = user;
     setUsers(users);
-    var newSess = { id: user.id, name: user.name, email: user.email };
+    var newSess = { id: user.id, name: user.name, email: user.email, phone: user.phone || '' };
     store(SESSION_KEY, newSess);
     return { ok: true, user: newSess };
   }

@@ -371,6 +371,18 @@
         return;
       }
 
+      const openStepEl = target.closest("[data-open-config-step]");
+      if (openStepEl) {
+        const step = openStepEl.getAttribute("data-open-config-step");
+        syncStateFromPage();
+        openModal(modal);
+        initModalSelection();
+        addPriceBadges();
+        updateConfigTotal();
+        setStep(step);
+        return;
+      }
+
       if (target.closest("[data-close-config]")) {
         closeModal(modal);
         return;
@@ -1053,6 +1065,186 @@
     renderWishlist();
   }
 
+  function initRequestModals() {
+    // ---- HTML templates ----
+    const MEASURE_MODAL_HTML = `
+<div class="req-modal" id="measure-modal" role="dialog" aria-modal="true" aria-labelledby="measure-modal-title" aria-hidden="true">
+  <div class="req-modal__backdrop"></div>
+  <div class="req-modal__panel">
+    <button type="button" class="req-modal__close" id="measure-modal-close" aria-label="Закрыть">&#10005;</button>
+    <h2 class="req-modal__title" id="measure-modal-title">Нужен замер</h2>
+    <p class="req-modal__subtitle">Оставьте данные — наш специалист свяжется с вами для согласования времени</p>
+    <form class="req-modal__form" id="measure-modal-form" novalidate>
+      <div class="req-modal__field">
+        <label class="req-modal__label" for="measure-name">Ваше имя</label>
+        <input class="req-modal__input" type="text" id="measure-name" name="name" autocomplete="name" placeholder="Иван Иванов" required>
+      </div>
+      <div class="req-modal__field">
+        <label class="req-modal__label" for="measure-phone">Номер телефона</label>
+        <input class="req-modal__input req-modal__input_phone" type="tel" id="measure-phone" name="phone" autocomplete="tel" placeholder="+7 (___) ___-__-__" required>
+      </div>
+      <div class="req-modal__error" aria-live="polite"></div>
+      <button type="submit" class="req-modal__submit">Заказать замер</button>
+    </form>
+    <div class="req-modal__success" id="measure-modal-success" hidden>
+      <div class="req-modal__success-icon" aria-hidden="true">&#10003;</div>
+      <p class="req-modal__success-text">Заявка принята! Мы свяжемся с вами в ближайшее время.</p>
+    </div>
+  </div>
+</div>`;
+
+    const CONSULT_MODAL_HTML = `
+<div class="req-modal" id="consult-modal" role="dialog" aria-modal="true" aria-labelledby="consult-modal-title" aria-hidden="true">
+  <div class="req-modal__backdrop"></div>
+  <div class="req-modal__panel">
+    <button type="button" class="req-modal__close" id="consult-modal-close" aria-label="Закрыть">&#10005;</button>
+    <h2 class="req-modal__title" id="consult-modal-title">Нужна консультация</h2>
+    <p class="req-modal__subtitle">Оставьте данные — наш специалист ответит на все вопросы</p>
+    <form class="req-modal__form" id="consult-modal-form" novalidate>
+      <div class="req-modal__field">
+        <label class="req-modal__label" for="consult-name">Ваше имя</label>
+        <input class="req-modal__input" type="text" id="consult-name" name="name" autocomplete="name" placeholder="Иван Иванов" required>
+      </div>
+      <div class="req-modal__field">
+        <label class="req-modal__label" for="consult-phone">Номер телефона</label>
+        <input class="req-modal__input req-modal__input_phone" type="tel" id="consult-phone" name="phone" autocomplete="tel" placeholder="+7 (___) ___-__-__" required>
+      </div>
+      <div class="req-modal__error" aria-live="polite"></div>
+      <button type="submit" class="req-modal__submit">Получить консультацию</button>
+    </form>
+    <div class="req-modal__success" id="consult-modal-success" hidden>
+      <div class="req-modal__success-icon" aria-hidden="true">&#10003;</div>
+      <p class="req-modal__success-text">Заявка принята! Специалист свяжется с вами.</p>
+    </div>
+  </div>
+</div>`;
+
+    document.body.insertAdjacentHTML("beforeend", MEASURE_MODAL_HTML);
+    document.body.insertAdjacentHTML("beforeend", CONSULT_MODAL_HTML);
+
+    function formatReqPhone(raw) {
+      const digits = raw.replace(/\D/g, "").replace(/^8/, "7").replace(/^7?/, "7");
+      let r = "+7";
+      if (digits.length > 1) r += " (" + digits.slice(1, 4);
+      if (digits.length >= 4) r += ") " + digits.slice(4, 7);
+      if (digits.length >= 7) r += "-" + digits.slice(7, 9);
+      if (digits.length >= 9) r += "-" + digits.slice(9, 11);
+      return r;
+    }
+
+    function prefillFromAuth(nameId, phoneId) {
+      const user = window.DvAuth ? DvAuth.getCurrentUser() : null;
+      if (!user) return;
+      const nameEl = document.getElementById(nameId);
+      const phoneEl = document.getElementById(phoneId);
+      if (nameEl && user.name) nameEl.value = user.name;
+      if (phoneEl && user.phone) phoneEl.value = user.phone;
+    }
+
+    function setupPhoneInput(phoneInput) {
+      if (!phoneInput) return;
+      phoneInput.addEventListener("input", function () {
+        const pos = phoneInput.selectionStart;
+        const prev = phoneInput.value;
+        const formatted = formatReqPhone(phoneInput.value);
+        phoneInput.value = formatted;
+        if (formatted.length > prev.length) phoneInput.selectionStart = phoneInput.selectionEnd = formatted.length;
+        else phoneInput.selectionStart = phoneInput.selectionEnd = Math.min(pos, formatted.length);
+      });
+      phoneInput.addEventListener("keydown", function (e) {
+        if (e.key === "Backspace") {
+          const val = phoneInput.value;
+          const pos = phoneInput.selectionStart;
+          if (pos > 0 && !/\d/.test(val[pos - 1])) {
+            e.preventDefault();
+            phoneInput.value = val.slice(0, pos - 1) + val.slice(pos);
+            phoneInput.selectionStart = phoneInput.selectionEnd = pos - 1;
+          }
+        }
+      });
+      phoneInput.addEventListener("focus", function () {
+        if (!phoneInput.value) phoneInput.value = "+7 (";
+      });
+    }
+
+    function setupModal(modalId, closeId, formId, successId, nameId, phoneId) {
+      const modal = document.getElementById(modalId);
+      const closeBtn = document.getElementById(closeId);
+      const form = document.getElementById(formId);
+      const successEl = document.getElementById(successId);
+      const phoneInput = document.getElementById(phoneId);
+
+      function openModal() {
+        if (successEl) successEl.hidden = true;
+        if (form) form.hidden = false;
+        const errEl = modal.querySelector(".req-modal__error");
+        if (errEl) errEl.textContent = "";
+        prefillFromAuth(nameId, phoneId);
+        modal.setAttribute("aria-hidden", "false");
+        document.documentElement.style.overflow = "hidden";
+        setTimeout(function () {
+          const nameEl = document.getElementById(nameId);
+          if (nameEl) nameEl.focus();
+        }, 50);
+      }
+
+      function closeReqModal() {
+        modal.setAttribute("aria-hidden", "true");
+        document.documentElement.style.overflow = "";
+      }
+
+      modal._openReqModal = openModal;
+
+      if (closeBtn) closeBtn.addEventListener("click", closeReqModal);
+      const backdrop = modal.querySelector(".req-modal__backdrop");
+      if (backdrop) backdrop.addEventListener("click", closeReqModal);
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && modal.getAttribute("aria-hidden") === "false") closeReqModal();
+      });
+
+      setupPhoneInput(phoneInput);
+
+      if (form) {
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          const nameVal = (document.getElementById(nameId) || {}).value || "";
+          const phoneVal = phoneInput ? phoneInput.value : "";
+          const errEl = modal.querySelector(".req-modal__error");
+          if (!nameVal.trim()) { if (errEl) errEl.textContent = "Введите имя"; return; }
+          const digits = phoneVal.replace(/\D/g, "");
+          if (digits.length < 11) { if (errEl) errEl.textContent = "Введите корректный номер телефона"; return; }
+          if (errEl) errEl.textContent = "";
+          if (form) form.hidden = true;
+          if (successEl) successEl.hidden = false;
+          setTimeout(closeReqModal, 3000);
+        });
+      }
+    }
+
+    setupModal("measure-modal", "measure-modal-close", "measure-modal-form", "measure-modal-success", "measure-name", "measure-phone");
+    setupModal("consult-modal", "consult-modal-close", "consult-modal-form", "consult-modal-success", "consult-name", "consult-phone");
+
+    // Bind triggers: [data-open-measure] and .product__size_measure
+    document.addEventListener("click", function (e) {
+      const measureTrigger = e.target.closest("[data-open-measure], .product__size_measure");
+      if (measureTrigger) {
+        const modal = document.getElementById("measure-modal");
+        if (modal && modal._openReqModal) modal._openReqModal();
+        return;
+      }
+      const consultTrigger = e.target.closest("[data-open-consult], .product__option-link[href='#']");
+      if (consultTrigger) {
+        const modal = document.getElementById("consult-modal");
+        if (modal && modal._openReqModal) {
+          e.preventDefault();
+          modal._openReqModal();
+        }
+        return;
+      }
+    });
+  }
+
   initProductSelections();
   initConfigurator();
   initCartPage();
@@ -1061,5 +1253,6 @@
   initWishlistBtn();
   initCardWishlist();
   initWishlistPage();
+  initRequestModals();
 })();
 
