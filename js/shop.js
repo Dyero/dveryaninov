@@ -784,7 +784,7 @@
       let total = 0;
       if (items.length === 0) {
         container.innerHTML =
-          "<p>Корзина пуста. <a href='catalog.html' style='color:#611025; text-decoration:underline;'>Перейти в каталог</a></p>";
+          "<p>Корзина пуста. <a href=\"catalog.html\" style=\"color:#611025; text-decoration:underline;\">Перейти в каталог</a></p>";
         const cSide = document.querySelector(".cart-summary");
         if (cSide) cSide.style.display = "none";
         return;
@@ -797,46 +797,91 @@
         const itemPrice = Number(item.priceSum || item.price || 0);
         total += itemPrice;
 
-        let propsHtml = "";
+        const doorOptions = [];
         if (item.options) {
-          propsHtml =
-            '<div style="margin-top: 16px; display: grid; gap: 8px; font-size: 13px; color: #555;">';
-          for (const [k, v] of Object.entries(item.options)) {
-            if (v && v !== "-") {
-              propsHtml += `<div><span style="color:#999">${labels[k] || k}:</span> ${v}</div>`;
-            }
-          }
-          if (item.accessories && item.accessories.length) {
-            item.accessories.forEach((acc) => {
-              propsHtml += `<div><span style="color:#999">${acc.title}:</span> ${acc.spec || ""} (${acc.price} ₽ x ${acc.qty})</div>`;
+            if (item.options.finish && item.options.finish !== "-") doorOptions.push("Цвет: " + item.options.finish);
+            if (item.options.glazing && item.options.glazing !== "-") doorOptions.push("Стекло: " + item.options.glazing);
+            if (item.options.size && item.options.size !== "-") doorOptions.push("Размер: " + item.options.size);
+            if (item.options.opening && item.options.opening !== "-") doorOptions.push("Открывание: " + item.options.opening);
+        }
+
+        let moldingHtml = "";
+        let hardwareHtml = "";
+        let moldingTotal = 0;
+        let hardwareTotal = 0;
+
+        if (item.accessories && item.accessories.length) {
+            const moldings = [];
+            const hardware = [];
+            
+            item.accessories.forEach(acc => {
+                if (["Коробка", "Наличник", "Доборы", "Порог", "Дополнительная высота"].includes(acc.title)) {
+                    moldings.push(acc.title + " – " + acc.spec);
+                    moldingTotal += (acc.price * acc.qty);
+                } else if (["Ручка", "Замок", "Петли", "Завертка", "Ограничитель"].includes(acc.title)) {
+                    hardware.push(acc.title + " – " + acc.spec);
+                    hardwareTotal += (acc.price * acc.qty);
+                } else {
+                    moldings.push(acc.title + " – " + acc.spec);
+                    moldingTotal += (acc.price * acc.qty);
+                }
             });
-          }
-          propsHtml += "</div>";
+
+            if (moldings.length > 0) {
+                moldingHtml = `
+                <div class="cart-item__sub-row" style="display:flex; justify-content:space-between; margin-bottom:8px;">
+                    <div class="cart-item__sub-info">
+                        <strong style="display:block; font-size:14px; margin-bottom:4px;">Погонаж</strong>
+                        <div class="cart-item__sub-desc" style="font-size:13px; color:#555;">${moldings.join(" | ")}</div>
+                    </div>
+                    <div class="cart-item__sub-price" style="font-size:16px; font-weight:bold;">${new Intl.NumberFormat("ru-RU").format(moldingTotal)} ₽</div>
+                </div>`;
+            }
+
+            if (hardware.length > 0) {
+                hardwareHtml = `
+                <div class="cart-item__sub-row" style="display:flex; justify-content:space-between; margin-bottom:8px;">
+                    <div class="cart-item__sub-info">
+                        <strong style="display:block; font-size:14px; margin-bottom:4px;">Фурнитура</strong>
+                        <div class="cart-item__sub-desc" style="font-size:13px; color:#555;">${hardware.join(" | ")}</div>
+                    </div>
+                    <div class="cart-item__sub-price" style="font-size:16px; font-weight:bold;">${new Intl.NumberFormat("ru-RU").format(hardwareTotal)} ₽</div>
+                </div>`;
+            }
         }
 
         const div = document.createElement("article");
-        div.className = "cart-item";
+        div.className = "cart-item cart-item--rich";
         div.innerHTML = `
-          <div class="cart-item__image-wrap" style="align-self: start;">
-            <img class="cart-item__image" src="${item.image || "images/card-door-1.svg"}" alt="Товар" style="width: 100%; height: auto; display: block;">
-          </div>
-          <div class="cart-item__info">
-            <div class="cart-item__info-header" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap;">
-              <div>
-                <h3 class="cart-item__title" style="margin: 0; font-size: 16px;">${item.title || "Товар конфигуратора"}</h3>
-                <div class="cart-item__price" style="margin-top: 8px; font-weight: bold;">Цена за комплект<br>${new Intl.NumberFormat("ru-RU").format(itemPrice)} ₽</div>
-              </div>
-              
-              <div class="cart-item__actions" style="display: flex; gap: 12px; font-size: 13px;">
-                <a href="catalog.html" style="color: #666; text-decoration: none;">Добавить ещё дверь</a>
-                <span class="cart-item__action-sep" style="color: #ccc;">|</span>
-                <a href="product.html" style="color: #666; text-decoration: none;">Редактировать</a>
-                <span class="cart-item__action-sep" style="color: #ccc;">|</span>
-                <button type="button" style="color: #666; background: none; border: none; cursor: pointer; padding: 0;" onclick="window.removeCartItem(${index})">Удалить</button>
+          <div class="cart-item__main-row" style="display:flex; gap:24px;">
+            <div class="cart-item__image-wrap" style="width:100px; flex-shrink:0;">
+              <img class="cart-item__image" src="${item.image || "images/card-door-1.svg"}" alt="Товар" style="width:100%; height:auto; display:block; border-radius:8px;">
+            </div>
+            
+            <div class="cart-item__info" style="flex-grow:1;">
+              <div class="cart-item__info-header" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px;">
+                <div>
+                  <h3 class="cart-item__title" style="margin: 0 0 8px 0; font-size: 18px; font-weight:600;">${item.title || "Товар конфигуратора"}</h3>
+                  <div class="cart-item__desc" style="font-size:13px; color:#555; margin-bottom: 24px;">${doorOptions.join(" | ")}</div>
+                  <div class="cart-item__actions" style="display: flex; gap: 12px; font-size: 13px;">
+                    <a href="catalog.html" style="color: #611025; text-decoration: none;">Добавить ещё пол.</a>
+                    <a href="#" style="color: #611025; text-decoration: none;">Изменить парам.</a>
+                    <button type="button" style="color: #999; background: none; border: none; cursor: pointer; padding: 0;" onclick="window.removeCartItem(${index})">Очистить наборы</button>
+                  </div>
+                </div>
+                
+                <div class="cart-item__price-block" style="text-align:right;">
+                  <div class="cart-item__price" style="font-size:24px; font-weight:bold;">${new Intl.NumberFormat("ru-RU").format(itemPrice)} ₽</div>
+                  <div class="cart-item__price-note" style="font-size:12px; color:#999; margin-top:4px;">Сумма с учетом<br>комплектующих</div>
+                </div>
               </div>
             </div>
-            ${propsHtml}
           </div>
+          
+          ${(moldingHtml || hardwareHtml) ? `<div class="cart-item__accessories" style="margin-top: 24px; padding-top: 16px; border-top: 1px solid #efefef;">
+              ${moldingHtml}
+              ${hardwareHtml}
+          </div>` : ""}
         `;
         container.appendChild(div);
       });
@@ -848,7 +893,6 @@
         summaryFinal.textContent =
           new Intl.NumberFormat("ru-RU").format(total) + " ₽";
     }
-
     window.removeCartItem = (idx) => {
       const items = JSON.parse(
         localStorage.getItem("dveryaninov_cart_v1") || "[]",
@@ -911,31 +955,55 @@
 
   document.addEventListener("click", (e) => {
     const target = e.target;
+    // For Wishlist button
     const wishBtn = target.closest(".card__fav, .product__btn_wishlist");
-    
+    // For Cart button
     const cartBtn = target.closest(".product__btn_cart");
+    
     if (cartBtn) {
       e.preventDefault();
-      const title = document.querySelector(".product__title")?.textContent.trim() || 'Товар';
-      const image = document.querySelector(".product__main-image img")?.getAttribute("src") || "";
-      const priceVal = document.querySelector(".product__price")?.textContent.replace(/[^\\d]/g, "") || "0";
       
-      const size = document.querySelector(".product__size_active")?.textContent.trim() || "2000×600";
+      const card = cartBtn.closest(".card");
+      let title = "Товар";
+      let image = "images/card-door-1.svg";
+      let priceVal = 0;
+      let id = "p-" + Date.now();
+      let size = "2000×600";
       let color = "RAL 9003";
-      const activeColor = document.querySelector(".product__color_active");
-      if (activeColor) {
-         const match = (activeColor.getAttribute("aria-label") || "").match(/RAL \\d+|Дуб|Венге|Орех|Серый|Черный|Белый/i);
-         if (match) color = match[0];
-         else color = activeColor.getAttribute("title") || "Свой цвет";
+
+      if (card) {
+          title = card.querySelector(".card__title")?.textContent.trim() || title;
+          image = card.querySelector("img")?.getAttribute("src") || image;
+          priceVal = parseInt((card.querySelector(".card__price")?.textContent || "0").replace(/\D/g, "")) || 0;
+          const link = card.querySelector("a")?.getAttribute("href") || "";
+          id = link ? link.split("/").pop().replace(".html", "") : id;
+      } else {
+          title = document.querySelector(".product__title")?.textContent.trim() || document.querySelector("h1")?.textContent.trim() || title;
+          image = document.querySelector(".product__main-image img")?.getAttribute("src") || image;
+          priceVal = parseInt((document.querySelector(".product__price")?.textContent || "0").replace(/\D/g, "")) || 52000;
+          
+          size = document.querySelector(".product__size_active")?.textContent.trim() || size;
+          const activeColorBtn = document.querySelector(".product__color_active");
+          if (activeColorBtn) {
+              const label = activeColorBtn.getAttribute("aria-label");
+              if (label) color = label;
+          }
+          
+          const path = window.location.pathname.split("/").pop();
+          if (path && path !== "product.html" && path !== "") {
+              id = path.replace(".html", "");
+          }
       }
 
       window.addToCart({
-          id: `p-${Date.now()}`,
+          id: id,
           title: title,
-          price: Number(priceVal) || 0,
+          price: priceVal,
+          priceSum: priceVal,
           image: image,
           qty: 1,
-          options: { size: size, finish: color }
+          options: { size: size, finish: color },
+          accessories: []
       });
       window.location.href = "cart.html";
       return;
@@ -945,36 +1013,28 @@
       e.preventDefault();
       const card = wishBtn.closest(".card");
       let id, title, image, price;
+      
       if (card) {
-        title =
-          card.querySelector(".card__title")?.textContent.trim() || "Товар";
+        title = card.querySelector(".card__title")?.textContent.trim() || "Товар";
         image = card.querySelector("img")?.getAttribute("src") || "";
-        const priceText =
-          card.querySelector(".card__price")?.textContent || "0";
-        price = priceText.replace(/[^\d]/g, "");
+        const priceText = card.querySelector(".card__price")?.textContent || "0";
+        price = parseInt(priceText.replace(/\D/g, "")) || 0;
         const link = card.querySelector("a")?.getAttribute("href") || "";
-        id = link ? link.split("/").pop() : title;
+        id = link ? link.split("/").pop().replace(".html", "") : "p-" + Date.now();
       } else {
-        title =
-          document.querySelector(".product__title")?.textContent.trim() ||
-          document.querySelector(".breadcrumbs__current")?.textContent.trim() ||
-          "Товар";
-        image =
-          document
-            .querySelector(".product__main-image img")
-            ?.getAttribute("src") || "";
-        price =
-          document
-            .querySelector(".product__price, .config-total-price")
-            ?.textContent.replace(/[^\d]/g, "") || "52000";
-        id = window.location.pathname.split("/").pop() || title;
+        title = document.querySelector(".product__title")?.textContent.trim() || document.querySelector("h1")?.textContent.trim() || "Товар";
+        image = document.querySelector(".product__main-image img")?.getAttribute("src") || "";
+        const priceText = document.querySelector(".product__price")?.textContent || "0";
+        price = parseInt(priceText.replace(/\D/g, "")) || 0;
+        
+        const path = window.location.pathname.split("/").pop();
+        id = (path && path !== "product.html" && path !== "") ? path.replace(".html", "") : "p-" + Date.now();
       }
 
-      toggleWishlist({ id, title, image, price: Number(price) || 0 });
-      wishBtn.classList.toggle("is-active", isInWishlist(id));
+      const added = toggleWishlist({ id, title, image, price });
+      wishBtn.classList.toggle("is-active", added);
 
-      // Also might need to update a visual heart fill (use custom class if any)
-      if (isInWishlist(id)) {
+      if (added) {
         wishBtn.style.backgroundColor = "var(--color-primary, #e21836)";
         wishBtn.style.borderColor = "var(--color-primary, #e21836)";
       } else {
@@ -984,7 +1044,7 @@
     }
   });
 
-  // Init visual state
+    // Init visual state
   document.addEventListener("DOMContentLoaded", () => {
     document
       .querySelectorAll(".card__fav, .product__btn_wishlist")
