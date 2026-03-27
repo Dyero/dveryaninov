@@ -750,8 +750,8 @@
     const container = document.getElementById("cart-items-container");
     if (!container) return; // Not on cart page
 
-    const summaryTotal = document.getElementById("cart-summary-total");
-    const summaryFinal = document.getElementById("cart-summary-final");
+    const summaryTotal = document.querySelector(".cart-summary__sum");
+    const summaryFinal = document.querySelector(".cart-summary__pay");
     const checkoutForm = document.getElementById("checkout-form");
 
     const labels = {
@@ -784,9 +784,11 @@
       let total = 0;
       if (items.length === 0) {
         container.innerHTML =
-          "<p>Корзина пуста. <a href=\"catalog.html\" style=\"color:#611025; text-decoration:underline;\">Перейти в каталог</a></p>";
+          "<p>Корзина пуста. <a href='catalog.html' style='color:#611025; text-decoration:underline;'>Перейти в каталог</a></p>";
         const cSide = document.querySelector(".cart-summary");
         if (cSide) cSide.style.display = "none";
+        if (summaryTotal) summaryTotal.textContent = "0 ₽";
+        if (summaryFinal) summaryFinal.textContent = "0 ₽";
         return;
       } else {
         const cSide = document.querySelector(".cart-summary");
@@ -797,92 +799,65 @@
         const itemPrice = Number(item.priceSum || item.price || 0);
         total += itemPrice;
 
-        const doorOptions = [];
+        /* --- Door options as individual rows --- */
+        let propsHtml = "";
         if (item.options) {
-            if (item.options.finish && item.options.finish !== "-") doorOptions.push("Цвет: " + item.options.finish);
-            if (item.options.glazing && item.options.glazing !== "-") doorOptions.push("Стекло: " + item.options.glazing);
-            if (item.options.size && item.options.size !== "-") doorOptions.push("Размер: " + item.options.size);
-            if (item.options.opening && item.options.opening !== "-") doorOptions.push("Открывание: " + item.options.opening);
+          const doorKeys = [
+            "size", "finish", "glazing", "opening", "opening-type",
+            "pattern", "box", "casing", "quantity", "height-add",
+            "threshold", "handle-color", "lock-type", "lock-color",
+            "locker", "hinges", "hinges-color", "stopper"
+          ];
+          propsHtml = '<div class="cart-item__props">';
+          for (const key of doorKeys) {
+            const val = item.options[key];
+            if (val && val !== "-") {
+              const label = labels[key] || key;
+              propsHtml += '<div class="cart-item__prop-row"><span class="cart-item__prop-label">' + label + ':</span> <span class="cart-item__prop-value">' + val + '</span></div>';
+            }
+          }
+          propsHtml += "</div>";
         }
 
-        let moldingHtml = "";
-        let hardwareHtml = "";
-        let moldingTotal = 0;
-        let hardwareTotal = 0;
-
+        /* --- Accessories blocks (Ручка, Погонаж, etc.) --- */
+        let accessoriesHtml = "";
         if (item.accessories && item.accessories.length) {
-            const moldings = [];
-            const hardware = [];
-            
-            item.accessories.forEach(acc => {
-                if (["Коробка", "Наличник", "Доборы", "Порог", "Дополнительная высота"].includes(acc.title)) {
-                    moldings.push(acc.title + " – " + acc.spec);
-                    moldingTotal += (acc.price * acc.qty);
-                } else if (["Ручка", "Замок", "Петли", "Завертка", "Ограничитель"].includes(acc.title)) {
-                    hardware.push(acc.title + " – " + acc.spec);
-                    hardwareTotal += (acc.price * acc.qty);
-                } else {
-                    moldings.push(acc.title + " – " + acc.spec);
-                    moldingTotal += (acc.price * acc.qty);
-                }
-            });
-
-            if (moldings.length > 0) {
-                moldingHtml = `
-                <div class="cart-item__sub-row" style="display:flex; justify-content:space-between; margin-bottom:8px;">
-                    <div class="cart-item__sub-info">
-                        <strong style="display:block; font-size:14px; margin-bottom:4px;">Погонаж</strong>
-                        <div class="cart-item__sub-desc" style="font-size:13px; color:#555;">${moldings.join(" | ")}</div>
-                    </div>
-                    <div class="cart-item__sub-price" style="font-size:16px; font-weight:bold;">${new Intl.NumberFormat("ru-RU").format(moldingTotal)} ₽</div>
-                </div>`;
-            }
-
-            if (hardware.length > 0) {
-                hardwareHtml = `
-                <div class="cart-item__sub-row" style="display:flex; justify-content:space-between; margin-bottom:8px;">
-                    <div class="cart-item__sub-info">
-                        <strong style="display:block; font-size:14px; margin-bottom:4px;">Фурнитура</strong>
-                        <div class="cart-item__sub-desc" style="font-size:13px; color:#555;">${hardware.join(" | ")}</div>
-                    </div>
-                    <div class="cart-item__sub-price" style="font-size:16px; font-weight:bold;">${new Intl.NumberFormat("ru-RU").format(hardwareTotal)} ₽</div>
-                </div>`;
-            }
+          item.accessories.forEach(function(acc) {
+            let accDetails = "";
+            if (acc.spec) accDetails = acc.spec;
+            accessoriesHtml += '<div class="cart-item__accessory">'
+              + '<div class="cart-item__accessory-img">'
+              + '<img src="' + (acc.image || item.image || "images/card-door-1.svg") + '" alt="' + (acc.title || "") + '">'
+              + '</div>'
+              + '<div class="cart-item__accessory-info">'
+              + '<strong class="cart-item__accessory-title">' + (acc.title || "Аксессуар") + '</strong>'
+              + (accDetails ? '<div class="cart-item__accessory-spec">' + accDetails + '</div>' : '')
+              + '</div>'
+              + '</div>';
+          });
         }
 
         const div = document.createElement("article");
-        div.className = "cart-item cart-item--rich";
-        div.innerHTML = `
-          <div class="cart-item__main-row" style="display:flex; gap:24px;">
-            <div class="cart-item__image-wrap" style="width:100px; flex-shrink:0;">
-              <img class="cart-item__image" src="${item.image || "images/card-door-1.svg"}" alt="Товар" style="width:100%; height:auto; display:block; border-radius:8px;">
-            </div>
-            
-            <div class="cart-item__info" style="flex-grow:1;">
-              <div class="cart-item__info-header" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px;">
-                <div>
-                  <h3 class="cart-item__title" style="margin: 0 0 8px 0; font-size: 18px; font-weight:600;">${item.title || "Товар конфигуратора"}</h3>
-                  <div class="cart-item__desc" style="font-size:13px; color:#555; margin-bottom: 24px;">${doorOptions.join(" | ")}</div>
-                  <div class="cart-item__actions" style="display: flex; gap: 12px; font-size: 13px;">
-                    <a href="catalog.html" style="color: #611025; text-decoration: none;">Добавить ещё пол.</a>
-                    <a href="#" style="color: #611025; text-decoration: none;">Изменить парам.</a>
-                    <button type="button" style="color: #999; background: none; border: none; cursor: pointer; padding: 0;" onclick="window.removeCartItem(${index})">Очистить наборы</button>
-                  </div>
-                </div>
-                
-                <div class="cart-item__price-block" style="text-align:right;">
-                  <div class="cart-item__price" style="font-size:24px; font-weight:bold;">${new Intl.NumberFormat("ru-RU").format(itemPrice)} ₽</div>
-                  <div class="cart-item__price-note" style="font-size:12px; color:#999; margin-top:4px;">Сумма с учетом<br>комплектующих</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          ${(moldingHtml || hardwareHtml) ? `<div class="cart-item__accessories" style="margin-top: 24px; padding-top: 16px; border-top: 1px solid #efefef;">
-              ${moldingHtml}
-              ${hardwareHtml}
-          </div>` : ""}
-        `;
+        div.className = "cart-item";
+        div.innerHTML = ''
+          + '<div class="cart-item__door-section">'
+          +   '<div class="cart-item__image-wrap">'
+          +     '<img class="cart-item__image" src="' + (item.image || "images/card-door-1.svg") + '" alt="' + (item.title || "Товар") + '">'
+          +   '</div>'
+          +   '<div class="cart-item__info">'
+          +     '<h3 class="cart-item__title">' + (item.title || "Товар конфигуратора") + '</h3>'
+          +     propsHtml
+          +   '</div>'
+          +   '<div class="cart-item__price-col">'
+          +     '<div class="cart-item__price-label">Цена за комплект</div>'
+          +     '<div class="cart-item__price">' + new Intl.NumberFormat("ru-RU").format(itemPrice) + ' ₽</div>'
+          +   '</div>'
+          + '</div>'
+          + accessoriesHtml
+          + '<div class="cart-item__actions">'
+          +   '<button type="button" class="cart-item__remove" onclick="window.removeCartItem(' + index + ')">Удалить</button>'
+          + '</div>';
+
         container.appendChild(div);
       });
 
