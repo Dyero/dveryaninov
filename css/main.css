@@ -6928,3 +6928,8 @@ body {
     align-items: center;
   }
 }
+
+.pdp-actions__fav.is-active {
+  background-color: #fdf5f6 !important;
+  border-color: var(--color-wine) !important;
+}

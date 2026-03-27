@@ -10,11 +10,11 @@
     }
   }
 
-  function JSON.parse(localStorage.getItem("dveryaninov_cart_v1") || "[]") {
+  function getCart() {
     return safeJsonParse(localStorage.getItem(CART_KEY) || "[]", []);
   }
 
-  function localStorage.setItem("dveryaninov_cart_v1", JSON.stringify(items)) {
+  function setCart(items) {
     localStorage.setItem(CART_KEY, JSON.stringify(items));
   }
 
@@ -296,13 +296,7 @@
 
     document.addEventListener("click", (e) => {
 
-      // Лайк (Избранное)
-      const favBtn = target.closest(".card__fav");
-      if (favBtn) {
-        e.preventDefault();
-        favBtn.classList.toggle("is-active");
-        return;
-      }
+      
 
       const target = e.target;
       if (!(target instanceof Element)) return;
@@ -989,29 +983,34 @@
   }
 
   function initWishlistBtn() {
-    const btn = document.querySelector(".product__btn_wishlist");
+    const btn = document.querySelector(".product__btn_wishlist") || document.querySelector(".pdp-actions__fav");
     if (!btn) return;
-    const titleEl = document.querySelector(".product__title");
-    const priceEl = document.querySelector(".product__price");
-    const imgEl = document.querySelector(".product__main-image img");
+    const titleEl = document.querySelector(".product__title") || document.querySelector(".pdp-info__title");
+    const priceEl = document.querySelector(".product__price") || document.querySelector(".pdp-info__price");
+    const imgEl = document.querySelector(".product__main-image img") || document.getElementById("pdp-main-image");
+    
+    // For styling the text "♥" vs actual heart based on the class
+    const isPdpBtn = btn.classList.contains("pdp-actions__fav");
+    
     const title = titleEl ? titleEl.textContent.trim() : "Товар";
     const id = `w-${title.replace(/\s+/g, "-").toLowerCase()}`;
 
     function refreshWishlistBtn() {
       if (isInWishlist(id)) {
-        btn.classList.add("product__btn_wishlist_active");
+        btn.classList.add("is-active", "product__btn_wishlist_active");
+        if(isPdpBtn) { btn.style.color = "#611025"; btn.style.borderColor = "#611025"; }
         btn.setAttribute("aria-label", "Убрать из избранного");
       } else {
-        btn.classList.remove("product__btn_wishlist_active");
+        btn.classList.remove("is-active", "product__btn_wishlist_active");
+        if(isPdpBtn) { btn.style.color = ""; btn.style.borderColor = "#ccc"; }
         btn.setAttribute("aria-label", "В избранное");
       }
       updateWishlistBadge();
     }
 
     btn.addEventListener("click", () => {
-      const price = Number(
-        ((priceEl ? priceEl.textContent : "0").match(/\d[\d\s]*/)?.[0] || "0").replace(/\s/g, "")
-      );
+      const priceText = priceEl ? priceEl.textContent : "0";
+      const price = Number((priceText.match(/\d[\d\s]*/)?.[0] || "0").replace(/\s/g, ""));
       const image = imgEl ? imgEl.getAttribute("src") : "";
       toggleWishlist({ id, title, price, image });
       refreshWishlistBtn();
@@ -1023,7 +1022,7 @@
   function initCardWishlist() {
     const cards = document.querySelectorAll(".card");
     cards.forEach((card) => {
-      const btn = card.querySelector(".card__action");
+      const btn = card.querySelector(".card__fav");
       if (!btn) return;
       const titleEl = card.querySelector(".card__title");
       const priceEl = card.querySelector(".card__price");
@@ -1033,10 +1032,10 @@
 
       function refreshCardBtn() {
         if (isInWishlist(id)) {
-          btn.classList.add("card__action_active");
+          btn.classList.add("is-active");
           btn.setAttribute("aria-label", "Убрать из избранного");
         } else {
-          btn.classList.remove("card__action_active");
+          btn.classList.remove("is-active");
           btn.setAttribute("aria-label", "В избранное");
         }
       }
