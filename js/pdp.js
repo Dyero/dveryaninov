@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  const btnDt = document.querySelector(".btn-config");
+  const btnDt = document.querySelector("#btn-configure-desktop");
   const btnMb = document.getElementById("btn-configure-mobile");
   const modal = document.getElementById("dv-config-modal");
   
@@ -179,7 +179,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  const btnDt = document.querySelector(".btn-config");
+  const btnDt = document.querySelector("#btn-configure-desktop");
   const btnMb = document.getElementById("btn-configure-mobile");
   const modal = document.getElementById("dv-config-modal");
   

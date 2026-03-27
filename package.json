@@ -20,6 +20,7 @@
   "homepage": "https://github.com/Dyero/dveryaninov#readme",
   "dependencies": {
     "express": "^5.2.1",
+    "glob": "^13.0.6",
     "jsdom": "^29.0.1"
   }
 }

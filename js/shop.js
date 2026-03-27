@@ -22,6 +22,7 @@
     const items = JSON.parse(localStorage.getItem("dveryaninov_cart_v1") || "[]");
     items.push(item);
     localStorage.setItem("dveryaninov_cart_v1", JSON.stringify(items));
+    updateCartBadge();
   }
 
   function getWishlist() {
@@ -48,6 +49,28 @@
     return idx === -1;
   }
 
+  
+  function updateCartBadge() {
+    const items = getCart();
+    const count = items.length;
+    const btns = document.querySelectorAll('a[href="cart.html"].header__icon-btn');
+    btns.forEach(btn => {
+      let badge = btn.querySelector(".header__wishlist-count"); // reusing the same badge class design
+      if (count > 0) {
+        btn.style.position = "relative";
+        if (!badge) {
+          badge = document.createElement("span");
+          badge.className = "header__wishlist-count";
+          btn.appendChild(badge);
+        }
+        badge.textContent = count;
+      } else {
+        if (badge) badge.remove();
+      }
+    });
+  }
+
+  // Original function:
   function updateWishlistBadge() {
     const count = getWishlist().length;
     const btn = document.querySelector("#header-wishlist-btn");
@@ -648,741 +671,74 @@
     }
 
     function renderCart() {
-      const items = JSON.parse(localStorage.getItem("dveryaninov_cart_v1") || "[]");
-      itemsWrap.innerHTML = "";
-      if (cartMeta) cartMeta.innerHTML = "";
-
-      if (!items.length) {
-        itemsWrap.innerHTML = '<p class="cart-empty">Корзина пуста. <a href="catalog.html">Перейти в каталог →</a></p>';
-        if (cartSummary) cartSummary.hidden = true;
-        return;
-      }
-      if (cartSummary) cartSummary.hidden = false;
-
-      const totalCount = items.reduce(function (s, x) { return s + (Number(x.qty) || 1); }, 0);
-      if (cartMeta) {
-        cartMeta.innerHTML =
-          '<span class="cart-meta__count">' + totalCount + ' ' + pluralItems(totalCount) + '</span>' +
-          '<button type="button" class="cart-meta__clear" id="cart-clear-btn">Очистить корзину</button>';
-        var clearBtn = document.querySelector("#cart-clear-btn");
-        if (clearBtn) {
-          clearBtn.addEventListener("click", function () { localStorage.setItem("dveryaninov_cart_v1", JSON.stringify([])); renderCart(); });
-        }
-      }
-
-      var total = 0;
-      items.forEach(function (it) {
-        total += (Number(it.price) || 0) * (Number(it.qty) || 1);
-
-        var detailRowsHtml = "";
-        if (it.options) {
-          Object.entries(it.options).forEach(function (entry) {
-            var k = entry[0], v = entry[1];
-            if (v && String(v).trim() !== "") {
-              var label = OPTION_LABELS[k] || k;
-              detailRowsHtml +=
-                '<div class="cart-item__detail-row">' +
-                '<span class="cart-item__detail-label">' + label + ':</span>' +
-                '<span class="cart-item__detail-value">' + v + '</span>' +
-                '</div>';
-            }
-          });
-        }
-        if (!detailRowsHtml) {
-          detailRowsHtml =
-            '<div class="cart-item__detail-row">' +
-            '<span class="cart-item__detail-label">Комплектация:</span>' +
-            '<span class="cart-item__detail-value">по выбору</span>' +
-            '</div>';
-        }
-
-        var priceText = it.price > 0
-          ? formatPriceRub(it.price) + "\u00a0\u20bd"
-          : "Цена по запросу";
-
-        var article = document.createElement("article");
-        article.className = "cart-item";
-        article.innerHTML =
-          '<div class="cart-item__image-wrap">' +
-            '<img class="cart-item__image" src="' + (it.image || "images/card-door-1.svg") + '" alt="" width="120" height="160">' +
-          '</div>' +
-          '<div class="cart-item__info">' +
-            '<div class="cart-item__info-header">' +
-              '<h3 class="cart-item__title">' + (it.title || "Товар") + '</h3>' +
-              '<div class="cart-item__actions">' +
-                '<a class="cart-item__action-btn" href="catalog.html">Добавить ещё дверь</a>' +
-                '<span class="cart-item__action-sep">|</span>' +
-                '<a class="cart-item__action-btn" href="product.html">Редактировать</a>' +
-                '<span class="cart-item__action-sep">|</span>' +
-                '<button type="button" class="cart-item__action-btn cart-item__action-btn_danger" data-cart-remove="' + it.id + '">Удалить</button>' +
-              '</div>' +
-            '</div>' +
-            '<p class="cart-item__price-line">' + priceText + '</p>' +
-            '<dl class="cart-item__details">' + detailRowsHtml + '</dl>' +
-          '</div>';
-
-        if (it.accessories && it.accessories.length > 0) {
-          var accSection = document.createElement("div");
-          accSection.className = "cart-item__accessories";
-          it.accessories.forEach(function (acc) {
-            var accEl = document.createElement("div");
-            accEl.className = "cart-accessory";
-            var unitPrice = Number(acc.price) || 0;
-            accEl.innerHTML =
-              '<div class="cart-accessory__img-wrap">' +
-                '<img class="cart-accessory__img" src="' + (acc.image || "images/card-door-1.svg") + '" alt="">' +
-              '</div>' +
-              '<div class="cart-accessory__info">' +
-                '<span class="cart-accessory__name">' + acc.title + '</span>' +
-                '<span class="cart-accessory__spec">' + acc.spec + '</span>' +
-              '</div>' +
-              '<div class="cart-accessory__qty">' +
-                '<button type="button" class="cart-accessory__qty-btn" aria-label="Уменьшить" data-acc-dec="' + acc.id + '" data-acc-item="' + it.id + '">−</button>' +
-                '<input type="number" class="cart-accessory__qty-input" value="' + acc.qty + '" min="1" readonly>' +
-                '<button type="button" class="cart-accessory__qty-btn" aria-label="Увеличить" data-acc-inc="' + acc.id + '" data-acc-item="' + it.id + '">+</button>' +
-              '</div>' +
-              '<div class="cart-accessory__pricing">' +
-                '<span class="cart-accessory__price">' + formatPriceRub(unitPrice) + '\u00a0\u20bd</span>' +
-                (acc.oldPrice ? '<span class="cart-accessory__old-price">' + formatPriceRub(acc.oldPrice) + '\u00a0\u20bd</span>' : '') +
-              '</div>';
-            accSection.appendChild(accEl);
-          });
-          article.appendChild(accSection);
-        }
-        itemsWrap.appendChild(article);
-      });
-
-      var totalText = formatPriceRub(total) + "\u00a0\u20bd";
-      if (summaryTotal) summaryTotal.textContent = totalText;
-      if (summarySum) summarySum.textContent = totalText;
-    }
-
-    renderCart();
-
-    document.addEventListener("click", function (e) {
-      var t = e.target;
-      if (!(t instanceof Element)) return;
-      if (!t.closest(".cart-page")) return;
-      var itemsNow = JSON.parse(localStorage.getItem("dveryaninov_cart_v1") || "[]");
-      var removeId = t.getAttribute("data-cart-remove");
-      var incId = t.getAttribute("data-cart-inc");
-      var decId = t.getAttribute("data-cart-dec");
-      var changed = false;
-      if (removeId) {
-        localStorage.setItem("dveryaninov_cart_v1", JSON.stringify(itemsNow.filter(function (x) { return x.id !== removeId; })));
-        changed = true;
-      } else if (incId) {
-        var xi = itemsNow.find(function (x) { return x.id === incId; });
-        if (xi) { xi.qty = (Number(xi.qty) || 1) + 1; localStorage.setItem("dveryaninov_cart_v1", JSON.stringify(itemsNow)); changed = true; }
-      } else if (decId) {
-        var xd = itemsNow.find(function (x) { return x.id === decId; });
-        if (xd) { xd.qty = Math.max(1, (Number(xd.qty) || 1) - 1); localStorage.setItem("dveryaninov_cart_v1", JSON.stringify(itemsNow)); changed = true; }
-      }
-      var accIncId = t.getAttribute("data-acc-inc");
-      var accDecId = t.getAttribute("data-acc-dec");
-      var accItemId = t.getAttribute("data-acc-item");
-      if (accIncId || accDecId) {
-        var cartItem = itemsNow.find(function (x) { return x.id === accItemId; });
-        if (cartItem && cartItem.accessories) {
-          var acc = cartItem.accessories.find(function (a) { return a.id === (accIncId || accDecId); });
-          if (acc) {
-            acc.qty = accIncId ? (Number(acc.qty) || 1) + 1 : Math.max(1, (Number(acc.qty) || 1) - 1);
-            localStorage.setItem("dveryaninov_cart_v1", JSON.stringify(itemsNow));
-            changed = true;
-          }
-        }
-      }
-      if (changed) renderCart();
-    });
-  }
-
-  function initProductGallery() {
-    const gallery = document.querySelector(".product__gallery");
-    if (!gallery) return;
-
-    const mainImg = gallery.querySelector(".product__main-image img");
-    const mainContainer = gallery.querySelector(".product__main-image");
-    const thumbsContainer = gallery.querySelector(".product__thumbs");
-    const thumbs = Array.from(gallery.querySelectorAll(".product__thumb"));
-
-    if (!mainImg || !thumbs.length) return;
-
-    let currentIndex = thumbs.findIndex((btn) => btn.classList.contains("product__thumb_active"));
-    if (currentIndex < 0) currentIndex = 0;
-
-    function setIndex(idx) {
-      const total = thumbs.length;
-      if (!total) return;
-      
-      currentIndex = (idx + total) % total;
-
-      thumbs.forEach((btn, i) => {
-        const isActive = i === currentIndex;
-        btn.classList.toggle("product__thumb_active", isActive);
-        btn.setAttribute("aria-pressed", isActive ? "true" : "false");
-        btn.setAttribute("tabindex", isActive ? "0" : "-1");
-      });
-
-      const activeImg = thumbs[currentIndex]?.querySelector("img");
-      if (activeImg) {
-        const newSrc = activeImg.getAttribute("src");
-        if (newSrc) {
-          mainImg.src = newSrc;
-          mainImg.alt = activeImg.getAttribute("alt") || "";
-        }
-      }
-    }
-
-    setIndex(currentIndex);
-
-    thumbsContainer?.addEventListener("click", (e) => {
-      const thumbBtn = e.target.closest(".product__thumb");
-      const idx = thumbBtn ? thumbs.indexOf(thumbBtn) : -1;
-      if (idx !== -1) setIndex(idx);
-    });
-
-    mainContainer?.addEventListener("click", (e) => {
-      if (!(e.target instanceof Element)) return;
-      if (e.target.closest(".product__arrow_prev")) {
-        e.preventDefault();
-        setIndex(currentIndex - 1);
-      } else if (e.target.closest(".product__arrow_next")) {
-        e.preventDefault();
-        setIndex(currentIndex + 1);
-      }
-    });
-
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "ArrowLeft") { e.preventDefault(); setIndex(currentIndex - 1); }
-      else if (e.key === "ArrowRight") { e.preventDefault(); setIndex(currentIndex + 1); }
-    });
-  }
-
-  function openCheckoutModal() {
-    var modal = document.querySelector('#checkout-modal');
-    if (!modal) return;
-    var content = document.querySelector('#checkout-content');
-    var success = document.querySelector('#checkout-success');
-    if (content) content.hidden = false;
-    if (success) success.hidden = true;
-    if (window.DvAuth) {
-      var user = DvAuth.getCurrentUser();
-      if (user) {
-        var nameInput = modal.querySelector('[name="checkout-name"]');
-        if (nameInput && !nameInput.value) nameInput.value = user.name;
-      }
-    }
-    modal.setAttribute('aria-hidden', 'false');
-    document.documentElement.style.overflow = 'hidden';
-  }
-
-  function closeCheckoutModal() {
-    var modal = document.querySelector('#checkout-modal');
-    if (!modal) return;
-    modal.setAttribute('aria-hidden', 'true');
-    document.documentElement.style.overflow = '';
-  }
-
-  function initCheckoutPage() {
-    if (!document.querySelector('.cart')) return;
-
-    var checkoutBtn = document.querySelector('.cart-summary__btn');
-    if (checkoutBtn) {
-      checkoutBtn.addEventListener('click', function() {
-        if (!JSON.parse(localStorage.getItem("dveryaninov_cart_v1") || "[]").length) return;
-        openCheckoutModal();
-      });
-    }
-
-    var modal = document.querySelector('#checkout-modal');
-    if (!modal) return;
-
-    modal.querySelectorAll('[data-close-checkout]').forEach(function(btn) {
-      btn.addEventListener('click', closeCheckoutModal);
-    });
-    var backdrop = modal.querySelector('.checkout-modal__backdrop');
-    if (backdrop) backdrop.addEventListener('click', closeCheckoutModal);
-
-    // Phone mask for checkout form
-    var checkoutPhone = document.querySelector('#checkout-phone');
-    if (checkoutPhone) {
-      checkoutPhone.addEventListener('focus', function() {
-        if (!checkoutPhone.value) checkoutPhone.value = '+7 (';
-      });
-      checkoutPhone.addEventListener('input', function() {
-        var digits = checkoutPhone.value.replace(/\D/g, '');
-        if (digits.startsWith('8')) digits = '7' + digits.slice(1);
-        if (!digits.startsWith('7')) digits = '7' + digits;
-        digits = digits.slice(0, 11);
-        var r = '+7';
-        if (digits.length > 1) r += ' (' + digits.slice(1, 4);
-        if (digits.length >= 4) r += ')';
-        if (digits.length > 4) r += ' ' + digits.slice(4, 7);
-        if (digits.length > 7) r += '-' + digits.slice(7, 9);
-        if (digits.length > 9) r += '-' + digits.slice(9, 11);
-        checkoutPhone.value = r;
-      });
-    }
-
-    var form = document.querySelector('#checkout-form');
-    if (form) {
-      form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        var items = JSON.parse(localStorage.getItem("dveryaninov_cart_v1") || "[]");
-        if (!items.length) return;
-        var errEl = document.querySelector('#checkout-error');
-        var nameEl = modal.querySelector('[name="checkout-name"]');
-        var phoneEl = document.querySelector('#checkout-phone');
-        if (nameEl && !nameEl.value.trim()) {
-          if (errEl) errEl.textContent = 'Введите имя';
-          return;
-        }
-        if (phoneEl) {
-          var digits = phoneEl.value.replace(/\D/g, '');
-          if (digits.length < 11) {
-            if (errEl) errEl.textContent = 'Введите корректный номер телефона';
-            return;
-          }
-        }
-        if (errEl) errEl.textContent = '';
-        if (window.DvAuth) DvAuth.saveOrder(items);
-        localStorage.setItem("dveryaninov_cart_v1", JSON.stringify([]));
-        var content = document.querySelector('#checkout-content');
-        var success = document.querySelector('#checkout-success');
-        if (content) content.hidden = true;
-        if (success) success.hidden = false;
-      });
-    }
-
-    // Кнопки входа/регистрации под формой для гостей
-    var loginBtn = document.querySelector('#checkout-login-btn');
-    var registerBtn = document.querySelector('#checkout-register-btn');
-    if (loginBtn && window.DvAuth) {
-      loginBtn.addEventListener('click', function() {
-        closeCheckoutModal();
-        DvAuth.openAuthModal(function() { openCheckoutModal(); });
-      });
-    }
-    if (registerBtn && window.DvAuth) {
-      registerBtn.addEventListener('click', function() {
-        closeCheckoutModal();
-        var modal2 = document.querySelector('#auth-modal');
-        if (modal2) {
-          var regTab = modal2.querySelector('[data-auth-tab="register"]');
-          if (regTab) regTab.click();
-        }
-        DvAuth.openAuthModal(function() { openCheckoutModal(); });
-      });
-    }
-
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') {
-        closeCheckoutModal();
-      }
-    });
-  }
-
-  function initWishlistBtn() {
-    const btn = document.querySelector(".product__btn_wishlist") || document.querySelector(".pdp-actions__fav");
-    if (!btn) return;
-    const titleEl = document.querySelector(".product__title") || document.querySelector(".pdp-info__title");
-    const priceEl = document.querySelector(".product__price") || document.querySelector(".pdp-info__price");
-    const imgEl = document.querySelector(".product__main-image img") || document.getElementById("pdp-main-image");
-    
-    // For styling the text "♥" vs actual heart based on the class
-    const isPdpBtn = btn.classList.contains("pdp-actions__fav");
-    
-    const title = titleEl ? titleEl.textContent.trim() : "Товар";
-    const id = `w-${title.replace(/\s+/g, "-").toLowerCase()}`;
-
-    function refreshWishlistBtn() {
-      if (isInWishlist(id)) {
-        btn.classList.add("is-active", "product__btn_wishlist_active");
-        if(isPdpBtn) { btn.style.color = "#611025"; btn.style.borderColor = "#611025"; }
-        btn.setAttribute("aria-label", "Убрать из избранного");
-      } else {
-        btn.classList.remove("is-active", "product__btn_wishlist_active");
-        if(isPdpBtn) { btn.style.color = ""; btn.style.borderColor = "#ccc"; }
-        btn.setAttribute("aria-label", "В избранное");
-      }
-      updateWishlistBadge();
-    }
-
-    btn.addEventListener("click", () => {
-      const priceText = priceEl ? priceEl.textContent : "0";
-      const price = Number((priceText.match(/\d[\d\s]*/)?.[0] || "0").replace(/\s/g, ""));
-      const image = imgEl ? imgEl.getAttribute("src") : "";
-      toggleWishlist({ id, title, price, image });
-      refreshWishlistBtn();
-    });
-
-    refreshWishlistBtn();
-  }
-
-  function initCardWishlist() {
-    const cards = document.querySelectorAll(".card");
-    cards.forEach((card) => {
-      const btn = card.querySelector(".card__fav");
-      if (!btn) return;
-      const titleEl = card.querySelector(".card__title");
-      const priceEl = card.querySelector(".card__price");
-      const imgEl = card.querySelector(".card__image");
-      const title = titleEl ? titleEl.textContent.trim() : "Товар";
-      const id = `w-${title.replace(/\s+/g, "-").toLowerCase()}`;
-
-      function refreshCardBtn() {
-        if (isInWishlist(id)) {
-          btn.classList.add("is-active");
-          btn.setAttribute("aria-label", "Убрать из избранного");
-        } else {
-          btn.classList.remove("is-active");
-          btn.setAttribute("aria-label", "В избранное");
-        }
-      }
-
-      btn.addEventListener("click", (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        const price = Number(((priceEl ? priceEl.textContent : "0").replace(/[^\d]/g, ""))) || 0;
-        const image = imgEl ? imgEl.getAttribute("src") : "";
-        toggleWishlist({ id, title, price, image });
-        refreshCardBtn();
-        updateWishlistBadge();
-      });
-
-      refreshCardBtn();
-    });
-    updateWishlistBadge();
-  }
-
-  function initWishlistPage() {
-    const grid = document.querySelector("#wishlist-grid");
-    const empty = document.querySelector("#wishlist-empty");
-    if (!grid) return;
-
-    // Map product URL by title keywords
-    function getProductUrl(title) {
-      const t = title.toLowerCase();
-      if (t.includes('флай') || t.includes('fly'))     return 'product-fly-8-pg.html';
-      if (t.includes('ультра') || t.includes('ultra')) return 'product-ultra-5-pg.html';
-      if (t.includes('мета') || t.includes('meta'))   return 'product-meta-1-pg.html';
-      if (t.includes('сол') || t.includes('sol'))     return 'product-sol-2-pg.html';
-      return 'product.html';
-    }
-
-    const CLOSE_SVG = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <line x1="2" y1="2" x2="14" y2="14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-      <line x1="14" y1="2" x2="2" y2="14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-    </svg>`;
-
-    function renderWishlist() {
-      const items = getWishlist();
-      grid.innerHTML = "";
-
-      if (!items.length) {
-        grid.hidden = true;
-        if (empty) empty.hidden = false;
-        updateWishlistBadge();
-        return;
-      }
-
-      grid.hidden = false;
-      if (empty) empty.hidden = true;
-
-      items.forEach((item) => {
-        const url = getProductUrl(item.title || '');
-        const article = document.createElement("article");
-        article.className = "wishlist-card";
-        article.innerHTML = `
-          <a class="wishlist-card__image-wrap" href="${url}">
-            <img class="wishlist-card__image" src="${item.image || "images/card-door-1.svg"}" alt="${item.title}" width="200" height="280">
-          </a>
-          <div class="wishlist-card__body">
-            <h3 class="wishlist-card__title"><a class="wishlist-card__title-link" href="${url}">${item.title}</a></h3>
-            <dl class="wishlist-card__specs">
-              <div class="wishlist-card__spec-row">
-                <dt class="wishlist-card__spec-label">Категория</dt>
-                <dd class="wishlist-card__spec-value">Межкомнатная дверь</dd>
-              </div>
-              <div class="wishlist-card__spec-row">
-                <dt class="wishlist-card__spec-label">Тип</dt>
-                <dd class="wishlist-card__spec-value">Полотно глухое</dd>
-              </div>
-              <div class="wishlist-card__spec-row">
-                <dt class="wishlist-card__spec-label">Открывание</dt>
-                <dd class="wishlist-card__spec-value">Левое / правое</dd>
-              </div>
-              <div class="wishlist-card__spec-row">
-                <dt class="wishlist-card__spec-label">Покрытие</dt>
-                <dd class="wishlist-card__spec-value">Эмаль, шпон</dd>
-              </div>
-            </dl>
-            <div class="wishlist-card__footer">
-              <span class="wishlist-card__price">${item.price ? formatPriceRub(item.price) + "\u00a0\u20bd" : "Цена по запросу"}</span>
-              <div class="wishlist-card__actions">
-                <button type="button" class="wishlist-card__add-cart-btn" aria-label="Добавить в корзину" data-wishlist-to-cart="${item.id}">
-                  <img src="images/icon-bag.svg" alt="" width="20" height="20">
-                </button>
-                <a class="wishlist-card__cart-btn wishlist-card__cfg-btn" href="${url}">Конфигуратор</a>
-              </div>
-            </div>
-          </div>
-          <button type="button" class="wishlist-card__remove" aria-label="Убрать из избранного" data-wishlist-remove="${item.id}">${CLOSE_SVG}</button>
-        `;
-        grid.appendChild(article);
-      });
-
-      updateWishlistBadge();
-    }
-
-    grid.addEventListener("click", (e) => {
-      const removeBtn = e.target.closest("[data-wishlist-remove]");
-      if (removeBtn) {
-        const id = removeBtn.getAttribute("data-wishlist-remove");
-        setWishlist(getWishlist().filter((x) => x.id !== id));
-        renderWishlist();
-        return;
-      }
-
-      const addCartBtn = e.target.closest("[data-wishlist-to-cart]");
-      if (addCartBtn) {
-        const id = addCartBtn.getAttribute("data-wishlist-to-cart");
-        const wl = getWishlist();
-        const found = wl.find((x) => x.id === id);
-        if (found) addToCart({ id: found.id, title: found.title, price: found.price, image: found.image, qty: 1 });
-        addCartBtn.setAttribute("aria-label", "Добавлено!");
-        setTimeout(() => addCartBtn.setAttribute("aria-label", "Добавить в корзину"), 1500);
-        return;
-      }
-
-      // cfg link is a native <a>, no JS needed
-    });
-
-    renderWishlist();
-  }
-
-  function initRequestModals() {
-    // ---- HTML templates ----
-    const MEASURE_MODAL_HTML = `
-<div class="req-modal" id="measure-modal" role="dialog" aria-modal="true" aria-labelledby="measure-modal-title" aria-hidden="true">
-  <div class="req-modal__backdrop"></div>
-  <div class="req-modal__panel">
-    <button type="button" class="req-modal__close" id="measure-modal-close" aria-label="Закрыть">&#10005;</button>
-    <h2 class="req-modal__title" id="measure-modal-title">Нужен замер</h2>
-    <p class="req-modal__subtitle">Оставьте данные — наш специалист свяжется с вами для согласования времени</p>
-    <form class="req-modal__form" id="measure-modal-form" novalidate>
-      <div class="req-modal__field">
-        <label class="req-modal__label" for="measure-name">Ваше имя</label>
-        <input class="req-modal__input" type="text" id="measure-name" name="name" autocomplete="name" placeholder="Иван Иванов" required>
-      </div>
-      <div class="req-modal__field">
-        <label class="req-modal__label" for="measure-phone">Номер телефона</label>
-        <input class="req-modal__input req-modal__input_phone" type="tel" id="measure-phone" name="phone" autocomplete="tel" placeholder="+7 (___) ___-__-__" required>
-      </div>
-      <div class="req-modal__error" aria-live="polite"></div>
-      <button type="submit" class="req-modal__submit">Заказать замер</button>
-    </form>
-    <div class="req-modal__success" id="measure-modal-success" hidden>
-      <div class="req-modal__success-icon" aria-hidden="true">&#10003;</div>
-      <p class="req-modal__success-text">Заявка принята! Мы свяжемся с вами в ближайшее время.</p>
-    </div>
-  </div>
-</div>`;
-
-    const CONSULT_MODAL_HTML = `
-<div class="req-modal" id="consult-modal" role="dialog" aria-modal="true" aria-labelledby="consult-modal-title" aria-hidden="true">
-  <div class="req-modal__backdrop"></div>
-  <div class="req-modal__panel">
-    <button type="button" class="req-modal__close" id="consult-modal-close" aria-label="Закрыть">&#10005;</button>
-    <h2 class="req-modal__title" id="consult-modal-title">Нужна консультация</h2>
-    <p class="req-modal__subtitle">Оставьте данные — наш специалист ответит на все вопросы</p>
-    <form class="req-modal__form" id="consult-modal-form" novalidate>
-      <div class="req-modal__field">
-        <label class="req-modal__label" for="consult-name">Ваше имя</label>
-        <input class="req-modal__input" type="text" id="consult-name" name="name" autocomplete="name" placeholder="Иван Иванов" required>
-      </div>
-      <div class="req-modal__field">
-        <label class="req-modal__label" for="consult-phone">Номер телефона</label>
-        <input class="req-modal__input req-modal__input_phone" type="tel" id="consult-phone" name="phone" autocomplete="tel" placeholder="+7 (___) ___-__-__" required>
-      </div>
-      <div class="req-modal__error" aria-live="polite"></div>
-      <button type="submit" class="req-modal__submit">Получить консультацию</button>
-    </form>
-    <div class="req-modal__success" id="consult-modal-success" hidden>
-      <div class="req-modal__success-icon" aria-hidden="true">&#10003;</div>
-      <p class="req-modal__success-text">Заявка принята! Специалист свяжется с вами.</p>
-    </div>
-  </div>
-</div>`;
-
-    document.body.insertAdjacentHTML("beforeend", MEASURE_MODAL_HTML);
-    document.body.insertAdjacentHTML("beforeend", CONSULT_MODAL_HTML);
-
-    function formatReqPhone(raw) {
-      const digits = raw.replace(/\D/g, "").replace(/^8/, "7").replace(/^7?/, "7");
-      let r = "+7";
-      if (digits.length > 1) r += " (" + digits.slice(1, 4);
-      if (digits.length >= 4) r += ") " + digits.slice(4, 7);
-      if (digits.length >= 7) r += "-" + digits.slice(7, 9);
-      if (digits.length >= 9) r += "-" + digits.slice(9, 11);
-      return r;
-    }
-
-    function prefillFromAuth(nameId, phoneId) {
-      const user = window.DvAuth ? DvAuth.getCurrentUser() : null;
-      if (!user) return;
-      const nameEl = document.getElementById(nameId);
-      const phoneEl = document.getElementById(phoneId);
-      if (nameEl && user.name) nameEl.value = user.name;
-      if (phoneEl && user.phone) phoneEl.value = user.phone;
-    }
-
-    function setupPhoneInput(phoneInput) {
-      if (!phoneInput) return;
-      phoneInput.addEventListener("input", function () {
-        const pos = phoneInput.selectionStart;
-        const prev = phoneInput.value;
-        const formatted = formatReqPhone(phoneInput.value);
-        phoneInput.value = formatted;
-        if (formatted.length > prev.length) phoneInput.selectionStart = phoneInput.selectionEnd = formatted.length;
-        else phoneInput.selectionStart = phoneInput.selectionEnd = Math.min(pos, formatted.length);
-      });
-      phoneInput.addEventListener("keydown", function (e) {
-        if (e.key === "Backspace") {
-          const val = phoneInput.value;
-          const pos = phoneInput.selectionStart;
-          if (pos > 0 && !/\d/.test(val[pos - 1])) {
-            e.preventDefault();
-            phoneInput.value = val.slice(0, pos - 1) + val.slice(pos);
-            phoneInput.selectionStart = phoneInput.selectionEnd = pos - 1;
-          }
-        }
-      });
-      phoneInput.addEventListener("focus", function () {
-        if (!phoneInput.value) phoneInput.value = "+7 (";
-      });
-    }
-
-    function setupModal(modalId, closeId, formId, successId, nameId, phoneId) {
-      const modal = document.getElementById(modalId);
-      const closeBtn = document.getElementById(closeId);
-      const form = document.getElementById(formId);
-      const successEl = document.getElementById(successId);
-      const phoneInput = document.getElementById(phoneId);
-
-      function openModal() {
-        if (successEl) successEl.hidden = true;
-        if (form) form.hidden = false;
-        const errEl = modal.querySelector(".req-modal__error");
-        if (errEl) errEl.textContent = "";
-        prefillFromAuth(nameId, phoneId);
-        modal.setAttribute("aria-hidden", "false");
-        document.documentElement.style.overflow = "hidden";
-        setTimeout(function () {
-          const nameEl = document.getElementById(nameId);
-          if (nameEl) nameEl.focus();
-        }, 50);
-      }
-
-      function closeReqModal() {
-        modal.setAttribute("aria-hidden", "true");
-        document.documentElement.style.overflow = "";
-      }
-
-      modal._openReqModal = openModal;
-
-      if (closeBtn) closeBtn.addEventListener("click", closeReqModal);
-      const backdrop = modal.querySelector(".req-modal__backdrop");
-      if (backdrop) backdrop.addEventListener("click", closeReqModal);
-
-      document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape" && modal.getAttribute("aria-hidden") === "false") closeReqModal();
-      });
-
-      setupPhoneInput(phoneInput);
-
-      if (form) {
-        form.addEventListener("submit", function (e) {
-          e.preventDefault();
-          const nameVal = (document.getElementById(nameId) || {}).value || "";
-          const phoneVal = phoneInput ? phoneInput.value : "";
-          const errEl = modal.querySelector(".req-modal__error");
-          if (!nameVal.trim()) { if (errEl) errEl.textContent = "Введите имя"; return; }
-          const digits = phoneVal.replace(/\D/g, "");
-          if (digits.length < 11) { if (errEl) errEl.textContent = "Введите корректный номер телефона"; return; }
-          if (errEl) errEl.textContent = "";
-          if (form) form.hidden = true;
-          if (successEl) successEl.hidden = false;
-          setTimeout(closeReqModal, 3000);
-        });
-      }
-    }
-
-    setupModal("measure-modal", "measure-modal-close", "measure-modal-form", "measure-modal-success", "measure-name", "measure-phone");
-    setupModal("consult-modal", "consult-modal-close", "consult-modal-form", "consult-modal-success", "consult-name", "consult-phone");
-
-    // Bind triggers: [data-open-measure] and .product__size_measure
-    document.addEventListener("click", function (e) {
-      const measureTrigger = e.target.closest("[data-open-measure], .product__size_measure");
-      if (measureTrigger) {
-        const modal = document.querySelector("#measure-modal");
-        if (modal && modal._openReqModal) modal._openReqModal();
-        return;
-      }
-      const consultTrigger = e.target.closest("[data-open-consult], .product__option-link[href='#']");
-      if (consultTrigger) {
-        const modal = document.querySelector("#consult-modal");
-        if (modal && modal._openReqModal) {
-          e.preventDefault();
-          modal._openReqModal();
-        }
-        return;
-      }
-    });
-  }
-
-  initProductSelections();
-  initConfigurator();
-  initCartPage();
-  initCheckoutPage();
-  initProductGallery();
-  initWishlistBtn();
-  initCardWishlist();
-  initWishlistPage();
-  initRequestModals();
-})();
-
-
-
-// ------------ CHECKOUT & CART RENDER ------------
-document.addEventListener("DOMContentLoaded", () => {
-  const container = document.getElementById("cart-items-container");
-  const checkoutForm = document.getElementById("checkout-form");
-  if (!container && !checkoutForm) return;
-
-  function renderCart() {
     if (!container) return;
-    const items = window.dveryaninovGetCart ? window.dveryaninovGetCart() : JSON.parse(localStorage.getItem("dveryaninov_cart_v1") || "[]");
+    const items = JSON.parse(localStorage.getItem("dveryaninov_cart_v1") || "[]");
     container.innerHTML = "";
     
     let total = 0;
     if (items.length === 0) {
-      container.innerHTML = "<p>Корзина пуста. <a href='index.html'>Перейти в каталог</a></p>";
+      container.innerHTML = "<p>Корзина пуста. <a href='catalog.html' style='color:#611025; text-decoration:underline;'>Перейти в каталог</a></p>";
+      const cSide = document.querySelector('.cart-summary');
+      if (cSide) cSide.style.display = 'none';
+      return;
+    } else {
+      const cSide = document.querySelector('.cart-summary');
+      if (cSide) cSide.style.display = 'block';
     }
 
+    const labels = { 
+      size: 'Размер', finish: 'Цвет покрытия', glazing: 'Остекление', 
+      opening: 'Тип открывания', 'opening-type': 'Сторона открывания', 
+      pattern: 'Узор',
+      box: 'Тип погонажа', casing: 'Наличники', quantity: 'Шт. доборов', 'height-add': 'Добор', 
+      threshold: 'Порог',
+      'handle-color': 'Модель ручки', 'lock-type': 'Тип замка', 'lock-color': 'Цвет замка',
+      locker: 'Запирание (Фиксатор)', hinges: 'Петли', 'hinges-color': 'Цвет петель',
+      stopper: 'Ограничитель' 
+    };
+
     items.forEach((item, index) => {
-      total += Number(item.priceSum || item.price || 0);
+      const itemPrice = Number(item.priceSum || item.price || 0);
+      total += itemPrice;
+      
+      let propsHtml = '';
+      if (item.options) {
+        propsHtml = '<div style="margin-top: 16px; display: grid; gap: 8px; font-size: 13px; color: #555;">';
+        for (const [k, v] of Object.entries(item.options)) {
+          if (v && v !== '-') {
+            propsHtml += `<div><span style="color:#999">${labels[k] || k}:</span> ${v}</div>`;
+          }
+        }
+        if (item.accessories && item.accessories.length) {
+           item.accessories.forEach(acc => {
+             propsHtml += `<div><span style="color:#999">${acc.title}:</span> ${acc.spec || ''} (${acc.price} ₽ x ${acc.qty})</div>`;
+           });
+        }
+        propsHtml += '</div>';
+      }
+
       const div = document.createElement("article");
       div.className = "cart-item";
       div.innerHTML = `
-        <div class="cart-item__image-wrap">
-          <img class="cart-item__image" src="images/card-door-1.svg" alt="Товар" width="120" height="160">
+        <div class="cart-item__image-wrap" style="align-self: start;">
+          <img class="cart-item__image" src="${item.image || 'images/card-door-1.svg'}" alt="Товар" style="width: 100%; height: auto; display: block;">
         </div>
         <div class="cart-item__info">
-          <h3 class="cart-item__title">${item.title || 'Товар конфигуратора'}</h3>
-          <p style="font-size: 0.8rem; color: #666; margin: 4px 0;">Конфигурация: ${item.options ? Object.values(item.options).slice(0,3).join(', ') + '...' : ''}</p>
-          <div class="cart-item__price" style="margin-top: auto; font-weight: bold;">${new Intl.NumberFormat('ru-RU').format(item.priceSum || item.price || 0)} ₽</div>
-          <button type="button" style="color: #c00; background: none; border: none; font-size: 0.8rem; text-decoration: underline; cursor: pointer; margin-top: 10px;" onclick="window.removeCartItem(${index})">Удалить</button>
+          <div class="cart-item__info-header" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap;">
+            <div>
+              <h3 class="cart-item__title" style="margin: 0; font-size: 16px;">${item.title || 'Товар конфигуратора'}</h3>
+              <div class="cart-item__price" style="margin-top: 8px; font-weight: bold;">Цена за комплект<br>${new Intl.NumberFormat('ru-RU').format(itemPrice)} ₽</div>
+            </div>
+            
+            <div class="cart-item__actions" style="display: flex; gap: 12px; font-size: 13px;">
+              <a href="catalog.html" style="color: #666; text-decoration: none;">Добавить ещё дверь</a>
+              <span class="cart-item__action-sep" style="color: #ccc;">|</span>
+              <a href="product.html" style="color: #666; text-decoration: none;">Редактировать</a>
+              <span class="cart-item__action-sep" style="color: #ccc;">|</span>
+              <button type="button" style="color: #666; background: none; border: none; cursor: pointer; padding: 0;" onclick="window.removeCartItem(${index})">Удалить</button>
+            </div>
+          </div>
+          ${propsHtml}
         </div>
       `;
       container.appendChild(div);
@@ -1399,6 +755,7 @@ document.addEventListener("DOMContentLoaded", () => {
     items.splice(idx, 1);
     localStorage.setItem("dveryaninov_cart_v1", JSON.stringify(items));
     renderCart();
+    updateCartBadge();
   };
 
   renderCart();
@@ -1439,4 +796,9 @@ document.addEventListener("DOMContentLoaded", () => {
       window.location.href = "account.html";
     });
   }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (typeof updateWishlistBadge === "function") updateWishlistBadge();
+  if (typeof updateCartBadge === "function") updateCartBadge();
 });
