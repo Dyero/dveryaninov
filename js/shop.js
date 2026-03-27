@@ -906,11 +906,41 @@
   }
 
   window.updateWishlistBadge = updateWishlistBadge;
+  window.addToCart = addToCart;
   window.updateCartBadge = updateCartBadge;
 
   document.addEventListener("click", (e) => {
     const target = e.target;
     const wishBtn = target.closest(".card__fav, .product__btn_wishlist");
+    
+    const cartBtn = target.closest(".product__btn_cart");
+    if (cartBtn) {
+      e.preventDefault();
+      const title = document.querySelector(".product__title")?.textContent.trim() || 'Товар';
+      const image = document.querySelector(".product__main-image img")?.getAttribute("src") || "";
+      const priceVal = document.querySelector(".product__price")?.textContent.replace(/[^\\d]/g, "") || "0";
+      
+      const size = document.querySelector(".product__size_active")?.textContent.trim() || "2000×600";
+      let color = "RAL 9003";
+      const activeColor = document.querySelector(".product__color_active");
+      if (activeColor) {
+         const match = (activeColor.getAttribute("aria-label") || "").match(/RAL \\d+|Дуб|Венге|Орех|Серый|Черный|Белый/i);
+         if (match) color = match[0];
+         else color = activeColor.getAttribute("title") || "Свой цвет";
+      }
+
+      window.addToCart({
+          id: `p-${Date.now()}`,
+          title: title,
+          price: Number(priceVal) || 0,
+          image: image,
+          qty: 1,
+          options: { size: size, finish: color }
+      });
+      window.location.href = "cart.html";
+      return;
+    }
+
     if (wishBtn) {
       e.preventDefault();
       const card = wishBtn.closest(".card");
