@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
+<!DOCTYPE html><html lang="ru"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Корзина — Дверянинов</title>
@@ -23,85 +21,7 @@
     <div class="cart-meta" id="cart-meta"></div>
 
     <div class="cart">
-      <div class="cart__items">
-        <article class="cart-item">
-          <div class="cart-item__image-wrap">
-            <img class="cart-item__image" src="images/card-door-1.svg" alt="Дверь Флай 8 ПГ" width="120" height="160">
-          </div>
-          <div class="cart-item__info">
-            <div class="cart-item__info-header">
-              <h3 class="cart-item__title">Дверь Флай 8 ПГ</h3>
-              <div class="cart-item__actions">
-                <a class="cart-item__action-btn" href="catalog.html">Добавить ещё дверь</a>
-                <span class="cart-item__action-sep">|</span>
-                <a class="cart-item__action-btn" href="product.html">Редактировать</a>
-                <span class="cart-item__action-sep">|</span>
-                <button type="button" class="cart-item__action-btn cart-item__action-btn_danger">Удалить</button>
-              </div>
-            </div>
-            <p class="cart-item__price-line">58 600&nbsp;₽</p>
-            <dl class="cart-item__details">
-              <div class="cart-item__detail-row">
-                <span class="cart-item__detail-label">Размер:</span>
-                <span class="cart-item__detail-value">2000×600</span>
-              </div>
-              <div class="cart-item__detail-row">
-                <span class="cart-item__detail-label">Цвет покрытия:</span>
-                <span class="cart-item__detail-value">RAL 9003</span>
-              </div>
-            </dl>
-          </div>
-          <div class="cart-item__accessories">
-            <div class="cart-accessory">
-              <div class="cart-accessory__img-wrap">
-                <img class="cart-accessory__img" src="images/card-door-1.svg" alt="">
-              </div>
-              <div class="cart-accessory__info">
-                <span class="cart-accessory__name">Ручка Стандарт</span>
-                <span class="cart-accessory__spec">Длина 120 мм, хром</span>
-              </div>
-              <div class="cart-accessory__qty">
-                <button type="button" class="cart-accessory__qty-btn" aria-label="Уменьшить">−</button>
-                <input type="number" class="cart-accessory__qty-input" value="1" min="1" readonly>
-                <button type="button" class="cart-accessory__qty-btn" aria-label="Увеличить">+</button>
-              </div>
-              <div class="cart-accessory__pricing">
-                <span class="cart-accessory__price">1 200&nbsp;₽</span>
-                <span class="cart-accessory__old-price">55 799&nbsp;₽</span>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="cart-item">
-          <div class="cart-item__image-wrap">
-            <img class="cart-item__image" src="images/card-door-2.svg" alt="Дверь Ультра 5 ПГ" width="120" height="160">
-          </div>
-          <div class="cart-item__info">
-            <div class="cart-item__info-header">
-              <h3 class="cart-item__title">Дверь Ультра 5 ПГ</h3>
-              <div class="cart-item__actions">
-                <a class="cart-item__action-btn" href="catalog.html">Добавить ещё дверь</a>
-                <span class="cart-item__action-sep">|</span>
-                <a class="cart-item__action-btn" href="product.html">Редактировать</a>
-                <span class="cart-item__action-sep">|</span>
-                <button type="button" class="cart-item__action-btn cart-item__action-btn_danger">Удалить</button>
-              </div>
-            </div>
-            <p class="cart-item__price-line">Цена по запросу</p>
-            <dl class="cart-item__details">
-              <div class="cart-item__detail-row">
-                <span class="cart-item__detail-label">Размер:</span>
-                <span class="cart-item__detail-value">2000×700</span>
-              </div>
-              <div class="cart-item__detail-row">
-                <span class="cart-item__detail-label">Цвет покрытия:</span>
-                <span class="cart-item__detail-value">RAL 9003</span>
-              </div>
-            </dl>
-          </div>
-        </article>
-      </div>
+      <div class="cart__items" id="cart-items-container"></div>
 
       <aside class="cart-summary">
         <div class="cart-summary__content">
@@ -155,21 +75,21 @@
       <div id="checkout-content">
         <div class="checkout-modal__header">
           <h2 class="checkout-modal__title" id="checkout-modal-title">Оформление заявки</h2>
-          <button type="button" class="checkout-modal__close" data-close-checkout aria-label="Закрыть">
+          <button type="button" class="checkout-modal__close" data-close-checkout="" aria-label="Закрыть">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <line x1="2" y1="2" x2="18" y2="18" stroke="currentColor" stroke-width="2"/>
-              <line x1="18" y1="2" x2="2" y2="18" stroke="currentColor" stroke-width="2"/>
+              <line x1="2" y1="2" x2="18" y2="18" stroke="currentColor" stroke-width="2"></line>
+              <line x1="18" y1="2" x2="2" y2="18" stroke="currentColor" stroke-width="2"></line>
             </svg>
           </button>
         </div>
-        <form class="checkout-form" id="checkout-form" novalidate>
+        <form class="checkout-form" id="checkout-form" novalidate="">
           <div class="checkout-form__field">
             <label class="checkout-form__label" for="checkout-name">Имя</label>
-            <input class="checkout-form__input" type="text" id="checkout-name" name="checkout-name" autocomplete="name" required>
+            <input class="checkout-form__input" type="text" id="checkout-name" name="checkout-name" autocomplete="name" required="">
           </div>
           <div class="checkout-form__field">
             <label class="checkout-form__label" for="checkout-phone">Номер телефона</label>
-            <input class="checkout-form__input" type="tel" id="checkout-phone" name="checkout-phone" autocomplete="tel" required>
+            <input class="checkout-form__input" type="tel" id="checkout-phone" name="checkout-phone" autocomplete="tel" required="">
           </div>
           <div class="checkout-form__field">
             <label class="checkout-form__label" for="checkout-city">Город</label>
@@ -186,9 +106,9 @@
           <p class="checkout-auth-hint__text">Есть аккаунт? <button type="button" class="checkout-auth-hint__link" id="checkout-login-btn">Войти</button> или <button type="button" class="checkout-auth-hint__link" id="checkout-register-btn">зарегистрироваться</button> для отслеживания заказов</p>
         </div>
       </div>
-      <div id="checkout-success" hidden>
+      <div id="checkout-success" hidden="">
         <div class="checkout-success">
-          <div class="checkout-success__icon">&#10003;</div>
+          <div class="checkout-success__icon">✓</div>
           <h3 class="checkout-success__title">Заявка принята!</h3>
           <p class="checkout-success__text">Мы свяжемся с вами в ближайшее время для уточнения деталей.</p>
           <a class="checkout-success__link" href="account.html">Перейти в личный кабинет</a>
@@ -198,5 +118,6 @@
   </div>
 
   <script src="js/shop.js"></script>
-</body>
-</html>
+
+
+</body></html>

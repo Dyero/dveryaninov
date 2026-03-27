@@ -44,7 +44,7 @@
 
     var auth   = window.DvAuth;
     var user   = auth ? auth.getCurrentUser() : null;
-    var orders = auth ? auth.getUserOrders()  : [];
+    var orders = window.safeJsonParse ? safeJsonParse(localStorage.getItem("dveryaninov_orders_v1"), []) : JSON.parse(localStorage.getItem("dveryaninov_orders_v1") || "[]");
 
     // Update user greeting
     var nameEl  = document.querySelector('.account-user-greeting__name');

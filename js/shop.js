@@ -10,18 +10,18 @@
     }
   }
 
-  function getCart() {
+  function JSON.parse(localStorage.getItem("dveryaninov_cart_v1") || "[]") {
     return safeJsonParse(localStorage.getItem(CART_KEY) || "[]", []);
   }
 
-  function setCart(items) {
+  function localStorage.setItem("dveryaninov_cart_v1", JSON.stringify(items)) {
     localStorage.setItem(CART_KEY, JSON.stringify(items));
   }
 
   function addToCart(item) {
-    const items = getCart();
+    const items = JSON.parse(localStorage.getItem("dveryaninov_cart_v1") || "[]");
     items.push(item);
-    setCart(items);
+    localStorage.setItem("dveryaninov_cart_v1", JSON.stringify(items));
   }
 
   function getWishlist() {
@@ -136,7 +136,7 @@
   const BASE_PRICE = 52000;
 
   function initConfigurator() {
-    const modal = document.querySelector("#configModal");
+    const modal = document.querySelector("#dv-config-modal");
     if (!modal) return;
 
     const state = {
@@ -654,7 +654,7 @@
     }
 
     function renderCart() {
-      const items = getCart();
+      const items = JSON.parse(localStorage.getItem("dveryaninov_cart_v1") || "[]");
       itemsWrap.innerHTML = "";
       if (cartMeta) cartMeta.innerHTML = "";
 
@@ -672,7 +672,7 @@
           '<button type="button" class="cart-meta__clear" id="cart-clear-btn">Очистить корзину</button>';
         var clearBtn = document.querySelector("#cart-clear-btn");
         if (clearBtn) {
-          clearBtn.addEventListener("click", function () { setCart([]); renderCart(); });
+          clearBtn.addEventListener("click", function () { localStorage.setItem("dveryaninov_cart_v1", JSON.stringify([])); renderCart(); });
         }
       }
 
@@ -769,20 +769,20 @@
       var t = e.target;
       if (!(t instanceof Element)) return;
       if (!t.closest(".cart-page")) return;
-      var itemsNow = getCart();
+      var itemsNow = JSON.parse(localStorage.getItem("dveryaninov_cart_v1") || "[]");
       var removeId = t.getAttribute("data-cart-remove");
       var incId = t.getAttribute("data-cart-inc");
       var decId = t.getAttribute("data-cart-dec");
       var changed = false;
       if (removeId) {
-        setCart(itemsNow.filter(function (x) { return x.id !== removeId; }));
+        localStorage.setItem("dveryaninov_cart_v1", JSON.stringify(itemsNow.filter(function (x)) { return x.id !== removeId; }));
         changed = true;
       } else if (incId) {
         var xi = itemsNow.find(function (x) { return x.id === incId; });
-        if (xi) { xi.qty = (Number(xi.qty) || 1) + 1; setCart(itemsNow); changed = true; }
+        if (xi) { xi.qty = (Number(xi.qty) || 1) + 1; localStorage.setItem("dveryaninov_cart_v1", JSON.stringify(itemsNow)); changed = true; }
       } else if (decId) {
         var xd = itemsNow.find(function (x) { return x.id === decId; });
-        if (xd) { xd.qty = Math.max(1, (Number(xd.qty) || 1) - 1); setCart(itemsNow); changed = true; }
+        if (xd) { xd.qty = Math.max(1, (Number(xd.qty) || 1) - 1); localStorage.setItem("dveryaninov_cart_v1", JSON.stringify(itemsNow)); changed = true; }
       }
       var accIncId = t.getAttribute("data-acc-inc");
       var accDecId = t.getAttribute("data-acc-dec");
@@ -793,7 +793,7 @@
           var acc = cartItem.accessories.find(function (a) { return a.id === (accIncId || accDecId); });
           if (acc) {
             acc.qty = accIncId ? (Number(acc.qty) || 1) + 1 : Math.max(1, (Number(acc.qty) || 1) - 1);
-            setCart(itemsNow);
+            localStorage.setItem("dveryaninov_cart_v1", JSON.stringify(itemsNow));
             changed = true;
           }
         }
@@ -895,7 +895,7 @@
     var checkoutBtn = document.querySelector('.cart-summary__btn');
     if (checkoutBtn) {
       checkoutBtn.addEventListener('click', function() {
-        if (!getCart().length) return;
+        if (!JSON.parse(localStorage.getItem("dveryaninov_cart_v1") || "[]").length) return;
         openCheckoutModal();
       });
     }
@@ -934,7 +934,7 @@
     if (form) {
       form.addEventListener('submit', function(e) {
         e.preventDefault();
-        var items = getCart();
+        var items = JSON.parse(localStorage.getItem("dveryaninov_cart_v1") || "[]");
         if (!items.length) return;
         var errEl = document.querySelector('#checkout-error');
         var nameEl = modal.querySelector('[name="checkout-name"]');
@@ -952,7 +952,7 @@
         }
         if (errEl) errEl.textContent = '';
         if (window.DvAuth) DvAuth.saveOrder(items);
-        setCart([]);
+        localStorage.setItem("dveryaninov_cart_v1", JSON.stringify([]));
         var content = document.querySelector('#checkout-content');
         var success = document.querySelector('#checkout-success');
         if (content) content.hidden = true;
@@ -1353,3 +1353,91 @@
   initRequestModals();
 })();
 
+
+
+// ------------ CHECKOUT & CART RENDER ------------
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.getElementById("cart-items-container");
+  const checkoutForm = document.getElementById("checkout-form");
+  if (!container && !checkoutForm) return;
+
+  function renderCart() {
+    if (!container) return;
+    const items = window.dveryaninovGetCart ? window.dveryaninovGetCart() : JSON.parse(localStorage.getItem("dveryaninov_cart_v1") || "[]");
+    container.innerHTML = "";
+    
+    let total = 0;
+    if (items.length === 0) {
+      container.innerHTML = "<p>Корзина пуста. <a href='index.html'>Перейти в каталог</a></p>";
+    }
+
+    items.forEach((item, index) => {
+      total += Number(item.priceSum || item.price || 0);
+      const div = document.createElement("article");
+      div.className = "cart-item";
+      div.innerHTML = `
+        <div class="cart-item__image-wrap">
+          <img class="cart-item__image" src="images/card-door-1.svg" alt="Товар" width="120" height="160">
+        </div>
+        <div class="cart-item__info">
+          <h3 class="cart-item__title">${item.title || 'Товар конфигуратора'}</h3>
+          <p style="font-size: 0.8rem; color: #666; margin: 4px 0;">Конфигурация: ${item.options ? Object.values(item.options).slice(0,3).join(', ') + '...' : ''}</p>
+          <div class="cart-item__price" style="margin-top: auto; font-weight: bold;">${new Intl.NumberFormat('ru-RU').format(item.priceSum || item.price || 0)} ₽</div>
+          <button type="button" style="color: #c00; background: none; border: none; font-size: 0.8rem; text-decoration: underline; cursor: pointer; margin-top: 10px;" onclick="window.removeCartItem(${index})">Удалить</button>
+        </div>
+      `;
+      container.appendChild(div);
+    });
+
+    const summaryTotal = document.getElementById("cart-summary-total");
+    const summaryFinal = document.getElementById("cart-summary-final");
+    if (summaryTotal) summaryTotal.textContent = new Intl.NumberFormat('ru-RU').format(total) + " ₽";
+    if (summaryFinal) summaryFinal.textContent = new Intl.NumberFormat('ru-RU').format(total) + " ₽";
+  }
+
+  window.removeCartItem = (idx) => {
+    const items = JSON.parse(localStorage.getItem("dveryaninov_cart_v1") || "[]");
+    items.splice(idx, 1);
+    localStorage.setItem("dveryaninov_cart_v1", JSON.stringify(items));
+    renderCart();
+  };
+
+  renderCart();
+
+  if (checkoutForm) {
+    checkoutForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const items = JSON.parse(localStorage.getItem("dveryaninov_cart_v1") || "[]");
+      if (items.length === 0) {
+        alert("Корзина пуста");
+        return;
+      }
+      
+      const name = document.getElementById("checkout-name").value;
+      const phone = document.getElementById("checkout-phone").value;
+      
+      const order = {
+        id: "ORD-" + Math.floor(Math.random() * 1000000),
+        date: new Date().toISOString(),
+        customer: { name, phone },
+        items: items,
+        total: items.reduce((sum, item) => sum + (Number(item.priceSum) || Number(item.price) || 0), 0)
+      };
+
+      console.log("=== BITRIX24 INTEGRATION MOCK ===");
+      console.log("NEW ORDER SUBMITTED:", JSON.stringify(order, null, 2));
+      console.log("=================================");
+
+      // Save to Orders History
+      const history = window.safeJsonParse ? safeJsonParse(localStorage.getItem("dveryaninov_orders_v1"), []) : JSON.parse(localStorage.getItem("dveryaninov_orders_v1") || "[]");
+      history.push(order);
+      localStorage.setItem("dveryaninov_orders_v1", JSON.stringify(history));
+
+      // Clear cart
+      localStorage.setItem("dveryaninov_cart_v1", JSON.stringify([]));
+      
+      alert("Ваша заявка успешно оформлена (см. консоль)!");
+      window.location.href = "account.html";
+    });
+  }
+});
