@@ -25,21 +25,44 @@
 
       <aside class="cart-summary">
         <div class="cart-summary__content">
-          <h2 class="cart-summary__title">Итог</h2>
           <div class="cart-summary__row">
-            <span class="cart-summary__label">Товаров на сумму:</span>
-            <span class="cart-summary__value cart-summary__sum">175 800 ₽</span>
+            <span class="cart-summary__label cart-summary__goods-count">3 товара</span>
+            <span class="cart-summary__value cart-summary__sum">от 55 199 ₽</span>
           </div>
           <div class="cart-summary__row">
-            <span class="cart-summary__label">Доставка:</span>
-            <span class="cart-summary__value">Рассчитывается при оформлении</span>
+            <span class="cart-summary__label cart-summary__request-count">1 товар</span>
+            <span class="cart-summary__value">Цена по запросу</span>
           </div>
-          <div class="cart-summary__total">
-            <span class="cart-summary__total-label">К оплате:</span>
-            <span class="cart-summary__total-value cart-summary__pay">175 800 ₽</span>
+          <div class="cart-summary__row">
+            <span class="cart-summary__label cart-summary__services-count">2 услуги</span>
+            <span class="cart-summary__value cart-summary__services-sum">600 ₽</span>
           </div>
-          <button type="button" class="cart-summary__btn">Оформить заказ</button>
-          <a href="catalog.html" class="cart-summary__continue">Продолжить покупки</a>
+          <div class="cart-summary__row cart-summary__row_discount">
+            <span class="cart-summary__label">Скидка <span class="cart-summary__discount-arrow">▾</span></span>
+            <span class="cart-summary__value cart-summary__discount-val">−3 000 ₽</span>
+          </div>
+
+          <div class="cart-summary__toggle-row">
+            <span class="cart-summary__toggle-label">НУЖНА ДОСТАВКА</span>
+            <label class="cart-summary__switch">
+              <input type="checkbox" id="cart-need-delivery">
+              <span class="cart-summary__slider"></span>
+            </label>
+          </div>
+          <div class="cart-summary__toggle-row">
+            <span class="cart-summary__toggle-label">НУЖНА УСТАНОВКА</span>
+            <label class="cart-summary__switch">
+              <input type="checkbox" id="cart-need-install">
+              <span class="cart-summary__slider"></span>
+            </label>
+          </div>
+
+          <button type="button" class="cart-summary__btn" id="cart-checkout-btn">УЗНАТЬ СТОИМОСТЬ</button>
+          <button type="button" class="cart-summary__promo-link" id="cart-promo-toggle">У МЕНЯ ЕСТЬ ПРОМОКОД</button>
+          <div class="cart-summary__promo-field" id="cart-promo-field" hidden>
+            <input type="text" class="cart-summary__promo-input" placeholder="Введите промокод">
+            <button type="button" class="cart-summary__promo-apply">Применить</button>
+          </div>
         </div>
       </aside>
     </div>
@@ -72,24 +95,25 @@
   <div class="checkout-modal" id="checkout-modal" role="dialog" aria-modal="true" aria-labelledby="checkout-modal-title" aria-hidden="true">
     <div class="checkout-modal__backdrop"></div>
     <div class="checkout-modal__panel">
+      <!-- Guest form -->
       <div id="checkout-content">
         <div class="checkout-modal__header">
           <h2 class="checkout-modal__title" id="checkout-modal-title">Оформление заявки</h2>
-          <button type="button" class="checkout-modal__close" data-close-checkout="" aria-label="Закрыть">
+          <button type="button" class="checkout-modal__close" data-close-checkout aria-label="Закрыть">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <line x1="2" y1="2" x2="18" y2="18" stroke="currentColor" stroke-width="2"></line>
-              <line x1="18" y1="2" x2="2" y2="18" stroke="currentColor" stroke-width="2"></line>
+              <line x1="2" y1="2" x2="18" y2="18" stroke="currentColor" stroke-width="2"/>
+              <line x1="18" y1="2" x2="2" y2="18" stroke="currentColor" stroke-width="2"/>
             </svg>
           </button>
         </div>
-        <form class="checkout-form" id="checkout-form" novalidate="">
+        <form class="checkout-form" id="checkout-form" novalidate>
           <div class="checkout-form__field">
             <label class="checkout-form__label" for="checkout-name">Имя</label>
-            <input class="checkout-form__input" type="text" id="checkout-name" name="checkout-name" autocomplete="name" required="">
+            <input class="checkout-form__input" type="text" id="checkout-name" name="checkout-name" autocomplete="name" required>
           </div>
           <div class="checkout-form__field">
             <label class="checkout-form__label" for="checkout-phone">Номер телефона</label>
-            <input class="checkout-form__input" type="tel" id="checkout-phone" name="checkout-phone" autocomplete="tel" required="">
+            <input class="checkout-form__input" type="tel" id="checkout-phone" name="checkout-phone" autocomplete="tel" required>
           </div>
           <div class="checkout-form__field">
             <label class="checkout-form__label" for="checkout-city">Город</label>
@@ -100,17 +124,32 @@
             <textarea class="checkout-form__textarea" id="checkout-comment" name="checkout-comment" rows="3"></textarea>
           </div>
           <div class="checkout-form__error" id="checkout-error" aria-live="polite"></div>
-          <button type="submit" class="checkout-form__submit">Оформить заявку</button>
+          <button type="submit" class="checkout-form__submit">ОФОРМИТЬ ЗАЯВКУ</button>
         </form>
         <div class="checkout-auth-hint">
           <p class="checkout-auth-hint__text">Есть аккаунт? <button type="button" class="checkout-auth-hint__link" id="checkout-login-btn">Войти</button> или <button type="button" class="checkout-auth-hint__link" id="checkout-register-btn">зарегистрироваться</button> для отслеживания заказов</p>
         </div>
       </div>
-      <div id="checkout-success" hidden="">
+      <!-- Auth: confirmation -->
+      <div id="checkout-auth-confirm" hidden>
+        <div class="checkout-modal__header">
+          <h2 class="checkout-modal__title">Подтверждение заказа</h2>
+          <button type="button" class="checkout-modal__close" data-close-checkout aria-label="Закрыть">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <line x1="2" y1="2" x2="18" y2="18" stroke="currentColor" stroke-width="2"/>
+              <line x1="18" y1="2" x2="2" y2="18" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </button>
+        </div>
+        <p class="checkout-confirm__text">Вы вошли как <strong id="checkout-user-name"></strong>. Подтвердите оформление заказа.</p>
+        <button type="button" class="checkout-form__submit" id="checkout-auth-submit">ПОДТВЕРДИТЬ ЗАКАЗ</button>
+      </div>
+      <!-- Success screen -->
+      <div id="checkout-success" hidden>
         <div class="checkout-success">
           <div class="checkout-success__icon">✓</div>
-          <h3 class="checkout-success__title">Заявка принята!</h3>
-          <p class="checkout-success__text">Мы свяжемся с вами в ближайшее время для уточнения деталей.</p>
+          <h3 class="checkout-success__title">Спасибо!</h3>
+          <p class="checkout-success__text">Ваша заявка успешно оформлена. Мы свяжемся с вами в ближайшее время для уточнения деталей.</p>
           <a class="checkout-success__link" href="account.html">Перейти в личный кабинет</a>
         </div>
       </div>

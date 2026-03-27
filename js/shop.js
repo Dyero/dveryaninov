@@ -750,9 +750,9 @@
     const container = document.getElementById("cart-items-container");
     if (!container) return; // Not on cart page
 
-    const summaryTotal = document.querySelector(".cart-summary__sum");
-    const summaryFinal = document.querySelector(".cart-summary__pay");
-    const checkoutForm = document.getElementById("checkout-form");
+    const checkoutBtn = document.getElementById("cart-checkout-btn");
+    const promoToggle = document.getElementById("cart-promo-toggle");
+    const promoField = document.getElementById("cart-promo-field");
 
     const labels = {
       size: "Размер",
@@ -775,29 +775,50 @@
       stopper: "Ограничитель",
     };
 
+    // Meta bar
+    const metaEl = document.getElementById("cart-meta");
+
     function renderCart() {
-      const items = window.safeJsonParse
-        ? safeJsonParse(localStorage.getItem("dveryaninov_cart_v1"), [])
-        : JSON.parse(localStorage.getItem("dveryaninov_cart_v1") || "[]");
+      const items = safeJsonParse(localStorage.getItem("dveryaninov_cart_v1"), []);
       container.innerHTML = "";
 
-      let total = 0;
       if (items.length === 0) {
         container.innerHTML =
-          "<p>Корзина пуста. <a href='catalog.html' style='color:#611025; text-decoration:underline;'>Перейти в каталог</a></p>";
+          "<p class='cart-empty'>Корзина пуста. <a href='catalog.html'>Перейти в каталог</a></p>";
         const cSide = document.querySelector(".cart-summary");
         if (cSide) cSide.style.display = "none";
-        if (summaryTotal) summaryTotal.textContent = "0 ₽";
-        if (summaryFinal) summaryFinal.textContent = "0 ₽";
+        if (metaEl) metaEl.innerHTML = "";
         return;
-      } else {
-        const cSide = document.querySelector(".cart-summary");
-        if (cSide) cSide.style.display = "block";
       }
+
+      // Show summary
+      const cSide = document.querySelector(".cart-summary");
+      if (cSide) cSide.style.display = "block";
+
+      // Meta bar
+      if (metaEl) {
+        metaEl.innerHTML =
+          '<span class="cart-meta__count">' + items.length + ' ' + pluralize(items.length, 'ТОВАР', 'ТОВАРА', 'ТОВАРОВ') + '</span>'
+          + '<button type="button" class="cart-meta__clear" id="cart-clear-all">Очистить корзину</button>';
+        document.getElementById("cart-clear-all")?.addEventListener("click", function () {
+          localStorage.setItem("dveryaninov_cart_v1", "[]");
+          renderCart();
+          updateCartBadge();
+        });
+      }
+
+      let total = 0;
+      let priceRequestCount = 0;
+      let servicesTotal = 0;
 
       items.forEach((item, index) => {
         const itemPrice = Number(item.priceSum || item.price || 0);
-        total += itemPrice;
+        const isPriceRequest = itemPrice === 0;
+        if (isPriceRequest) {
+          priceRequestCount++;
+        } else {
+          total += itemPrice;
+        }
 
         /* --- Door options as individual rows --- */
         let propsHtml = "";
@@ -816,22 +837,23 @@
               propsHtml += '<div class="cart-item__prop-row"><span class="cart-item__prop-label">' + label + ':</span> <span class="cart-item__prop-value">' + val + '</span></div>';
             }
           }
+          if (item.note) {
+            propsHtml += '<div class="cart-item__prop-row"><span class="cart-item__prop-label">Примечание к комплекту:</span> <span class="cart-item__prop-value">' + item.note + '</span></div>';
+          }
           propsHtml += "</div>";
         }
 
-        /* --- Accessories blocks (Ручка, Погонаж, etc.) --- */
+        /* --- Accessories blocks --- */
         let accessoriesHtml = "";
         if (item.accessories && item.accessories.length) {
-          item.accessories.forEach(function(acc) {
-            let accDetails = "";
-            if (acc.spec) accDetails = acc.spec;
+          item.accessories.forEach(function (acc) {
             accessoriesHtml += '<div class="cart-item__accessory">'
               + '<div class="cart-item__accessory-img">'
               + '<img src="' + (acc.image || item.image || "images/card-door-1.svg") + '" alt="' + (acc.title || "") + '">'
               + '</div>'
               + '<div class="cart-item__accessory-info">'
               + '<strong class="cart-item__accessory-title">' + (acc.title || "Аксессуар") + '</strong>'
-              + (accDetails ? '<div class="cart-item__accessory-spec">' + accDetails + '</div>' : '')
+              + (acc.spec ? '<div class="cart-item__accessory-spec">' + acc.spec + '</div>' : '')
               + '</div>'
               + '</div>';
           });
@@ -845,29 +867,96 @@
           +     '<img class="cart-item__image" src="' + (item.image || "images/card-door-1.svg") + '" alt="' + (item.title || "Товар") + '">'
           +   '</div>'
           +   '<div class="cart-item__info">'
-          +     '<h3 class="cart-item__title">' + (item.title || "Товар конфигуратора") + '</h3>'
+          +     '<div class="cart-item__header">'
+          +       '<div class="cart-item__header-left">'
+          +         '<h3 class="cart-item__title">' + (item.title || "Товар конфигуратора") + '</h3>'
+          +         '<span class="cart-item__price-tag">' + (isPriceRequest ? 'Цена по запросу' : (new Intl.NumberFormat("ru-RU").format(itemPrice) + ' ₽')) + '</span>'
+          +       '</div>'
+          +       '<div class="cart-item__action-links">'
+          +         '<a href="catalog.html" class="cart-item__action-link">Добавить ещё дверь</a>'
+          +         '<button type="button" class="cart-item__action-link" data-edit-item="' + index + '">Редактировать</button>'
+          +         '<button type="button" class="cart-item__action-link cart-item__action-link_delete" data-remove-item="' + index + '">Удалить</button>'
+          +       '</div>'
+          +     '</div>'
           +     propsHtml
           +   '</div>'
-          +   '<div class="cart-item__price-col">'
-          +     '<div class="cart-item__price-label">Цена за комплект</div>'
-          +     '<div class="cart-item__price">' + new Intl.NumberFormat("ru-RU").format(itemPrice) + ' ₽</div>'
-          +   '</div>'
           + '</div>'
-          + accessoriesHtml
-          + '<div class="cart-item__actions">'
-          +   '<button type="button" class="cart-item__remove" onclick="window.removeCartItem(' + index + ')">Удалить</button>'
-          + '</div>';
+          + accessoriesHtml;
 
         container.appendChild(div);
       });
 
-      if (summaryTotal)
-        summaryTotal.textContent =
-          new Intl.NumberFormat("ru-RU").format(total) + " ₽";
-      if (summaryFinal)
-        summaryFinal.textContent =
-          new Intl.NumberFormat("ru-RU").format(total) + " ₽";
+      // Services area
+      const servicesDiv = document.createElement("div");
+      servicesDiv.className = "cart-services";
+      servicesDiv.innerHTML = ''
+        + '<label class="cart-services__item"><input type="checkbox" class="cart-services__checkbox" data-service="install" value="300"><span class="cart-services__label">Нужна установка двери</span></label>'
+        + '<label class="cart-services__item"><input type="checkbox" class="cart-services__checkbox" data-service="delivery" value="300"><span class="cart-services__label">Нужна доставка</span></label>'
+        + '<button type="button" class="cart-services__show-all">Показать все услуги ›</button>';
+      container.appendChild(servicesDiv);
+
+      // Bind service checkboxes
+      servicesDiv.querySelectorAll(".cart-services__checkbox").forEach(function (cb) {
+        cb.addEventListener("change", updateSummary);
+      });
+
+      updateSummary();
+
+      function updateSummary() {
+        let svcTotal = 0;
+        let svcCount = 0;
+        servicesDiv.querySelectorAll(".cart-services__checkbox:checked").forEach(function (cb) {
+          svcTotal += Number(cb.value) || 0;
+          svcCount++;
+        });
+
+        const goodsCount = items.length - priceRequestCount;
+        const goodsEl = document.querySelector(".cart-summary__goods-count");
+        const sumEl = document.querySelector(".cart-summary__sum");
+        const reqCountEl = document.querySelector(".cart-summary__request-count");
+        const svcCountEl = document.querySelector(".cart-summary__services-count");
+        const svcSumEl = document.querySelector(".cart-summary__services-sum");
+
+        if (goodsEl) goodsEl.textContent = goodsCount + ' ' + pluralize(goodsCount, 'товар', 'товара', 'товаров');
+        if (sumEl) sumEl.textContent = total > 0 ? 'от ' + new Intl.NumberFormat("ru-RU").format(total) + ' ₽' : '0 ₽';
+        if (reqCountEl) {
+          reqCountEl.textContent = priceRequestCount + ' ' + pluralize(priceRequestCount, 'товар', 'товара', 'товаров');
+          reqCountEl.closest('.cart-summary__row').style.display = priceRequestCount > 0 ? '' : 'none';
+        }
+        if (svcCountEl) svcCountEl.textContent = svcCount + ' ' + pluralize(svcCount, 'услуга', 'услуги', 'услуг');
+        if (svcSumEl) svcSumEl.textContent = svcTotal > 0 ? new Intl.NumberFormat("ru-RU").format(svcTotal) + ' ₽' : '0 ₽';
+      }
+
+      // Bind remove/edit buttons
+      container.addEventListener("click", function (e) {
+        const removeBtn = e.target.closest("[data-remove-item]");
+        if (removeBtn) {
+          const idx = Number(removeBtn.getAttribute("data-remove-item"));
+          window.removeCartItem(idx);
+          return;
+        }
+        const editBtn = e.target.closest("[data-edit-item]");
+        if (editBtn) {
+          // Navigate back to product page for editing (simplified)
+          const itemIdx = Number(editBtn.getAttribute("data-edit-item"));
+          const cartItems = safeJsonParse(localStorage.getItem("dveryaninov_cart_v1"), []);
+          if (cartItems[itemIdx]) {
+            alert("Функция редактирования будет доступна в следующей версии");
+          }
+        }
+      });
     }
+
+    // Pluralization helper
+    function pluralize(n, one, few, many) {
+      const abs = Math.abs(n) % 100;
+      const last = abs % 10;
+      if (abs > 10 && abs < 20) return many;
+      if (last > 1 && last < 5) return few;
+      if (last === 1) return one;
+      return many;
+    }
+
     window.removeCartItem = (idx) => {
       const items = JSON.parse(
         localStorage.getItem("dveryaninov_cart_v1") || "[]",
@@ -875,51 +964,141 @@
       items.splice(idx, 1);
       localStorage.setItem("dveryaninov_cart_v1", JSON.stringify(items));
       renderCart();
-      if (typeof updateCartBadge === "function") updateCartBadge();
+      updateCartBadge();
     };
 
     renderCart();
 
-    if (checkoutForm) {
-      checkoutForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const items = JSON.parse(
-          localStorage.getItem("dveryaninov_cart_v1") || "[]",
-        );
-        if (items.length === 0) {
-          alert("Корзина пуста");
-          return;
+    // Promo toggle
+    if (promoToggle && promoField) {
+      promoToggle.addEventListener("click", function () {
+        promoField.hidden = !promoField.hidden;
+      });
+    }
+
+    // Checkout button — opens modal
+    if (checkoutBtn) {
+      checkoutBtn.addEventListener("click", function () {
+        const items = safeJsonParse(localStorage.getItem("dveryaninov_cart_v1"), []);
+        if (items.length === 0) { alert("Корзина пуста"); return; }
+
+        const modal = document.getElementById("checkout-modal");
+        if (!modal) return;
+
+        const guestContent = document.getElementById("checkout-content");
+        const authConfirm = document.getElementById("checkout-auth-confirm");
+        const successScreen = document.getElementById("checkout-success");
+
+        // Reset screens
+        if (guestContent) guestContent.hidden = false;
+        if (authConfirm) authConfirm.hidden = true;
+        if (successScreen) successScreen.hidden = true;
+
+        // Check auth
+        const isAuth = typeof window.DvAuth !== 'undefined' && window.DvAuth.isLoggedIn();
+        if (isAuth) {
+          if (guestContent) guestContent.hidden = true;
+          if (authConfirm) authConfirm.hidden = false;
+          const userName = document.getElementById("checkout-user-name");
+          const user = window.DvAuth.getCurrentUser();
+          if (userName && user) userName.textContent = user.name || user.email;
         }
 
-        const name = document.getElementById("checkout-name")
-          ? document.getElementById("checkout-name").value
-          : "";
-        const phone = document.getElementById("checkout-phone")
-          ? document.getElementById("checkout-phone").value
-          : "";
+        openModal(modal);
+      });
+    }
 
-        const order = {
-          id: "ORD-" + Math.floor(Math.random() * 1000000),
-          date: new Date().toISOString(),
-          customer: { name, phone },
-          items: items,
-          total: items.reduce(
-            (sum, item) =>
-              sum + (Number(item.priceSum) || Number(item.price) || 0),
-            0,
-          ),
-        };
+    // Checkout form submit (guest)
+    const checkoutForm = document.getElementById("checkout-form");
+    if (checkoutForm) {
+      checkoutForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        submitOrder();
+      });
+    }
 
-        const history = window.safeJsonParse
-          ? safeJsonParse(localStorage.getItem("dveryaninov_orders_v1"), [])
-          : JSON.parse(localStorage.getItem("dveryaninov_orders_v1") || "[]");
-        history.push(order);
-        localStorage.setItem("dveryaninov_orders_v1", JSON.stringify(history));
+    // Checkout auth confirm
+    const authSubmit = document.getElementById("checkout-auth-submit");
+    if (authSubmit) {
+      authSubmit.addEventListener("click", function () {
+        submitOrder();
+      });
+    }
 
-        localStorage.setItem("dveryaninov_cart_v1", JSON.stringify([]));
+    function submitOrder() {
+      const items = safeJsonParse(localStorage.getItem("dveryaninov_cart_v1"), []);
+      if (items.length === 0) { alert("Корзина пуста"); return; }
 
-        alert("Ваша заявка успешно оформлена!");
-        window.location.href = "account.html";
+      const name = document.getElementById("checkout-name")?.value || "";
+      const phone = document.getElementById("checkout-phone")?.value || "";
+
+      const order = {
+        id: "ORD-" + Math.floor(Math.random() * 1000000),
+        date: new Date().toISOString(),
+        customer: { name, phone },
+        items: items,
+        total: items.reduce(function (sum, item) {
+          return sum + (Number(item.priceSum) || Number(item.price) || 0);
+        }, 0),
+      };
+
+      const history = safeJsonParse(localStorage.getItem("dveryaninov_orders_v1"), []);
+      history.push(order);
+      localStorage.setItem("dveryaninov_orders_v1", JSON.stringify(history));
+      localStorage.setItem("dveryaninov_cart_v1", "[]");
+
+      // Show success
+      const guestContent = document.getElementById("checkout-content");
+      const authConfirm = document.getElementById("checkout-auth-confirm");
+      const successScreen = document.getElementById("checkout-success");
+      if (guestContent) guestContent.hidden = true;
+      if (authConfirm) authConfirm.hidden = true;
+      if (successScreen) successScreen.hidden = false;
+
+      renderCart();
+      updateCartBadge();
+    }
+
+    // Close checkout modal handlers
+    const checkoutModal = document.getElementById("checkout-modal");
+    if (checkoutModal) {
+      checkoutModal.querySelectorAll("[data-close-checkout]").forEach(function (btn) {
+        btn.addEventListener("click", function () { closeModal(checkoutModal); });
+      });
+      const backdrop = checkoutModal.querySelector(".checkout-modal__backdrop");
+      if (backdrop) {
+        backdrop.addEventListener("click", function () { closeModal(checkoutModal); });
+      }
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && checkoutModal.getAttribute("aria-hidden") !== "true") {
+          closeModal(checkoutModal);
+        }
+      });
+    }
+
+    // Auth hint buttons
+    const loginBtn = document.getElementById("checkout-login-btn");
+    const registerBtn = document.getElementById("checkout-register-btn");
+    if (loginBtn) {
+      loginBtn.addEventListener("click", function () {
+        const authModal = document.getElementById("auth-modal");
+        if (authModal) {
+          if (checkoutModal) closeModal(checkoutModal);
+          openModal(authModal);
+          const loginTab = authModal.querySelector('[data-tab="login"]');
+          if (loginTab) loginTab.click();
+        }
+      });
+    }
+    if (registerBtn) {
+      registerBtn.addEventListener("click", function () {
+        const authModal = document.getElementById("auth-modal");
+        if (authModal) {
+          if (checkoutModal) closeModal(checkoutModal);
+          openModal(authModal);
+          const regTab = authModal.querySelector('[data-tab="register"]');
+          if (regTab) regTab.click();
+        }
       });
     }
   }
