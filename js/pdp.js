@@ -2,18 +2,18 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ================== Gallery Data & Sync ================== */
   const galleryData = {
     "beige": [
-      "images/card-door-1.svg",
-      "images/card-door-2.svg",
-      "images/card-door-3.svg"
+      "images/Альберта/Альберта 1 1.png",
+      "images/Альберта/Альберта 2 1.png",
+      "images/Альберта/Альберта 4 1.png"
     ],
     "grey_light": [
-      "images/card-door-2.svg",
-      "images/card-door-4.svg"
+      "images/Альберта/Альберта 3 1.png",
+      "images/Альберта/Альберта 5 1.png"
     ],
     "graphite": [
-      "images/card-door-3.svg",
-      "images/card-door-1.svg",
-      "images/card-door-4.svg"
+      "images/Альберта/Альберта 6 1.png",
+      "images/Альберта/Альберта 7 1.png",
+      "images/Альберта/Альберта.png"
     ]
   };
 
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const urlParams = new URLSearchParams(window.location.search);
   const URLcolor = urlParams.get('color');
   if (URLcolor && galleryData[URLcolor]) {
-    const input = document.querySelector(\`input[name="pdp_color"][value="\${URLcolor}"]\`);
+    const input = document.querySelector(`input[name="pdp_color"][value="${URLcolor}"]`);
     if(input) input.checked = true;
   }
 
@@ -53,11 +53,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 200);
 
     // Render thumbs
-    thumbsContainer.innerHTML = urls.map((url, i) => \`
-      <button class="pdp-gallery__thumb \${i === 0 ? 'is-active' : ''}" data-src="\${url}">
-        <img src="\${url}" alt="">
+    thumbsContainer.innerHTML = urls.map((url, i) => `
+      <button class="pdp-gallery__thumb ${i === 0 ? 'is-active' : ''}" data-src="${url}">
+        <img src="${url}" alt="">
       </button>
-    \`).join('');
+    `).join('');
 
     // Rebind thumbs
     document.querySelectorAll('.pdp-gallery__thumb').forEach(thumb => {
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
     // update label & URL
-    const activeLabel = document.querySelector(\`input[name="pdp_color"][value="\${color}"]\`).closest('label').getAttribute('title');
+    const activeLabel = document.querySelector(`input[name="pdp_color"][value="${color}"]`).closest('label').getAttribute('title');
     if (colorNameLabel) colorNameLabel.textContent = activeLabel;
     
     const newUrl = new URL(window.location);
