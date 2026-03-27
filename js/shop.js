@@ -769,7 +769,7 @@
       var decId = t.getAttribute("data-cart-dec");
       var changed = false;
       if (removeId) {
-        localStorage.setItem("dveryaninov_cart_v1", JSON.stringify(itemsNow.filter(function (x)) { return x.id !== removeId; }));
+        localStorage.setItem("dveryaninov_cart_v1", JSON.stringify(itemsNow.filter(function (x) { return x.id !== removeId; })));
         changed = true;
       } else if (incId) {
         var xi = itemsNow.find(function (x) { return x.id === incId; });
