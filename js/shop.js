@@ -172,7 +172,7 @@
   const BASE_PRICE = 52000;
 
   function initConfigurator() {
-    const modal = document.querySelector("#dv-config-modal");
+    const modal = document.querySelector(".cfg-modal");
     if (!modal) return;
 
     const state = {
@@ -905,8 +905,154 @@
     }
   }
 
+  window.updateWishlistBadge = updateWishlistBadge;
+  window.updateCartBadge = updateCartBadge;
+
+  document.addEventListener("click", (e) => {
+    const target = e.target;
+    const wishBtn = target.closest(".card__fav, .product__btn_wishlist");
+    if (wishBtn) {
+      e.preventDefault();
+      const card = wishBtn.closest(".card");
+      let id, title, image, price;
+      if (card) {
+        title =
+          card.querySelector(".card__title")?.textContent.trim() || "Товар";
+        image = card.querySelector("img")?.getAttribute("src") || "";
+        const priceText =
+          card.querySelector(".card__price")?.textContent || "0";
+        price = priceText.replace(/[^\d]/g, "");
+        const link = card.querySelector("a")?.getAttribute("href") || "";
+        id = link ? link.split("/").pop() : title;
+      } else {
+        title =
+          document.querySelector(".product__title")?.textContent.trim() ||
+          document.querySelector(".breadcrumbs__current")?.textContent.trim() ||
+          "Товар";
+        image =
+          document
+            .querySelector(".product__main-image img")
+            ?.getAttribute("src") || "";
+        price =
+          document
+            .querySelector(".product__price, .config-total-price")
+            ?.textContent.replace(/[^\d]/g, "") || "52000";
+        id = window.location.pathname.split("/").pop() || title;
+      }
+
+      toggleWishlist({ id, title, image, price: Number(price) || 0 });
+      wishBtn.classList.toggle("is-active", isInWishlist(id));
+
+      // Also might need to update a visual heart fill (use custom class if any)
+      if (isInWishlist(id)) {
+        wishBtn.style.backgroundColor = "var(--color-primary, #e21836)";
+        wishBtn.style.borderColor = "var(--color-primary, #e21836)";
+      } else {
+        wishBtn.style.backgroundColor = "";
+        wishBtn.style.borderColor = "";
+      }
+    }
+  });
+
+  // Init visual state
+  document.addEventListener("DOMContentLoaded", () => {
+    document
+      .querySelectorAll(".card__fav, .product__btn_wishlist")
+      .forEach((btn) => {
+        const card = btn.closest(".card");
+        let id, title;
+        if (card) {
+          title =
+            card.querySelector(".card__title")?.textContent.trim() || "Товар";
+          const link = card.querySelector("a")?.getAttribute("href") || "";
+          id = link ? link.split("/").pop() : title;
+        } else {
+          title =
+            document.querySelector(".product__title")?.textContent.trim() ||
+            document
+              .querySelector(".breadcrumbs__current")
+              ?.textContent.trim() ||
+            "Товар";
+          id = window.location.pathname.split("/").pop() || title;
+        }
+        if (isInWishlist(id)) {
+          btn.classList.add("is-active");
+          btn.style.backgroundColor = "var(--color-primary, #e21836)";
+          btn.style.borderColor = "var(--color-primary, #e21836)";
+        }
+      });
+  });
+
   // Call initCartPage
   initCartPage();
+
+  function initWishlistPage() {
+    const grid = document.getElementById("wishlist-grid");
+    const empty = document.getElementById("wishlist-empty");
+    if (!grid) return;
+
+    function render() {
+      const items = getWishlist();
+      grid.innerHTML = "";
+
+      if (items.length === 0) {
+        grid.hidden = true;
+        if (empty) empty.hidden = false;
+        return;
+      }
+
+      grid.hidden = false;
+      if (empty) empty.hidden = true;
+
+      items.forEach((item) => {
+        const card = document.createElement("article");
+        card.className = "card card_wishlist";
+
+        card.innerHTML = `
+          <a href="${item.id === "Товар" ? "#" : item.id + ".html"}" class="card__link">
+            <div class="card__image-wrap">
+              <img src="${item.image || "images/card-door-1.svg"}" alt="${item.title}" class="card__image" loading="lazy">
+              <div class="card__badges">
+                <span class="card__badge card__badge_hit">Хит</span>
+              </div>
+            </div>
+            <div class="card__info">
+              <h3 class="card__title">${item.title}</h3>
+              <div class="card__price-row">
+                <span class="card__price">${new Intl.NumberFormat("ru-RU").format(item.price)} ₽</span>
+              </div>
+            </div>
+          </a>
+          <button class="card__fav is-active" aria-label="Убрать из избранного" onclick="window.removeWishlistItem('${item.id}')"></button>
+        `;
+
+        // Add minimal inline style for wish cards to flow like catalog if needed
+        card.style.position = "relative";
+        const fav = card.querySelector(".card__fav");
+        if (fav) {
+          fav.style.position = "absolute";
+          fav.style.top = "12px";
+          fav.style.right = "12px";
+          fav.style.backgroundColor = "var(--color-primary, #e21836)";
+          fav.style.borderColor = "var(--color-primary, #e21836)";
+        }
+
+        grid.appendChild(card);
+      });
+    }
+
+    window.removeWishlistItem = (id) => {
+      const items = getWishlist();
+      const newItems = items.filter((x) => x.id !== id);
+      setWishlist(newItems);
+      render();
+      if (typeof updateWishlistBadge === "function") updateWishlistBadge();
+    };
+
+    render();
+  }
+
+  initWishlistPage();
 })();
 
 document.addEventListener("DOMContentLoaded", () => {
