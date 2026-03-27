@@ -37,7 +37,26 @@
     mainContainer?.addEventListener("click", e => {
       if (e.target.closest(".product__arrow_prev")) { e.preventDefault(); setIndex(currentIndex - 1); }
       else if (e.target.closest(".product__arrow_next")) { e.preventDefault(); setIndex(currentIndex + 1); }
+      else if (e.target === mainImg) { openLightbox(mainImg.src, mainImg.alt); }
     });
+
+    // Fullscreen lightbox
+    let lightbox = document.querySelector(".product-lightbox");
+    if (!lightbox) {
+      lightbox = document.createElement("div");
+      lightbox.className = "product-lightbox";
+      lightbox.innerHTML = '<img class="product-lightbox__img" alt="">';
+      document.body.appendChild(lightbox);
+      lightbox.addEventListener("click", () => {
+        lightbox.classList.remove("is-open");
+      });
+    }
+    const lbImg = lightbox.querySelector(".product-lightbox__img");
+    function openLightbox(src, alt) {
+      lbImg.src = src;
+      lbImg.alt = alt || "";
+      lightbox.classList.add("is-open");
+    }
 
     document.addEventListener("keydown", e => {
       if (e.key === "ArrowLeft")  { e.preventDefault(); setIndex(currentIndex - 1); }

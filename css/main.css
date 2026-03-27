@@ -1233,8 +1233,33 @@ a {
 .product__main-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
+  cursor: zoom-in;
+}
+
+/* Fullscreen lightbox */
+.product-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+.product-lightbox.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+.product-lightbox__img {
+  max-width: 95vw;
+  max-height: 95vh;
+  object-fit: contain;
 }
 
 .product__arrow {
@@ -5942,145 +5967,7 @@ a.order-item__title:hover {
   }
 }
 
-/* ==================== Index Page Layout Redesign ==================== */
-
-/* 1. Hero Block */
-.hero-new {
-  position: relative;
-  width: 100%;
-  height: clamp(500px, 80vh, 800px);
-  display: flex;
-  align-items: center;
-  padding: 0 clamp(16px, 4vw, 40px);
-}
-
-.hero-new__bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url("../images/hero-bg.svg") center/cover no-repeat;
-  z-index: -1;
-}
-.hero-new__bg::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 0.6) 0%,
-    rgba(0, 0, 0, 0.1) 100%
-  );
-}
-
-.hero-new__content {
-  max-width: 800px;
-  color: #fff;
-  z-index: 1;
-}
-
-.hero-new__subtitle {
-  font-size: 12px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-bottom: 16px;
-  opacity: 0.9;
-}
-
-.hero-new__title {
-  font-family: var(--font-heading);
-  font-size: clamp(32px, 5vw, 64px);
-  line-height: 1.1;
-  font-weight: 500;
-  margin-bottom: 40px;
-}
-
-/* 2. Promo Blocks (Амфора и Примерка) */
-.promo {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-@media (min-width: 768px) {
-  .promo {
-    flex-direction: row;
-    min-height: 600px;
-  }
-}
-
-.promo_mirrored {
-  flex-direction: column-reverse;
-}
-
-@media (min-width: 768px) {
-  .promo_mirrored {
-    flex-direction: row;
-  }
-}
-
-.promo__content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: clamp(40px, 6vw, 80px) clamp(20px, 4vw, 60px);
-}
-
-@media (min-width: 768px) {
-  .promo__content {
-    flex: 0 0 50%;
-  }
-}
-
-.promo__content_beige {
-  background: #f7f5f0;
-  color: #333;
-}
-.promo__content_pink {
-  background: #fdf6f7;
-  color: #333;
-}
-
-.promo__title {
-  font-family: var(--font-heading);
-  font-size: clamp(28px, 4vw, 42px);
-  margin-bottom: 24px;
-}
-
-.promo__text {
-  font-size: clamp(16px, 2vw, 18px);
-  line-height: 1.5;
-  margin-bottom: 40px;
-  max-width: 480px;
-}
-
-.promo__btn {
-  align-self: flex-start;
-}
-
-.promo__image-wrap {
-  flex: 1;
-  height: 400px;
-  overflow: hidden;
-}
-
-@media (min-width: 768px) {
-  .promo__image-wrap {
-    height: auto;
-    flex: 0 0 50%;
-  }
-}
-
-.promo__image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* 5. Информационный блок / Блог */
+/* 5. Информационный блок / Блог (first instance removed — see redesign block below) */
 .blog {
   background: #f4eff2;
   padding: clamp(60px, 8vw, 120px) 0;
@@ -6288,76 +6175,123 @@ a.order-item__title:hover {
 
 /* ==================== Index Page Layout Redesign ==================== */
 
-/* 1. Hero Block */
+/* 1. Hero Block — two-column */
 .hero-new {
-  position: relative;
-  width: 100%;
-  height: clamp(500px, 80vh, 800px);
   display: flex;
-  align-items: center;
-  padding: 0 clamp(16px, 4vw, 40px);
+  flex-direction: column;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .hero-new {
+    flex-direction: row;
+    min-height: clamp(500px, 70vh, 800px);
+  }
 }
 
-.hero-new__bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url("../images/hero-bg.svg") center/cover no-repeat;
-  z-index: -1;
+.hero-new__col {
+  position: relative;
+  overflow: hidden;
 }
-.hero-new__bg::after {
+
+.hero-new__col_left {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  min-height: 400px;
+}
+@media (min-width: 768px) {
+  .hero-new__col_left {
+    flex: 0 0 55%;
+    min-height: auto;
+  }
+}
+
+.hero-new__bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.hero-new__col_left::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 0.6) 0%,
-    rgba(0, 0, 0, 0.1) 100%
-  );
-}
-
-.hero-new__content {
-  max-width: 800px;
-  color: #fff;
+  background: linear-gradient(0deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.1) 60%);
   z-index: 1;
 }
 
+.hero-new__content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  padding: clamp(30px, 5vw, 60px) clamp(20px, 4vw, 60px);
+  max-width: 600px;
+}
+
 .hero-new__subtitle {
-  font-size: 12px;
-  letter-spacing: 0.1em;
+  font-size: 11px;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   margin-bottom: 16px;
-  opacity: 0.9;
+  opacity: 0.85;
 }
 
 .hero-new__title {
   font-family: var(--font-heading);
-  font-size: clamp(32px, 5vw, 64px);
-  line-height: 1.1;
+  font-size: clamp(28px, 4vw, 48px);
+  line-height: 1.15;
   font-weight: 500;
-  margin-bottom: 40px;
+  margin-bottom: 32px;
 }
 
-/* 2. Promo Blocks (Амфора и Примерка) */
+.hero-new__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero-new__col_right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f3ef;
+  min-height: 350px;
+  padding: 40px;
+}
+@media (min-width: 768px) {
+  .hero-new__col_right {
+    flex: 0 0 45%;
+    min-height: auto;
+  }
+}
+
+.hero-new__door-img {
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* 2. Promo Blocks */
 .promo {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
-
 @media (min-width: 768px) {
   .promo {
     flex-direction: row;
-    min-height: 600px;
+    min-height: 560px;
   }
 }
 
 .promo_mirrored {
-  flex-direction: column-reverse;
+  flex-direction: column;
 }
-
 @media (min-width: 768px) {
   .promo_mirrored {
     flex-direction: row;
@@ -6369,19 +6303,24 @@ a.order-item__title:hover {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: clamp(40px, 6vw, 80px) clamp(20px, 4vw, 60px);
+  padding: clamp(40px, 6vw, 80px) clamp(24px, 4vw, 60px);
 }
-
 @media (min-width: 768px) {
   .promo__content {
-    flex: 0 0 50%;
+    flex: 0 0 40%;
   }
 }
 
 .promo__content_beige {
-  background: #f7f5f0;
+  background: #f5f2ed;
   color: #333;
 }
+
+.promo__content_dark {
+  background: #f0e4e7;
+  color: #333;
+}
+
 .promo__content_pink {
   background: #fdf6f7;
   color: #333;
@@ -6389,32 +6328,46 @@ a.order-item__title:hover {
 
 .promo__title {
   font-family: var(--font-heading);
-  font-size: clamp(28px, 4vw, 42px);
-  margin-bottom: 24px;
+  font-size: clamp(26px, 3.5vw, 40px);
+  margin-bottom: 20px;
+  font-weight: 600;
 }
 
 .promo__text {
-  font-size: clamp(16px, 2vw, 18px);
-  line-height: 1.5;
-  margin-bottom: 40px;
-  max-width: 480px;
+  font-size: clamp(14px, 1.6vw, 16px);
+  line-height: 1.6;
+  margin-bottom: 36px;
+  max-width: 420px;
+  color: #555;
 }
 
 .promo__btn {
   align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.promo__image-wrap {
+/* Promo: two images side by side */
+.promo__images {
   flex: 1;
-  height: 400px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+@media (min-width: 768px) {
+  .promo__images {
+    flex: 0 0 60%;
+  }
+}
+
+.promo__img-wrap {
   overflow: hidden;
 }
 
-@media (min-width: 768px) {
-  .promo__image-wrap {
-    height: auto;
-    flex: 0 0 50%;
-  }
+.promo__img-wrap_top,
+.promo__img-wrap_bottom {
+  min-height: 200px;
 }
 
 .promo__image {
@@ -6424,169 +6377,58 @@ a.order-item__title:hover {
   display: block;
 }
 
-/* 5. Информационный блок / Блог */
-.blog {
-  background: #f4eff2;
-  padding: clamp(60px, 8vw, 120px) 0;
+/* Back-compat: old single image promo */
+.promo__image-wrap {
+  flex: 1;
   overflow: hidden;
 }
-
-.blog__container {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 clamp(16px, 3vw, 40px);
-}
-
-.blog__header {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: 40px;
-  gap: 20px;
-}
-
-.blog__title {
-  font-family: var(--font-heading);
-  font-size: clamp(28px, 4vw, 40px);
-  max-width: 500px;
-}
-
-.blog__tabs {
-  display: flex;
-  gap: 24px;
-}
-
-.blog__tab {
-  font-size: 16px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding-bottom: 8px;
-  border-bottom: 2px solid transparent;
-  color: #666;
-}
-
-.blog__tab.is-active,
-.blog__tab:hover {
-  color: var(--color-primary);
-  border-bottom-color: var(--color-primary);
-}
-
-.blog__slider-wrap {
-  position: relative;
-}
-
-.blog__carousel {
-  display: flex;
-  gap: 20px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding-bottom: 20px;
-  /* hide scrollbar */
-  scrollbar-width: none;
-}
-.blog__carousel::-webkit-scrollbar {
-  display: none;
-}
-
-.blog-card {
-  flex: 0 0 80%;
-  max-width: 400px;
-  scroll-snap-align: start;
-}
-
 @media (min-width: 768px) {
-  .blog-card {
-    flex: 0 0 30%;
+  .promo__image-wrap {
+    flex: 0 0 50%;
   }
 }
 
-.blog-card__img-wrap {
-  aspect-ratio: 16/9;
+/* Panorama banner */
+.panorama-banner {
+  width: 100%;
   overflow: hidden;
-  margin-bottom: 16px;
-  background: #eaeaea;
+  max-height: clamp(250px, 35vw, 500px);
 }
-
-.blog-card__img {
+.panorama-banner__img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.4s ease;
+  display: block;
 }
 
-.blog-card:hover .blog-card__img {
-  transform: scale(1.05);
-}
-
-.blog-card__meta {
-  font-size: 12px;
-  text-transform: uppercase;
-  color: #888;
-  margin-bottom: 8px;
-}
-
-.blog-card__title {
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 1.4;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.blog__nav-btn {
-  position: absolute;
-  top: 40%;
-  right: -20px;
-  width: 48px;
-  height: 48px;
-  background: #333;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  display: none;
-}
-@media (min-width: 1024px) {
-  .blog__nav-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-}
-
-/* 7. Лид-форма / Консультация */
+/* Lead form */
 .lead {
-  margin-bottom: 60px;
-}
-
-.lead__panorama {
-  width: 100%;
-  height: clamp(200px, 30vw, 300px);
-  background: url("../images/news-1.png") center/cover;
+  padding: clamp(60px, 8vw, 100px) 0 clamp(40px, 6vw, 80px);
 }
 
 .lead__container {
   max-width: 1000px;
-  margin: -60px auto 0;
-  background: #fff;
-  padding: clamp(40px, 6vw, 80px) clamp(20px, 4vw, 60px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
-  position: relative;
-  text-align: center;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 4vw, 40px);
+}
+
+.lead__eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 16px;
 }
 
 .lead__title {
   font-family: var(--font-heading);
-  font-size: clamp(24px, 4vw, 36px);
+  font-size: clamp(24px, 3.5vw, 36px);
   margin-bottom: 16px;
+  line-height: 1.3;
 }
 
 .lead__subtitle {
-  font-size: 16px;
+  font-size: 15px;
   color: #666;
   margin-bottom: 40px;
 }
@@ -6597,7 +6439,6 @@ a.order-item__title:hover {
   gap: 16px;
   margin-bottom: 16px;
 }
-
 @media (min-width: 768px) {
   .lead__form {
     flex-direction: row;

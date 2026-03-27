@@ -12,25 +12,35 @@
 <body class="page page_index">
   
   <main>
-    <!-- 1. Hero Block -->
+    <!-- 1. Hero Block — two-column -->
     <section class="hero-new">
-      <div class="hero-new__bg"></div>
-      <div class="hero-new__content">
-        <p class="hero-new__subtitle">ПРЕМИАЛЬНЫЕ МЕЖКОМНАТНЫЕ ДВЕРИ ОТ ФАБРИКИ</p>
-        <h1 class="hero-new__title">Двери, которые приносят тишину, статус и уверенность в ваш дом</h1>
-        <a class="hero-new__btn btn btn_primary" href="catalog.html">В каталог</a>
+      <div class="hero-new__col hero-new__col_left">
+        <img class="hero-new__bg-img" src="images/news-1.png" alt="Интерьер с дверью">
+        <div class="hero-new__content">
+          <p class="hero-new__subtitle">ПРЕМИАЛЬНЫЕ МЕЖКОМНАТНЫЕ ДВЕРИ ОТ ФАБРИКИ</p>
+          <h1 class="hero-new__title">Двери, которые приносят тишину, статус и уверенность в ваш дом</h1>
+          <a class="hero-new__btn btn btn_primary" href="catalog.html">Перейти в каталог <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <div class="hero-new__col hero-new__col_right">
+        <img class="hero-new__door-img" src="images/Флай/ФЛАЙ 8 1.png" alt="Дверь Флай 8">
       </div>
     </section>
 
     <!-- 2. Имиджевый промо-блок: Амфора -->
-    <section class="promo container">
+    <section class="promo">
       <div class="promo__content promo__content_beige">
-        <h2 class="promo__title">Коллекция «Амфора»</h2>
-        <p class="promo__text">Изысканные формы и классические пропорции для истинных ценителей эстетики. Создайте атмосферу утонченной роскоши в вашем интерьере.</p>
-        <a href="catalog.html" class="btn btn_primary promo__btn">Смотреть линейку</a>
+        <h2 class="promo__title">Двери Амфора</h2>
+        <p class="promo__text">Оригинальность конструкции, по-настоящему огромная вариативность декорирования и небольшие детали — все вместе собирается в один рецепт красоты</p>
+        <a href="catalog.html" class="btn btn_primary promo__btn">ПОДРОБНЕЕ <span aria-hidden="true">↗</span></a>
       </div>
-      <div class="promo__image-wrap">
-        <img class="promo__image" src="images/Альберта.png" alt="Коллекция Амфора">
+      <div class="promo__images">
+        <div class="promo__img-wrap promo__img-wrap_top">
+          <img class="promo__image" src="images/news-2.png" alt="Интерьер Амфора">
+        </div>
+        <div class="promo__img-wrap promo__img-wrap_bottom">
+          <img class="promo__image" src="images/news-3.png" alt="Дверь Амфора крупный план">
+        </div>
       </div>
     </section>
 
@@ -137,9 +147,9 @@
     <section class="blog">
       <div class="blog__container">
         <div class="blog__header">
-          <h2 class="blog__title">Создаем двери, за которыми живется спокойно</h2>
+          <h2 class="blog__title">Создаём двери, за которыми живётся спокойно</h2>
           <div class="blog__tabs">
-            <button class="blog__tab is-active">Все</button>
+            <button class="blog__tab is-active">Проекты</button>
             <button class="blog__tab">Новости</button>
             <button class="blog__tab">Блог</button>
           </div>
@@ -148,64 +158,72 @@
           <div class="blog__carousel">
             <article class="blog-card">
               <div class="blog-card__img-wrap">
-                <img src="images/news-1.png" class="blog-card__img" alt="Blog">
+                <img src="images/news-1.png" class="blog-card__img" alt="Проект">
               </div>
-              <p class="blog-card__meta">16.09.2022 · Новости</p>
-              <h3 class="blog-card__title">Как выбрать дверь для спальни, чтобы ничто не мешало сну</h3>
+              <p class="blog-card__meta">14.06.2022 · @Натура.ру</p>
+              <h3 class="blog-card__title">Lorem Ipsum is simply dummy text of the printing and typesetting industry</h3>
             </article>
             <article class="blog-card">
               <div class="blog-card__img-wrap">
-                <img src="images/news-2.png" class="blog-card__img" alt="Blog">
+                <img src="images/news-2.png" class="blog-card__img" alt="Проект">
               </div>
-              <p class="blog-card__meta">16.09.2022 · Новости</p>
-              <h3 class="blog-card__title">Обновление коллекции: новые оттенки и фактуры</h3>
+              <p class="blog-card__meta">18.05.2022 · @Натура.ру</p>
+              <h3 class="blog-card__title">Lorem Ipsum is simply dummy text of the printing and typesetting industry</h3>
             </article>
             <article class="blog-card">
               <div class="blog-card__img-wrap">
-                <img src="images/news-3.png" class="blog-card__img" alt="Blog">
+                <img src="images/news-3.png" class="blog-card__img" alt="Проект">
               </div>
-              <p class="blog-card__meta">16.09.2022 · Новости</p>
-              <h3 class="blog-card__title">Скрытые двери: тренд, который останется с нами надолго</h3>
+              <p class="blog-card__meta">10.08.2022 · @Натура.ру</p>
+              <h3 class="blog-card__title">Lorem Ipsum is simply dummy text of the printing and typesetting industry</h3>
             </article>
             <article class="blog-card blog-card_hint">
               <div class="blog-card__img-wrap">
-                <img src="images/news-4.png" class="blog-card__img" alt="Blog">
+                <img src="images/news-4.png" class="blog-card__img" alt="Блог">
               </div>
-              <p class="blog-card__meta">16.09.2022 · Новости</p>
-              <h3 class="blog-card__title">Шумоизоляция дверей: мифы и реальность</h3>
+              <p class="blog-card__meta">16.09.2022 · @Натура.ру</p>
+              <h3 class="blog-card__title">Коллекции MILLENIUM шпоне</h3>
             </article>
           </div>
-          <button class="blog__nav-btn" aria-label="Вперед">&rarr;</button>
+          <button class="blog__nav-btn" aria-label="Вперед">→</button>
         </div>
       </div>
     </section>
 
     <!-- 6. Имиджевый промо-блок 2: Примерка -->
     <section class="promo promo_mirrored">
-      <div class="promo__image-wrap">
-        <img class="promo__image" src="images/hero-bg.svg" alt="Примерка двери">
+      <div class="promo__content promo__content_dark">
+        <h2 class="promo__title">Примерьте дверь в своём интерьере бесплатно</h2>
+        <p class="promo__text">Lorem Ipsum is simply dummy text of the printing and typesetting. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+        <button class="btn btn_primary promo__btn">ПОДРОБНЕЕ <span aria-hidden="true">↗</span></button>
       </div>
-      <div class="promo__content promo__content_pink">
-        <h2 class="promo__title">Примерьте дверь в своем интерьере бесплатно</h2>
-        <p class="promo__text">Сомневаетесь в выборе оттенка или модели? Наш специалист приедет к вам с образцами покрытий и поможет подобрать идеальное решение.</p>
-        <button class="btn btn_primary promo__btn">Заказать примерку</button>
+      <div class="promo__images">
+        <div class="promo__img-wrap promo__img-wrap_top">
+          <img class="promo__image" src="images/news-3.png" alt="Интерьер с дверью">
+        </div>
+        <div class="promo__img-wrap promo__img-wrap_bottom">
+          <img class="promo__image" src="images/Альберта/Альберта 1 1.png" alt="Дверь крупный план">
+        </div>
       </div>
     </section>
 
-    <!-- 7. Лид-форма / Консультация -->
+    <!-- 7. Панорама-баннер -->
+    <section class="panorama-banner">
+      <img class="panorama-banner__img" src="images/news-4.png" alt="Панорама интерьера">
+    </section>
+
+    <!-- 8. Лид-форма / Консультация -->
     <section class="lead">
-      /*<div class="lead__panorama"></div>*/
       <div class="lead__container">
-        <div class="lead__content">
-          <h2 class="lead__title">Поможем подобрать двери для вашего дома</h2>
-          <p class="lead__subtitle">Оставьте заявку на бесплатную консультацию, и мы ответим на все ваши вопросы</p>
-          <form class="lead__form">
-            <input type="text" class="lead__input" placeholder="Ваше имя" required>
-            <input type="tel" class="lead__input" placeholder="+7 (999) 000-00-00" required>
-            <button type="submit" class="btn btn_primary lead__submit">ОТПРАВИТЬ</button>
-          </form>
-          <p class="lead__policy">Нажимая кнопку, вы соглашаетесь с <a href="#">политикой конфиденциальности</a>.</p>
-        </div>
+        <p class="lead__eyebrow">СВЯЗАТЬСЯ С НАМИ</p>
+        <h2 class="lead__title">Поможем подобрать двери из каталога<br>или подготовим уникальный дизайн-проект</h2>
+        <p class="lead__subtitle">Оставьте свои данные и мы свяжемся с вами в ближайшее рабочее время</p>
+        <form class="lead__form">
+          <input type="text" class="lead__input" placeholder="Ваше имя*" required>
+          <input type="tel" class="lead__input" placeholder="Ваш телефон*" required>
+          <button type="submit" class="btn btn_primary lead__submit">ОТПРАВИТЬ</button>
+        </form>
+        <p class="lead__policy">Отправляя заявку, вы даёте своё согласие на обработку <a href="#">персональных данных</a></p>
       </div>
     </section>
   </main>
