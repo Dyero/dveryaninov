@@ -50,7 +50,7 @@
 
   function updateWishlistBadge() {
     const count = getWishlist().length;
-    const btn = document.getElementById("header-wishlist-btn");
+    const btn = document.querySelector("#header-wishlist-btn");
     if (!btn) return;
     let badge = btn.querySelector(".header__wishlist-count");
     if (count > 0) {
@@ -136,7 +136,7 @@
   const BASE_PRICE = 52000;
 
   function initConfigurator() {
-    const modal = document.getElementById("configModal");
+    const modal = document.querySelector("#configModal");
     if (!modal) return;
 
     const state = {
@@ -186,13 +186,13 @@
 
     function syncStateFromPage() {
       // Sync size from quick selection
-      const activeSize = document.querySelector(".product__size_active");
+      const activeSize = document.querySelector("#.product__size_active");
       if (activeSize && activeSize.textContent.trim()) {
         state.size = activeSize.textContent.trim();
       }
 
       // Sync finish (color) from quick selection
-      const activeColor = document.querySelector(".product__color_active");
+      const activeColor = document.querySelector("#.product__color_active");
       if (activeColor && activeColor.hasAttribute("aria-label")) {
         const colorLabel = activeColor.getAttribute("aria-label");
         // Extract just the RAL code or color name
@@ -225,10 +225,10 @@
       // Обновляем изображение и кнопку «Далее»
       const cfg = stepConfig[step];
       if (cfg) {
-        const imgEl = document.getElementById("cfgImageEl");
+        const imgEl = document.querySelector("#cfgImageEl");
         if (imgEl) { imgEl.src = cfg.img; imgEl.alt = cfg.alt; }
 
-        const nextBtn = document.getElementById("cfgNextBtn");
+        const nextBtn = document.querySelector("#cfgNextBtn");
         if (nextBtn) {
           nextBtn.textContent = cfg.nextLabel;
           if (cfg.nextStep) {
@@ -447,9 +447,9 @@
       }
 
       if (target.closest("[data-add-to-cart]") || target.closest("[data-add-to-cart-close]")) {
-        const titleEl = document.querySelector(".product__title");
-        const priceEl = document.querySelector(".product__price");
-        const imgEl = document.querySelector(".product__main-image img");
+        const titleEl = document.querySelector("#.product__title");
+        const priceEl = document.querySelector("#.product__price");
+        const imgEl = document.querySelector("#.product__main-image img");
 
         const title = titleEl ? titleEl.textContent.trim() : "Товар";
         const priceText = priceEl ? priceEl.textContent : "0";
@@ -566,13 +566,13 @@
   }
 
   function initCartPage() {
-    const cartRoot = document.querySelector(".cart");
+    const cartRoot = document.querySelector("#.cart");
     if (!cartRoot) return;
     const itemsWrap = cartRoot.querySelector(".cart__items");
     const summaryTotal = cartRoot.querySelector(".cart-summary__pay");
     const summarySum = cartRoot.querySelector(".cart-summary__sum");
     const cartSummary = cartRoot.querySelector(".cart-summary");
-    const cartMeta = document.getElementById("cart-meta");
+    const cartMeta = document.querySelector("#cart-meta");
     if (!itemsWrap) return;
 
     const OPTION_LABELS = {
@@ -619,7 +619,7 @@
         cartMeta.innerHTML =
           '<span class="cart-meta__count">' + totalCount + ' ' + pluralItems(totalCount) + '</span>' +
           '<button type="button" class="cart-meta__clear" id="cart-clear-btn">Очистить корзину</button>';
-        var clearBtn = document.getElementById("cart-clear-btn");
+        var clearBtn = document.querySelector("#cart-clear-btn");
         if (clearBtn) {
           clearBtn.addEventListener("click", function () { setCart([]); renderCart(); });
         }
@@ -752,7 +752,7 @@
   }
 
   function initProductGallery() {
-    const gallery = document.querySelector(".product__gallery");
+    const gallery = document.querySelector("#.product__gallery");
     if (!gallery) return;
 
     const mainImg = gallery.querySelector(".product__main-image img");
@@ -814,10 +814,10 @@
   }
 
   function openCheckoutModal() {
-    var modal = document.getElementById('checkout-modal');
+    var modal = document.querySelector('#checkout-modal');
     if (!modal) return;
-    var content = document.getElementById('checkout-content');
-    var success = document.getElementById('checkout-success');
+    var content = document.querySelector('#checkout-content');
+    var success = document.querySelector('#checkout-success');
     if (content) content.hidden = false;
     if (success) success.hidden = true;
     if (window.DvAuth) {
@@ -832,16 +832,16 @@
   }
 
   function closeCheckoutModal() {
-    var modal = document.getElementById('checkout-modal');
+    var modal = document.querySelector('#checkout-modal');
     if (!modal) return;
     modal.setAttribute('aria-hidden', 'true');
     document.documentElement.style.overflow = '';
   }
 
   function initCheckoutPage() {
-    if (!document.querySelector('.cart')) return;
+    if (!document.querySelector('#.cart')) return;
 
-    var checkoutBtn = document.querySelector('.cart-summary__btn');
+    var checkoutBtn = document.querySelector('#.cart-summary__btn');
     if (checkoutBtn) {
       checkoutBtn.addEventListener('click', function() {
         if (!getCart().length) return;
@@ -849,7 +849,7 @@
       });
     }
 
-    var modal = document.getElementById('checkout-modal');
+    var modal = document.querySelector('#checkout-modal');
     if (!modal) return;
 
     modal.querySelectorAll('[data-close-checkout]').forEach(function(btn) {
@@ -859,7 +859,7 @@
     if (backdrop) backdrop.addEventListener('click', closeCheckoutModal);
 
     // Phone mask for checkout form
-    var checkoutPhone = document.getElementById('checkout-phone');
+    var checkoutPhone = document.querySelector('#checkout-phone');
     if (checkoutPhone) {
       checkoutPhone.addEventListener('focus', function() {
         if (!checkoutPhone.value) checkoutPhone.value = '+7 (';
@@ -879,15 +879,15 @@
       });
     }
 
-    var form = document.getElementById('checkout-form');
+    var form = document.querySelector('#checkout-form');
     if (form) {
       form.addEventListener('submit', function(e) {
         e.preventDefault();
         var items = getCart();
         if (!items.length) return;
-        var errEl = document.getElementById('checkout-error');
+        var errEl = document.querySelector('#checkout-error');
         var nameEl = modal.querySelector('[name="checkout-name"]');
-        var phoneEl = document.getElementById('checkout-phone');
+        var phoneEl = document.querySelector('#checkout-phone');
         if (nameEl && !nameEl.value.trim()) {
           if (errEl) errEl.textContent = 'Введите имя';
           return;
@@ -902,16 +902,16 @@
         if (errEl) errEl.textContent = '';
         if (window.DvAuth) DvAuth.saveOrder(items);
         setCart([]);
-        var content = document.getElementById('checkout-content');
-        var success = document.getElementById('checkout-success');
+        var content = document.querySelector('#checkout-content');
+        var success = document.querySelector('#checkout-success');
         if (content) content.hidden = true;
         if (success) success.hidden = false;
       });
     }
 
     // Кнопки входа/регистрации под формой для гостей
-    var loginBtn = document.getElementById('checkout-login-btn');
-    var registerBtn = document.getElementById('checkout-register-btn');
+    var loginBtn = document.querySelector('#checkout-login-btn');
+    var registerBtn = document.querySelector('#checkout-register-btn');
     if (loginBtn && window.DvAuth) {
       loginBtn.addEventListener('click', function() {
         closeCheckoutModal();
@@ -921,7 +921,7 @@
     if (registerBtn && window.DvAuth) {
       registerBtn.addEventListener('click', function() {
         closeCheckoutModal();
-        var modal2 = document.getElementById('auth-modal');
+        var modal2 = document.querySelector('#auth-modal');
         if (modal2) {
           var regTab = modal2.querySelector('[data-auth-tab="register"]');
           if (regTab) regTab.click();
@@ -938,11 +938,11 @@
   }
 
   function initWishlistBtn() {
-    const btn = document.querySelector(".product__btn_wishlist");
+    const btn = document.querySelector("#.product__btn_wishlist");
     if (!btn) return;
-    const titleEl = document.querySelector(".product__title");
-    const priceEl = document.querySelector(".product__price");
-    const imgEl = document.querySelector(".product__main-image img");
+    const titleEl = document.querySelector("#.product__title");
+    const priceEl = document.querySelector("#.product__price");
+    const imgEl = document.querySelector("#.product__main-image img");
     const title = titleEl ? titleEl.textContent.trim() : "Товар";
     const id = `w-${title.replace(/\s+/g, "-").toLowerCase()}`;
 
@@ -1006,8 +1006,8 @@
   }
 
   function initWishlistPage() {
-    const grid = document.getElementById("wishlist-grid");
-    const empty = document.getElementById("wishlist-empty");
+    const grid = document.querySelector("#wishlist-grid");
+    const empty = document.querySelector("#wishlist-empty");
     if (!grid) return;
 
     // Map product URL by title keywords
@@ -1181,8 +1181,8 @@
     function prefillFromAuth(nameId, phoneId) {
       const user = window.DvAuth ? DvAuth.getCurrentUser() : null;
       if (!user) return;
-      const nameEl = document.getElementById(nameId);
-      const phoneEl = document.getElementById(phoneId);
+      const nameEl = document.querySelector(nameId);
+      const phoneEl = document.querySelector(phoneId);
       if (nameEl && user.name) nameEl.value = user.name;
       if (phoneEl && user.phone) phoneEl.value = user.phone;
     }
@@ -1214,11 +1214,11 @@
     }
 
     function setupModal(modalId, closeId, formId, successId, nameId, phoneId) {
-      const modal = document.getElementById(modalId);
-      const closeBtn = document.getElementById(closeId);
-      const form = document.getElementById(formId);
-      const successEl = document.getElementById(successId);
-      const phoneInput = document.getElementById(phoneId);
+      const modal = document.querySelector(modalId);
+      const closeBtn = document.querySelector(closeId);
+      const form = document.querySelector(formId);
+      const successEl = document.querySelector(successId);
+      const phoneInput = document.querySelector(phoneId);
 
       function openModal() {
         if (successEl) successEl.hidden = true;
@@ -1229,7 +1229,7 @@
         modal.setAttribute("aria-hidden", "false");
         document.documentElement.style.overflow = "hidden";
         setTimeout(function () {
-          const nameEl = document.getElementById(nameId);
+          const nameEl = document.querySelector(nameId);
           if (nameEl) nameEl.focus();
         }, 50);
       }
@@ -1254,7 +1254,7 @@
       if (form) {
         form.addEventListener("submit", function (e) {
           e.preventDefault();
-          const nameVal = (document.getElementById(nameId) || {}).value || "";
+          const nameVal = (document.querySelector(nameId) || {}).value || "";
           const phoneVal = phoneInput ? phoneInput.value : "";
           const errEl = modal.querySelector(".req-modal__error");
           if (!nameVal.trim()) { if (errEl) errEl.textContent = "Введите имя"; return; }
@@ -1275,13 +1275,13 @@
     document.addEventListener("click", function (e) {
       const measureTrigger = e.target.closest("[data-open-measure], .product__size_measure");
       if (measureTrigger) {
-        const modal = document.getElementById("measure-modal");
+        const modal = document.querySelector("#measure-modal");
         if (modal && modal._openReqModal) modal._openReqModal();
         return;
       }
       const consultTrigger = e.target.closest("[data-open-consult], .product__option-link[href='#']");
       if (consultTrigger) {
-        const modal = document.getElementById("consult-modal");
+        const modal = document.querySelector("#consult-modal");
         if (modal && modal._openReqModal) {
           e.preventDefault();
           modal._openReqModal();

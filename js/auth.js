@@ -139,7 +139,7 @@
 
   /* ---- Header UI ---- */
   function updateHeaderUI() {
-    var btn = document.querySelector('.header__profile-btn');
+    var btn = document.querySelector('#.header__profile-btn');
     if (!btn) return;
     var user = getSession();
     if (user) {
@@ -155,7 +155,7 @@
   /* ---- Auth modal ---- */
   function openAuthModal(callback) {
     window._dvAuthCb = callback || null;
-    var modal = document.getElementById('auth-modal');
+    var modal = document.querySelector('#auth-modal');
     if (!modal) return;
     // Reset error messages
     modal.querySelectorAll('.auth-form__error').forEach(function (el) { el.textContent = ''; });
@@ -168,7 +168,7 @@
   }
 
   function closeAuthModal() {
-    var modal = document.getElementById('auth-modal');
+    var modal = document.querySelector('#auth-modal');
     if (!modal) return;
     modal.setAttribute('aria-hidden', 'true');
     document.documentElement.style.overflow = '';
@@ -194,7 +194,7 @@
   }
 
   function initAuthModal() {
-    var modal = document.getElementById('auth-modal');
+    var modal = document.querySelector('#auth-modal');
     if (!modal) return;
 
     // Tabs
@@ -212,7 +212,7 @@
     if (backdrop) backdrop.addEventListener('click', closeAuthModal);
 
     // Login form
-    var loginForm = document.getElementById('login-form');
+    var loginForm = document.querySelector('#login-form');
     if (loginForm) {
       loginForm.addEventListener('submit', function (e) {
         e.preventDefault();
@@ -227,7 +227,7 @@
     }
 
     // Register form
-    var regForm = document.getElementById('register-form');
+    var regForm = document.querySelector('#register-form');
     if (regForm) {
       regForm.addEventListener('submit', function (e) {
         e.preventDefault();

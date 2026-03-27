@@ -1,7 +1,7 @@
 ﻿(() => {
   // Gallery
   function initProductGallery() {
-    const gallery = document.querySelector(".product__gallery");
+    const gallery = document.querySelector("#.product__gallery");
     if (!gallery) return;
 
     const mainImg = gallery.querySelector(".product__main-image img");
@@ -87,10 +87,10 @@
 
   // Show all reviews button (scroll to section)
   function initShowAllReviews() {
-    const btn = document.querySelector(".product-reviews__show-all");
+    const btn = document.querySelector("#.product-reviews__show-all");
     if (!btn) return;
     btn.addEventListener("click", () => {
-      document.querySelector(".product-section_reviews")?.scrollIntoView({ behavior: "smooth" });
+      document.querySelector("#.product-section_reviews")?.scrollIntoView({ behavior: "smooth" });
     });
   }
 

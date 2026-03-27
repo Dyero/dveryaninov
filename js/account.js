@@ -39,7 +39,7 @@
   }
 
   function renderOrders() {
-    var section = document.querySelector('.account-orders');
+    var section = document.querySelector('#.account-orders');
     if (!section) return;
 
     var auth   = window.DvAuth;
@@ -47,8 +47,8 @@
     var orders = auth ? auth.getUserOrders()  : [];
 
     // Update user greeting
-    var nameEl  = document.querySelector('.account-user-greeting__name');
-    var emailEl = document.querySelector('.account-user-greeting__email');
+    var nameEl  = document.querySelector('#.account-user-greeting__name');
+    var emailEl = document.querySelector('#.account-user-greeting__email');
     if (nameEl  && user) nameEl.textContent  = user.name;
     if (emailEl && user) emailEl.textContent = user.email;
 
@@ -95,7 +95,7 @@
   }
 
   function initLogout() {
-    var btn = document.querySelector('.account-nav__logout');
+    var btn = document.querySelector('#.account-nav__logout');
     if (!btn) return;
     btn.addEventListener('click', function () {
       if (window.DvAuth) DvAuth.logout();
@@ -105,10 +105,10 @@
 
   function initPanelSwitching() {
     var navLinks = document.querySelectorAll('.account-nav__link[data-panel]');
-    var heading  = document.getElementById('account-page-heading');
+    var heading  = document.querySelector('#account-page-heading');
     var panels   = {
-      orders:  document.getElementById('panel-orders'),
-      profile: document.getElementById('panel-profile')
+      orders:  document.querySelector('#panel-orders'),
+      profile: document.querySelector('#panel-profile')
     };
     var titles = { orders: 'История заказов', profile: 'Личные данные' };
 
@@ -138,25 +138,25 @@
   function populateProfileForm() {
     var user = window.DvAuth ? DvAuth.getCurrentUser() : null;
     if (!user) return;
-    var nameInput   = document.getElementById('pf-name');
-    var emailInput  = document.getElementById('pf-email');
-    var phoneInput  = document.getElementById('pf-phone');
+    var nameInput   = document.querySelector('#pf-name');
+    var emailInput  = document.querySelector('#pf-email');
+    var phoneInput  = document.querySelector('#pf-phone');
     if (nameInput)  nameInput.value  = user.name  || '';
     if (emailInput) emailInput.value = user.email || '';
     if (phoneInput) phoneInput.value = user.phone || '';
     // clear password fields and messages
     ['pf-pass-current','pf-pass-new','pf-pass-confirm'].forEach(function(id) {
-      var el = document.getElementById(id);
+      var el = document.querySelector(id);
       if (el) el.value = '';
     });
-    var errEl = document.querySelector('.account-profile-form__error');
-    var okEl  = document.querySelector('.account-profile-form__success');
+    var errEl = document.querySelector('#.account-profile-form__error');
+    var okEl  = document.querySelector('#.account-profile-form__success');
     if (errEl) errEl.textContent = '';
     if (okEl)  okEl.textContent  = '';
   }
 
   function initProfileForm() {
-    var form = document.getElementById('profile-form');
+    var form = document.querySelector('#profile-form');
     if (!form) return;
     form.addEventListener('submit', function(e) {
       e.preventDefault();
@@ -188,18 +188,18 @@
       if (!res.ok) { if (errEl) errEl.textContent = res.error; return; }
 
       // update greeting
-      var nameEl  = document.querySelector('.account-user-greeting__name');
-      var emailEl = document.querySelector('.account-user-greeting__email');
+      var nameEl  = document.querySelector('#.account-user-greeting__name');
+      var emailEl = document.querySelector('#.account-user-greeting__email');
       if (nameEl)  nameEl.textContent  = res.user.name;
       if (emailEl) emailEl.textContent = res.user.email;
 
       // update header profile link
-      var profileLink = document.querySelector('.header__profile-link .header__user-name');
+      var profileLink = document.querySelector('#.header__profile-link .header__user-name');
       if (profileLink) profileLink.textContent = res.user.name;
 
       // clear password fields
       ['pf-pass-current','pf-pass-new','pf-pass-confirm'].forEach(function(id) {
-        var el = document.getElementById(id);
+        var el = document.querySelector(id);
         if (el) el.value = '';
       });
 
@@ -216,7 +216,7 @@
 
   function requireAuth(auth) {
     // Auth modal is inside header.html — wait until it's in DOM
-    if (document.getElementById('auth-modal')) {
+    if (document.querySelector('#auth-modal')) {
       auth.openAuthModal(showAccountPage);
     } else {
       document.addEventListener('headerReady', function () {

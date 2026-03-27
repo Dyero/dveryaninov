@@ -213,11 +213,11 @@
 
   function initSearch() {
     document.body.insertAdjacentHTML('beforeend', SEARCH_OVERLAY_HTML);
-    var overlay  = document.getElementById('search-overlay');
-    var input    = document.getElementById('search-input');
-    var results  = document.getElementById('search-results');
-    var closeBtn = document.getElementById('search-close');
-    var openBtn  = document.getElementById('header-search-btn');
+    var overlay  = document.querySelector('#search-overlay');
+    var input    = document.querySelector('#search-input');
+    var results  = document.querySelector('#search-results');
+    var closeBtn = document.querySelector('#search-close');
+    var openBtn  = document.querySelector('#header-search-btn');
 
     function escHtml(s) {
       return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
@@ -289,12 +289,12 @@
 
   function initCallModal() {
     document.body.insertAdjacentHTML('beforeend', CALL_MODAL_HTML);
-    var modal    = document.getElementById('call-modal');
-    var closeBtn = document.getElementById('call-modal-close');
-    var openBtn  = document.getElementById('header-callback-btn');
-    var form     = document.getElementById('call-modal-form');
-    var phoneInput = document.getElementById('call-phone');
-    var successEl  = document.getElementById('call-modal-success');
+    var modal    = document.querySelector('#call-modal');
+    var closeBtn = document.querySelector('#call-modal-close');
+    var openBtn  = document.querySelector('#header-callback-btn');
+    var form     = document.querySelector('#call-modal-form');
+    var phoneInput = document.querySelector('#call-phone');
+    var successEl  = document.querySelector('#call-modal-success');
 
     function openCallModal() {
       if (successEl) successEl.hidden = true;
@@ -304,7 +304,7 @@
       modal.setAttribute('aria-hidden', 'false');
       document.documentElement.style.overflow = 'hidden';
       setTimeout(function() {
-        var nameInput = document.getElementById('call-name');
+        var nameInput = document.querySelector('#call-name');
         if (nameInput) nameInput.focus();
       }, 50);
     }
@@ -353,7 +353,7 @@
     if (form) {
       form.addEventListener('submit', function(e) {
         e.preventDefault();
-        var nameVal  = (document.getElementById('call-name') || {}).value || '';
+        var nameVal  = (document.querySelector('#call-name') || {}).value || '';
         var phoneVal = phoneInput ? phoneInput.value : '';
         var errEl    = modal.querySelector('.call-modal__error');
         if (!nameVal.trim()) { if (errEl) errEl.textContent = 'Введите имя'; return; }
@@ -379,7 +379,7 @@
   }
 
   function insertFooter() {
-    var m = document.querySelector('main');
+    var m = document.querySelector('#main');
     (m || document.body).insertAdjacentHTML(m ? 'afterend' : 'beforeend', FOOTER_HTML);
   }
 
