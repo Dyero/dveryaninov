@@ -1053,6 +1053,7 @@
   }
 
   initWishlistPage();
+  initConfigurator();
 })();
 
 document.addEventListener("DOMContentLoaded", () => {
