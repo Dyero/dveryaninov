@@ -27,20 +27,62 @@
       </div>
     </section>
 
-    <!-- 2. Имиджевый промо-блок: Амфора -->
-    <section class="promo">
-      <div class="promo__content promo__content_beige">
-        <h2 class="promo__title">Двери Амфора</h2>
-        <p class="promo__text">Оригинальность конструкции, по-настоящему огромная вариативность декорирования и небольшие детали — все вместе собирается в один рецепт красоты</p>
-        <a href="catalog.html" class="btn btn_primary promo__btn">ПОДРОБНЕЕ <span aria-hidden="true">↗</span></a>
+    <!-- 2. Промо-слайдер коллекций -->
+    <section class="promo-slider" id="promo-slider">
+      <div class="promo-slider__slides">
+        <!-- Slide 1: Амфора -->
+        <div class="promo-slider__slide is-active" data-slide="0">
+          <div class="promo__content promo__content_beige">
+            <h2 class="promo__title">Двери Амфора</h2>
+            <p class="promo__text">Оригинальность конструкции, по-настоящему огромная вариативность декорирования и небольшие детали — все вместе собирается в один рецепт красоты</p>
+            <a href="catalog.html" class="btn btn_primary promo__btn">ПОДРОБНЕЕ <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="promo__images">
+            <div class="promo__img-wrap">
+              <img class="promo__image" src="images/news-2.png" alt="Интерьер Амфора">
+            </div>
+            <div class="promo__img-wrap">
+              <img class="promo__image" src="images/news-3.png" alt="Дверь Амфора крупный план">
+            </div>
+          </div>
+        </div>
+        <!-- Slide 2: Альберта -->
+        <div class="promo-slider__slide" data-slide="1">
+          <div class="promo__content promo__content_beige">
+            <h2 class="promo__title">Двери Альберта</h2>
+            <p class="promo__text">Классический дизайн с современными материалами. Коллекция Альберта — элегантность в каждой детали, непревзойдённое качество отделки</p>
+            <a href="catalog.html" class="btn btn_primary promo__btn">ПОДРОБНЕЕ <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="promo__images">
+            <div class="promo__img-wrap">
+              <img class="promo__image" src="images/Альберта/Альберта 1 1.png" alt="Альберта 1">
+            </div>
+            <div class="promo__img-wrap">
+              <img class="promo__image" src="images/Альберта/Альберта 2 1.png" alt="Альберта 2">
+            </div>
+          </div>
+        </div>
+        <!-- Slide 3: Вектор -->
+        <div class="promo-slider__slide" data-slide="2">
+          <div class="promo__content promo__content_beige">
+            <h2 class="promo__title">Двери Вектор</h2>
+            <p class="promo__text">Современные линии и минималистичный дизайн. Коллекция Вектор создана для тех, кто ценит лаконичность и функциональность</p>
+            <a href="catalog.html" class="btn btn_primary promo__btn">ПОДРОБНЕЕ <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="promo__images">
+            <div class="promo__img-wrap">
+              <img class="promo__image" src="images/Вектор/вектор 1пг 2.png" alt="Вектор 1">
+            </div>
+            <div class="promo__img-wrap">
+              <img class="promo__image" src="images/Вектор/вектор 2пг 2.png" alt="Вектор 2">
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="promo__images">
-        <div class="promo__img-wrap promo__img-wrap_top">
-          <img class="promo__image" src="images/news-2.png" alt="Интерьер Амфора">
-        </div>
-        <div class="promo__img-wrap promo__img-wrap_bottom">
-          <img class="promo__image" src="images/news-3.png" alt="Дверь Амфора крупный план">
-        </div>
+      <div class="promo-slider__dots">
+        <button class="promo-slider__dot is-active" data-go="0" aria-label="Слайд 1"></button>
+        <button class="promo-slider__dot" data-go="1" aria-label="Слайд 2"></button>
+        <button class="promo-slider__dot" data-go="2" aria-label="Слайд 3"></button>
       </div>
     </section>
 
@@ -229,5 +271,39 @@
   </main>
   
   <script src="js/shop.js"></script>
+  <script>
+    (function () {
+      var slider = document.getElementById('promo-slider');
+      if (!slider) return;
+      var slides = slider.querySelectorAll('.promo-slider__slide');
+      var dots = slider.querySelectorAll('.promo-slider__dot');
+      var current = 0;
+      var total = slides.length;
+      var interval = 15000;
+      var timer;
+
+      function goTo(idx) {
+        slides[current].classList.remove('is-active');
+        dots[current].classList.remove('is-active');
+        current = ((idx % total) + total) % total;
+        slides[current].classList.add('is-active');
+        dots[current].classList.add('is-active');
+      }
+
+      function startTimer() {
+        clearInterval(timer);
+        timer = setInterval(function () { goTo(current + 1); }, interval);
+      }
+
+      dots.forEach(function (dot) {
+        dot.addEventListener('click', function () {
+          goTo(Number(dot.getAttribute('data-go')));
+          startTimer();
+        });
+      });
+
+      startTimer();
+    })();
+  </script>
 </body>
 </html>
