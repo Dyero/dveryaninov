@@ -186,13 +186,13 @@
 
     function syncStateFromPage() {
       // Sync size from quick selection
-      const activeSize = document.querySelector("#.product__size_active");
+      const activeSize = document.querySelector(".product__size_active");
       if (activeSize && activeSize.textContent.trim()) {
         state.size = activeSize.textContent.trim();
       }
 
       // Sync finish (color) from quick selection
-      const activeColor = document.querySelector("#.product__color_active");
+      const activeColor = document.querySelector(".product__color_active");
       if (activeColor && activeColor.hasAttribute("aria-label")) {
         const colorLabel = activeColor.getAttribute("aria-label");
         // Extract just the RAL code or color name
@@ -295,6 +295,15 @@
     }
 
     document.addEventListener("click", (e) => {
+
+      // Лайк (Избранное)
+      const favBtn = target.closest(".card__fav");
+      if (favBtn) {
+        e.preventDefault();
+        favBtn.classList.toggle("is-active");
+        return;
+      }
+
       const target = e.target;
       if (!(target instanceof Element)) return;
 
@@ -355,21 +364,63 @@
         return;
       }
 
-      // Кнопки изменения количества (cfg-item и config-item)
+      
+      // Выбор карточки (Radio)
+      const cfgItemToSelect = target.closest(".cfg-item");
+      if (cfgItemToSelect && !target.closest('.cfg-qty-btn') && !target.closest('.cfg-qty-input')) {
+         const list = cfgItemToSelect.closest('.config-detail-options');
+         if (list) {
+            list.querySelectorAll('.cfg-item').forEach(item => {
+               item.classList.remove('cfg-item_active');
+               const inp = item.querySelector('.cfg-qty-input');
+               if (inp) inp.value = 0;
+            });
+            cfgItemToSelect.classList.add('cfg-item_active');
+            const inp = cfgItemToSelect.querySelector('.cfg-qty-input');
+            if (inp) inp.value = 1;
+            
+            // update header text
+            const title = cfgItemToSelect.querySelector('.config-item__title')?.textContent;
+            const headerVal = list.parentElement.querySelector('.config-detail-value');
+            if (headerVal && title) headerVal.textContent = title;
+            updateConfigTotal();
+         }
+         return;
+      }
+      
+      // Кнопки изменения количества
+
       const qtyBtn = target.closest("[data-qty-decrease], [data-qty-increase]");
       if (qtyBtn) {
         const qtyWrap = qtyBtn.closest(".cfg-item__qty, .config-item__qty");
         const input = qtyWrap?.querySelector(".cfg-qty-input, .config-qty-input");
+        
         if (input) {
           const curr = Number(input.value) || 0;
-          input.value = qtyBtn.hasAttribute("data-qty-decrease")
-            ? Math.max(0, curr - 1)
-            : curr + 1;
-          // пересчёт суммы для cfg-item или config-item
+          const isDecrease = qtyBtn.hasAttribute("data-qty-decrease");
+          input.value = isDecrease ? Math.max(0, curr - 1) : curr + 1;
+          
           const cfgItem = qtyBtn.closest(".cfg-item");
+          if (cfgItem) {
+             const list = cfgItem.closest('.config-detail-options');
+             if (list && input.value > 0) {
+                 list.querySelectorAll('.cfg-item').forEach(item => {
+                    if (item !== cfgItem) {
+                       item.classList.remove('cfg-item_active');
+                       const tempInp = item.querySelector('.cfg-qty-input');
+                       if (tempInp) tempInp.value = 0;
+                    }
+                 });
+                 cfgItem.classList.add('cfg-item_active');
+                 const title = cfgItem.querySelector('.config-item__title')?.textContent;
+                 const headerVal = list.parentElement.querySelector('.config-detail-value');
+                 if (headerVal && title) headerVal.textContent = title;
+             }
+             updateConfigTotal();
+          }
+
           const configItem = qtyBtn.closest(".config-item");
-          if (cfgItem) updateConfigTotal();
-          else if (configItem) updateItemTotal(configItem);
+          if (configItem) updateItemTotal(configItem);
         }
         return;
       }
@@ -447,9 +498,9 @@
       }
 
       if (target.closest("[data-add-to-cart]") || target.closest("[data-add-to-cart-close]")) {
-        const titleEl = document.querySelector("#.product__title");
-        const priceEl = document.querySelector("#.product__price");
-        const imgEl = document.querySelector("#.product__main-image img");
+        const titleEl = document.querySelector(".product__title");
+        const priceEl = document.querySelector(".product__price");
+        const imgEl = document.querySelector(".product__main-image img");
 
         const title = titleEl ? titleEl.textContent.trim() : "Товар";
         const priceText = priceEl ? priceEl.textContent : "0";
@@ -566,7 +617,7 @@
   }
 
   function initCartPage() {
-    const cartRoot = document.querySelector("#.cart");
+    const cartRoot = document.querySelector(".cart");
     if (!cartRoot) return;
     const itemsWrap = cartRoot.querySelector(".cart__items");
     const summaryTotal = cartRoot.querySelector(".cart-summary__pay");
@@ -752,7 +803,7 @@
   }
 
   function initProductGallery() {
-    const gallery = document.querySelector("#.product__gallery");
+    const gallery = document.querySelector(".product__gallery");
     if (!gallery) return;
 
     const mainImg = gallery.querySelector(".product__main-image img");
@@ -839,9 +890,9 @@
   }
 
   function initCheckoutPage() {
-    if (!document.querySelector('#.cart')) return;
+    if (!document.querySelector('.cart')) return;
 
-    var checkoutBtn = document.querySelector('#.cart-summary__btn');
+    var checkoutBtn = document.querySelector('.cart-summary__btn');
     if (checkoutBtn) {
       checkoutBtn.addEventListener('click', function() {
         if (!getCart().length) return;
@@ -938,11 +989,11 @@
   }
 
   function initWishlistBtn() {
-    const btn = document.querySelector("#.product__btn_wishlist");
+    const btn = document.querySelector(".product__btn_wishlist");
     if (!btn) return;
-    const titleEl = document.querySelector("#.product__title");
-    const priceEl = document.querySelector("#.product__price");
-    const imgEl = document.querySelector("#.product__main-image img");
+    const titleEl = document.querySelector(".product__title");
+    const priceEl = document.querySelector(".product__price");
+    const imgEl = document.querySelector(".product__main-image img");
     const title = titleEl ? titleEl.textContent.trim() : "Товар";
     const id = `w-${title.replace(/\s+/g, "-").toLowerCase()}`;
 
@@ -1181,8 +1232,8 @@
     function prefillFromAuth(nameId, phoneId) {
       const user = window.DvAuth ? DvAuth.getCurrentUser() : null;
       if (!user) return;
-      const nameEl = document.querySelector(nameId);
-      const phoneEl = document.querySelector(phoneId);
+      const nameEl = document.getElementById(nameId);
+      const phoneEl = document.getElementById(phoneId);
       if (nameEl && user.name) nameEl.value = user.name;
       if (phoneEl && user.phone) phoneEl.value = user.phone;
     }
@@ -1214,11 +1265,11 @@
     }
 
     function setupModal(modalId, closeId, formId, successId, nameId, phoneId) {
-      const modal = document.querySelector(modalId);
-      const closeBtn = document.querySelector(closeId);
-      const form = document.querySelector(formId);
-      const successEl = document.querySelector(successId);
-      const phoneInput = document.querySelector(phoneId);
+      const modal = document.getElementById(modalId);
+      const closeBtn = document.getElementById(closeId);
+      const form = document.getElementById(formId);
+      const successEl = document.getElementById(successId);
+      const phoneInput = document.getElementById(phoneId);
 
       function openModal() {
         if (successEl) successEl.hidden = true;
@@ -1229,7 +1280,7 @@
         modal.setAttribute("aria-hidden", "false");
         document.documentElement.style.overflow = "hidden";
         setTimeout(function () {
-          const nameEl = document.querySelector(nameId);
+          const nameEl = document.getElementById(nameId);
           if (nameEl) nameEl.focus();
         }, 50);
       }
@@ -1254,7 +1305,7 @@
       if (form) {
         form.addEventListener("submit", function (e) {
           e.preventDefault();
-          const nameVal = (document.querySelector(nameId) || {}).value || "";
+          const nameVal = (document.getElementById(nameId) || {}).value || "";
           const phoneVal = phoneInput ? phoneInput.value : "";
           const errEl = modal.querySelector(".req-modal__error");
           if (!nameVal.trim()) { if (errEl) errEl.textContent = "Введите имя"; return; }

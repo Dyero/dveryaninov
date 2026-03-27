@@ -12,177 +12,204 @@
 <body class="page page_index">
   
   <main>
-    <section class="hero">
-      <div class="hero__bg" role="img" aria-label=""></div>
-      <div class="hero__content">
-        <p class="hero__subtitle">Премиальные межкомнатные двери от фабрики</p>
-        <h1 class="hero__title">Двери, которые приносят тишину, статус и уверенность в ваш дом</h1>
-        <a class="hero__btn btn" href="catalog.html">Перейти в каталог</a>
+    <!-- 1. Hero Block -->
+    <section class="hero-new">
+      <div class="hero-new__bg"></div>
+      <div class="hero-new__content">
+        <p class="hero-new__subtitle">ПРЕМИАЛЬНЫЕ МЕЖКОМНАТНЫЕ ДВЕРИ ОТ ФАБРИКИ</p>
+        <h1 class="hero-new__title">Двери, которые приносят тишину, статус и уверенность в ваш дом</h1>
+        <a class="hero-new__btn btn btn_primary" href="catalog.html">В каталог</a>
       </div>
     </section>
 
+    <!-- 2. Имиджевый промо-блок: Амфора -->
+    <section class="promo">
+      <div class="promo__content promo__content_beige">
+        <h2 class="promo__title">Коллекция «Амфора»</h2>
+        <p class="promo__text">Изысканные формы и классические пропорции для истинных ценителей эстетики. Создайте атмосферу утонченной роскоши в вашем интерьере.</p>
+        <a href="catalog.html" class="btn btn_primary promo__btn">Смотреть линейку</a>
+      </div>
+      <div class="promo__image-wrap">
+        <img class="promo__image" src="images/Альберта.png" alt="Коллекция Амфора">
+      </div>
+    </section>
+
+    <!-- 3. Товарная полка 1: Популярное -->
     <section class="section section_cards">
       <div class="section__cards section__cards_wrap">
         <article class="card">
           <div class="card__image-wrap">
-            <img class="card__image" src="images/card-door-1.svg" alt="Дверь Флай 8 ПГ" width="288" height="320">
+            <span class="card__badge">Новинка</span>
+            <button class="card__fav" aria-label="В избранное"></button>
+            <img class="card__image" src="images/card-door-1.svg" alt="Дверь Флай 8 ПГ">
           </div>
-          <span class="card__badge">Новинка</span>
-          <h3 class="card__title"><a href="product.html?id=1">Дверь Флай 8 ПГ</a></h3>
-          <p class="card__price">от 58 600 ₽</p>
-          <button type="button" class="card__action" aria-label="В корзину"></button>
+          <div class="card__info">
+            <h3 class="card__title"><a href="product-fly-8-pg.html">Дверь Флай 8 ПГ</a></h3>
+            <p class="card__price"><span class="card__price-prefix">от</span> 58 600 ₽</p>
+          </div>
         </article>
         <article class="card">
           <div class="card__image-wrap">
-            <img class="card__image" src="images/card-door-2.svg" alt="Дверь Ультра 5 ПГ" width="288" height="320">
+            <span class="card__badge">Хит</span>
+            <button class="card__fav" aria-label="В избранное"></button>
+            <img class="card__image" src="images/card-door-2.svg" alt="Дверь Ультра 5 ПГ">
           </div>
-          <span class="card__badge">Новинка</span>
-          <h3 class="card__title"><a href="product.html?id=2">Дверь Ультра 5 ПГ</a></h3>
-          <p class="card__price">от 58 600 ₽</p>
-          <button type="button" class="card__action" aria-label="В корзину"></button>
+          <div class="card__info">
+            <h3 class="card__title"><a href="product-ultra-5-pg.html">Дверь Ультра 5 ПГ</a></h3>
+            <p class="card__price"><span class="card__price-prefix">от</span> 49 100 ₽</p>
+          </div>
         </article>
         <article class="card">
           <div class="card__image-wrap">
-            <img class="card__image" src="images/card-door-3.svg" alt="Дверь Кат 5 ПО" width="288" height="320">
+            <button class="card__fav" aria-label="В избранное"></button>
+            <img class="card__image" src="images/card-door-3.svg" alt="Дверь Кат 5 ПО">
           </div>
-          <span class="card__badge">Новинка</span>
-          <h3 class="card__title"><a href="product.html?id=3">Дверь Кант 5 ПО</a></h3>
-          <p class="card__price">от 58 600 ₽</p>
-          <button type="button" class="card__action" aria-label="В корзину"></button>
+          <div class="card__info">
+            <h3 class="card__title"><a href="product.html">Дверь Кат 5 ПО</a></h3>
+            <p class="card__price"><span class="card__price-prefix">от</span> 62 400 ₽</p>
+          </div>
         </article>
         <article class="card">
           <div class="card__image-wrap">
-            <img class="card__image" src="images/card-door-4.svg" alt="Дверь Терра 5 ПГ" width="288" height="320">
+            <button class="card__fav" aria-label="В избранное"></button>
+            <img class="card__image" src="images/card-door-4.svg" alt="Дверь Терра 5 ПГ">
           </div>
-          <span class="card__badge">Новинка</span>
-          <h3 class="card__title"><a href="product.html?id=4">Дверь Терра 5 ПГ</a></h3>
-          <p class="card__price">от 58 600 ₽</p>
-          <button type="button" class="card__action" aria-label="В корзину"></button>
+          <div class="card__info">
+            <h3 class="card__title"><a href="product.html">Дверь Терра 5 ПГ</a></h3>
+            <p class="card__price"><span class="card__price-prefix">от</span> 51 000 ₽</p>
+          </div>
         </article>
       </div>
     </section>
 
+    <!-- 4. Товарная полка 2: В наличии -->
     <section class="section section_in-stock">
-      <div class="section__head">
+      <div class="section__header">
         <h2 class="section__title">Двери в наличии</h2>
-        <a class="section__link" href="#">Смотреть всё</a>
+        <a href="catalog.html" class="section__link">Смотреть все <span>&rarr;</span></a>
       </div>
       <div class="section__cards">
         <article class="card">
           <div class="card__image-wrap">
-            <img class="card__image" src="images/card-placeholder.svg" alt="Дверь Флай 8 ПГ" width="288" height="320">
+            <button class="card__fav" aria-label="В избранное"></button>
+            <img class="card__image" src="images/card-placeholder.svg" alt="Дверь Флай 8 ПГ">
           </div>
-          <span class="card__badge">Новинка</span>
-          <h3 class="card__title"><a href="product.html?id=1">Дверь Флай 8 ПГ</a></h3>
-          <p class="card__price">от 58 600 ₽</p>
-          <button type="button" class="card__action" aria-label="В корзину"></button>
+          <div class="card__info">
+            <h3 class="card__title"><a href="product-fly-8-pg.html">Дверь ДВ 1 ПГ</a></h3>
+            <p class="card__price"><span class="card__price-prefix">от</span> 45 200 ₽</p>
+          </div>
         </article>
         <article class="card">
           <div class="card__image-wrap">
-            <img class="card__image" src="images/card-placeholder.svg" alt="Дверь Флай 8 ПГ" width="288" height="320">
+            <span class="card__badge" style="background:#555;">Скидка -10%</span>
+            <button class="card__fav" aria-label="В избранное"></button>
+            <img class="card__image" src="images/card-placeholder.svg" alt="Дверь">
           </div>
-          <span class="card__badge">Новинка</span>
-          <h3 class="card__title"><a href="product.html?id=1">Дверь Флай 8 ПГ</a></h3>
-          <p class="card__price">от 58 600 ₽</p>
-          <button type="button" class="card__action" aria-label="В корзину"></button>
+          <div class="card__info">
+            <h3 class="card__title"><a href="product.html">Дверь ДВ 2 ПО</a></h3>
+            <p class="card__price"><span class="card__price-prefix">от</span> 39 900 ₽</p>
+          </div>
         </article>
         <article class="card">
           <div class="card__image-wrap">
-            <img class="card__image" src="images/card-placeholder.svg" alt="Дверь Флай 8 ПГ" width="288" height="320">
+            <button class="card__fav" aria-label="В избранное"></button>
+            <img class="card__image" src="images/card-placeholder.svg" alt="Дверь">
           </div>
-          <span class="card__badge">Новинка</span>
-          <h3 class="card__title"><a href="product.html?id=1">Дверь Флай 8 ПГ</a></h3>
-          <p class="card__price">от 58 600 ₽</p>
-          <button type="button" class="card__action" aria-label="В корзину"></button>
+          <div class="card__info">
+            <h3 class="card__title"><a href="product.html">Дверь ДВ 3 ПГ</a></h3>
+            <p class="card__price"><span class="card__price-prefix">от</span> 54 000 ₽</p>
+          </div>
         </article>
         <article class="card">
           <div class="card__image-wrap">
-            <img class="card__image" src="images/card-placeholder.svg" alt="Дверь Флай 8 ПГ" width="288" height="320">
+            <button class="card__fav" aria-label="В избранное"></button>
+            <img class="card__image" src="images/card-placeholder.svg" alt="Дверь">
           </div>
-          <span class="card__badge">Новинка</span>
-          <h3 class="card__title"><a href="product.html?id=1">Дверь Флай 8 ПГ</a></h3>
-          <p class="card__price">от 58 600 ₽</p>
-          <button type="button" class="card__action" aria-label="В корзину"></button>
+          <div class="card__info">
+            <h3 class="card__title"><a href="product.html">Дверь ДВ 4 ПО</a></h3>
+            <p class="card__price"><span class="card__price-prefix">от</span> 48 500 ₽</p>
+          </div>
         </article>
       </div>
     </section>
 
-    <section class="section section_news">
-      <h2 class="section__title section__title_center">Создаём двери, за которыми живётся спокойно</h2>
-      <div class="news">
-        <div class="news__divider"></div>
-        <div class="news__content">
-          <div class="news__grid">
-            <article class="news-card">
-              <img class="news-card__image" src="images/news-1.png" alt="Новость 1" width="440" height="302">
-              <div class="news-card__meta">
-                <span class="news-card__date">16.09.2022</span>
-                <span class="news-card__tag">Новости</span>
-              </div>
-              <h3 class="news-card__title">Lorem Ipsum is simply dummy text of the printing and typesetting industry</h3>
-            </article>
-            <article class="news-card">
-              <img class="news-card__image" src="images/news-2.png" alt="Новость 2" width="440" height="302">
-              <div class="news-card__meta">
-                <span class="news-card__date">16.09.2022</span>
-                <span class="news-card__tag">Новости</span>
-              </div>
-              <h3 class="news-card__title">Lorem Ipsum is simply dummy text of the printing and typesetting industry</h3>
-            </article>
-            <article class="news-card">
-              <img class="news-card__image" src="images/news-3.png" alt="Новость 3" width="440" height="302">
-              <div class="news-card__meta">
-                <span class="news-card__date">16.09.2022</span>
-                <span class="news-card__tag">Новости</span>
-              </div>
-              <h3 class="news-card__title">Lorem Ipsum is simply dummy text of the printing and typesetting industry</h3>
-            </article>
-            <article class="news-card">
-              <img class="news-card__image" src="images/news-4.png" alt="Новость 4" width="440" height="302">
-              <div class="news-card__meta">
-                <span class="news-card__date">16.09.2022</span>
-                <span class="news-card__tag">Новости</span>
-              </div>
-              <h3 class="news-card__title">Коллекция MILLENNIUM в натуральном шпоне</h3>
-            </article>
+    <!-- 5. Информационный блок / Блог -->
+    <section class="blog">
+      <div class="blog__container">
+        <div class="blog__header">
+          <h2 class="blog__title">Создаем двери, за которыми живется спокойно</h2>
+          <div class="blog__tabs">
+            <button class="blog__tab is-active">Все</button>
+            <button class="blog__tab">Новости</button>
+            <button class="blog__tab">Блог</button>
           </div>
-          <div class="news__nav"></div>
         </div>
-        <nav class="news__tabs">
-          <a class="news__tab news__tab_active" href="#">Проекты</a>
-          <a class="news__tab" href="#">Новости</a>
-          <a class="news__tab" href="#">Блог</a>
-        </nav>
+        <div class="blog__slider-wrap">
+          <div class="blog__carousel">
+            <article class="blog-card">
+              <div class="blog-card__img-wrap">
+                <img src="images/news-1.png" class="blog-card__img" alt="Blog">
+              </div>
+              <p class="blog-card__meta">16.09.2022 · Новости</p>
+              <h3 class="blog-card__title">Как выбрать дверь для спальни, чтобы ничто не мешало сну</h3>
+            </article>
+            <article class="blog-card">
+              <div class="blog-card__img-wrap">
+                <img src="images/news-2.png" class="blog-card__img" alt="Blog">
+              </div>
+              <p class="blog-card__meta">16.09.2022 · Новости</p>
+              <h3 class="blog-card__title">Обновление коллекции: новые оттенки и фактуры</h3>
+            </article>
+            <article class="blog-card">
+              <div class="blog-card__img-wrap">
+                <img src="images/news-3.png" class="blog-card__img" alt="Blog">
+              </div>
+              <p class="blog-card__meta">16.09.2022 · Новости</p>
+              <h3 class="blog-card__title">Скрытые двери: тренд, который останется с нами надолго</h3>
+            </article>
+            <article class="blog-card blog-card_hint">
+              <div class="blog-card__img-wrap">
+                <img src="images/news-4.png" class="blog-card__img" alt="Blog">
+              </div>
+              <p class="blog-card__meta">16.09.2022 · Новости</p>
+              <h3 class="blog-card__title">Шумоизоляция дверей: мифы и реальность</h3>
+            </article>
+          </div>
+          <button class="blog__nav-btn" aria-label="Вперед">&rarr;</button>
+        </div>
       </div>
     </section>
 
+    <!-- 6. Имиджевый промо-блок 2: Примерка -->
+    <section class="promo promo_mirrored">
+      <div class="promo__image-wrap">
+        <img class="promo__image" src="images/hero-bg.svg" alt="Примерка двери">
+      </div>
+      <div class="promo__content promo__content_pink">
+        <h2 class="promo__title">Примерьте дверь в своем интерьере бесплатно</h2>
+        <p class="promo__text">Сомневаетесь в выборе оттенка или модели? Наш специалист приедет к вам с образцами покрытий и поможет подобрать идеальное решение.</p>
+        <button class="btn btn_primary promo__btn">Заказать примерку</button>
+      </div>
+    </section>
+
+    <!-- 7. Лид-форма / Консультация -->
+    <section class="lead">
+      <div class="lead__panorama"></div>
+      <div class="lead__container">
+        <div class="lead__content">
+          <h2 class="lead__title">Поможем подобрать двери для вашего дома</h2>
+          <p class="lead__subtitle">Оставьте заявку на бесплатную консультацию, и мы ответим на все ваши вопросы</p>
+          <form class="lead__form">
+            <input type="text" class="lead__input" placeholder="Ваше имя" required>
+            <input type="tel" class="lead__input" placeholder="+7 (999) 000-00-00" required>
+            <button type="submit" class="btn btn_primary lead__submit">ОТПРАВИТЬ</button>
+          </form>
+          <p class="lead__policy">Нажимая кнопку, вы соглашаетесь с <a href="#">политикой конфиденциальности</a>.</p>
+        </div>
+      </div>
+    </section>
   </main>
-
-  <nav class="mobile-menu" aria-label="Нижнее меню">
-    <a class="mobile-menu__item" href="index.html">
-      <span class="mobile-menu__icon" aria-hidden="true"></span>
-      <span class="mobile-menu__label">Главная</span>
-    </a>
-    <a class="mobile-menu__item" href="catalog.html">
-      <span class="mobile-menu__icon mobile-menu__icon_catalog" aria-hidden="true"></span>
-      <span class="mobile-menu__label">Каталог</span>
-    </a>
-    <a class="mobile-menu__item" href="about.html">
-      <span class="mobile-menu__icon mobile-menu__icon_about" aria-hidden="true"></span>
-      <span class="mobile-menu__label">О компании</span>
-    </a>
-    <a class="mobile-menu__item" href="contacts.html">
-      <span class="mobile-menu__icon mobile-menu__icon_contacts" aria-hidden="true"></span>
-      <span class="mobile-menu__label">Контакты</span>
-    </a>
-    <a class="mobile-menu__item" href="cart.html">
-      <span class="mobile-menu__icon mobile-menu__icon_cart" aria-hidden="true"></span>
-      <span class="mobile-menu__label">Корзина</span>
-    </a>
-  </nav>
-
+  
   <script src="js/shop.js"></script>
-
 </body>
 </html>
-

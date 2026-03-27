@@ -20,43 +20,43 @@
 
     <h1 class="catalog-page__title">Каталог</h1>
 
-    <section class="collections" aria-labelledby="collections-title">
-      <div class="collections__head">
-        <h2 class="collections__title" id="collections-title">Коллекции</h2>
+    
+    <section class="bento-categories" aria-labelledby="collections-title">
+      <div class="bento-categories__head">
+        <h2 class="bento-categories__title" id="collections-title">Категории</h2>
       </div>
-
-      <div class="collections__grid">
-        <a class="collection-card" href="#catalog">
-          <div class="collection-card__image-wrap">
-            <img class="collection-card__image" src="images/hero-bg.svg" alt="" width="720" height="420">
-          </div>
-          <div class="collection-card__body">
-            <h3 class="collection-card__title">Коллекция «Мета»</h3>
-            <p class="collection-card__meta">12 моделей</p>
+      <div class="bento-grid">
+        <a class="bento-card bento-card_large" href="#catalog">
+          <img class="bento-card__img" src="images/hero-bg.svg" alt="Межкомнатные двери">
+          <div class="bento-card__content">
+            <h3 class="bento-card__title">Межкомнатные двери</h3>
+            <span class="bento-card__arrow">→</span>
           </div>
         </a>
-
-        <a class="collection-card" href="#catalog">
-          <div class="collection-card__image-wrap">
-            <img class="collection-card__image" src="images/hero-bg.svg" alt="" width="720" height="420">
-          </div>
-          <div class="collection-card__body">
-            <h3 class="collection-card__title">Коллекция «Флай»</h3>
-            <p class="collection-card__meta">10 моделей</p>
+        <a class="bento-card bento-card_wide" href="#catalog">
+          <img class="bento-card__img" src="images/hero-bg.svg" alt="Перегородки">
+          <div class="bento-card__content">
+            <h3 class="bento-card__title">Перегородки</h3>
+            <span class="bento-card__arrow">→</span>
           </div>
         </a>
-
-        <a class="collection-card" href="#catalog">
-          <div class="collection-card__image-wrap">
-            <img class="collection-card__image" src="images/hero-bg.svg" alt="" width="720" height="420">
+        <a class="bento-card bento-card_box" href="#catalog">
+          <img class="bento-card__img" src="images/hero-bg.svg" alt="Скрытые двери">
+          <div class="bento-card__content">
+            <h3 class="bento-card__title">Скрытые двери</h3>
+            <span class="bento-card__arrow">→</span>
           </div>
-          <div class="collection-card__body">
-            <h3 class="collection-card__title">Коллекция «Ультра»</h3>
-            <p class="collection-card__meta">8 моделей</p>
+        </a>
+        <a class="bento-card bento-card_box" href="#catalog">
+          <img class="bento-card__img" src="images/hero-bg.svg" alt="Фурнитура">
+          <div class="bento-card__content">
+            <h3 class="bento-card__title">Фурнитура</h3>
+            <span class="bento-card__arrow">→</span>
           </div>
         </a>
       </div>
     </section>
+  
 
     <section class="catalog" id="catalog" aria-labelledby="catalog-title">
       <div class="catalog__head">
@@ -71,42 +71,50 @@
       <div class="section__cards section__cards_wrap catalog__grid">
         <article class="card">
           <div class="card__image-wrap">
-            <img class="card__image" src="images/card-door-1.svg" alt="Дверь Флай 8 ПГ" width="288" height="320">
+            <span class="card__badge">Новинка</span>
+            <button class="card__fav" aria-label="В избранное"></button>
+            <img class="card__image" src="images/card-door-1.svg" alt="Дверь Флай 8 ПГ">
           </div>
-          <span class="card__badge">Новинка</span>
-          <h3 class="card__title"><a href="product-fly-8-pg.html">Дверь Флай 8 ПГ</a></h3>
-          <p class="card__price">от 58 600 ₽</p>
-          <button type="button" class="card__action" aria-label="В корзину"></button>
+          <div class="card__info">
+            <h3 class="card__title"><a href="product-fly-8-pg.html">Дверь Флай 8 ПГ</a></h3>
+            <p class="card__price"><span class="card__price-prefix">от</span> 58 600 ₽</p>
+          </div>
         </article>
 
         <article class="card">
           <div class="card__image-wrap">
-            <img class="card__image" src="images/card-door-2.svg" alt="Дверь Ультра 5 ПГ" width="288" height="320">
+            <span class="card__badge">Новинка</span>
+            <button class="card__fav" aria-label="В избранное"></button>
+            <img class="card__image" src="images/card-door-2.svg" alt="Дверь Ультра 5 ПГ">
           </div>
-          <span class="card__badge">Новинка</span>
-          <h3 class="card__title"><a href="product-ultra-5-pg.html">Дверь Ультра 5 ПГ</a></h3>
-          <p class="card__price">от 63 200 ₽</p>
-          <button type="button" class="card__action" aria-label="В корзину"></button>
+          <div class="card__info">
+            <h3 class="card__title"><a href="product-ultra-5-pg.html">Дверь Ультра 5 ПГ</a></h3>
+            <p class="card__price"><span class="card__price-prefix">от</span> 63 200 ₽</p>
+          </div>
         </article>
 
         <article class="card">
           <div class="card__image-wrap">
-            <img class="card__image" src="images/card-door-3.svg" alt="Дверь Мета 1 ПГ Престиж" width="288" height="320">
+            <span class="card__badge">Новинка</span>
+            <button class="card__fav" aria-label="В избранное"></button>
+            <img class="card__image" src="images/card-door-3.svg" alt="Дверь Мета 1 ПГ Престиж">
           </div>
-          <span class="card__badge">Новинка</span>
-          <h3 class="card__title"><a href="product-meta-1-pg.html">Дверь Мета 1 ПГ Престиж</a></h3>
-          <p class="card__price">от 48 900 ₽</p>
-          <button type="button" class="card__action" aria-label="В корзину"></button>
+          <div class="card__info">
+            <h3 class="card__title"><a href="product-meta-1-pg.html">Дверь Мета 1 ПГ Престиж</a></h3>
+            <p class="card__price"><span class="card__price-prefix">от</span> 48 900 ₽</p>
+          </div>
         </article>
 
         <article class="card">
           <div class="card__image-wrap">
-            <img class="card__image" src="images/card-door-4.svg" alt="Дверь Сол 2 ПГ" width="288" height="320">
+            <span class="card__badge">Новинка</span>
+            <button class="card__fav" aria-label="В избранное"></button>
+            <img class="card__image" src="images/card-door-4.svg" alt="Дверь Сол 2 ПГ">
           </div>
-          <span class="card__badge">Новинка</span>
-          <h3 class="card__title"><a href="product-sol-2-pg.html">Дверь Сол 2 ПГ</a></h3>
-          <p class="card__price">от 52 000 ₽</p>
-          <button type="button" class="card__action" aria-label="В корзину"></button>
+          <div class="card__info">
+            <h3 class="card__title"><a href="product-sol-2-pg.html">Дверь Сол 2 ПГ</a></h3>
+            <p class="card__price"><span class="card__price-prefix">от</span> 52 000 ₽</p>
+          </div>
         </article>
       </div>
 

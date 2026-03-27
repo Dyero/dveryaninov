@@ -139,7 +139,7 @@
 
   /* ---- Header UI ---- */
   function updateHeaderUI() {
-    var btn = document.querySelector('#.header__profile-btn');
+    var btn = document.querySelector('.header__profile-btn');
     if (!btn) return;
     var user = getSession();
     if (user) {

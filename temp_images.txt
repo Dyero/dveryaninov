@@ -1,0 +1,71 @@
+        <article class="card">
+          <div class="card__image-wrap">
+            <img class="card__image" src="images/card-door-1.svg" alt="Дверь Флай 8 ПГ" width="288" height="320">
+          </div>
+          <span class="card__badge">Новинка</span>
+--
+        <article class="card">
+          <div class="card__image-wrap">
+            <img class="card__image" src="images/card-door-2.svg" alt="Дверь Ультра 5 ПГ" width="288" height="320">
+          </div>
+          <span class="card__badge">Новинка</span>
+--
+        <article class="card">
+          <div class="card__image-wrap">
+            <img class="card__image" src="images/card-door-3.svg" alt="Дверь Кат 5 ПО" width="288" height="320">
+          </div>
+          <span class="card__badge">Новинка</span>
+--
+        <article class="card">
+          <div class="card__image-wrap">
+            <img class="card__image" src="images/card-door-4.svg" alt="Дверь Терра 5 ПГ" width="288" height="320">
+          </div>
+          <span class="card__badge">Новинка</span>
+--
+        <article class="card">
+          <div class="card__image-wrap">
+            <img class="card__image" src="images/card-placeholder.svg" alt="Дверь Флай 8 ПГ" width="288" height="320">
+          </div>
+          <span class="card__badge">Новинка</span>
+--
+        <article class="card">
+          <div class="card__image-wrap">
+            <img class="card__image" src="images/card-placeholder.svg" alt="Дверь Флай 8 ПГ" width="288" height="320">
+          </div>
+          <span class="card__badge">Новинка</span>
+--
+        <article class="card">
+          <div class="card__image-wrap">
+            <img class="card__image" src="images/card-placeholder.svg" alt="Дверь Флай 8 ПГ" width="288" height="320">
+          </div>
+          <span class="card__badge">Новинка</span>
+--
+        <article class="card">
+          <div class="card__image-wrap">
+            <img class="card__image" src="images/card-placeholder.svg" alt="Дверь Флай 8 ПГ" width="288" height="320">
+          </div>
+          <span class="card__badge">Новинка</span>
+--
+          <div class="news__grid">
+            <article class="news-card">
+              <img class="news-card__image" src="images/news-1.png" alt="Новость 1" width="440" height="302">
+              <div class="news-card__meta">
+                <span class="news-card__date">16.09.2022</span>
+--
+            </article>
+            <article class="news-card">
+              <img class="news-card__image" src="images/news-2.png" alt="Новость 2" width="440" height="302">
+              <div class="news-card__meta">
+                <span class="news-card__date">16.09.2022</span>
+--
+            </article>
+            <article class="news-card">
+              <img class="news-card__image" src="images/news-3.png" alt="Новость 3" width="440" height="302">
+              <div class="news-card__meta">
+                <span class="news-card__date">16.09.2022</span>
+--
+            </article>
+            <article class="news-card">
+              <img class="news-card__image" src="images/news-4.png" alt="Новость 4" width="440" height="302">
+              <div class="news-card__meta">
+                <span class="news-card__date">16.09.2022</span>

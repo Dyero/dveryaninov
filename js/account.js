@@ -39,7 +39,7 @@
   }
 
   function renderOrders() {
-    var section = document.querySelector('#.account-orders');
+    var section = document.querySelector('.account-orders');
     if (!section) return;
 
     var auth   = window.DvAuth;
@@ -47,8 +47,8 @@
     var orders = auth ? auth.getUserOrders()  : [];
 
     // Update user greeting
-    var nameEl  = document.querySelector('#.account-user-greeting__name');
-    var emailEl = document.querySelector('#.account-user-greeting__email');
+    var nameEl  = document.querySelector('.account-user-greeting__name');
+    var emailEl = document.querySelector('.account-user-greeting__email');
     if (nameEl  && user) nameEl.textContent  = user.name;
     if (emailEl && user) emailEl.textContent = user.email;
 
@@ -95,7 +95,7 @@
   }
 
   function initLogout() {
-    var btn = document.querySelector('#.account-nav__logout');
+    var btn = document.querySelector('.account-nav__logout');
     if (!btn) return;
     btn.addEventListener('click', function () {
       if (window.DvAuth) DvAuth.logout();
@@ -146,11 +146,11 @@
     if (phoneInput) phoneInput.value = user.phone || '';
     // clear password fields and messages
     ['pf-pass-current','pf-pass-new','pf-pass-confirm'].forEach(function(id) {
-      var el = document.querySelector(id);
+      var el = document.getElementById(id);
       if (el) el.value = '';
     });
-    var errEl = document.querySelector('#.account-profile-form__error');
-    var okEl  = document.querySelector('#.account-profile-form__success');
+    var errEl = document.querySelector('.account-profile-form__error');
+    var okEl  = document.querySelector('.account-profile-form__success');
     if (errEl) errEl.textContent = '';
     if (okEl)  okEl.textContent  = '';
   }
@@ -188,18 +188,18 @@
       if (!res.ok) { if (errEl) errEl.textContent = res.error; return; }
 
       // update greeting
-      var nameEl  = document.querySelector('#.account-user-greeting__name');
-      var emailEl = document.querySelector('#.account-user-greeting__email');
+      var nameEl  = document.querySelector('.account-user-greeting__name');
+      var emailEl = document.querySelector('.account-user-greeting__email');
       if (nameEl)  nameEl.textContent  = res.user.name;
       if (emailEl) emailEl.textContent = res.user.email;
 
       // update header profile link
-      var profileLink = document.querySelector('#.header__profile-link .header__user-name');
+      var profileLink = document.querySelector('.header__profile-link .header__user-name');
       if (profileLink) profileLink.textContent = res.user.name;
 
       // clear password fields
       ['pf-pass-current','pf-pass-new','pf-pass-confirm'].forEach(function(id) {
-        var el = document.querySelector(id);
+        var el = document.getElementById(id);
         if (el) el.value = '';
       });
 
