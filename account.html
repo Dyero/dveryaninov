@@ -36,13 +36,13 @@
             <a class="account-nav__link" href="#" data-panel="profile">Данные</a>
           </div>
           <div class="account-nav__item">
-            <a class="account-nav__link" href="#">Избранное</a>
+            <a class="account-nav__link" href="wishlist.html">Избранное</a>
           </div>
           <div class="account-nav__item">
             <a class="account-nav__link" href="cart.html">Корзина</a>
           </div>
           <div class="account-nav__item">
-            <a class="account-nav__link" href="#">Составить обращение</a>
+            <a class="account-nav__link" href="#" id="open-appeal-popup">Составить обращение</a>
           </div>
           <button type="button" class="account-nav__logout">Выйти</button>
         </nav>
@@ -96,6 +96,34 @@
     </div>
   </main>
 
+  <!-- Попап «Составить обращение» -->
+  <div class="appeal-popup" id="appeal-popup" hidden>
+    <div class="appeal-popup__overlay"></div>
+    <div class="appeal-popup__window">
+      <button class="appeal-popup__close" aria-label="Закрыть">&times;</button>
+      <h2 class="appeal-popup__title">Составить обращение</h2>
+      <form class="appeal-popup__form" id="appeal-form" novalidate>
+        <div class="appeal-popup__group">
+          <label class="appeal-popup__label" for="appeal-name">Имя</label>
+          <input class="appeal-popup__input" type="text" id="appeal-name" name="name" required>
+        </div>
+        <div class="appeal-popup__group">
+          <label class="appeal-popup__label" for="appeal-email">Email</label>
+          <input class="appeal-popup__input" type="email" id="appeal-email" name="email" required>
+        </div>
+        <div class="appeal-popup__group">
+          <label class="appeal-popup__label" for="appeal-subject">Тема обращения</label>
+          <input class="appeal-popup__input" type="text" id="appeal-subject" name="subject" required>
+        </div>
+        <div class="appeal-popup__group">
+          <label class="appeal-popup__label" for="appeal-message">Сообщение</label>
+          <textarea class="appeal-popup__textarea" id="appeal-message" name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="appeal-popup__btn btn btn_primary">Отправить</button>
+      </form>
+    </div>
+  </div>
+
   <nav class="mobile-menu" aria-label="Нижнее меню">
     <a class="mobile-menu__item" href="index.html">
       <span class="mobile-menu__icon" aria-hidden="true"></span>
@@ -120,5 +148,27 @@
   </nav>
 
   <script src="js/account.js"></script>
+  <script>
+    (function() {
+      const popup = document.getElementById("appeal-popup");
+      const openBtn = document.getElementById("open-appeal-popup");
+      const form = document.getElementById("appeal-form");
+      if (!popup || !openBtn) return;
+
+      function open() { popup.hidden = false; }
+      function close() { popup.hidden = true; form.reset(); }
+
+      openBtn.addEventListener("click", function(e) { e.preventDefault(); open(); });
+      popup.querySelector(".appeal-popup__overlay").addEventListener("click", close);
+      popup.querySelector(".appeal-popup__close").addEventListener("click", close);
+      document.addEventListener("keydown", function(e) { if (e.key === "Escape" && !popup.hidden) close(); });
+
+      form.addEventListener("submit", function(e) {
+        e.preventDefault();
+        alert("Обращение отправлено! Мы свяжемся с вами в ближайшее время.");
+        close();
+      });
+    })();
+  </script>
 </body>
 </html>
