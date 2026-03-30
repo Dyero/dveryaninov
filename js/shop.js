@@ -308,7 +308,7 @@
           el.classList.remove("is-open");
         });
         modal.querySelectorAll(".cfg-section__body").forEach((el) => {
-          el.hidden = true;
+          el.classList.remove("is-open");
         });
         modal.querySelectorAll(".config-detail-toggle").forEach((btn) => {
           btn.setAttribute("aria-expanded", "false");
