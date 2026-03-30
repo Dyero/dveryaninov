@@ -364,6 +364,14 @@
         )?.nextElementSibling;
         if (options) options.classList.add("is-open");
       }
+      // Открываем первую cfg-section (погонаж, фурнитура)
+      const firstSection = stepEl.querySelector("[data-section-toggle]");
+      if (firstSection) {
+        const toggle = firstSection.querySelector(".config-detail-toggle");
+        const body = firstSection.closest(".cfg-section")?.querySelector(".cfg-section__body");
+        if (toggle) toggle.setAttribute("aria-expanded", "true");
+        if (body) body.hidden = false;
+      }
     }
 
     document.addEventListener("click", (e) => {
@@ -372,7 +380,7 @@
 
       // Раскрытие/схлопывание по клику на весь заголовок или toggle
       const detailHeader = target.closest(".config-detail-header");
-      if (detailHeader && !target.closest(".config-chip")) {
+      if (detailHeader && !target.closest(".config-chip") && !target.closest("[data-section-toggle]")) {
         const toggle = detailHeader.querySelector(".config-detail-toggle");
         if (!toggle) return;
         const isExpanded = toggle.getAttribute("aria-expanded") === "true";
