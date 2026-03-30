@@ -682,6 +682,34 @@
 
   </div><!-- /#configModal -->
 
+  <!-- Попап «Нужен замер» -->
+  <div class="modal" id="measureModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Заказать замер">
+    <div class="modal__backdrop" data-close-measure></div>
+    <div class="modal__panel" style="width: min(480px, calc(100vw - 32px)); max-height: 520px; grid-template-rows: auto 1fr;">
+      <div class="modal__header">
+        <h2 class="modal__title">Заказать замер</h2>
+        <button class="modal__close" type="button" data-close-measure aria-label="Закрыть">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="modal__body" style="padding: 24px 16px; overflow-y: auto;">
+        <p style="margin: 0 0 20px; font-size: 14px; color: #666; line-height: 1.5;">Наш специалист приедет к вам, чтобы точно измерить дверной проём и подобрать оптимальное решение</p>
+        <form id="measureForm" style="display: flex; flex-direction: column; gap: 14px;">
+          <input type="text" name="name" placeholder="Ваше имя*" required style="width: 100%; padding: 14px 16px; border: 1px solid #ddd; font-size: 15px; font-family: inherit; box-sizing: border-box;">
+          <input type="tel" name="phone" placeholder="Ваш телефон*" required style="width: 100%; padding: 14px 16px; border: 1px solid #ddd; font-size: 15px; font-family: inherit; box-sizing: border-box;">
+          <textarea name="comment" placeholder="Комментарий (необязательно)" rows="3" style="width: 100%; padding: 14px 16px; border: 1px solid #ddd; font-size: 15px; font-family: inherit; resize: vertical; box-sizing: border-box;"></textarea>
+          <button type="submit" class="btn btn_primary" style="width: 100%; padding: 16px; font-size: 15px; letter-spacing: 0.05em;">ЗАКАЗАТЬ ЗАМЕР</button>
+          <p style="margin: 0; font-size: 12px; color: #999; text-align: center;">Отправляя заявку, вы даёте согласие на обработку <a href="#" style="color: inherit; text-decoration: underline;">персональных данных</a></p>
+        </form>
+        <div id="measureSuccess" style="display: none; text-align: center; padding: 40px 0;">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" style="margin-bottom: 16px;"><circle cx="24" cy="24" r="24" fill="#E8F5E9"/><path d="M15 25l6 6 12-14" stroke="#4CAF50" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h3 style="margin: 0 0 8px; font-size: 18px;">Заявка отправлена!</h3>
+          <p style="margin: 0; color: #666; font-size: 14px;">Мы свяжемся с вами в ближайшее рабочее время</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="js/product.js"></script>
   <script src="js/shop.js"></script>
 

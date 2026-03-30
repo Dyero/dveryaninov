@@ -1187,14 +1187,6 @@
 
       const added = toggleWishlist({ id, title, image, price });
       wishBtn.classList.toggle("is-active", added);
-
-      if (added) {
-        wishBtn.style.backgroundColor = "var(--color-primary, #e21836)";
-        wishBtn.style.borderColor = "var(--color-primary, #e21836)";
-      } else {
-        wishBtn.style.backgroundColor = "";
-        wishBtn.style.borderColor = "";
-      }
     }
   });
 
@@ -1221,8 +1213,6 @@
         }
         if (isInWishlist(id)) {
           btn.classList.add("is-active");
-          btn.style.backgroundColor = "var(--color-primary, #e21836)";
-          btn.style.borderColor = "var(--color-primary, #e21836)";
         }
       });
   });
@@ -1277,8 +1267,6 @@
           fav.style.position = "absolute";
           fav.style.top = "12px";
           fav.style.right = "12px";
-          fav.style.backgroundColor = "var(--color-primary, #e21836)";
-          fav.style.borderColor = "var(--color-primary, #e21836)";
         }
 
         grid.appendChild(card);
@@ -1298,6 +1286,20 @@
 
   initWishlistPage();
   initConfigurator();
+
+  // Lead form handler
+  const leadForm = document.querySelector(".lead__form");
+  if (leadForm) {
+    leadForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const inputs = leadForm.querySelectorAll(".lead__input");
+      const name = inputs[0]?.value.trim() || "";
+      const phone = inputs[1]?.value.trim() || "";
+      if (!name || !phone) return;
+      console.log("[Лид] Заявка:", { name, phone });
+      leadForm.innerHTML = '<p style="text-align:center;font-size:16px;color:#333;padding:20px 0;">Спасибо! Мы свяжемся с вами в ближайшее время.</p>';
+    });
+  }
 })();
 
 document.addEventListener("DOMContentLoaded", () => {

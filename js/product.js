@@ -118,4 +118,33 @@
   initColorSelection();
   initReviewReadMore();
   initShowAllReviews();
+  initMeasureModal();
+
+  function initMeasureModal() {
+    const modal = document.getElementById("measureModal");
+    if (!modal) return;
+
+    const form = document.getElementById("measureForm");
+    const success = document.getElementById("measureSuccess");
+
+    function open() { modal.setAttribute("aria-hidden", "false"); document.body.style.overflow = "hidden"; }
+    function close() { modal.setAttribute("aria-hidden", "true"); document.body.style.overflow = ""; }
+
+    document.querySelectorAll(".product__size_measure").forEach(btn => btn.addEventListener("click", open));
+    modal.querySelectorAll("[data-close-measure]").forEach(el => el.addEventListener("click", close));
+    modal.addEventListener("keydown", e => { if (e.key === "Escape") close(); });
+
+    if (form) {
+      form.addEventListener("submit", e => {
+        e.preventDefault();
+        const data = Object.fromEntries(new FormData(form));
+        data.page = window.location.pathname;
+        data.product = document.querySelector(".product__title")?.textContent.trim() || "";
+        console.log("[Замер] Заявка:", data);
+        form.style.display = "none";
+        if (success) success.style.display = "block";
+        setTimeout(close, 3000);
+      });
+    }
+  }
 })();
