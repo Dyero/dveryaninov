@@ -234,18 +234,38 @@
     <section class="promo promo_mirrored">
       <div class="promo__content promo__content_dark">
         <h2 class="promo__title">Примерьте дверь в своём интерьере бесплатно</h2>
-        <p class="promo__text">Lorem Ipsum is simply dummy text of the printing and typesetting. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-        <button class="btn btn_primary promo__btn">ПОДРОБНЕЕ <span aria-hidden="true">↗</span></button>
+        <p class="promo__text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+        <button class="btn btn_primary promo__btn" id="open-fitting-popup">ЗАКАЗАТЬ ПРИМЕРКУ <span aria-hidden="true">↗</span></button>
       </div>
-      <div class="promo__images">
-        <div class="promo__img-wrap promo__img-wrap_top">
-          <img class="promo__image" src="images/news-3.png" alt="Интерьер с дверью">
-        </div>
-        <div class="promo__img-wrap promo__img-wrap_bottom">
-          <img class="promo__image" src="images/Альберта/Альберта 1 1.png" alt="Дверь крупный план">
-        </div>
+      <div class="promo__image-wrap">
+        <img class="promo__image" src="images/news-3.png" alt="Интерьер с дверью">
       </div>
     </section>
+
+    <!-- Попап «Заказать примерку» -->
+    <div class="appeal-popup" id="fitting-popup" hidden>
+      <div class="appeal-popup__overlay"></div>
+      <div class="appeal-popup__window">
+        <button class="appeal-popup__close" aria-label="Закрыть">&times;</button>
+        <h2 class="appeal-popup__title">Заказать примерку</h2>
+        <p style="margin: 0 0 20px; font-size: 14px; color: #666; line-height: 1.5;">Наш дизайнер приедет к вам и покажет, как дверь будет смотреться в вашем интерьере</p>
+        <form class="appeal-popup__form" id="fitting-form" novalidate>
+          <div class="appeal-popup__group">
+            <label class="appeal-popup__label" for="fitting-name">Имя</label>
+            <input class="appeal-popup__input" type="text" id="fitting-name" name="name" required>
+          </div>
+          <div class="appeal-popup__group">
+            <label class="appeal-popup__label" for="fitting-phone">Телефон</label>
+            <input class="appeal-popup__input" type="tel" id="fitting-phone" name="phone" placeholder="+7 (___) ___-__-__" required>
+          </div>
+          <div class="appeal-popup__group" style="display: flex; align-items: flex-start; gap: 10px;">
+            <input type="checkbox" id="fitting-privacy" name="privacy" required style="margin-top: 3px;">
+            <label for="fitting-privacy" style="font-size: 13px; color: #666; line-height: 1.4; cursor: pointer;">Я даю согласие на обработку <a href="#" style="color: inherit; text-decoration: underline;">персональных данных</a></label>
+          </div>
+          <button type="submit" class="appeal-popup__btn btn btn_primary">ОТПРАВИТЬ ЗАЯВКУ</button>
+        </form>
+      </div>
+    </div>
 
     <!-- 7. Панорама-баннер -->
     <section class="panorama-banner">
@@ -362,6 +382,28 @@
       });
       slider.querySelector('.hero-slider__arrow_next').addEventListener('click', function () {
         goTo(current + 1);
+      });
+    })();
+
+    // Fitting popup
+    (function() {
+      var popup = document.getElementById("fitting-popup");
+      var openBtn = document.getElementById("open-fitting-popup");
+      var form = document.getElementById("fitting-form");
+      if (!popup || !openBtn) return;
+
+      function open() { popup.hidden = false; }
+      function close() { popup.hidden = true; form.reset(); }
+
+      openBtn.addEventListener("click", function(e) { e.preventDefault(); open(); });
+      popup.querySelector(".appeal-popup__overlay").addEventListener("click", close);
+      popup.querySelector(".appeal-popup__close").addEventListener("click", close);
+      document.addEventListener("keydown", function(e) { if (e.key === "Escape" && !popup.hidden) close(); });
+
+      form.addEventListener("submit", function(e) {
+        e.preventDefault();
+        alert("Заявка отправлена! Мы свяжемся с вами для согласования времени примерки.");
+        close();
       });
     })();
   </script>
