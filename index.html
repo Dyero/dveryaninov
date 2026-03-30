@@ -13,17 +13,29 @@
   
   <main>
     <!-- 1. Hero Block — two-column -->
-    <section class="hero-new">
-      <div class="hero-new__col hero-new__col_left">
-        <img class="hero-new__bg-img" src="images/news-1.png" alt="Интерьер с дверью">
-        <div class="hero-new__content">
-          <p class="hero-new__subtitle">ПРЕМИАЛЬНЫЕ МЕЖКОМНАТНЫЕ ДВЕРИ ОТ ФАБРИКИ</p>
-          <h1 class="hero-new__title">Двери, которые приносят тишину, статус и уверенность в ваш дом</h1>
-          <a class="hero-new__btn btn btn_primary" href="catalog.html">Перейти в каталог <span aria-hidden="true">↗</span></a>
+    <section class="hero-slider" id="hero-slider">
+      <div class="hero-slider__slides">
+        <div class="hero-slider__slide is-active">
+          <div class="hero-new">
+            <div class="hero-new__col hero-new__col_left">
+              <img class="hero-new__bg-img" src="images/news-1.png" alt="Интерьер с дверью">
+              <div class="hero-new__content">
+                <p class="hero-new__subtitle">ПРЕМИАЛЬНЫЕ МЕЖКОМНАТНЫЕ ДВЕРИ ОТ ФАБРИКИ</p>
+                <h1 class="hero-new__title">Двери, которые приносят тишину, статус и уверенность в ваш дом</h1>
+                <a class="hero-new__btn btn btn_primary" href="catalog.html">Перейти в каталог <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+            <div class="hero-new__col hero-new__col_right">
+              <img class="hero-new__door-img" src="images/Флай/ФЛАЙ 8 1.png" alt="Дверь Флай 8">
+            </div>
+          </div>
         </div>
       </div>
-      <div class="hero-new__col hero-new__col_right">
-        <img class="hero-new__door-img" src="images/Флай/ФЛАЙ 8 1.png" alt="Дверь Флай 8">
+      <!-- Navigation hidden when only 1 slide -->
+      <div class="hero-slider__nav" hidden>
+        <button class="hero-slider__arrow hero-slider__arrow_prev" aria-label="Предыдущий">&#8249;</button>
+        <button class="hero-slider__arrow hero-slider__arrow_next" aria-label="Следующий">&#8250;</button>
+        <div class="hero-slider__dots"></div>
       </div>
     </section>
 
@@ -79,6 +91,8 @@
           </div>
         </div>
       </div>
+      <button class="promo-slider__arrow promo-slider__arrow_prev" aria-label="Предыдущий слайд">&#8249;</button>
+      <button class="promo-slider__arrow promo-slider__arrow_next" aria-label="Следующий слайд">&#8250;</button>
       <div class="promo-slider__dots">
         <button class="promo-slider__dot is-active" data-go="0" aria-label="Слайд 1"></button>
         <button class="promo-slider__dot" data-go="1" aria-label="Слайд 2"></button>
@@ -141,45 +155,46 @@
         <a href="catalog.html" class="section__link">Смотреть все <span>&rarr;</span></a>
       </div>
       <div class="section__cards section__cards_wrap">
-          <article class="card">
+        <article class="card">
           <div class="card__image-wrap">
+            <span class="card__badge">Новинка</span>
             <button class="card__fav" aria-label="В избранное"></button>
-            <img class="card__image" src="images/card-placeholder.svg" alt="Дверь Флай 8 ПГ">
+            <img class="card__image" src="images/card-door-1.svg" alt="Дверь Флай 8 ПГ">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-fly-8-pg.html">Дверь ДВ 1 ПГ</a></h3>
-            <p class="card__price"><span class="card__price-prefix">от</span> 45 200 ₽</p>
+            <h3 class="card__title"><a href="product-fly-8-pg.html">Дверь Флай 8 ПГ</a></h3>
+            <p class="card__price"><span class="card__price-prefix">от</span> 58 600 ₽</p>
           </div>
         </article>
         <article class="card">
           <div class="card__image-wrap">
-            <span class="card__badge card__badge_sale">Скидка -10%</span>
+            <span class="card__badge">Хит</span>
             <button class="card__fav" aria-label="В избранное"></button>
-            <img class="card__image" src="images/card-placeholder.svg" alt="Дверь">
+            <img class="card__image" src="images/card-door-2.svg" alt="Дверь Ультра 5 ПГ">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product.html">Дверь ДВ 2 ПО</a></h3>
-            <p class="card__price"><span class="card__price-prefix">от</span> 39 900 ₽</p>
-          </div>
-        </article>
-        <article class="card">
-          <div class="card__image-wrap">
-            <button class="card__fav" aria-label="В избранное"></button>
-            <img class="card__image" src="images/card-placeholder.svg" alt="Дверь">
-          </div>
-          <div class="card__info">
-            <h3 class="card__title"><a href="product.html">Дверь ДВ 3 ПГ</a></h3>
-            <p class="card__price"><span class="card__price-prefix">от</span> 54 000 ₽</p>
+            <h3 class="card__title"><a href="product-ultra-5-pg.html">Дверь Ультра 5 ПГ</a></h3>
+            <p class="card__price"><span class="card__price-prefix">от</span> 49 100 ₽</p>
           </div>
         </article>
         <article class="card">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
-            <img class="card__image" src="images/card-placeholder.svg" alt="Дверь">
+            <img class="card__image" src="images/card-door-3.svg" alt="Дверь Кат 5 ПО">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product.html">Дверь ДВ 4 ПО</a></h3>
-            <p class="card__price"><span class="card__price-prefix">от</span> 48 500 ₽</p>
+            <h3 class="card__title"><a href="product.html">Дверь Кат 5 ПО</a></h3>
+            <p class="card__price"><span class="card__price-prefix">от</span> 62 400 ₽</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card__image-wrap">
+            <button class="card__fav" aria-label="В избранное"></button>
+            <img class="card__image" src="images/card-door-4.svg" alt="Дверь Терра 5 ПГ">
+          </div>
+          <div class="card__info">
+            <h3 class="card__title"><a href="product.html">Дверь Терра 5 ПГ</a></h3>
+            <p class="card__price"><span class="card__price-prefix">от</span> 51 000 ₽</p>
           </div>
         </article>
       </div>
@@ -277,6 +292,8 @@
       if (!slider) return;
       var slides = slider.querySelectorAll('.promo-slider__slide');
       var dots = slider.querySelectorAll('.promo-slider__dot');
+      var prevBtn = slider.querySelector('.promo-slider__arrow_prev');
+      var nextBtn = slider.querySelector('.promo-slider__arrow_next');
       var current = 0;
       var total = slides.length;
       var interval = 15000;
@@ -302,7 +319,67 @@
         });
       });
 
+      if (prevBtn) {
+        prevBtn.addEventListener('click', function () {
+          goTo(current - 1);
+          startTimer();
+        });
+      }
+      if (nextBtn) {
+        nextBtn.addEventListener('click', function () {
+          goTo(current + 1);
+          startTimer();
+        });
+      }
+
       startTimer();
+    })();
+
+    // Hero slider — supports multiple slides, no scroll if only 1
+    (function () {
+      var slider = document.getElementById('hero-slider');
+      if (!slider) return;
+      var slides = slider.querySelectorAll('.hero-slider__slide');
+      var nav = slider.querySelector('.hero-slider__nav');
+      if (slides.length <= 1) return; // Single item — no scrolling
+
+      // Show navigation
+      nav.hidden = false;
+
+      // Generate dots
+      var dotsWrap = slider.querySelector('.hero-slider__dots');
+      for (var i = 0; i < slides.length; i++) {
+        var dot = document.createElement('button');
+        dot.className = 'hero-slider__dot' + (i === 0 ? ' is-active' : '');
+        dot.setAttribute('data-go', i);
+        dot.setAttribute('aria-label', 'Слайд ' + (i + 1));
+        dotsWrap.appendChild(dot);
+      }
+
+      var dots = dotsWrap.querySelectorAll('.hero-slider__dot');
+      var current = 0;
+      var total = slides.length;
+
+      function goTo(idx) {
+        slides[current].classList.remove('is-active');
+        dots[current].classList.remove('is-active');
+        current = ((idx % total) + total) % total;
+        slides[current].classList.add('is-active');
+        dots[current].classList.add('is-active');
+      }
+
+      dots.forEach(function (dot) {
+        dot.addEventListener('click', function () {
+          goTo(Number(dot.getAttribute('data-go')));
+        });
+      });
+
+      slider.querySelector('.hero-slider__arrow_prev').addEventListener('click', function () {
+        goTo(current - 1);
+      });
+      slider.querySelector('.hero-slider__arrow_next').addEventListener('click', function () {
+        goTo(current + 1);
+      });
     })();
   </script>
 </body>

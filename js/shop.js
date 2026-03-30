@@ -626,6 +626,7 @@
                   .querySelector(".config-item__amount")
                   ?.textContent.replace(/[^\d]/g, ""),
               ) || 0;
+            const accImg = item.querySelector('.cfg-item__thumb img')?.getAttribute('src') || '';
             accessories.push({
               id: `acc-${Date.now()}-${Math.random().toString(36).slice(2)}`,
               title: accTitle,
@@ -633,6 +634,7 @@
               qty,
               price,
               oldPrice: 0,
+              image: accImg,
             });
           }
         });
@@ -653,6 +655,7 @@
                   .querySelector(".config-item__amount")
                   ?.textContent.replace(/[^\d]/g, ""),
               ) || 0;
+            const accImg = item.querySelector('.cfg-item__thumb img, .config-item__img img')?.getAttribute('src') || '';
             accessories.push({
               id: `acc-${Date.now()}-${Math.random().toString(36).slice(2)}`,
               title: accTitle,
@@ -660,6 +663,7 @@
               qty,
               price,
               oldPrice: 0,
+              image: accImg,
             });
           }
         });
@@ -854,6 +858,8 @@
         /* --- Accessories blocks --- */
         let accessoriesHtml = "";
         if (item.accessories && item.accessories.length) {
+          accessoriesHtml += '<div class="cart-item__accessories-group">';
+          accessoriesHtml += '<div class="cart-item__accessories-header">Погонаж</div>';
           item.accessories.forEach(function (acc) {
             accessoriesHtml += '<div class="cart-item__accessory">'
               + '<div class="cart-item__accessory-img">'
@@ -862,9 +868,25 @@
               + '<div class="cart-item__accessory-info">'
               + '<strong class="cart-item__accessory-title">' + (acc.title || "Аксессуар") + '</strong>'
               + (acc.spec ? '<div class="cart-item__accessory-spec">' + acc.spec + '</div>' : '')
+              + (acc.qty ? '<div class="cart-item__accessory-qty-label">Кол-во: ' + acc.qty + ' шт.</div>' : '')
               + '</div>'
               + '</div>';
           });
+          accessoriesHtml += '</div>';
+        }
+
+        /* --- Handle section --- */
+        let handleHtml = "";
+        if (item.options && item.options["handle-color"] && item.options["handle-color"] !== "-") {
+          handleHtml = '<div class="cart-item__accessories-group">'
+            + '<div class="cart-item__accessories-header">Ручка</div>'
+            + '<div class="cart-item__accessory">'
+            + '<div class="cart-item__accessory-info">'
+            + '<strong class="cart-item__accessory-title">' + item.options["handle-color"] + '</strong>'
+            + (item.options["lock-type"] ? '<div class="cart-item__accessory-spec">Замок: ' + item.options["lock-type"] + '</div>' : '')
+            + '</div>'
+            + '</div>'
+            + '</div>';
         }
 
         const div = document.createElement("article");
@@ -889,6 +911,7 @@
           +     propsHtml
           +   '</div>'
           + '</div>'
+          + handleHtml
           + accessoriesHtml;
 
         container.appendChild(div);
