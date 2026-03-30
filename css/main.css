@@ -6611,12 +6611,6 @@ a.order-item__title:hover {
   align-items: flex-end;
   min-height: 400px;
 }
-@media (min-width: 768px) {
-  .hero-new__col_left {
-    flex: 0 0 55%;
-    min-height: auto;
-  }
-}
 
 .hero-new__bg-img {
   position: absolute;
