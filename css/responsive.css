@@ -284,17 +284,12 @@ main,
   border-bottom: 0;
 }
 
-.config-detail-header,
 .config-item__header {
   display: grid;
-  grid-template-columns: minmax(120px, 1fr) auto auto;
+  grid-template-columns: auto minmax(120px, 1fr) auto;
   gap: 10px;
   align-items: center;
   padding: 12px;
-}
-
-.config-item__header {
-  grid-template-columns: auto minmax(120px, 1fr) auto;
 }
 
 .config-detail-toggle,
@@ -316,12 +311,9 @@ main,
   content: "+";
 }
 
-.config-detail-options,
-.config-item__body {
+.config-detail-options.is-open,
+.config-item__body:not([hidden]) {
   padding: 0 12px 12px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
 }
 
 .config-chip {
@@ -399,14 +391,6 @@ main,
 
   .product-help {
     grid-template-columns: minmax(0, 1fr);
-  }
-
-  .cart {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .cart-summary {
-    position: static;
   }
 }
 
@@ -536,5 +520,34 @@ main,
 
   .modal__btn {
     flex: 1;
+  }
+}
+
+/* Additional responsive fixes */
+@media (max-width: 480px) {
+  .cart-item__action-links {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .cart-item__accessories-group {
+    margin-left: -8px;
+    margin-right: -8px;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .lead__form {
+    flex-direction: column;
+  }
+
+  .lead__submit {
+    width: 100%;
+  }
+}
+
+@media (max-width: 360px) {
+  .header__nav {
+    gap: 12px;
   }
 }

@@ -341,7 +341,7 @@
         el.classList.remove("is-open");
       });
       modal.querySelectorAll(".cfg-section__body").forEach((el) => {
-        el.hidden = true;
+        el.classList.remove("is-open");
       });
       modal.querySelectorAll(".config-detail-toggle").forEach((btn) => {
         btn.setAttribute("aria-expanded", "false");
@@ -370,7 +370,7 @@
         const toggle = firstSection.querySelector(".config-detail-toggle");
         const body = firstSection.closest(".cfg-section")?.querySelector(".cfg-section__body");
         if (toggle) toggle.setAttribute("aria-expanded", "true");
-        if (body) body.hidden = false;
+        if (body) body.classList.add("is-open");
       }
     }
 
@@ -390,10 +390,18 @@
           if (stepEl) {
             stepEl.querySelectorAll(".config-detail-header").forEach((h) => {
               if (h === detailHeader) return;
+              if (h.closest("[data-section-toggle]")) return;
               const t = h.querySelector(".config-detail-toggle");
               if (t) t.setAttribute("aria-expanded", "false");
               const opts = h.nextElementSibling;
               if (opts) opts.classList.remove("is-open");
+            });
+            // Также закрываем cfg-section аккордеоны
+            stepEl.querySelectorAll(".cfg-section").forEach((s) => {
+              const t = s.querySelector("[data-section-toggle] .config-detail-toggle");
+              const b = s.querySelector(".cfg-section__body");
+              if (t) t.setAttribute("aria-expanded", "false");
+              if (b) b.classList.remove("is-open");
             });
           }
         }
@@ -410,17 +418,39 @@
         return;
       }
 
-      // Раскрытие секции (Модель ручки и т.п.)
+      // Раскрытие секции (Модель ручки и т.п.) — одна открытая, остальные закрыты
       const sectionToggle = target.closest("[data-section-toggle]");
       if (sectionToggle) {
         const toggle = sectionToggle.querySelector(".config-detail-toggle");
-        const body = sectionToggle
-          .closest(".cfg-section")
-          ?.querySelector(".cfg-section__body");
+        const section = sectionToggle.closest(".cfg-section");
+        const body = section?.querySelector(".cfg-section__body");
         if (!toggle || !body) return;
         const isExpanded = toggle.getAttribute("aria-expanded") === "true";
+
+        // Закрываем все остальные секции в том же шаге
+        if (!isExpanded) {
+          const stepEl = sectionToggle.closest(".config-step");
+          if (stepEl) {
+            stepEl.querySelectorAll(".cfg-section").forEach((s) => {
+              if (s === section) return;
+              const t = s.querySelector("[data-section-toggle] .config-detail-toggle");
+              const b = s.querySelector(".cfg-section__body");
+              if (t) t.setAttribute("aria-expanded", "false");
+              if (b) b.classList.remove("is-open");
+            });
+            // Также закрываем config-detail-header аккордеоны
+            stepEl.querySelectorAll(".config-detail-header").forEach((h) => {
+              if (h.closest("[data-section-toggle]")) return;
+              const t = h.querySelector(".config-detail-toggle");
+              if (t) t.setAttribute("aria-expanded", "false");
+              const opts = h.nextElementSibling;
+              if (opts) opts.classList.remove("is-open");
+            });
+          }
+        }
+
         toggle.setAttribute("aria-expanded", isExpanded ? "false" : "true");
-        body.hidden = isExpanded;
+        body.classList.toggle("is-open", !isExpanded);
         return;
       }
 
