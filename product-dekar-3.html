@@ -17,51 +17,183 @@
       <span class="breadcrumbs__sep">–</span>
       <a class="breadcrumbs__link" href="catalog.html">Каталог</a>
       <span class="breadcrumbs__sep">–</span>
-      <a class="breadcrumbs__link" href="collection-dekar.html">Декар</a>
+      <a class="breadcrumbs__link" href="collection-dekar.html">Коллекция «Декар»</a>
       <span class="breadcrumbs__sep">–</span>
       <span class="breadcrumbs__current">Декар 3</span>
     </nav>
 
     <div class="product">
-      <div class="product__gallery">
+      <div class="product__gallery product__gallery-col">
         <div class="product__thumbs">
-            <button class="product__thumb product__thumb_active" data-thumb="0"><img src="images/Коллекции/Декар/Декар 3 ПГ 1.png" alt="Декар 3 ПГ"></button>
-            <button class="product__thumb" data-thumb="1"><img src="images/Коллекции/Декар/Декар 3 ПО.png" alt="Декар 3 ПО"></button>
+          <button type="button" class="product__thumb product__thumb_active" aria-pressed="true" tabindex="0" title="Вид 1">
+            <img src="images/Коллекции/Декар/Декар 3 ПГ 1.png" alt="Декар 3 ПГ" width="100" height="100">
+          </button>
+          <button type="button" class="product__thumb" aria-pressed="false" tabindex="-1" title="Вид 2">
+            <img src="images/Коллекции/Декар/Декар 3 ПО.png" alt="Декар 3 ПО" width="100" height="100">
+          </button>
         </div>
-        <div class="product__main-image">
-          <img src="images/Коллекции/Декар/Декар 3 ПГ 1.png" alt="Декар 3" id="mainProductImage">
+        <div class="product__main-image" role="region" aria-label="Основное изображение">
+          <button type="button" class="product__arrow product__arrow_prev" aria-label="Показать предыдущее фото"></button>
+          <img src="images/Коллекции/Декар/Декар 3 ПГ 1.png" alt="Декар 3" width="560" height="560" loading="lazy">
+          <button type="button" class="product__arrow product__arrow_next" aria-label="Показать следующее фото"></button>
         </div>
       </div>
 
-      <div class="product__info">
+      <div class="product__info product__info-col">
         <h1 class="product__title">Декар 3</h1>
+
         <div class="product__status">
-          <span class="product__in-stock"><span class="product__in-stock-dot"></span> В наличии</span>
+          <span class="product__in-stock">
+            <span class="product__in-stock-dot"></span>
+            Товар в наличии
+          </span>
         </div>
-        <div class="product__prices">
-          <span class="product__price-current">Цена по запросу</span>
+
+        <div class="product__option">
+          <div class="product__option-header">
+            <span class="product__option-label">Размер полотна:</span>
+            <span class="product__option-value">2000х600</span>
+          </div>
+          <div class="product__sizes">
+            <button type="button" class="product__size">2000х800</button>
+            <button type="button" class="product__size">2000х700</button>
+            <button type="button" class="product__size product__size_active">2000х600</button>
+            <button type="button" class="product__size">2000х900</button>
+            <button type="button" class="product__size product__size_measure">Нужен замер</button>
+            <button type="button" class="product__size product__size_own">Свой размер</button>
+          </div>
         </div>
-        <div class="product__actions">
-          <button type="button" class="product__btn product__btn_cart btn btn_primary">В КОРЗИНУ</button>
-          <button type="button" class="product__btn product__btn_config" data-open-config>
-            <img src="images/0203 vuesax 04 conf.svg" alt="" width="20" height="20" aria-hidden="true"> Конструктор
-          </button>
+
+        <div class="product__option">
+          <div class="product__option-header">
+            <span class="product__option-label">Покрытие:</span>
+            <span class="product__option-value">RAL 9003</span>
+          </div>
+          <div class="product__colors">
+            <button type="button" class="product__color product__color_active" style="--color-swatch: #F5F5DC;" aria-label="RAL 9003 (белый)" title="RAL 9003">
+              <span class="product__color-inner" style="background: #F5F5DC;"></span>
+            </button>
+            <button type="button" class="product__color" style="--color-swatch: #8B4513;" aria-label="Дуб (коричневый)" title="Дуб">
+              <span class="product__color-inner" style="background: #8B4513;"></span>
+            </button>
+            <button type="button" class="product__color" style="--color-swatch: #2F2F2F;" aria-label="Венге (тёмный)" title="Венге">
+              <span class="product__color-inner" style="background: #2F2F2F;"></span>
+            </button>
+            <button type="button" class="product__color" style="--color-swatch: #C4A77D;" aria-label="Орех (бежевый)" title="Орех">
+              <span class="product__color-inner" style="background: #C4A77D;"></span>
+            </button>
+            <button type="button" class="product__color product__color_more" aria-label="Ещё 3 цвета">+3</button>
+            <div class="product__color-custom-wrap">
+              <button type="button" class="product__size product__size_own">Свой цвет</button>
+            </div>
+          </div>
         </div>
-        <button type="button" class="product__btn product__btn_wishlist" aria-label="В избранное"></button>
+
+        <div class="product__price-block">
+          <p class="product__price">Цена по запросу</p>
+          <div class="product__actions">
+            <button type="button" class="product__btn product__btn_cart">
+              <span class="product__btn-icon product__btn-icon_cart" aria-hidden="true"></span>
+              Добавить в корзину
+            </button>
+            <button type="button" class="product__btn product__btn_wishlist" aria-label="В избранное"></button>
+          </div>
+          <button type="button" class="product__btn product__btn_config" data-open-config><img src="images/0203 vuesax 04 conf.svg" alt="" width="20" height="20" aria-hidden="true"> Конструктор</button>
+        </div>
       </div>
     </div>
+
+    <section class="product-section product-section_desc">
+      <h2 class="product-section__title">Описание</h2>
+      <p class="product-section__text">
+        Декар 3 — межкомнатная дверь коллекции «Декар» от фабрики Дверянинов. Высокое качество материалов и современный дизайн. Подходит для жилых и коммерческих помещений.
+      </p>
+    </section>
+
+    <section class="product-section product-section_specs">
+      <h2 class="product-section__title">Характеристики двери</h2>
+      <div class="product-specs">
+        <div class="product-specs__row">
+          <div class="product-specs__label">Высота</div>
+          <div class="product-specs__value">1900–2200 мм</div>
+        </div>
+        <div class="product-specs__row">
+          <div class="product-specs__label">Ширина</div>
+          <div class="product-specs__value">600–900 мм</div>
+        </div>
+        <div class="product-specs__row">
+          <div class="product-specs__label">Толщина</div>
+          <div class="product-specs__value">40 мм</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="product-section product-section_related">
+      <h2 class="product-section__title">Другие модели в коллекции</h2>
+      <div class="section__cards section__cards_wrap product-section__cards">
+        <article class="card">
+          <div class="card__image-wrap">
+            <img class="card__image" src="images/Коллекции/Декар/Декар 1 ПГ 1.png" alt="Декар 1" width="288" height="320">
+          </div>
+          <h3 class="card__title"><a href="product-dekar-1.html">Декар 1</a></h3>
+          <p class="card__price">Цена по запросу</p>
+        </article>
+        <article class="card">
+          <div class="card__image-wrap">
+            <img class="card__image" src="images/Коллекции/Декар/Декар 2 ПГ 1.png" alt="Декар 2" width="288" height="320">
+          </div>
+          <h3 class="card__title"><a href="product-dekar-2.html">Декар 2</a></h3>
+          <p class="card__price">Цена по запросу</p>
+        </article>
+        <article class="card">
+          <div class="card__image-wrap">
+            <img class="card__image" src="images/Коллекции/Декар/Декар 4 ПГ 1.png" alt="Декар 4" width="288" height="320">
+          </div>
+          <h3 class="card__title"><a href="product-dekar-4.html">Декар 4</a></h3>
+          <p class="card__price">Цена по запросу</p>
+        </article>
+        <article class="card">
+          <div class="card__image-wrap">
+            <img class="card__image" src="images/Коллекции/Декар/Декар 5 ПГ 1.png" alt="Декар 5" width="288" height="320">
+          </div>
+          <h3 class="card__title"><a href="product-dekar-5.html">Декар 5</a></h3>
+          <p class="card__price">Цена по запросу</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="product-help">
+      <div class="product-help__content">
+        <p class="product-help__kicker">Консультация специалиста</p>
+        <h2 class="product-help__title">Нужна помощь?</h2>
+        <p class="product-help__text">Ответим на все вопросы и поможем<br>сделать правильный выбор</p>
+        <button type="button" class="product-help__btn product__btn product__btn_cart">Нужна помощь</button>
+      </div>
+      <div class="product-help__image-wrap" aria-hidden="true">
+        <img class="product-help__image" src="images/hero-bg.svg" alt="" width="960" height="360">
+      </div>
+    </section>
   </main>
-  
+
+  <nav class="mobile-menu" aria-label="Нижнее меню">
+    <a class="mobile-menu__item" href="catalog.html">
+      <span class="mobile-menu__icon" aria-hidden="true"></span>
+      <span class="mobile-menu__label">Каталог</span>
+    </a>
+    <a class="mobile-menu__item" href="about.html">
+      <span class="mobile-menu__icon mobile-menu__icon_about" aria-hidden="true"></span>
+      <span class="mobile-menu__label">О компании</span>
+    </a>
+    <a class="mobile-menu__item" href="contacts.html">
+      <span class="mobile-menu__icon mobile-menu__icon_contacts" aria-hidden="true"></span>
+      <span class="mobile-menu__label">Контакты</span>
+    </a>
+    <a class="mobile-menu__item" href="cart.html">
+      <span class="mobile-menu__icon mobile-menu__icon_cart" aria-hidden="true"></span>
+      <span class="mobile-menu__label">Корзина</span>
+    </a>
+  </nav>
+
   <script src="js/shop.js"></script>
-  <script>
-    // Simple thumb navigation
-    document.querySelectorAll("[data-thumb]").forEach(function(btn) {
-      btn.addEventListener("click", function() {
-        document.querySelectorAll(".product__thumb").forEach(function(t) { t.classList.remove("product__thumb_active"); });
-        btn.classList.add("product__thumb_active");
-        document.getElementById("mainProductImage").src = btn.querySelector("img").src;
-      });
-    });
-  </script>
 </body>
 </html>
