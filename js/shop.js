@@ -4,7 +4,8 @@
 
   function safeJsonParse(value, fallback) {
     try {
-      return JSON.parse(value);
+      var result = JSON.parse(value);
+      return result != null ? result : fallback;
     } catch {
       return fallback;
     }
