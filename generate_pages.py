@@ -10,6 +10,103 @@ COLLECTIONS_DIR = "images/Коллекции"
 # Collections where default variant is ПО (not ПГ)
 PO_DEFAULT_COLLECTIONS = {"Альберта"}
 
+# All 91 ПВХ/ПЭТ coatings: (name, hex_color)
+COATINGS = [
+    ("Бэйсик вайт ПЭТ", "#F5F5F0"),
+    ("Лайт грэй ПЭТ", "#D3D3D3"),
+    ("Текстура грей ПЭТ", "#A9A9A9"),
+    ("Браш блю ПЭТ", "#6B8FAD"),
+    ("Мени грин ПЭТ", "#5B7A5E"),
+    ("Антрацит ПЭТ", "#383838"),
+    ("Сноу ПЭТ", "#FFFAFA"),
+    ("Керамик матовый", "#E8E0D8"),
+    ("Бланж", "#F0E6D8"),
+    ("Белый матовый", "#F5F5F5"),
+    ("Керамик белый", "#F0EBE3"),
+    ("Тальк", "#F0EDE5"),
+    ("Велутто ваниль", "#F3E5AB"),
+    ("Керамик капучино", "#C4A882"),
+    ("Манила", "#FFDB8B"),
+    ("Керамик серый", "#B8B0A8"),
+    ("Оливин", "#9AB973"),
+    ("Керамик какао", "#8B6F5E"),
+    ("Мерино", "#F5EEDC"),
+    ("Платина", "#E5E4E2"),
+    ("Лофт", "#7A7267"),
+    ("Графит темный", "#4A4A4A"),
+    ("Вена", "#C8B898"),
+    ("Антрацит", "#3B3B3B"),
+    ("Неаполь", "#FADA5E"),
+    ("Мидори", "#4DB560"),
+    ("Океания", "#4A90A4"),
+    ("Квазар", "#5C5470"),
+    ("Терракот", "#CC6B49"),
+    ("Токио", "#8B4049"),
+    ("Нефрит", "#00A86B"),
+    ("Скай софт", "#87CEEB"),
+    ("Горчица", "#FFDB58"),
+    ("Атлантик софт", "#4B6F8F"),
+    ("Красная бургундия", "#800020"),
+    ("Кварц айс", "#F0F0F0"),
+    ("Кварц лайт грей", "#D0D0D0"),
+    ("Кварц беж", "#E8DCC8"),
+    ("Кварц грей", "#9E9E9E"),
+    ("Спирея белая", "#FAFAF5"),
+    ("Ясень белый софт", "#F0EAE0"),
+    ("Дуб молочный", "#E8D5B7"),
+    ("Дуб крем", "#EBD9B4"),
+    ("Сканди айвори", "#FFFFF0"),
+    ("Вуд сильвер", "#C0B8A8"),
+    ("Вяз милк", "#EDE3D0"),
+    ("Вяз грей", "#B0A89C"),
+    ("Дуб сиена серый", "#9E8E7E"),
+    ("Дуб сиена серый диагональ", "#9A8A7A"),
+    ("Дуб сиена янтарный", "#C89050"),
+    ("Дуб сиена янтарный диагональ", "#C48C4C"),
+    ("Орех пекан сливочный стронг", "#C8A87C"),
+    ("Платан шоколад", "#5C4030"),
+    ("Монте рустик", "#8B7355"),
+    ("Монте тиберио", "#6B5B4B"),
+    ("Липа оливьера", "#9A8F68"),
+    ("Дуб бодега светлый", "#CFC0A8"),
+    ("Дуб мавелла", "#A08060"),
+    ("Орех светлый", "#C4A77D"),
+    ("Дуб бодега натуральный", "#B5A088"),
+    ("Карагач светлый", "#C8A878"),
+    ("Софора давиди", "#837050"),
+    ("Липа амурская", "#B0A080"),
+    ("Софора конзати", "#70603C"),
+    ("Дуб бодега золотой", "#C8A848"),
+    ("Мербау", "#7B3F00"),
+    ("Орех пекан медовый", "#D4A04C"),
+    ("Орех пекан шоколад", "#6B4423"),
+    ("Вяз графит", "#5A5A52"),
+    ("Махагон классический", "#C04000"),
+    ("Дуб с патиной", "#A89060"),
+    ("Шпон ясеня голд", "#C8AA58"),
+    ("Маккасар", "#3C2820"),
+    ("Венге премиум", "#2F1B14"),
+    ("Ясень капучино", "#B09878"),
+    ("Ясень грей", "#8F8478"),
+    ("Ясень графит", "#58524A"),
+    ("Ясень черный софт", "#3A3630"),
+    ("Дуб пудра", "#D4C4B0"),
+    ("Дуб аквамарин", "#7FBAAD"),
+    ("Дуб болотный", "#5E6E50"),
+    ("Дюна норд", "#E8D8C0"),
+    ("Дюна бриз", "#D0C8B8"),
+    ("Дюна мистраль", "#C8BCA8"),
+    ("Сланец белый", "#E8E4E0"),
+    ("Сланец черный", "#343434"),
+    ("Марра", "#785040"),
+    ("Кроскат", "#A89880"),
+    ("Твил флай", "#B0A090"),
+    ("Твил беж", "#C8B8A0"),
+    ("Твил лен", "#D8CDB8"),
+]
+
+COATINGS_VISIBLE = 8  # Show first 8 swatches
+
 # Folder name aliases — where folder name ≠ filename prefix
 COLL_ALIASES = {
     "Бонеко": ["БОНЭКО", "Бонэко", "бонэко"],
@@ -247,6 +344,22 @@ def generate_product_page(coll_name, model_num, model_data, all_models):
     coll_slug = slugify(coll_name)
     display = model_data['display_name']
     
+    # Build coatings swatches HTML
+    visible = COATINGS[:COATINGS_VISIBLE]
+    remaining = len(COATINGS) - COATINGS_VISIBLE
+    coatings_html = ""
+    for i, (c_name, c_hex) in enumerate(visible):
+        if i == 0:
+            coatings_html += f'            <button type="button" class="product__color product__color_active" style="--color-swatch: {c_hex};" aria-label="{c_name}" title="{c_name}">\n'
+        else:
+            coatings_html += f'            <button type="button" class="product__color" style="--color-swatch: {c_hex};" aria-label="{c_name}" title="{c_name}">\n'
+        coatings_html += f'              <span class="product__color-inner" style="background: {c_hex};"></span>\n'
+        coatings_html += f'            </button>\n'
+    coatings_html += f'            <button type="button" class="product__color product__color_more" aria-label="Ещё {remaining} покрытий">+{remaining}</button>\n'
+    coatings_html += f'            <div class="product__color-custom-wrap">\n'
+    coatings_html += f'              <button type="button" class="product__size product__size_own">Свой цвет</button>\n'
+    coatings_html += f'            </div>\n'
+    default_coating = COATINGS[0][0]
     # Related products (other models from same collection, max 4)
     related_html = ""
     count = 0
@@ -330,26 +443,10 @@ def generate_product_page(coll_name, model_num, model_data, all_models):
         <div class="product__option">
           <div class="product__option-header">
             <span class="product__option-label">Покрытие:</span>
-            <span class="product__option-value">RAL 9003</span>
+            <span class="product__option-value">{default_coating}</span>
           </div>
           <div class="product__colors">
-            <button type="button" class="product__color product__color_active" style="--color-swatch: #F5F5DC;" aria-label="RAL 9003 (белый)" title="RAL 9003">
-              <span class="product__color-inner" style="background: #F5F5DC;"></span>
-            </button>
-            <button type="button" class="product__color" style="--color-swatch: #8B4513;" aria-label="Дуб (коричневый)" title="Дуб">
-              <span class="product__color-inner" style="background: #8B4513;"></span>
-            </button>
-            <button type="button" class="product__color" style="--color-swatch: #2F2F2F;" aria-label="Венге (тёмный)" title="Венге">
-              <span class="product__color-inner" style="background: #2F2F2F;"></span>
-            </button>
-            <button type="button" class="product__color" style="--color-swatch: #C4A77D;" aria-label="Орех (бежевый)" title="Орех">
-              <span class="product__color-inner" style="background: #C4A77D;"></span>
-            </button>
-            <button type="button" class="product__color product__color_more" aria-label="Ещё 3 цвета">+3</button>
-            <div class="product__color-custom-wrap">
-              <button type="button" class="product__size product__size_own">Свой цвет</button>
-            </div>
-          </div>
+{coatings_html}          </div>
         </div>
 
         <div class="product__price-block">
