@@ -119,6 +119,7 @@
   initReviewReadMore();
   initShowAllReviews();
   initMeasureModal();
+  initCustomModal();
 
   function initMeasureModal() {
     const modal = document.getElementById("measureModal");
@@ -146,5 +147,99 @@
         setTimeout(close, 3000);
       });
     }
+  }
+
+  function initCustomModal() {
+    // Build a simple modal for "Свой размер" / "Свой цвет" on first click
+    let customModal = null;
+    function ensureModal() {
+      if (customModal) return customModal;
+      const div = document.createElement("div");
+      div.className = "modal";
+      div.id = "customRequestModal";
+      div.setAttribute("aria-hidden", "true");
+      div.setAttribute("role", "dialog");
+      div.setAttribute("aria-modal", "true");
+      div.innerHTML = `
+        <div class="modal__backdrop" data-close-custom></div>
+        <div class="modal__panel" style="width: min(480px, calc(100vw - 32px)); max-height: 520px; grid-template-rows: auto 1fr;">
+          <div class="modal__header">
+            <h2 class="modal__title" id="customModalTitle">Индивидуальный запрос</h2>
+            <button class="modal__close" type="button" data-close-custom aria-label="Закрыть">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+          </div>
+          <div class="modal__body" style="padding: 24px 16px; overflow-y: auto;">
+            <p style="margin: 0 0 20px; font-size: 14px; color: #666; line-height: 1.5;" id="customModalDesc">Оставьте заявку, и наш менеджер свяжется с вами для уточнения деталей</p>
+            <form id="customRequestForm" style="display: flex; flex-direction: column; gap: 14px;">
+              <input type="text" name="name" placeholder="Ваше имя*" required style="width: 100%; padding: 14px 16px; border: 1px solid #ddd; font-size: 15px; font-family: inherit; box-sizing: border-box;">
+              <input type="tel" name="phone" placeholder="Ваш телефон*" required style="width: 100%; padding: 14px 16px; border: 1px solid #ddd; font-size: 15px; font-family: inherit; box-sizing: border-box;">
+              <textarea name="comment" placeholder="Укажите желаемые параметры" rows="3" style="width: 100%; padding: 14px 16px; border: 1px solid #ddd; font-size: 15px; font-family: inherit; resize: vertical; box-sizing: border-box;"></textarea>
+              <button type="submit" class="btn btn_primary" style="width: 100%; padding: 16px; font-size: 15px; letter-spacing: 0.05em;">ОТПРАВИТЬ ЗАЯВКУ</button>
+              <p style="margin: 0; font-size: 12px; color: #999; text-align: center;">Отправляя заявку, вы даёте согласие на обработку <a href="#" style="color: inherit; text-decoration: underline;">персональных данных</a></p>
+            </form>
+            <div id="customRequestSuccess" style="display: none; text-align: center; padding: 40px 0;">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" style="margin-bottom: 16px;"><circle cx="24" cy="24" r="24" fill="#E8F5E9"/><path d="M15 25l6 6 12-14" stroke="#4CAF50" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <h3 style="margin: 0 0 8px; font-size: 18px;">Заявка отправлена!</h3>
+              <p style="margin: 0; color: #666; font-size: 14px;">Мы свяжемся с вами в ближайшее рабочее время</p>
+            </div>
+          </div>
+        </div>`;
+      document.body.appendChild(div);
+      customModal = div;
+
+      div.querySelectorAll("[data-close-custom]").forEach(el => el.addEventListener("click", close));
+      div.addEventListener("keydown", e => { if (e.key === "Escape") close(); });
+      const form = div.querySelector("#customRequestForm");
+      const success = div.querySelector("#customRequestSuccess");
+      if (form) {
+        form.addEventListener("submit", e => {
+          e.preventDefault();
+          const data = Object.fromEntries(new FormData(form));
+          data.page = window.location.pathname;
+          data.product = document.querySelector(".product__title")?.textContent.trim() || "";
+          console.log("[Индивидуальный запрос]", data);
+          form.style.display = "none";
+          if (success) success.style.display = "block";
+          setTimeout(close, 3000);
+        });
+      }
+      return div;
+    }
+
+    function open(title, desc) {
+      const m = ensureModal();
+      const t = m.querySelector("#customModalTitle");
+      const d = m.querySelector("#customModalDesc");
+      if (t) t.textContent = title;
+      if (d) d.textContent = desc;
+      // Reset form
+      const form = m.querySelector("#customRequestForm");
+      const success = m.querySelector("#customRequestSuccess");
+      if (form) { form.style.display = ""; form.reset(); }
+      if (success) success.style.display = "none";
+      m.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function close() {
+      if (customModal) {
+        customModal.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+      }
+    }
+
+    // Delegate clicks on size_own buttons
+    document.addEventListener("click", e => {
+      const sizeOwn = e.target.closest(".product__size_own");
+      if (!sizeOwn) return;
+      // Determine context by checking parent option label
+      const label = sizeOwn.closest(".product__option")?.querySelector(".product__option-label")?.textContent || "";
+      if (label.includes("Покрытие") || sizeOwn.closest(".product__colors")) {
+        open("Свой цвет", "Укажите желаемый цвет или покрытие, и мы рассчитаем стоимость");
+      } else {
+        open("Свой размер", "Укажите необходимые размеры дверного полотна, и мы подберём решение");
+      }
+    });
   }
 })();

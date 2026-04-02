@@ -319,6 +319,15 @@ def generate_collection_page(coll_name, models):
     first_model = list(models.values())[0] if models else None
     hero_img = f"images/Коллекции/{coll_name}/{first_model['primary_file']}" if first_model and first_model['primary_file'] else "images/card-placeholder.svg"
     
+    # Compute collection min price
+    coll_prices = []
+    for num in models:
+        min_p, _, _ = get_min_price(coll_name, num)
+        if min_p:
+            coll_prices.append(min_p)
+    coll_min_price = min(coll_prices) if coll_prices else None
+    coll_price_str = f'<p class="collection-hero__price">от {format_price(coll_min_price)} ₽</p>' if coll_min_price else ''
+    
     # Product cards HTML
     cards_html = ""
     for num in sorted(models.keys(), key=lambda x: (len(x), x)):
@@ -381,6 +390,7 @@ def generate_collection_page(coll_name, models):
           <span class="breadcrumbs__current">{coll_name}</span>
         </nav>
         <h1 class="collection-hero__title">Коллекция {coll_name}</h1>
+        {coll_price_str}
       </div>
       <div class="collection-hero__image">
         <img src="{hero_img}" alt="Коллекция {coll_name}">
@@ -625,6 +635,35 @@ def generate_product_page(coll_name, model_num, model_data, all_models):
     </a>
   </nav>
 
+  <!-- Модалка: заказать замер -->
+  <div class="modal" id="measureModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Заказать замер">
+    <div class="modal__backdrop" data-close-measure></div>
+    <div class="modal__panel" style="width: min(480px, calc(100vw - 32px)); max-height: 520px; grid-template-rows: auto 1fr;">
+      <div class="modal__header">
+        <h2 class="modal__title">Заказать замер</h2>
+        <button class="modal__close" type="button" data-close-measure aria-label="Закрыть">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="modal__body" style="padding: 24px 16px; overflow-y: auto;">
+        <p style="margin: 0 0 20px; font-size: 14px; color: #666; line-height: 1.5;">Наш специалист приедет к вам, чтобы точно измерить дверной проём и подобрать оптимальное решение</p>
+        <form id="measureForm" style="display: flex; flex-direction: column; gap: 14px;">
+          <input type="text" name="name" placeholder="Ваше имя*" required style="width: 100%; padding: 14px 16px; border: 1px solid #ddd; font-size: 15px; font-family: inherit; box-sizing: border-box;">
+          <input type="tel" name="phone" placeholder="Ваш телефон*" required style="width: 100%; padding: 14px 16px; border: 1px solid #ddd; font-size: 15px; font-family: inherit; box-sizing: border-box;">
+          <textarea name="comment" placeholder="Комментарий (необязательно)" rows="3" style="width: 100%; padding: 14px 16px; border: 1px solid #ddd; font-size: 15px; font-family: inherit; resize: vertical; box-sizing: border-box;"></textarea>
+          <button type="submit" class="btn btn_primary" style="width: 100%; padding: 16px; font-size: 15px; letter-spacing: 0.05em;">ЗАКАЗАТЬ ЗАМЕР</button>
+          <p style="margin: 0; font-size: 12px; color: #999; text-align: center;">Отправляя заявку, вы даёте согласие на обработку <a href="#" style="color: inherit; text-decoration: underline;">персональных данных</a></p>
+        </form>
+        <div id="measureSuccess" style="display: none; text-align: center; padding: 40px 0;">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" style="margin-bottom: 16px;"><circle cx="24" cy="24" r="24" fill="#E8F5E9"/><path d="M15 25l6 6 12-14" stroke="#4CAF50" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h3 style="margin: 0 0 8px; font-size: 18px;">Заявка отправлена!</h3>
+          <p style="margin: 0; color: #666; font-size: 14px;">Мы свяжемся с вами в ближайшее рабочее время</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/product.js"></script>
   <script src="js/shop.js"></script>
 </body>
 </html>'''
@@ -633,6 +672,7 @@ def generate_product_page(coll_name, model_num, model_data, all_models):
 
 # Main generation
 generated_files = []
+all_collections = {}  # coll_name -> models dict
 
 for coll_name in sorted(os.listdir(COLLECTIONS_DIR)):
     coll_name = unicodedata.normalize('NFC', coll_name)
@@ -642,6 +682,7 @@ for coll_name in sorted(os.listdir(COLLECTIONS_DIR)):
     
     files = sorted(os.listdir(coll_path))
     models = parse_models(coll_name, files)
+    all_collections[coll_name] = models
     
     # Generate collection page
     coll_filename, coll_html = generate_collection_page(coll_name, models)
@@ -657,6 +698,189 @@ for coll_name in sorted(os.listdir(COLLECTIONS_DIR)):
         with open(prod_filename, 'w', encoding='utf-8') as f:
             f.write(prod_html)
         generated_files.append(prod_filename)
+
+# Generate catalog.html — flat list of ALL doors across all collections
+catalog_cards = ""
+for coll_name in sorted(all_collections.keys()):
+    models = all_collections[coll_name]
+    for num in sorted(models.keys(), key=lambda x: (len(x), x)):
+        m = models[num]
+        if not m['primary_file']:
+            continue
+        img_path = f"images/Коллекции/{coll_name}/{m['primary_file']}"
+        product_slug = slugify(m['display_name'])
+        min_p, _, _ = get_min_price(coll_name, num)
+        card_price = f'<span class="card__price-prefix">от</span> {format_price(min_p)} ₽' if min_p else 'Цена по запросу'
+        has_pg = m['pg_file'] is not None
+        has_po = m['po_file'] is not None
+        variant = ""
+        if has_pg and has_po:
+            variant = "ПГ / ПО"
+        elif has_pg:
+            variant = "ПГ"
+        elif has_po:
+            variant = "ПО"
+        catalog_cards += f'''        <article class="card">
+          <div class="card__image-wrap">
+            <button class="card__fav" aria-label="В избранное"></button>
+            <img class="card__image" src="{img_path}" alt="{m['display_name']}">
+          </div>
+          <div class="card__info">
+            <h3 class="card__title"><a href="product-{product_slug}.html">{m['display_name']}</a></h3>
+            {f'<p class="card__variant">{variant}</p>' if variant else ''}
+            <p class="card__price">{card_price}</p>
+          </div>
+        </article>
+'''
+
+catalog_html = f'''<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Каталог — Дверянинов</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script src="js/auth.js"></script>
+  <script src="js/load-components.js"></script>
+</head>
+<body class="page page_catalog">
+  
+  <main class="catalog-page">
+    <nav class="breadcrumbs catalog-page__breadcrumbs" aria-label="Хлебные крошки">
+      <a class="breadcrumbs__link" href="index.html">Главная</a>
+      <span class="breadcrumbs__sep">–</span>
+      <span class="breadcrumbs__current">Каталог</span>
+    </nav>
+
+    <section class="catalog" id="catalog" aria-labelledby="catalog-title">
+      <div class="catalog__head">
+        <h2 class="catalog__title" id="catalog-title">Все двери</h2>
+      </div>
+
+      <div class="section__cards section__cards_wrap catalog__grid">
+{catalog_cards}      </div>
+    </section>
+  </main>
+
+  <nav class="mobile-menu" aria-label="Нижнее меню">
+    <a class="mobile-menu__item" href="index.html">
+      <span class="mobile-menu__icon" aria-hidden="true"></span>
+      <span class="mobile-menu__label">Главная</span>
+    </a>
+    <a class="mobile-menu__item mobile-menu__item_active" href="catalog.html" aria-current="page">
+      <span class="mobile-menu__icon mobile-menu__icon_catalog" aria-hidden="true"></span>
+      <span class="mobile-menu__label">Каталог</span>
+    </a>
+    <a class="mobile-menu__item" href="about.html">
+      <span class="mobile-menu__icon mobile-menu__icon_about" aria-hidden="true"></span>
+      <span class="mobile-menu__label">О компании</span>
+    </a>
+    <a class="mobile-menu__item" href="contacts.html">
+      <span class="mobile-menu__icon mobile-menu__icon_contacts" aria-hidden="true"></span>
+      <span class="mobile-menu__label">Контакты</span>
+    </a>
+    <a class="mobile-menu__item" href="cart.html">
+      <span class="mobile-menu__icon mobile-menu__icon_cart" aria-hidden="true"></span>
+      <span class="mobile-menu__label">Корзина</span>
+    </a>
+  </nav>
+
+  <script src="js/shop.js"></script>
+</body>
+</html>'''
+
+with open('catalog.html', 'w', encoding='utf-8') as f:
+    f.write(catalog_html)
+generated_files.append('catalog.html')
+
+# Generate collections.html — page listing all collections with min price
+coll_cards = ""
+for coll_name in sorted(all_collections.keys()):
+    models = all_collections[coll_name]
+    coll_slug = slugify(coll_name)
+    # Find first image for collection card
+    first_model = next((m for m in models.values() if m['primary_file']), None)
+    hero_img = f"images/Коллекции/{coll_name}/{first_model['primary_file']}" if first_model else "images/card-placeholder.svg"
+    # Find min price across all models in collection
+    coll_prices = []
+    for num in models:
+        min_p, _, _ = get_min_price(coll_name, num)
+        if min_p:
+            coll_prices.append(min_p)
+    coll_min = min(coll_prices) if coll_prices else None
+    coll_price_str = f'<span class="card__price-prefix">от</span> {format_price(coll_min)} ₽' if coll_min else 'Цена по запросу'
+    coll_cards += f'''        <article class="card">
+          <div class="card__image-wrap">
+            <img class="card__image" src="{hero_img}" alt="{coll_name}">
+          </div>
+          <div class="card__info">
+            <h3 class="card__title"><a href="collection-{coll_slug}.html">{coll_name}</a></h3>
+            <p class="card__price">{coll_price_str}</p>
+          </div>
+        </article>
+'''
+
+collections_html = f'''<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Коллекции — Дверянинов</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script src="js/auth.js"></script>
+  <script src="js/load-components.js"></script>
+</head>
+<body class="page page_catalog">
+  
+  <main class="catalog-page">
+    <nav class="breadcrumbs catalog-page__breadcrumbs" aria-label="Хлебные крошки">
+      <a class="breadcrumbs__link" href="index.html">Главная</a>
+      <span class="breadcrumbs__sep">–</span>
+      <span class="breadcrumbs__current">Коллекции</span>
+    </nav>
+
+    <section class="catalog" id="catalog" aria-labelledby="collections-title">
+      <div class="catalog__head">
+        <h2 class="catalog__title" id="collections-title">Коллекции</h2>
+      </div>
+
+      <div class="section__cards section__cards_wrap catalog__grid">
+{coll_cards}      </div>
+    </section>
+  </main>
+
+  <nav class="mobile-menu" aria-label="Нижнее меню">
+    <a class="mobile-menu__item" href="index.html">
+      <span class="mobile-menu__icon" aria-hidden="true"></span>
+      <span class="mobile-menu__label">Главная</span>
+    </a>
+    <a class="mobile-menu__item" href="catalog.html">
+      <span class="mobile-menu__icon mobile-menu__icon_catalog" aria-hidden="true"></span>
+      <span class="mobile-menu__label">Каталог</span>
+    </a>
+    <a class="mobile-menu__item" href="about.html">
+      <span class="mobile-menu__icon mobile-menu__icon_about" aria-hidden="true"></span>
+      <span class="mobile-menu__label">О компании</span>
+    </a>
+    <a class="mobile-menu__item" href="contacts.html">
+      <span class="mobile-menu__icon mobile-menu__icon_contacts" aria-hidden="true"></span>
+      <span class="mobile-menu__label">Контакты</span>
+    </a>
+    <a class="mobile-menu__item" href="cart.html">
+      <span class="mobile-menu__icon mobile-menu__icon_cart" aria-hidden="true"></span>
+      <span class="mobile-menu__label">Корзина</span>
+    </a>
+  </nav>
+
+  <script src="js/shop.js"></script>
+</body>
+</html>'''
+
+with open('collections.html', 'w', encoding='utf-8') as f:
+    f.write(collections_html)
+generated_files.append('collections.html')
 
 print(f"Generated {len(generated_files)} files:")
 for f in sorted(generated_files):
