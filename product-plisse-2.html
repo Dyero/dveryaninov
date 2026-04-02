@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Плиссе 2 — Дверянинов</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script src="js/auth.js"></script>
+  <script src="js/load-components.js"></script>
+</head>
+<body class="page page_product">
+  
+  <main class="product-page">
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+      <a class="breadcrumbs__link" href="index.html">Главная</a>
+      <span class="breadcrumbs__sep">–</span>
+      <a class="breadcrumbs__link" href="catalog.html">Каталог</a>
+      <span class="breadcrumbs__sep">–</span>
+      <a class="breadcrumbs__link" href="collection-plisse.html">Плиссе</a>
+      <span class="breadcrumbs__sep">–</span>
+      <span class="breadcrumbs__current">Плиссе 2</span>
+    </nav>
+
+    <div class="product">
+      <div class="product__gallery">
+        <div class="product__thumbs">
+            <button class="product__thumb product__thumb_active" data-thumb="0"><img src="images/Коллекции/Плиссе/плиссе 2 1.png" alt="Плиссе 2 ПГ"></button>
+            <button class="product__thumb" data-thumb="1"><img src="images/Коллекции/Плиссе/плиссе 2 80.png" alt="Плиссе 2"></button>
+        </div>
+        <div class="product__main-image">
+          <img src="images/Коллекции/Плиссе/плиссе 2 1.png" alt="Плиссе 2" id="mainProductImage">
+        </div>
+      </div>
+
+      <div class="product__info">
+        <h1 class="product__title">Плиссе 2</h1>
+        <div class="product__status">
+          <span class="product__in-stock"><span class="product__in-stock-dot"></span> В наличии</span>
+        </div>
+        <div class="product__prices">
+          <span class="product__price-current">Цена по запросу</span>
+        </div>
+        <div class="product__actions">
+          <button type="button" class="product__btn product__btn_cart btn btn_primary">В КОРЗИНУ</button>
+          <button type="button" class="product__btn product__btn_config" data-open-config>
+            <img src="images/0203 vuesax 04 conf.svg" alt="" width="20" height="20" aria-hidden="true"> Конструктор
+          </button>
+        </div>
+        <button type="button" class="product__btn product__btn_wishlist" aria-label="В избранное"></button>
+      </div>
+    </div>
+  </main>
+  
+  <script src="js/shop.js"></script>
+  <script>
+    // Simple thumb navigation
+    document.querySelectorAll("[data-thumb]").forEach(function(btn) {
+      btn.addEventListener("click", function() {
+        document.querySelectorAll(".product__thumb").forEach(function(t) { t.classList.remove("product__thumb_active"); });
+        btn.classList.add("product__thumb_active");
+        document.getElementById("mainProductImage").src = btn.querySelector("img").src;
+      });
+    });
+  </script>
+</body>
+</html>

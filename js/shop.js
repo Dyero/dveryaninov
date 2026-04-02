@@ -544,6 +544,29 @@
       }
 
       if (target.closest("[data-open-config]")) {
+        // Dynamically load constructor modal if not present
+        if (!modal) {
+          fetch("constructor-template.html")
+            .then(function(r) { return r.text(); })
+            .then(function(html) {
+              var modelName = document.querySelector(".product__title")?.textContent.trim() || "Товар";
+              var productImg = document.querySelector(".product__main-image img")?.getAttribute("src") || "images/card-door-1.svg";
+              html = html.replace(/\{\{MODEL_NAME\}\}/g, modelName);
+              var wrapper = document.createElement("div");
+              wrapper.innerHTML = html;
+              document.body.appendChild(wrapper.firstElementChild);
+              modal = document.getElementById("configModal");
+              var cfgImgEl = modal.querySelector("#cfgImageEl");
+              if (cfgImgEl) cfgImgEl.src = productImg;
+              syncStateFromPage();
+              openModal(modal);
+              initModalSelection();
+              addPriceBadges();
+              updateConfigTotal();
+              setStep("config");
+            });
+          return;
+        }
         syncStateFromPage();
         openModal(modal);
         initModalSelection();
@@ -593,6 +616,17 @@
         const pick = chip.getAttribute("data-pick");
         const value = chip.getAttribute("data-value");
         state[pick] = value;
+
+        // Фильтрация погонажа по размеру двери
+        if (pick === "size" && modal) {
+          const widthMatch = value.match(/×(\d+)/);
+          const doorWidth = widthMatch ? widthMatch[1] : "";
+          modal.querySelectorAll("[data-step='molding'] [data-for-width]").forEach(function(el) {
+            const allowed = el.getAttribute("data-for-width").split(",");
+            var cfgItem = el.closest(".cfg-item");
+            if (cfgItem) cfgItem.style.display = allowed.includes(doorWidth) ? "" : "none";
+          });
+        }
 
         // Обновляем группу чипов в detail-options
         const optionsGroup = chip.closest(".config-detail-options");
@@ -856,10 +890,11 @@
       items.forEach((item, index) => {
         const itemPrice = Number(item.priceSum || item.price || 0);
         const isPriceRequest = itemPrice === 0;
+        const doorQtyVal = item.doorQty || 1;
         if (isPriceRequest) {
           priceRequestCount++;
         } else {
-          total += itemPrice;
+          total += itemPrice * doorQtyVal;
         }
 
         /* --- Door options as individual rows --- */
@@ -919,6 +954,7 @@
             + '</div>';
         }
 
+        const doorQty = item.doorQty || 1;
         const div = document.createElement("article");
         div.className = "cart-item";
         div.innerHTML = ''
@@ -929,13 +965,21 @@
           +   '<div class="cart-item__info">'
           +     '<div class="cart-item__header">'
           +       '<div class="cart-item__header-left">'
-          +         '<h3 class="cart-item__title">' + (item.title || "Товар конфигуратора") + '</h3>'
-          +         '<span class="cart-item__price-tag">' + (isPriceRequest ? 'Цена по запросу' : (new Intl.NumberFormat("ru-RU").format(itemPrice) + ' ₽')) + '</span>'
+          +         '<h3 class="cart-item__title">' + (item.title || "Товар конструктора") + '</h3>'
+          +         '<span class="cart-item__price-tag">' + (isPriceRequest ? 'Цена по запросу' : (new Intl.NumberFormat("ru-RU").format(itemPrice * doorQty) + ' ₽')) + '</span>'
           +       '</div>'
           +       '<div class="cart-item__action-links">'
           +         '<a href="catalog.html" class="cart-item__action-link">Добавить ещё дверь</a>'
           +         '<button type="button" class="cart-item__action-link" data-edit-item="' + index + '">Редактировать</button>'
           +         '<button type="button" class="cart-item__action-link cart-item__action-link_delete" data-remove-item="' + index + '">Удалить</button>'
+          +       '</div>'
+          +     '</div>'
+          +     '<div class="cart-item__qty-row">'
+          +       '<span class="cart-item__qty-label">Количество:</span>'
+          +       '<div class="cart-item__qty-controls">'
+          +         '<button type="button" class="cart-item__qty-btn" data-door-qty-decrease="' + index + '">−</button>'
+          +         '<span class="cart-item__qty-value">' + doorQty + '</span>'
+          +         '<button type="button" class="cart-item__qty-btn" data-door-qty-increase="' + index + '">+</button>'
           +       '</div>'
           +     '</div>'
           +     propsHtml
@@ -988,7 +1032,7 @@
         if (svcSumEl) svcSumEl.textContent = svcTotal > 0 ? new Intl.NumberFormat("ru-RU").format(svcTotal) + ' ₽' : '0 ₽';
       }
 
-      // Bind remove/edit buttons
+      // Bind remove/edit/qty buttons
       container.addEventListener("click", function (e) {
         const removeBtn = e.target.closest("[data-remove-item]");
         if (removeBtn) {
@@ -996,9 +1040,33 @@
           window.removeCartItem(idx);
           return;
         }
+        const qtyInc = e.target.closest("[data-door-qty-increase]");
+        if (qtyInc) {
+          const idx = Number(qtyInc.getAttribute("data-door-qty-increase"));
+          const cartItems = safeJsonParse(localStorage.getItem("dveryaninov_cart_v1"), []);
+          if (cartItems[idx]) {
+            cartItems[idx].doorQty = (cartItems[idx].doorQty || 1) + 1;
+            localStorage.setItem("dveryaninov_cart_v1", JSON.stringify(cartItems));
+            renderCart();
+          }
+          return;
+        }
+        const qtyDec = e.target.closest("[data-door-qty-decrease]");
+        if (qtyDec) {
+          const idx = Number(qtyDec.getAttribute("data-door-qty-decrease"));
+          const cartItems = safeJsonParse(localStorage.getItem("dveryaninov_cart_v1"), []);
+          if (cartItems[idx]) {
+            const cur = cartItems[idx].doorQty || 1;
+            if (cur > 1) {
+              cartItems[idx].doorQty = cur - 1;
+              localStorage.setItem("dveryaninov_cart_v1", JSON.stringify(cartItems));
+              renderCart();
+            }
+          }
+          return;
+        }
         const editBtn = e.target.closest("[data-edit-item]");
         if (editBtn) {
-          // Navigate back to product page for editing (simplified)
           const itemIdx = Number(editBtn.getAttribute("data-edit-item"));
           const cartItems = safeJsonParse(localStorage.getItem("dveryaninov_cart_v1"), []);
           if (cartItems[itemIdx]) {
