@@ -1107,51 +1107,6 @@
         if (svcCountEl) svcCountEl.textContent = svcCount + ' ' + pluralize(svcCount, 'услуга', 'услуги', 'услуг');
         if (svcSumEl) svcSumEl.textContent = svcTotal > 0 ? new Intl.NumberFormat("ru-RU").format(svcTotal) + ' ₽' : '0 ₽';
       }
-
-      // Bind remove/edit/qty buttons
-      container.addEventListener("click", function (e) {
-        const removeBtn = e.target.closest("[data-remove-item]");
-        if (removeBtn) {
-          const idx = Number(removeBtn.getAttribute("data-remove-item"));
-          window.removeCartItem(idx);
-          return;
-        }
-        const qtyInc = e.target.closest("[data-door-qty-increase]");
-        if (qtyInc) {
-          const idx = Number(qtyInc.getAttribute("data-door-qty-increase"));
-          const cartItems = safeJsonParse(localStorage.getItem("dveryaninov_cart_v1"), []);
-          if (cartItems[idx]) {
-            cartItems[idx].doorQty = (cartItems[idx].doorQty || 1) + 1;
-            localStorage.setItem("dveryaninov_cart_v1", JSON.stringify(cartItems));
-            renderCart();
-            updateCartBadge();
-          }
-          return;
-        }
-        const qtyDec = e.target.closest("[data-door-qty-decrease]");
-        if (qtyDec) {
-          const idx = Number(qtyDec.getAttribute("data-door-qty-decrease"));
-          const cartItems = safeJsonParse(localStorage.getItem("dveryaninov_cart_v1"), []);
-          if (cartItems[idx]) {
-            const cur = cartItems[idx].doorQty || 1;
-            if (cur > 1) {
-              cartItems[idx].doorQty = cur - 1;
-              localStorage.setItem("dveryaninov_cart_v1", JSON.stringify(cartItems));
-              renderCart();
-              updateCartBadge();
-            }
-          }
-          return;
-        }
-        const editBtn = e.target.closest("[data-edit-item]");
-        if (editBtn) {
-          const itemIdx = Number(editBtn.getAttribute("data-edit-item"));
-          const cartItems = safeJsonParse(localStorage.getItem("dveryaninov_cart_v1"), []);
-          if (cartItems[itemIdx]) {
-            alert("Функция редактирования будет доступна в следующей версии");
-          }
-        }
-      });
     }
 
     // Pluralization helper
@@ -1175,6 +1130,51 @@
     };
 
     renderCart();
+
+    // Bind remove/edit/qty buttons ONCE (not inside renderCart to avoid stacking listeners)
+    container.addEventListener("click", function (e) {
+      const removeBtn = e.target.closest("[data-remove-item]");
+      if (removeBtn) {
+        const idx = Number(removeBtn.getAttribute("data-remove-item"));
+        window.removeCartItem(idx);
+        return;
+      }
+      const qtyInc = e.target.closest("[data-door-qty-increase]");
+      if (qtyInc) {
+        const idx = Number(qtyInc.getAttribute("data-door-qty-increase"));
+        const cartItems = safeJsonParse(localStorage.getItem("dveryaninov_cart_v1"), []);
+        if (cartItems[idx]) {
+          cartItems[idx].doorQty = (cartItems[idx].doorQty || 1) + 1;
+          localStorage.setItem("dveryaninov_cart_v1", JSON.stringify(cartItems));
+          renderCart();
+          updateCartBadge();
+        }
+        return;
+      }
+      const qtyDec = e.target.closest("[data-door-qty-decrease]");
+      if (qtyDec) {
+        const idx = Number(qtyDec.getAttribute("data-door-qty-decrease"));
+        const cartItems = safeJsonParse(localStorage.getItem("dveryaninov_cart_v1"), []);
+        if (cartItems[idx]) {
+          const cur = cartItems[idx].doorQty || 1;
+          if (cur > 1) {
+            cartItems[idx].doorQty = cur - 1;
+            localStorage.setItem("dveryaninov_cart_v1", JSON.stringify(cartItems));
+            renderCart();
+            updateCartBadge();
+          }
+        }
+        return;
+      }
+      const editBtn = e.target.closest("[data-edit-item]");
+      if (editBtn) {
+        const itemIdx = Number(editBtn.getAttribute("data-edit-item"));
+        const cartItems = safeJsonParse(localStorage.getItem("dveryaninov_cart_v1"), []);
+        if (cartItems[itemIdx]) {
+          alert("Функция редактирования будет доступна в следующей версии");
+        }
+      }
+    });
 
     // Promo toggle
     if (promoToggle && promoField) {

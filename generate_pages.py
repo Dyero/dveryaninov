@@ -749,7 +749,15 @@ catalog_html = f'''<!DOCTYPE html>
 
     <section class="catalog" id="catalog" aria-labelledby="catalog-title">
       <div class="catalog__head">
-        <h2 class="catalog__title" id="catalog-title">Все двери</h2>
+        <h2 class="catalog__title" id="catalog-title">Каталог</h2>
+      </div>
+
+      <div class="catalog__categories">
+        <button type="button" class="catalog__cat-btn catalog__cat-btn_active" data-category="all">Все</button>
+        <button type="button" class="catalog__cat-btn" data-category="doors">Межкомнатные двери</button>
+        <button type="button" class="catalog__cat-btn" data-category="hardware">Фурнитура</button>
+        <button type="button" class="catalog__cat-btn" data-category="partitions">Перегородки</button>
+        <button type="button" class="catalog__cat-btn" data-category="invisible">Скрытые двери (Invisible)</button>
       </div>
 
       <div class="section__cards section__cards_wrap catalog__grid">
