@@ -172,8 +172,7 @@
   const BASE_PRICE = 52000;
 
   function initConfigurator() {
-    const modal = document.querySelector(".cfg-modal");
-    if (!modal) return;
+    let modal = document.querySelector(".cfg-modal");
 
     const state = {
       // Шаг 1 — Конфигурация двери
@@ -818,7 +817,7 @@
 
     document.addEventListener("keydown", (e) => {
       if (e.key !== "Escape") return;
-      if (modal.getAttribute("aria-hidden") === "false") closeModal(modal);
+      if (modal && modal.getAttribute("aria-hidden") === "false") closeModal(modal);
     });
   }
 
