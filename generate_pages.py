@@ -527,13 +527,6 @@ def generate_product_page(coll_name, model_num, model_data, all_models):
       <div class="product__info product__info-col">
         <h1 class="product__title">{display}</h1>
 
-        <div class="product__status">
-          <span class="product__in-stock">
-            <span class="product__in-stock-dot"></span>
-            Товар в наличии
-          </span>
-        </div>
-
         <div class="product__option">
           <div class="product__option-header">
             <span class="product__option-label">Размер полотна:</span>
