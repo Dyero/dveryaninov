@@ -1254,8 +1254,16 @@
       const items = safeJsonParse(localStorage.getItem("dveryaninov_cart_v1"), []);
       if (items.length === 0) { alert("Корзина пуста"); return; }
 
-      const name = document.getElementById("checkout-name")?.value || "";
-      const phone = document.getElementById("checkout-phone")?.value || "";
+      var name = "";
+      var phone = "";
+      var isAuth = typeof window.DvAuth !== 'undefined' && window.DvAuth.isLoggedIn();
+      if (isAuth) {
+        var user = window.DvAuth.getCurrentUser();
+        if (user) { name = user.name || ""; phone = user.phone || ""; }
+      } else {
+        name = document.getElementById("checkout-name")?.value || "";
+        phone = document.getElementById("checkout-phone")?.value || "";
+      }
 
       const order = {
         id: "ORD-" + Math.floor(Math.random() * 1000000),
