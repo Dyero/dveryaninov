@@ -325,4 +325,67 @@
       }
     });
   }
+
+  // Restore selections from cart edit
+  function restoreEditState() {
+    var raw = localStorage.getItem("dveryaninov_edit_item");
+    if (!raw) return;
+    var data;
+    try { data = JSON.parse(raw); } catch(e) { return; }
+    if (!data || !data.item) return;
+
+    // Only act on the matching product page
+    var currentPage = window.location.pathname.split('/').pop();
+    if (data.item.productUrl && data.item.productUrl !== currentPage) {
+      // Wrong page - clear and ignore
+      localStorage.removeItem("dveryaninov_edit_item");
+      return;
+    }
+
+    var opts = data.item.options || {};
+
+    // Restore size selection
+    if (opts.size) {
+      var sizeBtns = document.querySelectorAll(".product__size");
+      sizeBtns.forEach(function(btn) {
+        if (btn.classList.contains("product__size_measure") || btn.classList.contains("product__size_own")) return;
+        var match = btn.textContent.trim().replace(/х/g, '×') === opts.size.replace(/х/g, '×');
+        btn.classList.toggle("product__size_active", match);
+      });
+      var sizeVal = document.querySelector(".product__option-value");
+      if (sizeVal) sizeVal.textContent = opts.size;
+    }
+
+    // Restore coating/finish selection
+    if (opts.finish) {
+      var colorBtns = document.querySelectorAll(".product__color");
+      colorBtns.forEach(function(btn) {
+        if (btn.classList.contains("product__color_more")) return;
+        var lbl = btn.getAttribute("aria-label") || "";
+        btn.classList.toggle("product__color_active", lbl === opts.finish);
+      });
+      var finishHeaders = document.querySelectorAll(".product__option-header");
+      finishHeaders.forEach(function(h) {
+        var lbl = h.querySelector(".product__option-label");
+        if (lbl && lbl.textContent.includes("Покрытие")) {
+          var val = h.querySelector(".product__option-value");
+          if (val) val.textContent = opts.finish;
+        }
+      });
+    }
+
+    // Store edit index so configurator can update instead of add
+    window._dvEditCartIndex = data.index;
+
+    // Clear the edit marker
+    localStorage.removeItem("dveryaninov_edit_item");
+
+    // Auto-open configurator after page loads
+    setTimeout(function() {
+      var openBtn = document.querySelector("[data-open-config]");
+      if (openBtn) openBtn.click();
+    }, 300);
+  }
+
+  document.addEventListener("DOMContentLoaded", restoreEditState);
 })();

@@ -71,6 +71,7 @@
 
     section.innerHTML = orders.map(function(ord) {
       var itemsHtml = (ord.items || []).map(function(it) {
+        var doorQty = it.doorQty || 1;
         
         let doorProps = '';
         if (it.options) {
@@ -101,8 +102,8 @@
           '<div style="width: 120px;"><img src="' + (it.image || 'images/card-door-1.svg') + '" style="width: 100%; background: #f9f9f9; padding: 10px;" alt=""></div>' +
           '<div>' +
             '<div style="display: flex; justify-content: space-between; align-items: flex-start;">' +
-              '<h3 style="margin: 0; font-size: 16px;">' + (it.title || 'Товар') + '</h3>' +
-              '<div style="text-align: right; font-size: 14px;"><div style="color: #999;">Цена за комплект</div>' + new Intl.NumberFormat('ru-RU').format(it.priceSum || it.price || 0) + ' ₽</div>' +
+              '<h3 style="margin: 0; font-size: 16px;">' + (it.title || 'Товар') + (doorQty > 1 ? ' <span style="color:#999">× ' + doorQty + '</span>' : '') + '</h3>' +
+              '<div style="text-align: right; font-size: 14px;"><div style="color: #999;">Цена за комплект</div>' + new Intl.NumberFormat('ru-RU').format((it.priceSum || it.price || 0) * doorQty) + ' ₽</div>' +
             '</div>' +
             doorProps +
             accHtml +
@@ -112,8 +113,12 @@
       }).join('');
 
       var d = new Date(ord.date).toLocaleDateString('ru-RU');
+      var extraInfo = '';
+      if (ord.delivery) extraInfo += '<span style="display:inline-block;margin-right:12px;padding:4px 10px;background:#f0f0f0;font-size:12px;">Доставка</span>';
+      if (ord.install) extraInfo += '<span style="display:inline-block;padding:4px 10px;background:#f0f0f0;font-size:12px;">Установка</span>';
       return '<div style="margin-bottom: 40px;">' +
-        '<h2 style="font-size: 20px; margin-bottom: 24px;">Заказ #' + ord.id.replace('ORD-','') + ' от ' + d + '</h2>' +
+        '<h2 style="font-size: 20px; margin-bottom: 8px;">Заказ #' + ord.id.replace('ORD-','') + ' от ' + d + '</h2>' +
+        (extraInfo ? '<div style="margin-bottom:16px;">' + extraInfo + '</div>' : '') +
         itemsHtml +
         '<div style="text-align: right; font-size: 18px; font-weight: bold;">Итого: ' + new Intl.NumberFormat('ru-RU').format(ord.total) + ' ₽</div>' +
       '</div>';

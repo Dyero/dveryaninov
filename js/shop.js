@@ -263,6 +263,22 @@
       }
     }
 
+    // Hide glazing section for ПГ (глухое полотно) doors
+    function toggleGlazingVisibility() {
+      if (!modal) return;
+      var title = document.querySelector(".product__title")?.textContent.trim() || "";
+      var isPG = /\bПГ\b/i.test(title);
+      modal.querySelectorAll(".config-detail-item").forEach(function(item) {
+        var label = item.querySelector(".config-detail-label");
+        if (label && label.textContent.trim() === "Остекление") {
+          item.style.display = isPG ? "none" : "";
+          if (isPG) {
+            state.glazing = "-";
+          }
+        }
+      });
+    }
+
     // Конфигурация шагов: текст кнопки «Далее». Изображение берётся с карточки товара.
     const stepConfig = {
       config: {
@@ -585,6 +601,7 @@
               // Populate coating swatches from global data
               populateCoatingSwatches();
               syncStateFromPage();
+              toggleGlazingVisibility();
               openModal(modal);
               initModalSelection();
               addPriceBadges();
@@ -594,6 +611,7 @@
           return;
         }
         syncStateFromPage();
+        toggleGlazingVisibility();
         openModal(modal);
         initModalSelection();
         addPriceBadges();
@@ -606,6 +624,7 @@
       if (openStepEl) {
         const step = openStepEl.getAttribute("data-open-config-step");
         syncStateFromPage();
+        toggleGlazingVisibility();
         openModal(modal);
         initModalSelection();
         addPriceBadges();
@@ -808,7 +827,7 @@
           }
         });
 
-        addToCart({
+        var newItem = {
           id: `p-${Date.now()}`,
           title,
           price: totalPrice,
@@ -816,7 +835,25 @@
           qty: 1,
           options: { ...state },
           accessories,
-        });
+          productUrl: window.location.pathname.split('/').pop() || '',
+        };
+
+        // If editing an existing cart item, replace it
+        if (typeof window._dvEditCartIndex === 'number') {
+          var cartItems = safeJsonParse(localStorage.getItem("dveryaninov_cart_v1"), []);
+          var editIdx = window._dvEditCartIndex;
+          if (cartItems[editIdx]) {
+            newItem.doorQty = cartItems[editIdx].doorQty || 1;
+            cartItems[editIdx] = newItem;
+            localStorage.setItem("dveryaninov_cart_v1", JSON.stringify(cartItems));
+            updateCartBadge();
+          } else {
+            addToCart(newItem);
+          }
+          delete window._dvEditCartIndex;
+        } else {
+          addToCart(newItem);
+        }
 
         closeModal(modal);
         window.location.href = "cart.html";
@@ -1000,7 +1037,7 @@
         let accessoriesHtml = "";
         if (item.accessories && item.accessories.length) {
           accessoriesHtml += '<div class="cart-item__accessories-group">';
-          accessoriesHtml += '<div class="cart-item__accessories-header">Погонаж</div>';
+          accessoriesHtml += '<div class="cart-item__accessories-header">Фурнитура и погонаж</div>';
           item.accessories.forEach(function (acc) {
             accessoriesHtml += '<div class="cart-item__accessory">'
               + '<div class="cart-item__accessory-img">'
@@ -1016,19 +1053,7 @@
           accessoriesHtml += '</div>';
         }
 
-        /* --- Handle section --- */
-        let handleHtml = "";
-        if (item.options && item.options["handle-color"] && item.options["handle-color"] !== "-") {
-          handleHtml = '<div class="cart-item__accessories-group">'
-            + '<div class="cart-item__accessories-header">Ручка</div>'
-            + '<div class="cart-item__accessory">'
-            + '<div class="cart-item__accessory-info">'
-            + '<strong class="cart-item__accessory-title">' + item.options["handle-color"] + '</strong>'
-            + (item.options["lock-type"] ? '<div class="cart-item__accessory-spec">Замок: ' + item.options["lock-type"] + '</div>' : '')
-            + '</div>'
-            + '</div>'
-            + '</div>';
-        }
+
 
         const doorQty = item.doorQty || 1;
         const div = document.createElement("article");
@@ -1061,42 +1086,18 @@
           +     propsHtml
           +   '</div>'
           + '</div>'
-          + handleHtml
           + accessoriesHtml;
 
         container.appendChild(div);
       });
 
-      // Services area
-      const servicesDiv = document.createElement("div");
-      servicesDiv.className = "cart-services";
-      servicesDiv.innerHTML = ''
-        + '<label class="cart-services__item"><input type="checkbox" class="cart-services__checkbox" data-service="install" value="300"><span class="cart-services__label">Нужна установка двери</span></label>'
-        + '<label class="cart-services__item"><input type="checkbox" class="cart-services__checkbox" data-service="delivery" value="300"><span class="cart-services__label">Нужна доставка</span></label>'
-        + '<button type="button" class="cart-services__show-all">Показать все услуги ›</button>';
-      container.appendChild(servicesDiv);
-
-      // Bind service checkboxes
-      servicesDiv.querySelectorAll(".cart-services__checkbox").forEach(function (cb) {
-        cb.addEventListener("change", updateSummary);
-      });
-
       updateSummary();
 
       function updateSummary() {
-        let svcTotal = 0;
-        let svcCount = 0;
-        servicesDiv.querySelectorAll(".cart-services__checkbox:checked").forEach(function (cb) {
-          svcTotal += Number(cb.value) || 0;
-          svcCount++;
-        });
-
         const goodsCount = items.length - priceRequestCount;
         const goodsEl = document.querySelector(".cart-summary__goods-count");
         const sumEl = document.querySelector(".cart-summary__sum");
         const reqCountEl = document.querySelector(".cart-summary__request-count");
-        const svcCountEl = document.querySelector(".cart-summary__services-count");
-        const svcSumEl = document.querySelector(".cart-summary__services-sum");
 
         if (goodsEl) goodsEl.textContent = goodsCount + ' ' + pluralize(goodsCount, 'товар', 'товара', 'товаров');
         if (sumEl) sumEl.textContent = total > 0 ? 'от ' + new Intl.NumberFormat("ru-RU").format(total) + ' ₽' : '0 ₽';
@@ -1104,8 +1105,6 @@
           reqCountEl.textContent = priceRequestCount + ' ' + pluralize(priceRequestCount, 'товар', 'товара', 'товаров');
           reqCountEl.closest('.cart-summary__row').style.display = priceRequestCount > 0 ? '' : 'none';
         }
-        if (svcCountEl) svcCountEl.textContent = svcCount + ' ' + pluralize(svcCount, 'услуга', 'услуги', 'услуг');
-        if (svcSumEl) svcSumEl.textContent = svcTotal > 0 ? new Intl.NumberFormat("ru-RU").format(svcTotal) + ' ₽' : '0 ₽';
       }
     }
 
@@ -1171,7 +1170,11 @@
         const itemIdx = Number(editBtn.getAttribute("data-edit-item"));
         const cartItems = safeJsonParse(localStorage.getItem("dveryaninov_cart_v1"), []);
         if (cartItems[itemIdx]) {
-          alert("Функция редактирования будет доступна в следующей версии");
+          var item = cartItems[itemIdx];
+          // Save edit state so product page can restore selections
+          localStorage.setItem("dveryaninov_edit_item", JSON.stringify({ index: itemIdx, item: item }));
+          var url = item.productUrl || "catalog.html";
+          window.location.href = url;
         }
       }
     });
@@ -1244,8 +1247,11 @@
         date: new Date().toISOString(),
         customer: { name, phone },
         items: items,
+        delivery: document.getElementById("cart-need-delivery")?.checked || false,
+        install: document.getElementById("cart-need-install")?.checked || false,
         total: items.reduce(function (sum, item) {
-          return sum + (Number(item.priceSum) || Number(item.price) || 0);
+          var qty = item.doorQty || 1;
+          return sum + ((Number(item.priceSum) || Number(item.price) || 0) * qty);
         }, 0),
       };
 
@@ -1364,7 +1370,8 @@
           image: image,
           qty: 1,
           options: { size: size, finish: color },
-          accessories: []
+          accessories: [],
+          productUrl: window.location.pathname.split('/').pop() || ''
       });
       window.location.href = "cart.html";
       return;
