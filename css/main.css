@@ -7859,3 +7859,193 @@ body {
 [hidden] {
   display: none !important;
 }
+
+/* Coatings popup (opened by +83 button) */
+.coatings-popup {
+  position: absolute;
+  z-index: 100;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-height: 420px;
+  overflow-y: auto;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,.12);
+  padding: 16px;
+}
+.coatings-popup__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.coatings-popup__title {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+.coatings-popup__close {
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #888;
+  padding: 0 4px;
+}
+.coatings-popup__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 8px;
+}
+.coatings-popup__swatch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 4px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background: none;
+  cursor: pointer;
+  transition: border-color .15s;
+}
+.coatings-popup__swatch:hover {
+  border-color: #ccc;
+}
+.coatings-popup__swatch_active {
+  border-color: var(--color-wine, #722F37);
+}
+.coatings-popup__color {
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,.1);
+}
+.coatings-popup__name {
+  font-size: 11px;
+  line-height: 1.2;
+  text-align: center;
+  word-break: break-word;
+  color: #333;
+}
+
+/* Configurator coating swatches */
+.cfg-coatings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 6px;
+}
+.cfg-coating-swatch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 6px 4px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background: none;
+  cursor: pointer;
+  transition: border-color .15s;
+}
+.cfg-coating-swatch:hover {
+  border-color: #ccc;
+}
+.cfg-coating-swatch_active {
+  border-color: var(--color-wine, #722F37);
+}
+.cfg-coating-swatch__color {
+  display: block;
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  border: 1px solid rgba(0,0,0,.1);
+}
+.cfg-coating-swatch__name {
+  font-size: 10px;
+  line-height: 1.2;
+  text-align: center;
+  word-break: break-word;
+  color: #333;
+}
+
+/* Configurator color chips as tiles */
+.cfg-color-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 6px;
+}
+.cfg-color-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 6px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background: none;
+  cursor: pointer;
+  transition: border-color .15s;
+}
+.cfg-color-tile:hover {
+  border-color: #ccc;
+}
+.cfg-color-tile_active {
+  border-color: var(--color-wine, #722F37);
+}
+.cfg-color-tile__swatch {
+  display: block;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  border: 1px solid rgba(0,0,0,.1);
+}
+.cfg-color-tile__label {
+  font-size: 10px;
+  line-height: 1.2;
+  text-align: center;
+  color: #333;
+}
+
+/* Buttons without images — 16px padding */
+.cfg-item__thumb:empty,
+.cfg-item__thumb[aria-hidden="true"]:not(:has(img)) {
+  padding: 16px;
+  min-width: 80px;
+  min-height: 80px;
+  box-sizing: border-box;
+  background: #f5f5f5;
+  border-radius: 8px;
+}
+
+/* Nalichnik radio mode in configurator */
+.cfg-radio-group .cfg-item {
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  transition: border-color .15s;
+}
+.cfg-radio-group .cfg-item:hover {
+  border-color: #ccc;
+}
+.cfg-radio-group .cfg-item_active {
+  border-color: var(--color-wine, #722F37);
+}
+
+/* Glazing placeholder swatch */
+.cfg-glazing-swatch {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  border: 1px solid rgba(0,0,0,.08);
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
+/* Product__colors relative positioning for popup */
+.product__colors {
+  position: relative;
+}

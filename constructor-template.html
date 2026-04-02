@@ -61,35 +61,37 @@
               <span class="config-detail-value">Бэйсик вайт ПЭТ</span>
               <button class="config-detail-toggle" type="button" aria-expanded="false" aria-label="Показать опции"></button>
             </div>
-            <div class="config-detail-options">
-              <button type="button" class="config-chip config-chip_active" data-pick="finish" data-price="0" data-value="Бэйсик вайт ПЭТ">Бэйсик вайт ПЭТ</button>
-              <button type="button" class="config-chip" data-pick="finish" data-price="0" data-value="Лайт грэй ПЭТ">Лайт грэй ПЭТ</button>
-              <button type="button" class="config-chip" data-pick="finish" data-price="0" data-value="Текстура грей ПЭТ">Текстура грей ПЭТ</button>
+            <div class="config-detail-options" id="cfgCoatingsContainer">
+              <!-- Populated dynamically from window.DVERYANINOV_COATINGS in shop.js -->
             </div>
           </div>
 
           <div class="config-detail-item">
             <div class="config-detail-header">
               <span class="config-detail-label">Остекление</span>
-              <span class="config-detail-value">Стекло 1</span>
+              <span class="config-detail-value">Белое матовое</span>
               <button class="config-detail-toggle" type="button" aria-expanded="false" aria-label="Показать опции"></button>
             </div>
             <div class="config-detail-options">
-              <button type="button" class="config-chip config-chip_active" data-pick="glazing" data-price="0" data-value="Стекло 1">Стекло 1</button>
-              <button type="button" class="config-chip" data-pick="glazing" data-price="1500" data-value="Стекло 2">Стекло 2</button>
-            </div>
-          </div>
-
-          <div class="config-detail-item">
-            <div class="config-detail-header">
-              <span class="config-detail-label">Узор стекла</span>
-              <span class="config-detail-value">Без узора</span>
-              <button class="config-detail-toggle" type="button" aria-expanded="false" aria-label="Показать опции"></button>
-            </div>
-            <div class="config-detail-options">
-              <button type="button" class="config-chip config-chip_active" data-pick="pattern" data-price="0" data-value="Без узора">Без узора</button>
-              <button type="button" class="config-chip" data-pick="pattern" data-price="800" data-value="Узор 1">Узор 1</button>
-              <button type="button" class="config-chip" data-pick="pattern" data-price="1500" data-value="Узор 2">Узор 2</button>
+              <button type="button" class="config-chip config-chip_active" data-pick="glazing" data-price="0" data-value="Белое матовое">
+                <span class="cfg-glazing-swatch" style="background:rgba(255,255,255,0.85)"></span> Белое матовое
+              </button>
+              <button type="button" class="config-chip" data-pick="glazing" data-price="1200" data-value="Чёрное матовое">
+                <span class="cfg-glazing-swatch" style="background:#333"></span> Чёрное матовое
+              </button>
+              <button type="button" class="config-chip" data-pick="glazing" data-price="1500" data-value="Бронзовое матовое">
+                <span class="cfg-glazing-swatch" style="background:#C4A47C"></span> Бронзовое матовое
+              </button>
+              <button type="button" class="config-chip" data-pick="glazing" data-price="2000" data-value="Белое глянцевое">
+                <span class="cfg-glazing-swatch" style="background:#fff;border:1px solid #ddd"></span> Белое глянцевое
+              </button>
+              <button type="button" class="config-chip" data-pick="glazing" data-price="2000" data-value="Чёрное глянцевое">
+                <span class="cfg-glazing-swatch" style="background:#1a1a1a"></span> Чёрное глянцевое
+              </button>
+              <button type="button" class="config-chip" data-pick="glazing" data-price="2500" data-value="Матовое с рисунком">
+                <span class="cfg-glazing-swatch" style="background:linear-gradient(135deg,rgba(255,255,255,0.9) 50%,rgba(200,200,200,0.5) 50%)"></span> Матовое с рисунком
+              </button>
+              <button type="button" class="config-chip" data-pick="glazing" data-price="0" data-value="Без остекления">Без остекления</button>
             </div>
           </div>
 
@@ -124,277 +126,163 @@
         <!-- ШАГ 2: Погонаж -->
         <section class="config-step" data-step="molding" aria-label="Погонаж">
 
-          <!-- Стойка короба -->
+          <!-- Стойка короба — radio selection -->
           <div class="cfg-section">
             <div class="cfg-section__header config-detail-header cfg-section__header_toggle" data-section-toggle>
               <span class="config-detail-label">Стойка короба</span>
               <button class="config-detail-toggle config-detail-toggle_minus" type="button" aria-expanded="true" aria-label="Свернуть"></button>
             </div>
-            <div class="cfg-section__body">
-              <div class="cfg-item">
+            <div class="cfg-section__body cfg-radio-group" data-radio-group="box">
+              <div class="cfg-item cfg-item_active" data-radio-value="Телескоп">
                 <div class="cfg-item__thumb"><img src="images/ПОГОНАЖ/Стойка короба телескоп (МДФ), цветной уплотнитель.jpg" alt="Стойка короба телескоп" loading="lazy"></div>
                 <div class="cfg-item__info">
                   <span class="cfg-item__name config-item__title">Стойка короба телескоп (МДФ)</span>
                   <span class="cfg-item__spec config-item__spec">Цветной уплотнитель</span>
                 </div>
-                <div class="cfg-item__qty">
-                  <button type="button" class="cfg-qty-btn" data-qty-decrease aria-label="Уменьшить">−</button>
-                  <input type="number" class="cfg-qty-input config-qty-input" value="1" min="0" data-item="box-telescop" aria-label="Количество">
-                  <button type="button" class="cfg-qty-btn" data-qty-increase aria-label="Увеличить">+</button>
-                </div>
                 <div class="cfg-item__price">
-                  <span class="config-item__amount">2800</span>
+                  <span class="config-item__amount">2 800</span>
                   <span class="cfg-item__currency">₽/шт</span>
                 </div>
               </div>
-              <div class="cfg-item">
+              <div class="cfg-item" data-radio-value="Компланарная">
                 <div class="cfg-item__thumb"><img src="images/ПОГОНАЖ/Стойка короба компланарная, цветной уплотнитель.jpg" alt="Стойка короба компланарная" loading="lazy"></div>
                 <div class="cfg-item__info">
                   <span class="cfg-item__name config-item__title">Стойка короба компланарная</span>
                   <span class="cfg-item__spec config-item__spec">Цветной уплотнитель</span>
                 </div>
-                <div class="cfg-item__qty">
-                  <button type="button" class="cfg-qty-btn" data-qty-decrease aria-label="Уменьшить">−</button>
-                  <input type="number" class="cfg-qty-input config-qty-input" value="0" min="0" data-item="box-complanar" aria-label="Количество">
-                  <button type="button" class="cfg-qty-btn" data-qty-increase aria-label="Увеличить">+</button>
-                </div>
                 <div class="cfg-item__price">
-                  <span class="config-item__amount">3200</span>
+                  <span class="config-item__amount">3 200</span>
                   <span class="cfg-item__currency">₽/шт</span>
                 </div>
               </div>
-              <div class="cfg-item">
+              <div class="cfg-item" data-radio-value="Книжка">
                 <div class="cfg-item__thumb"><img src="images/ПОГОНАЖ/Стойка короба для двери книжка, шт. (под механизм книжка).jpg" alt="Стойка короба для книжки" loading="lazy"></div>
                 <div class="cfg-item__info">
                   <span class="cfg-item__name config-item__title">Стойка короба для двери-книжки</span>
-                  <span class="cfg-item__spec config-item__spec">Под механизм книжка, шт.</span>
-                </div>
-                <div class="cfg-item__qty">
-                  <button type="button" class="cfg-qty-btn" data-qty-decrease aria-label="Уменьшить">−</button>
-                  <input type="number" class="cfg-qty-input config-qty-input" value="0" min="0" data-item="box-knizhka" aria-label="Количество">
-                  <button type="button" class="cfg-qty-btn" data-qty-increase aria-label="Увеличить">+</button>
+                  <span class="cfg-item__spec config-item__spec">Под механизм книжка</span>
                 </div>
                 <div class="cfg-item__price">
-                  <span class="config-item__amount">3500</span>
+                  <span class="config-item__amount">3 500</span>
                   <span class="cfg-item__currency">₽/шт</span>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Наличник -->
+          <!-- Наличник — radio selection (вместо счётчиков) -->
           <div class="cfg-section">
             <div class="cfg-section__header config-detail-header cfg-section__header_toggle" data-section-toggle>
               <span class="config-detail-label">Наличник</span>
               <button class="config-detail-toggle config-detail-toggle_minus" type="button" aria-expanded="true" aria-label="Свернуть"></button>
             </div>
-            <div class="cfg-section__body">
-              <div class="cfg-item">
-                <div class="cfg-item__thumb"><img src="images/ПОГОНАЖ/Наличник (плоский поперечный) 2200 х 80 мм х 10 мм.jpg" alt="Наличник плоский поперечный" loading="lazy"></div>
+            <div class="cfg-section__body cfg-radio-group" data-radio-group="casing">
+              <div class="cfg-item cfg-item_active" data-radio-value="Телескоп 80мм">
+                <div class="cfg-item__thumb"><img src="images/ПОГОНАЖ/Наличник телескоп поперечный 2200 х 80 мм х 10 мм.jpg" alt="Наличник телескоп" loading="lazy"></div>
                 <div class="cfg-item__info">
-                  <span class="cfg-item__name config-item__title">Наличник плоский поперечный</span>
-                  <span class="cfg-item__spec config-item__spec">2200×80×10 мм</span>
-                </div>
-                <div class="cfg-item__qty">
-                  <button type="button" class="cfg-qty-btn" data-qty-decrease aria-label="Уменьшить">−</button>
-                  <input type="number" class="cfg-qty-input config-qty-input" value="0" min="0" data-item="nalichnik-ploskiy-pop" data-for-width="600,700,800,900" aria-label="Количество">
-                  <button type="button" class="cfg-qty-btn" data-qty-increase aria-label="Увеличить">+</button>
+                  <span class="cfg-item__name config-item__title">Наличник телескоп</span>
+                  <span class="cfg-item__spec config-item__spec">Поперечный, 2200×80×10 мм</span>
                 </div>
                 <div class="cfg-item__price">
-                  <span class="config-item__amount">650</span>
+                  <span class="config-item__amount">750</span>
                   <span class="cfg-item__currency">₽/шт</span>
                 </div>
               </div>
-              <div class="cfg-item">
-                <div class="cfg-item__thumb"><img src="images/ПОГОНАЖ/Наличник (плоский продольный) 2200 х 80 мм х 10 мм.jpg" alt="Наличник плоский продольный" loading="lazy"></div>
+              <div class="cfg-item" data-radio-value="Телескоп 100мм">
+                <div class="cfg-item__thumb"><img src="images/ПОГОНАЖ/Наличник телескоп поперечный 2200 х 100 мм х 10 мм.jpg" alt="Наличник телескоп 100" loading="lazy"></div>
                 <div class="cfg-item__info">
-                  <span class="cfg-item__name config-item__title">Наличник плоский продольный</span>
-                  <span class="cfg-item__spec config-item__spec">2200×80×10 мм</span>
-                </div>
-                <div class="cfg-item__qty">
-                  <button type="button" class="cfg-qty-btn" data-qty-decrease aria-label="Уменьшить">−</button>
-                  <input type="number" class="cfg-qty-input config-qty-input" value="0" min="0" data-item="nalichnik-ploskiy-prod" data-for-width="600,700,800,900" aria-label="Количество">
-                  <button type="button" class="cfg-qty-btn" data-qty-increase aria-label="Увеличить">+</button>
-                </div>
-                <div class="cfg-item__price">
-                  <span class="config-item__amount">650</span>
-                  <span class="cfg-item__currency">₽/шт</span>
-                </div>
-              </div>
-              <div class="cfg-item">
-                <div class="cfg-item__thumb"><img src="images/ПОГОНАЖ/Наличник компланарный 2200 х 80 мм х 10 мм.jpg" alt="Наличник компланарный" loading="lazy"></div>
-                <div class="cfg-item__info">
-                  <span class="cfg-item__name config-item__title">Наличник компланарный</span>
-                  <span class="cfg-item__spec config-item__spec">2200×80×10 мм</span>
-                </div>
-                <div class="cfg-item__qty">
-                  <button type="button" class="cfg-qty-btn" data-qty-decrease aria-label="Уменьшить">−</button>
-                  <input type="number" class="cfg-qty-input config-qty-input" value="0" min="0" data-item="nalichnik-komplanar" data-for-width="600,700,800,900" aria-label="Количество">
-                  <button type="button" class="cfg-qty-btn" data-qty-increase aria-label="Увеличить">+</button>
+                  <span class="cfg-item__name config-item__title">Наличник телескоп</span>
+                  <span class="cfg-item__spec config-item__spec">Поперечный, 2200×100×10 мм</span>
                 </div>
                 <div class="cfg-item__price">
                   <span class="config-item__amount">850</span>
                   <span class="cfg-item__currency">₽/шт</span>
                 </div>
               </div>
-              <div class="cfg-item">
-                <div class="cfg-item__thumb"><img src="images/ПОГОНАЖ/Наличник телескоп декоративный 2200 х 70 х 12 мм.jpg" alt="Наличник телескоп декоративный" loading="lazy"></div>
+              <div class="cfg-item" data-radio-value="Телескоп+">
+                <div class="cfg-item__thumb"><img src="images/ПОГОНАЖ/Наличник телескоп плюс поперечный 2200 х 80 мм х 10 мм.jpg" alt="Наличник телескоп+" loading="lazy"></div>
+                <div class="cfg-item__info">
+                  <span class="cfg-item__name config-item__title">Наличник телескоп+</span>
+                  <span class="cfg-item__spec config-item__spec">Поперечный, 2200×80×10 мм</span>
+                </div>
+                <div class="cfg-item__price">
+                  <span class="config-item__amount">900</span>
+                  <span class="cfg-item__currency">₽/шт</span>
+                </div>
+              </div>
+              <div class="cfg-item" data-radio-value="Компланарный">
+                <div class="cfg-item__thumb"><img src="images/ПОГОНАЖ/Наличник компланарный 2200 х 80 мм х 10 мм.jpg" alt="Наличник компланарный" loading="lazy"></div>
+                <div class="cfg-item__info">
+                  <span class="cfg-item__name config-item__title">Наличник компланарный</span>
+                  <span class="cfg-item__spec config-item__spec">2200×80×10 мм</span>
+                </div>
+                <div class="cfg-item__price">
+                  <span class="config-item__amount">850</span>
+                  <span class="cfg-item__currency">₽/шт</span>
+                </div>
+              </div>
+              <div class="cfg-item" data-radio-value="Плоский">
+                <div class="cfg-item__thumb"><img src="images/ПОГОНАЖ/Наличник (плоский поперечный) 2200 х 80 мм х 10 мм.jpg" alt="Наличник плоский" loading="lazy"></div>
+                <div class="cfg-item__info">
+                  <span class="cfg-item__name config-item__title">Наличник плоский</span>
+                  <span class="cfg-item__spec config-item__spec">Поперечный, 2200×80×10 мм</span>
+                </div>
+                <div class="cfg-item__price">
+                  <span class="config-item__amount">650</span>
+                  <span class="cfg-item__currency">₽/шт</span>
+                </div>
+              </div>
+              <div class="cfg-item" data-radio-value="Декоративный">
+                <div class="cfg-item__thumb"><img src="images/ПОГОНАЖ/Наличник телескоп декоративный 2200 х 70 х 12 мм.jpg" alt="Наличник декоративный" loading="lazy"></div>
                 <div class="cfg-item__info">
                   <span class="cfg-item__name config-item__title">Наличник телескоп декоративный</span>
                   <span class="cfg-item__spec config-item__spec">2200×70×12 мм</span>
-                </div>
-                <div class="cfg-item__qty">
-                  <button type="button" class="cfg-qty-btn" data-qty-decrease aria-label="Уменьшить">−</button>
-                  <input type="number" class="cfg-qty-input config-qty-input" value="0" min="0" data-item="nalichnik-teleskop-dekor" data-for-width="600,700,800,900" aria-label="Количество">
-                  <button type="button" class="cfg-qty-btn" data-qty-increase aria-label="Увеличить">+</button>
                 </div>
                 <div class="cfg-item__price">
                   <span class="config-item__amount">950</span>
                   <span class="cfg-item__currency">₽/шт</span>
                 </div>
               </div>
-              <div class="cfg-item">
-                <div class="cfg-item__thumb"><img src="images/ПОГОНАЖ/Наличник телескоп поперечный 2200 х 80 мм х 10 мм.jpg" alt="Наличник телескоп поперечный 80мм" loading="lazy"></div>
-                <div class="cfg-item__info">
-                  <span class="cfg-item__name config-item__title">Наличник телескоп поперечный</span>
-                  <span class="cfg-item__spec config-item__spec">2200×80×10 мм</span>
-                </div>
-                <div class="cfg-item__qty">
-                  <button type="button" class="cfg-qty-btn" data-qty-decrease aria-label="Уменьшить">−</button>
-                  <input type="number" class="cfg-qty-input config-qty-input" value="0" min="0" data-item="nalichnik-teleskop-pop-80" data-for-width="600,700,800,900" aria-label="Количество">
-                  <button type="button" class="cfg-qty-btn" data-qty-increase aria-label="Увеличить">+</button>
-                </div>
-                <div class="cfg-item__price">
-                  <span class="config-item__amount">750</span>
-                  <span class="cfg-item__currency">₽/шт</span>
-                </div>
-              </div>
-              <div class="cfg-item">
-                <div class="cfg-item__thumb"><img src="images/ПОГОНАЖ/Наличник телескоп поперечный 2200 х 100 мм х 10 мм.jpg" alt="Наличник телескоп поперечный 100мм" loading="lazy"></div>
-                <div class="cfg-item__info">
-                  <span class="cfg-item__name config-item__title">Наличник телескоп поперечный</span>
-                  <span class="cfg-item__spec config-item__spec">2200×100×10 мм</span>
-                </div>
-                <div class="cfg-item__qty">
-                  <button type="button" class="cfg-qty-btn" data-qty-decrease aria-label="Уменьшить">−</button>
-                  <input type="number" class="cfg-qty-input config-qty-input" value="0" min="0" data-item="nalichnik-teleskop-pop-100" data-for-width="800,900" aria-label="Количество">
-                  <button type="button" class="cfg-qty-btn" data-qty-increase aria-label="Увеличить">+</button>
-                </div>
-                <div class="cfg-item__price">
-                  <span class="config-item__amount">850</span>
-                  <span class="cfg-item__currency">₽/шт</span>
-                </div>
-              </div>
-              <div class="cfg-item">
-                <div class="cfg-item__thumb"><img src="images/ПОГОНАЖ/Наличник телескоп продольный 2200 х 80 мм х 12 мм.jpg" alt="Наличник телескоп продольный 80мм" loading="lazy"></div>
-                <div class="cfg-item__info">
-                  <span class="cfg-item__name config-item__title">Наличник телескоп продольный</span>
-                  <span class="cfg-item__spec config-item__spec">2200×80×12 мм</span>
-                </div>
-                <div class="cfg-item__qty">
-                  <button type="button" class="cfg-qty-btn" data-qty-decrease aria-label="Уменьшить">−</button>
-                  <input type="number" class="cfg-qty-input config-qty-input" value="0" min="0" data-item="nalichnik-teleskop-prod-80" data-for-width="600,700,800,900" aria-label="Количество">
-                  <button type="button" class="cfg-qty-btn" data-qty-increase aria-label="Увеличить">+</button>
-                </div>
-                <div class="cfg-item__price">
-                  <span class="config-item__amount">750</span>
-                  <span class="cfg-item__currency">₽/шт</span>
-                </div>
-              </div>
-              <div class="cfg-item">
-                <div class="cfg-item__thumb"><img src="images/ПОГОНАЖ/Наличник телескоп продольный 2200 х 100 мм х 12 мм.jpg" alt="Наличник телескоп продольный 100мм" loading="lazy"></div>
-                <div class="cfg-item__info">
-                  <span class="cfg-item__name config-item__title">Наличник телескоп продольный</span>
-                  <span class="cfg-item__spec config-item__spec">2200×100×12 мм</span>
-                </div>
-                <div class="cfg-item__qty">
-                  <button type="button" class="cfg-qty-btn" data-qty-decrease aria-label="Уменьшить">−</button>
-                  <input type="number" class="cfg-qty-input config-qty-input" value="0" min="0" data-item="nalichnik-teleskop-prod-100" data-for-width="800,900" aria-label="Количество">
-                  <button type="button" class="cfg-qty-btn" data-qty-increase aria-label="Увеличить">+</button>
-                </div>
-                <div class="cfg-item__price">
-                  <span class="config-item__amount">850</span>
-                  <span class="cfg-item__currency">₽/шт</span>
-                </div>
-              </div>
-              <div class="cfg-item">
-                <div class="cfg-item__thumb"><img src="images/ПОГОНАЖ/Наличник телескоп плюс поперечный 2200 х 80 мм х 10 мм.jpg" alt="Наличник телескоп+ поперечный" loading="lazy"></div>
-                <div class="cfg-item__info">
-                  <span class="cfg-item__name config-item__title">Наличник телескоп+ поперечный</span>
-                  <span class="cfg-item__spec config-item__spec">2200×80×10 мм</span>
-                </div>
-                <div class="cfg-item__qty">
-                  <button type="button" class="cfg-qty-btn" data-qty-decrease aria-label="Уменьшить">−</button>
-                  <input type="number" class="cfg-qty-input config-qty-input" value="0" min="0" data-item="nalichnik-teleskop-plus-pop" data-for-width="600,700,800,900" aria-label="Количество">
-                  <button type="button" class="cfg-qty-btn" data-qty-increase aria-label="Увеличить">+</button>
-                </div>
-                <div class="cfg-item__price">
-                  <span class="config-item__amount">900</span>
-                  <span class="cfg-item__currency">₽/шт</span>
-                </div>
-              </div>
-              <div class="cfg-item">
-                <div class="cfg-item__thumb"><img src="images/ПОГОНАЖ/Наличник телескоп плюс продольный 2200 х 80 мм х 12 мм.jpg" alt="Наличник телескоп+ продольный" loading="lazy"></div>
-                <div class="cfg-item__info">
-                  <span class="cfg-item__name config-item__title">Наличник телескоп+ продольный</span>
-                  <span class="cfg-item__spec config-item__spec">2200×80×12 мм</span>
-                </div>
-                <div class="cfg-item__qty">
-                  <button type="button" class="cfg-qty-btn" data-qty-decrease aria-label="Уменьшить">−</button>
-                  <input type="number" class="cfg-qty-input config-qty-input" value="0" min="0" data-item="nalichnik-teleskop-plus-prod" data-for-width="600,700,800,900" aria-label="Количество">
-                  <button type="button" class="cfg-qty-btn" data-qty-increase aria-label="Увеличить">+</button>
-                </div>
-                <div class="cfg-item__price">
-                  <span class="config-item__amount">900</span>
-                  <span class="cfg-item__currency">₽/шт</span>
-                </div>
-              </div>
             </div>
           </div>
 
-          <!-- Добор -->
+          <!-- Добор — radio selection -->
           <div class="cfg-section">
             <div class="cfg-section__header config-detail-header cfg-section__header_toggle" data-section-toggle>
               <span class="config-detail-label">Добор</span>
               <button class="config-detail-toggle config-detail-toggle_minus" type="button" aria-expanded="true" aria-label="Свернуть"></button>
             </div>
-            <div class="cfg-section__body">
-              <div class="cfg-item">
+            <div class="cfg-section__body cfg-radio-group" data-radio-group="dobor">
+              <div class="cfg-item cfg-item_active" data-radio-value="Телескоп ТИП 2">
                 <div class="cfg-item__thumb"><img src="images/ПОГОНАЖ/Добор телескоп ТИП 2 .jpg" alt="Добор телескоп" loading="lazy"></div>
                 <div class="cfg-item__info">
                   <span class="cfg-item__name config-item__title">Добор телескоп ТИП 2</span>
                   <span class="cfg-item__spec config-item__spec">Телескопический</span>
                 </div>
-                <div class="cfg-item__qty">
-                  <button type="button" class="cfg-qty-btn" data-qty-decrease aria-label="Уменьшить">−</button>
-                  <input type="number" class="cfg-qty-input config-qty-input" value="1" min="0" data-item="dobor-teleskop" aria-label="Количество">
-                  <button type="button" class="cfg-qty-btn" data-qty-increase aria-label="Увеличить">+</button>
-                </div>
                 <div class="cfg-item__price">
-                  <span class="config-item__amount">1800</span>
+                  <span class="config-item__amount">1 800</span>
                   <span class="cfg-item__currency">₽/шт</span>
                 </div>
               </div>
-              <div class="cfg-item">
+              <div class="cfg-item" data-radio-value="На купе">
                 <div class="cfg-item__thumb"><img src="images/ПОГОНАЖ/Добор на купе.jpg" alt="Добор на купе" loading="lazy"></div>
                 <div class="cfg-item__info">
                   <span class="cfg-item__name config-item__title">Добор на купе</span>
                   <span class="cfg-item__spec config-item__spec">Для дверей-купе</span>
                 </div>
-                <div class="cfg-item__qty">
-                  <button type="button" class="cfg-qty-btn" data-qty-decrease aria-label="Уменьшить">−</button>
-                  <input type="number" class="cfg-qty-input config-qty-input" value="0" min="0" data-item="dobor-kupe" aria-label="Количество">
-                  <button type="button" class="cfg-qty-btn" data-qty-increase aria-label="Увеличить">+</button>
-                </div>
                 <div class="cfg-item__price">
-                  <span class="config-item__amount">2200</span>
+                  <span class="config-item__amount">2 200</span>
                   <span class="cfg-item__currency">₽/шт</span>
+                </div>
+              </div>
+              <div class="cfg-item" data-radio-value="Без добора">
+                <div class="cfg-item__info">
+                  <span class="cfg-item__name config-item__title">Без добора</span>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Порог, плинтус, планки -->
+          <!-- Дополнительно — со счётчиками -->
           <div class="cfg-section">
             <div class="cfg-section__header config-detail-header cfg-section__header_toggle" data-section-toggle>
               <span class="config-detail-label">Дополнительно</span>
@@ -473,127 +361,240 @@
         <!-- ШАГ 3: Фурнитура -->
         <section class="config-step" data-step="hardware" aria-label="Фурнитура">
 
-          <!-- Секция: Модель ручки (карточки товаров) -->
+          <!-- Модель ручки — с реальными фото -->
           <div class="cfg-section">
             <div class="cfg-section__header config-detail-header cfg-section__header_toggle" data-section-toggle>
               <span class="config-detail-label">Модель ручки</span>
               <button class="config-detail-toggle config-detail-toggle_minus" type="button" aria-expanded="true" aria-label="Свернуть"></button>
             </div>
-            <div class="cfg-section__body" id="cfgHandleSection">
-
-              <!-- Ручка Стандарт -->
-              <div class="cfg-item">
-                <div class="cfg-item__thumb" aria-hidden="true"></div>
+            <div class="cfg-section__body cfg-radio-group" data-radio-group="handle" id="cfgHandleSection">
+              <div class="cfg-item cfg-item_active" data-radio-value="Punto EXTRA">
+                <div class="cfg-item__thumb"><img src="images/Фурнитура/Punto EXTRA/Ручка Punto EXTRA BL-24 черный 810 руб..jpg" alt="Punto EXTRA" loading="lazy"></div>
                 <div class="cfg-item__info">
-                  <span class="cfg-item__name config-item__title">Ручка Стандарт</span>
-                  <span class="cfg-item__spec config-item__spec">Длина 120 мм, хром</span>
-                </div>
-                <div class="cfg-item__qty">
-                  <button type="button" class="cfg-qty-btn" data-qty-decrease aria-label="Уменьшить">−</button>
-                  <input type="number" class="cfg-qty-input config-qty-input" value="1" min="0" data-item="handle-1" aria-label="Количество">
-                  <button type="button" class="cfg-qty-btn" data-qty-increase aria-label="Увеличить">+</button>
-                </div>
-                <div class="cfg-item__price">
-                  <span class="config-item__amount">1200</span>
-                  <span class="cfg-item__currency">₽/шт</span>
+                  <span class="cfg-item__name config-item__title">Punto EXTRA</span>
+                  <span class="cfg-item__spec config-item__spec">810 ₽</span>
                 </div>
               </div>
-
-              <!-- Ручка Премиум -->
-              <div class="cfg-item">
-                <div class="cfg-item__thumb" aria-hidden="true"></div>
+              <div class="cfg-item" data-radio-value="Punto ROUND">
+                <div class="cfg-item__thumb"><img src="images/Фурнитура/Punto ROUND/Ручка Punto  ROUND BL-24 черный 1580 руб..jpg" alt="Punto ROUND" loading="lazy"></div>
                 <div class="cfg-item__info">
-                  <span class="cfg-item__name config-item__title">Ручка Премиум</span>
-                  <span class="cfg-item__spec config-item__spec">Длина 140 мм, латунь</span>
-                </div>
-                <div class="cfg-item__qty">
-                  <button type="button" class="cfg-qty-btn" data-qty-decrease aria-label="Уменьшить">−</button>
-                  <input type="number" class="cfg-qty-input config-qty-input" value="0" min="0" data-item="handle-2" aria-label="Количество">
-                  <button type="button" class="cfg-qty-btn" data-qty-increase aria-label="Увеличить">+</button>
-                </div>
-                <div class="cfg-item__price">
-                  <span class="config-item__amount">2400</span>
-                  <span class="cfg-item__currency">₽/шт</span>
+                  <span class="cfg-item__name config-item__title">Punto ROUND</span>
+                  <span class="cfg-item__spec config-item__spec">1 580 ₽</span>
                 </div>
               </div>
-
+              <div class="cfg-item" data-radio-value="Punto SELECT">
+                <div class="cfg-item__thumb"><img src="images/Фурнитура/Punto SELECT/Ручка Punto SELECT BL-24 черный 1280 руб..jpg" alt="Punto SELECT" loading="lazy"></div>
+                <div class="cfg-item__info">
+                  <span class="cfg-item__name config-item__title">Punto SELECT</span>
+                  <span class="cfg-item__spec config-item__spec">1 280 ₽</span>
+                </div>
+              </div>
+              <div class="cfg-item" data-radio-value="Punto STEP">
+                <div class="cfg-item__thumb"><img src="images/Фурнитура/Punto STEP/Ручка Punto STEP BL-24 черный 810 руб..jpg" alt="Punto STEP" loading="lazy"></div>
+                <div class="cfg-item__info">
+                  <span class="cfg-item__name config-item__title">Punto STEP</span>
+                  <span class="cfg-item__spec config-item__spec">810 ₽</span>
+                </div>
+              </div>
+              <div class="cfg-item" data-radio-value="Fuaro ETALON">
+                <div class="cfg-item__thumb"><img src="images/Фурнитура/Fuaro ETALON/Ручка Fuaro ETALON BL-24 черный 1930 руб..jpg" alt="Fuaro ETALON" loading="lazy"></div>
+                <div class="cfg-item__info">
+                  <span class="cfg-item__name config-item__title">Fuaro ETALON</span>
+                  <span class="cfg-item__spec config-item__spec">1 930 ₽</span>
+                </div>
+              </div>
+              <div class="cfg-item" data-radio-value="Armadillo CREME">
+                <div class="cfg-item__thumb"><img src="images/Фурнитура/Armadillo CREME/Ручка Armadillo CREME BL-26 черный 3180 руб..jpg" alt="Armadillo CREME" loading="lazy"></div>
+                <div class="cfg-item__info">
+                  <span class="cfg-item__name config-item__title">Armadillo CREME</span>
+                  <span class="cfg-item__spec config-item__spec">3 180 ₽</span>
+                </div>
+              </div>
+              <div class="cfg-item" data-radio-value="Armadillo LACONY">
+                <div class="cfg-item__thumb"><img src="images/Фурнитура/Armadillo LACONY/Ручка Armadillo LACONY BL-26 черный 3350 руб..jpg" alt="Armadillo LACONY" loading="lazy"></div>
+                <div class="cfg-item__info">
+                  <span class="cfg-item__name config-item__title">Armadillo LACONY</span>
+                  <span class="cfg-item__spec config-item__spec">3 350 ₽</span>
+                </div>
+              </div>
+              <div class="cfg-item" data-radio-value="Armadillo SAVOIARDI">
+                <div class="cfg-item__thumb"><img src="images/Фурнитура/Armadillo SAVOIARDI/Ручка Armadillo SAVOIARDI BL-26 черный 3040 руб..jpg" alt="Armadillo SAVOIARDI" loading="lazy"></div>
+                <div class="cfg-item__info">
+                  <span class="cfg-item__name config-item__title">Armadillo SAVOIARDI</span>
+                  <span class="cfg-item__spec config-item__spec">3 040 ₽</span>
+                </div>
+              </div>
+              <div class="cfg-item" data-radio-value="Armadillo TWIN">
+                <div class="cfg-item__thumb"><img src="images/Фурнитура/Armadillo TWIN/Ручка Armadillo раздельная TWIN BL-26 черный 2490 руб..jpg" alt="Armadillo TWIN" loading="lazy"></div>
+                <div class="cfg-item__info">
+                  <span class="cfg-item__name config-item__title">Armadillo TWIN</span>
+                  <span class="cfg-item__spec config-item__spec">2 490 ₽</span>
+                </div>
+              </div>
             </div>
           </div>
 
-          <!-- Параметры фурнитуры -->
+          <!-- Цвет ручки — плитки с заливкой -->
           <div class="config-detail-item">
             <div class="config-detail-header">
               <span class="config-detail-label">Цвет ручки</span>
-              <span class="config-detail-value">Белый</span>
+              <span class="config-detail-value">Чёрный</span>
               <button class="config-detail-toggle" type="button" aria-expanded="false" aria-label="Показать опции"></button>
             </div>
             <div class="config-detail-options">
-              <button type="button" class="config-chip config-chip_active" data-pick="handle-color" data-price="0" data-value="Белый">Белый</button>
-              <button type="button" class="config-chip" data-pick="handle-color" data-price="500" data-value="Чёрный">Чёрный</button>
-              <button type="button" class="config-chip" data-pick="handle-color" data-price="1500" data-value="Золото">Золото</button>
+              <div class="cfg-color-grid">
+                <button type="button" class="cfg-color-tile cfg-color-tile_active" data-pick="handle-color" data-price="0" data-value="Чёрный">
+                  <span class="cfg-color-tile__swatch" style="background:#333"></span>
+                  <span class="cfg-color-tile__label">Чёрный</span>
+                </button>
+                <button type="button" class="cfg-color-tile" data-pick="handle-color" data-price="0" data-value="Сатинированный хром">
+                  <span class="cfg-color-tile__swatch" style="background:#c0c0c0"></span>
+                  <span class="cfg-color-tile__label">Сатин. хром</span>
+                </button>
+                <button type="button" class="cfg-color-tile" data-pick="handle-color" data-price="500" data-value="Сатинированное золото">
+                  <span class="cfg-color-tile__swatch" style="background:#D4AF37"></span>
+                  <span class="cfg-color-tile__label">Сатин. золото</span>
+                </button>
+                <button type="button" class="cfg-color-tile" data-pick="handle-color" data-price="500" data-value="Флорентийское золото">
+                  <span class="cfg-color-tile__swatch" style="background:#C5972C"></span>
+                  <span class="cfg-color-tile__label">Флор. золото</span>
+                </button>
+                <button type="button" class="cfg-color-tile" data-pick="handle-color" data-price="500" data-value="Итальянский тисненый">
+                  <span class="cfg-color-tile__swatch" style="background:#8B7355"></span>
+                  <span class="cfg-color-tile__label">Итал. тисненый</span>
+                </button>
+                <button type="button" class="cfg-color-tile" data-pick="handle-color" data-price="0" data-value="Матовый никель">
+                  <span class="cfg-color-tile__swatch" style="background:#B8B8B8"></span>
+                  <span class="cfg-color-tile__label">Мат. никель</span>
+                </button>
+              </div>
             </div>
           </div>
 
-          <div class="config-detail-item">
-            <div class="config-detail-header">
-              <span class="config-detail-label">Тип замка</span>
-              <span class="config-detail-value">Нажимные модели</span>
-              <button class="config-detail-toggle" type="button" aria-expanded="false" aria-label="Показать опции"></button>
+          <!-- Защёлка — с фото -->
+          <div class="cfg-section">
+            <div class="cfg-section__header config-detail-header cfg-section__header_toggle" data-section-toggle>
+              <span class="config-detail-label">Защёлка</span>
+              <button class="config-detail-toggle config-detail-toggle_minus" type="button" aria-expanded="true" aria-label="Свернуть"></button>
             </div>
-            <div class="config-detail-options">
-              <button type="button" class="config-chip config-chip_active" data-pick="lock-type" data-price="0" data-value="Нажимные модели">Нажимные модели</button>
-              <button type="button" class="config-chip" data-pick="lock-type" data-price="1500" data-value="С ключом">С ключом</button>
+            <div class="cfg-section__body cfg-radio-group" data-radio-group="locker">
+              <div class="cfg-item cfg-item_active" data-radio-value="Гардиан Soft BL">
+                <div class="cfg-item__thumb"><img src="images/Фурнитура/защелки/Защелка Гардиан Soft 1М BL 970 руб..png" alt="Гардиан Soft чёрный" loading="lazy"></div>
+                <div class="cfg-item__info">
+                  <span class="cfg-item__name config-item__title">Гардиан Soft 1М</span>
+                  <span class="cfg-item__spec config-item__spec">Чёрный, 970 ₽</span>
+                </div>
+              </div>
+              <div class="cfg-item" data-radio-value="Гардиан Soft MCR">
+                <div class="cfg-item__thumb"><img src="images/Фурнитура/защелки/Защелка Гардиан Soft 1М MCR 970 руб..png" alt="Гардиан Soft хром" loading="lazy"></div>
+                <div class="cfg-item__info">
+                  <span class="cfg-item__name config-item__title">Гардиан Soft 1М</span>
+                  <span class="cfg-item__spec config-item__spec">Хром, 970 ₽</span>
+                </div>
+              </div>
+              <div class="cfg-item" data-radio-value="Гардиан Soft MG">
+                <div class="cfg-item__thumb"><img src="images/Фурнитура/защелки/Защелка Гардиан Soft 1М MG 970 руб..jpg" alt="Гардиан Soft золото" loading="lazy"></div>
+                <div class="cfg-item__info">
+                  <span class="cfg-item__name config-item__title">Гардиан Soft 1М</span>
+                  <span class="cfg-item__spec config-item__spec">Золото, 970 ₽</span>
+                </div>
+              </div>
+              <div class="cfg-item" data-radio-value="Гардиан Soft NI">
+                <div class="cfg-item__thumb"><img src="images/Фурнитура/защелки/Защелка Гардиан Soft 1М NI 970 руб..jpg" alt="Гардиан Soft никель" loading="lazy"></div>
+                <div class="cfg-item__info">
+                  <span class="cfg-item__name config-item__title">Гардиан Soft 1М</span>
+                  <span class="cfg-item__spec config-item__spec">Никель, 970 ₽</span>
+                </div>
+              </div>
+              <div class="cfg-item" data-radio-value="AGB Polaris чёрный">
+                <div class="cfg-item__thumb"><img src="images/Фурнитура/защелки/Защелка WC AGB MEDIANA POLARIS черный 2700 руб..jpg" alt="AGB Polaris чёрный" loading="lazy"></div>
+                <div class="cfg-item__info">
+                  <span class="cfg-item__name config-item__title">AGB MEDIANA POLARIS</span>
+                  <span class="cfg-item__spec config-item__spec">Чёрный, 2 700 ₽</span>
+                </div>
+              </div>
+              <div class="cfg-item" data-radio-value="AGB Polaris никель">
+                <div class="cfg-item__thumb"><img src="images/Фурнитура/защелки/Защелка WC AGB MEDIANA POLARIS никель 2160 руб..jpg" alt="AGB Polaris никель" loading="lazy"></div>
+                <div class="cfg-item__info">
+                  <span class="cfg-item__name config-item__title">AGB MEDIANA POLARIS</span>
+                  <span class="cfg-item__spec config-item__spec">Никель, 2 160 ₽</span>
+                </div>
+              </div>
+              <div class="cfg-item" data-radio-value="AGB Polaris латунь">
+                <div class="cfg-item__thumb"><img src="images/Фурнитура/защелки/Защелка WC AGB MEDIANA POLARIS латунь 2160 руб..jpg" alt="AGB Polaris латунь" loading="lazy"></div>
+                <div class="cfg-item__info">
+                  <span class="cfg-item__name config-item__title">AGB MEDIANA POLARIS</span>
+                  <span class="cfg-item__spec config-item__spec">Латунь, 2 160 ₽</span>
+                </div>
+              </div>
+              <div class="cfg-item" data-radio-value="Без защёлки">
+                <div class="cfg-item__info">
+                  <span class="cfg-item__name config-item__title">Без защёлки</span>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="config-detail-item">
-            <div class="config-detail-header">
-              <span class="config-detail-label">Цвет замка</span>
-              <span class="config-detail-value">Белый</span>
-              <button class="config-detail-toggle" type="button" aria-expanded="false" aria-label="Показать опции"></button>
-            </div>
-            <div class="config-detail-options">
-              <button type="button" class="config-chip config-chip_active" data-pick="lock-color" data-price="0" data-value="Белый">Белый</button>
-              <button type="button" class="config-chip" data-pick="lock-color" data-price="500" data-value="Чёрный">Чёрный</button>
-            </div>
-          </div>
-
-          <div class="config-detail-item">
-            <div class="config-detail-header">
-              <span class="config-detail-label">Запирание</span>
-              <span class="config-detail-value">Завертка (WC)</span>
-              <button class="config-detail-toggle" type="button" aria-expanded="false" aria-label="Показать опции"></button>
-            </div>
-            <div class="config-detail-options">
-              <button type="button" class="config-chip config-chip_active" data-pick="locker" data-price="0" data-value="Завертка (WC)">Завертка (WC)</button>
-              <button type="button" class="config-chip" data-pick="locker" data-price="1000" data-value="Защёлка">Защёлка</button>
-            </div>
-          </div>
-
-          <div class="config-detail-item">
-            <div class="config-detail-header">
+          <!-- Петли — с фото -->
+          <div class="cfg-section">
+            <div class="cfg-section__header config-detail-header cfg-section__header_toggle" data-section-toggle>
               <span class="config-detail-label">Петли</span>
-              <span class="config-detail-value">Скрытые</span>
-              <button class="config-detail-toggle" type="button" aria-expanded="false" aria-label="Показать опции"></button>
+              <button class="config-detail-toggle config-detail-toggle_minus" type="button" aria-expanded="true" aria-label="Свернуть"></button>
             </div>
-            <div class="config-detail-options">
-              <button type="button" class="config-chip config-chip_active" data-pick="hinges" data-price="2000" data-value="Скрытые">Скрытые</button>
-              <button type="button" class="config-chip" data-pick="hinges" data-price="0" data-value="Накладные">Накладные</button>
+            <div class="cfg-section__body cfg-radio-group" data-radio-group="hinges">
+              <div class="cfg-item cfg-item_active" data-radio-value="AGB Eclipse чёрный">
+                <div class="cfg-item__thumb"><img src="images/Фурнитура/петли/Петля AGB  ECLIPSE 2.2 черный 2860 руб..jpg" alt="AGB Eclipse чёрный" loading="lazy"></div>
+                <div class="cfg-item__info">
+                  <span class="cfg-item__name config-item__title">AGB ECLIPSE 2.2</span>
+                  <span class="cfg-item__spec config-item__spec">Скрытые, чёрный, 2 860 ₽</span>
+                </div>
+              </div>
+              <div class="cfg-item" data-radio-value="AGB Eclipse хром">
+                <div class="cfg-item__thumb"><img src="images/Фурнитура/петли/Петля AGB  ECLIPSE 2.2 матовый хром 2410 руб..jpg" alt="AGB Eclipse хром" loading="lazy"></div>
+                <div class="cfg-item__info">
+                  <span class="cfg-item__name config-item__title">AGB ECLIPSE 2.2</span>
+                  <span class="cfg-item__spec config-item__spec">Скрытые, мат. хром, 2 410 ₽</span>
+                </div>
+              </div>
+              <div class="cfg-item" data-radio-value="AGB Eclipse латунь">
+                <div class="cfg-item__thumb"><img src="images/Фурнитура/петли/Петля AGB  ECLIPSE 2.2 матовая латунь 2410 руб..jpg" alt="AGB Eclipse латунь" loading="lazy"></div>
+                <div class="cfg-item__info">
+                  <span class="cfg-item__name config-item__title">AGB ECLIPSE 2.2</span>
+                  <span class="cfg-item__spec config-item__spec">Скрытые, мат. латунь, 2 410 ₽</span>
+                </div>
+              </div>
+              <div class="cfg-item" data-radio-value="Apecs чёрная">
+                <div class="cfg-item__thumb"><img src="images/Фурнитура/петли/Петля врезная Apecs 100х70 B4 ВLM черный 240 руб..jpg" alt="Apecs чёрная" loading="lazy"></div>
+                <div class="cfg-item__info">
+                  <span class="cfg-item__name config-item__title">Apecs 100×70 B4</span>
+                  <span class="cfg-item__spec config-item__spec">Врезная, чёрный, 240 ₽</span>
+                </div>
+              </div>
+              <div class="cfg-item" data-radio-value="Apecs хром">
+                <div class="cfg-item__thumb"><img src="images/Фурнитура/петли/Петля врезная Apecs 100х70 B4 CRS матовый хром 240 руб..jpg" alt="Apecs хром" loading="lazy"></div>
+                <div class="cfg-item__info">
+                  <span class="cfg-item__name config-item__title">Apecs 100×70 B4</span>
+                  <span class="cfg-item__spec config-item__spec">Врезная, мат. хром, 240 ₽</span>
+                </div>
+              </div>
+              <div class="cfg-item" data-radio-value="Apecs золото">
+                <div class="cfg-item__thumb"><img src="images/Фурнитура/петли/Петля врезная Apecs 100х70 B4 GMS матовое золото 240 руб..jpg" alt="Apecs золото" loading="lazy"></div>
+                <div class="cfg-item__info">
+                  <span class="cfg-item__name config-item__title">Apecs 100×70 B4</span>
+                  <span class="cfg-item__spec config-item__spec">Врезная, мат. золото, 240 ₽</span>
+                </div>
+              </div>
+              <div class="cfg-item" data-radio-value="Apecs никель">
+                <div class="cfg-item__thumb"><img src="images/Фурнитура/петли/Петля врезная Apecs 100х70 B4 NIS матовый никель 240 руб..jpg" alt="Apecs никель" loading="lazy"></div>
+                <div class="cfg-item__info">
+                  <span class="cfg-item__name config-item__title">Apecs 100×70 B4</span>
+                  <span class="cfg-item__spec config-item__spec">Врезная, мат. никель, 240 ₽</span>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="config-detail-item">
-            <div class="config-detail-header">
-              <span class="config-detail-label">Цвет петель</span>
-              <span class="config-detail-value">Белый</span>
-              <button class="config-detail-toggle" type="button" aria-expanded="false" aria-label="Показать опции"></button>
-            </div>
-            <div class="config-detail-options">
-              <button type="button" class="config-chip config-chip_active" data-pick="hinges-color" data-price="0" data-value="Белый">Белый</button>
-              <button type="button" class="config-chip" data-pick="hinges-color" data-price="500" data-value="Чёрный">Чёрный</button>
-            </div>
-          </div>
-
+          <!-- Ограничитель -->
           <div class="config-detail-item">
             <div class="config-detail-header">
               <span class="config-detail-label">Ограничитель</span>

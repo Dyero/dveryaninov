@@ -88,7 +88,89 @@
         btn.classList.add("product__color_active");
         const val = btn.closest(".product__option")?.querySelector(".product__option-value");
         if (val && btn.getAttribute("title")) val.textContent = btn.getAttribute("title");
+        // Sync with configurator if open
+        syncCoatingToConfigurator(btn.getAttribute("aria-label") || btn.getAttribute("title"));
       });
+    });
+  }
+
+  // Sync coating selection to configurator
+  function syncCoatingToConfigurator(name) {
+    const modal = document.getElementById("configModal");
+    if (!modal) return;
+    modal.querySelectorAll('.cfg-coating-swatch').forEach(sw => {
+      sw.classList.toggle('cfg-coating-swatch_active', sw.getAttribute('data-coating') === name);
+    });
+    const hdr = modal.querySelector('#cfgCoatingsContainer')?.closest('.config-detail-item')?.querySelector('.config-detail-value');
+    if (hdr) hdr.textContent = name;
+  }
+
+  // Sync coating selection from configurator to product page
+  window.syncCoatingToPage = function(name) {
+    const colors = document.querySelectorAll(".product__color");
+    colors.forEach(b => {
+      if (b.classList.contains("product__color_more")) return;
+      b.classList.toggle("product__color_active", b.getAttribute("aria-label") === name);
+    });
+    const val = document.querySelector(".product__colors")?.closest(".product__option")?.querySelector(".product__option-value");
+    if (val) val.textContent = name;
+  };
+
+  // +83 coatings popup
+  function initCoatingsPopup() {
+    let popup = null;
+
+    document.addEventListener("click", e => {
+      const moreBtn = e.target.closest(".product__color_more");
+      if (!moreBtn) {
+        // Close popup on outside click
+        if (popup && !e.target.closest(".coatings-popup")) {
+          popup.remove();
+          popup = null;
+        }
+        return;
+      }
+
+      if (popup) { popup.remove(); popup = null; return; }
+
+      const coatings = window.DVERYANINOV_COATINGS;
+      if (!coatings) return;
+
+      const activeLabel = document.querySelector(".product__color_active")?.getAttribute("aria-label") || "";
+
+      popup = document.createElement("div");
+      popup.className = "coatings-popup";
+      popup.innerHTML = '<div class="coatings-popup__header"><h3 class="coatings-popup__title">Все покрытия</h3><button type="button" class="coatings-popup__close" aria-label="Закрыть">&times;</button></div><div class="coatings-popup__grid"></div>';
+
+      const grid = popup.querySelector(".coatings-popup__grid");
+      coatings.forEach(([name, hex]) => {
+        const swatch = document.createElement("button");
+        swatch.type = "button";
+        swatch.className = "coatings-popup__swatch" + (name === activeLabel ? " coatings-popup__swatch_active" : "");
+        swatch.setAttribute("aria-label", name);
+        swatch.title = name;
+        swatch.innerHTML = '<span class="coatings-popup__color" style="background:' + hex + ';"></span><span class="coatings-popup__name">' + name + '</span>';
+        swatch.addEventListener("click", () => {
+          grid.querySelectorAll(".coatings-popup__swatch").forEach(s => s.classList.remove("coatings-popup__swatch_active"));
+          swatch.classList.add("coatings-popup__swatch_active");
+          // Update product page color
+          const pageColors = document.querySelectorAll(".product__color");
+          pageColors.forEach(b => { if (!b.classList.contains("product__color_more")) b.classList.remove("product__color_active"); });
+          // Find matching visible swatch or just update value
+          let found = false;
+          pageColors.forEach(b => {
+            if (b.getAttribute("aria-label") === name) { b.classList.add("product__color_active"); found = true; }
+          });
+          const val = document.querySelector(".product__colors")?.closest(".product__option")?.querySelector(".product__option-value");
+          if (val) val.textContent = name;
+          syncCoatingToConfigurator(name);
+        });
+        grid.appendChild(swatch);
+      });
+
+      popup.querySelector(".coatings-popup__close").addEventListener("click", () => { popup.remove(); popup = null; });
+
+      moreBtn.closest(".product__colors")?.appendChild(popup);
     });
   }
 
@@ -116,6 +198,7 @@
   initProductGallery();
   initSizeSelection();
   initColorSelection();
+  initCoatingsPopup();
   initReviewReadMore();
   initShowAllReviews();
   initMeasureModal();

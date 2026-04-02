@@ -53,7 +53,7 @@
 
   function updateCartBadge() {
     const items = getCart();
-    const count = items.length;
+    const count = items.reduce((sum, it) => sum + (it.doorQty || 1), 0);
     const btns = document.querySelectorAll(
       'a[href="cart.html"].header__icon-btn',
     );
@@ -220,6 +220,30 @@
       updateConfigTotal();
     }
 
+    function populateCoatingSwatches() {
+      var container = modal?.querySelector("#cfgCoatingsContainer");
+      if (!container || !window.DVERYANINOV_COATINGS) return;
+      var grid = document.createElement("div");
+      grid.className = "cfg-coatings-grid";
+      window.DVERYANINOV_COATINGS.forEach(function(c, i) {
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "cfg-coating-swatch" + (i === 0 ? " cfg-coating-swatch_active" : "");
+        btn.setAttribute("data-coating", c[0]);
+        btn.title = c[0];
+        var swatch = document.createElement("span");
+        swatch.className = "cfg-coating-swatch__color";
+        swatch.style.background = c[1];
+        var label = document.createElement("span");
+        label.className = "cfg-coating-swatch__name";
+        label.textContent = c[0];
+        btn.appendChild(swatch);
+        btn.appendChild(label);
+        grid.appendChild(btn);
+      });
+      container.appendChild(grid);
+    }
+
     function syncStateFromPage() {
       // Sync size from quick selection
       const activeSize = document.querySelector(".product__size_active");
@@ -239,23 +263,17 @@
       }
     }
 
-    // Конфигурация шагов: изображение, текст кнопки «Далее»
+    // Конфигурация шагов: текст кнопки «Далее». Изображение берётся с карточки товара.
     const stepConfig = {
       config: {
-        img: "images/card-door-1.svg",
-        alt: "Вид двери",
         nextLabel: "ВЫБРАТЬ ПОГОНАЖ →",
         nextStep: "molding",
       },
       molding: {
-        img: "images/Альберта.png",
-        alt: "Погонаж",
         nextLabel: "ВЫБРАТЬ ФУРНИТУРУ →",
         nextStep: "hardware",
       },
       hardware: {
-        img: "images/card-door-1.svg",
-        alt: "Ручка",
         nextLabel: "СОХРАНИТЬ И ВЫЙТИ →",
         nextStep: null,
       },
@@ -276,15 +294,9 @@
         el.classList.toggle("cfg-stepper__step_active", isActive);
       });
 
-      // Обновляем изображение и кнопку «Далее»
+      // Обновляем кнопку «Далее» (изображение двери остаётся неизменным)
       const cfg = stepConfig[step];
       if (cfg) {
-        const imgEl = document.querySelector("#cfgImageEl");
-        if (imgEl) {
-          imgEl.src = cfg.img;
-          imgEl.alt = cfg.alt;
-        }
-
         const nextBtn = document.querySelector("#cfgNextBtn");
         if (nextBtn) {
           nextBtn.textContent = cfg.nextLabel;
@@ -468,13 +480,26 @@
         return;
       }
 
-      // Выбор карточки (Radio)
+      // Выбор карточки (Radio) в config-detail-options
       const cfgItemToSelect = target.closest(".cfg-item");
       if (
         cfgItemToSelect &&
         !target.closest(".cfg-qty-btn") &&
         !target.closest(".cfg-qty-input")
       ) {
+        // Radio group (handles, hinges, casing etc.) — одна активная
+        const radioGroup = cfgItemToSelect.closest(".cfg-radio-group");
+        if (radioGroup) {
+          radioGroup.querySelectorAll(".cfg-item").forEach((item) => item.classList.remove("cfg-item_active"));
+          cfgItemToSelect.classList.add("cfg-item_active");
+          // Обновляем state
+          const groupName = radioGroup.getAttribute("data-radio-group");
+          const radioValue = cfgItemToSelect.getAttribute("data-radio-value");
+          if (groupName && radioValue) state[groupName] = radioValue;
+          updateConfigTotal();
+          return;
+        }
+
         const list = cfgItemToSelect.closest(".config-detail-options");
         if (list) {
           list.querySelectorAll(".cfg-item").forEach((item) => {
@@ -557,6 +582,8 @@
               modal = document.getElementById("configModal");
               var cfgImgEl = modal.querySelector("#cfgImageEl");
               if (cfgImgEl) cfgImgEl.src = productImg;
+              // Populate coating swatches from global data
+              populateCoatingSwatches();
               syncStateFromPage();
               openModal(modal);
               initModalSelection();
@@ -652,6 +679,37 @@
         return;
       }
 
+      // Клик по покрытию в конфигураторе
+      var coatingSwatch = target.closest(".cfg-coating-swatch");
+      if (coatingSwatch && modal?.contains(coatingSwatch)) {
+        modal.querySelectorAll(".cfg-coating-swatch").forEach(function(s) { s.classList.remove("cfg-coating-swatch_active"); });
+        coatingSwatch.classList.add("cfg-coating-swatch_active");
+        var coatingName = coatingSwatch.getAttribute("data-coating");
+        state.finish = coatingName;
+        // Обновляем header
+        var coatingHeader = coatingSwatch.closest(".config-detail-item")?.querySelector(".config-detail-value");
+        if (coatingHeader) coatingHeader.textContent = coatingName;
+        // Синхронизируем на страницу товара
+        if (typeof window.syncCoatingToPage === "function") window.syncCoatingToPage(coatingName);
+        return;
+      }
+
+      // Клик по цветовой плитке
+      var colorTile = target.closest(".cfg-color-tile");
+      if (colorTile) {
+        var colorGrid = colorTile.closest(".cfg-color-grid");
+        if (colorGrid) colorGrid.querySelectorAll(".cfg-color-tile").forEach(function(t) { t.classList.remove("cfg-color-tile_active"); });
+        colorTile.classList.add("cfg-color-tile_active");
+        // Обновляем header и state
+        var pick = colorTile.getAttribute("data-pick");
+        var val = colorTile.getAttribute("data-value");
+        if (pick) state[pick] = val;
+        var tileHeader = colorTile.closest(".config-detail-item")?.querySelector(".config-detail-value");
+        if (tileHeader && val) tileHeader.textContent = val;
+        updateConfigTotal();
+        return;
+      }
+
       if (
         target.closest("[data-add-to-cart]") ||
         target.closest("[data-add-to-cart-close]")
@@ -675,6 +733,7 @@
 
         // Собираем выбранные аксессуары из cfg-item (новые карточки)
         const accessories = [];
+        // Элементы со счётчиком
         modal.querySelectorAll(".cfg-item").forEach((item) => {
           const qtyInput = item.querySelector(".cfg-qty-input");
           const qty = Number(qtyInput?.value) || 0;
@@ -700,6 +759,24 @@
               image: accImg,
             });
           }
+        });
+        // Элементы из radio-групп (активный = qty 1)
+        modal.querySelectorAll(".cfg-radio-group .cfg-item_active").forEach((item) => {
+          if (item.querySelector(".cfg-qty-input")) return; // уже учтён выше
+          const accTitle = item.querySelector(".cfg-item__name")?.textContent.trim() || "";
+          if (!accTitle) return;
+          const spec = item.querySelector(".cfg-item__spec")?.textContent.trim() || "";
+          const price = Number(item.querySelector(".config-item__amount")?.textContent.replace(/[^\d]/g, "")) || 0;
+          const accImg = item.querySelector('.cfg-item__thumb img')?.getAttribute('src') || '';
+          accessories.push({
+            id: `acc-${Date.now()}-${Math.random().toString(36).slice(2)}`,
+            title: accTitle,
+            spec,
+            qty: 1,
+            price,
+            oldPrice: 0,
+            image: accImg,
+          });
         });
         // Также cfg-item со старыми config-item (если есть)
         modal.querySelectorAll(".config-item").forEach((item) => {
@@ -1047,6 +1124,7 @@
             cartItems[idx].doorQty = (cartItems[idx].doorQty || 1) + 1;
             localStorage.setItem("dveryaninov_cart_v1", JSON.stringify(cartItems));
             renderCart();
+            updateCartBadge();
           }
           return;
         }
@@ -1060,6 +1138,7 @@
               cartItems[idx].doorQty = cur - 1;
               localStorage.setItem("dveryaninov_cart_v1", JSON.stringify(cartItems));
               renderCart();
+              updateCartBadge();
             }
           }
           return;
