@@ -267,7 +267,7 @@
     function toggleGlazingVisibility() {
       if (!modal) return;
       var title = document.querySelector(".product__title")?.textContent.trim() || "";
-      var isPG = /\bПГ\b/i.test(title);
+      var isPG = /(^|\s)ПГ(\s|$)/i.test(title);
       modal.querySelectorAll(".config-detail-item").forEach(function(item) {
         var label = item.querySelector(".config-detail-label");
         if (label && label.textContent.trim() === "Остекление") {
@@ -671,6 +671,14 @@
             var cfgItem = el.closest(".cfg-item");
             if (cfgItem) cfgItem.style.display = allowed.includes(doorWidth) ? "" : "none";
           });
+          // Синхронизация размера в карточку товара
+          var norm = value.replace(/×/g, "х");
+          document.querySelectorAll(".product__size").forEach(function(b) {
+            if (b.classList.contains("product__size_measure") || b.classList.contains("product__size_own")) return;
+            b.classList.toggle("product__size_active", b.textContent.trim() === norm);
+          });
+          var sizeVal = document.querySelector(".product__option-value");
+          if (sizeVal) sizeVal.textContent = norm;
         }
 
         // Обновляем группу чипов в detail-options
@@ -1098,6 +1106,7 @@
         const goodsEl = document.querySelector(".cart-summary__goods-count");
         const sumEl = document.querySelector(".cart-summary__sum");
         const reqCountEl = document.querySelector(".cart-summary__request-count");
+        const totalEl = document.querySelector(".cart-summary__total");
 
         if (goodsEl) goodsEl.textContent = goodsCount + ' ' + pluralize(goodsCount, 'товар', 'товара', 'товаров');
         if (sumEl) sumEl.textContent = total > 0 ? 'от ' + new Intl.NumberFormat("ru-RU").format(total) + ' ₽' : '0 ₽';
@@ -1105,6 +1114,7 @@
           reqCountEl.textContent = priceRequestCount + ' ' + pluralize(priceRequestCount, 'товар', 'товара', 'товаров');
           reqCountEl.closest('.cart-summary__row').style.display = priceRequestCount > 0 ? '' : 'none';
         }
+        if (totalEl) totalEl.textContent = total > 0 ? new Intl.NumberFormat("ru-RU").format(total) + ' ₽' : '0 ₽';
       }
     }
 
@@ -1173,7 +1183,12 @@
           var item = cartItems[itemIdx];
           // Save edit state so product page can restore selections
           localStorage.setItem("dveryaninov_edit_item", JSON.stringify({ index: itemIdx, item: item }));
-          var url = item.productUrl || "catalog.html";
+          // Determine product page URL
+          var url = item.productUrl;
+          if (!url && item.id && item.id.indexOf('product-') === 0) {
+            url = item.id + '.html';
+          }
+          if (!url) url = "catalog.html";
           window.location.href = url;
         }
       }
@@ -1260,16 +1275,8 @@
       localStorage.setItem("dveryaninov_orders_v1", JSON.stringify(history));
       localStorage.setItem("dveryaninov_cart_v1", "[]");
 
-      // Show success
-      const guestContent = document.getElementById("checkout-content");
-      const authConfirm = document.getElementById("checkout-auth-confirm");
-      const successScreen = document.getElementById("checkout-success");
-      if (guestContent) guestContent.hidden = true;
-      if (authConfirm) authConfirm.hidden = true;
-      if (successScreen) successScreen.hidden = false;
-
-      renderCart();
-      updateCartBadge();
+      // Redirect to account page to show order in history
+      window.location.href = "account.html?order=" + encodeURIComponent(order.id);
     }
 
     // Close checkout modal handlers

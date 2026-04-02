@@ -69,60 +69,132 @@
       stopper: 'Ограничитель' 
     };
 
-    section.innerHTML = orders.map(function(ord) {
-      var itemsHtml = (ord.items || []).map(function(it) {
-        var doorQty = it.doorQty || 1;
-        
-        let doorProps = '';
-        if (it.options) {
-          doorProps = '<div style="margin-top: 16px; display: grid; gap: 8px; font-size: 13px; color: #555;">';
-          for (var k in labels) {
-            if (it.options[k] && it.options[k] !== '-') {
-              doorProps += '<div><span style="color:#999">' + labels[k] + ':</span> ' + it.options[k] + '</div>';
-            }
-          }
-          doorProps += '</div>';
-        }
-
-        let accHtml = '';
-        if (it.accessories && it.accessories.length) {
-          accHtml = '<div style="margin-top: 24px;">';
-          it.accessories.forEach(function(acc) {
-            accHtml += '<div style="display: grid; grid-template-columns: 120px 1fr; gap: 24px; margin-bottom: 24px;">';
-            accHtml += '<div style="width:120px; height:120px; background:#f5f5f5; display:flex; align-items:center; justify-content:center; padding:10px;"><img src="images/card-door-1.svg" style="max-height:100%; object-fit:contain" alt=""></div>';
-            accHtml += '<div><h4 style="margin:0 0 8px; font-size:16px;">' + (acc.title || 'Аксессуар') + '</h4>';
-            accHtml += '<div style="font-size:13px; color:#555;"><span style="color:#999">Спецификация:</span> ' + (acc.spec || '') + '</div>';
-            accHtml += '<div style="font-size:13px; color:#555; margin-top:4px;"><span style="color:#999">Цена:</span> ' + new Intl.NumberFormat('ru-RU').format(acc.price) + ' ₽ × ' + (acc.qty||1) + '</div>';
-            accHtml += '</div></div>';
-          });
-          accHtml += '</div>';
-        }
-
-        return '<div style="display: grid; grid-template-columns: 120px 1fr; gap: 24px; margin-bottom: 40px; padding-bottom: 40px; border-bottom: 1px solid #eee;">' +
-          '<div style="width: 120px;"><img src="' + (it.image || 'images/card-door-1.svg') + '" style="width: 100%; background: #f9f9f9; padding: 10px;" alt=""></div>' +
-          '<div>' +
-            '<div style="display: flex; justify-content: space-between; align-items: flex-start;">' +
-              '<h3 style="margin: 0; font-size: 16px;">' + (it.title || 'Товар') + (doorQty > 1 ? ' <span style="color:#999">× ' + doorQty + '</span>' : '') + '</h3>' +
-              '<div style="text-align: right; font-size: 14px;"><div style="color: #999;">Цена за комплект</div>' + new Intl.NumberFormat('ru-RU').format((it.priceSum || it.price || 0) * doorQty) + ' ₽</div>' +
-            '</div>' +
-            doorProps +
-            accHtml +
-          '</div>' +
-        '</div>';
-
-      }).join('');
-
+    // Brief order cards
+    section.innerHTML = orders.slice().reverse().map(function(ord, revIdx) {
       var d = new Date(ord.date).toLocaleDateString('ru-RU');
-      var extraInfo = '';
-      if (ord.delivery) extraInfo += '<span style="display:inline-block;margin-right:12px;padding:4px 10px;background:#f0f0f0;font-size:12px;">Доставка</span>';
-      if (ord.install) extraInfo += '<span style="display:inline-block;padding:4px 10px;background:#f0f0f0;font-size:12px;">Установка</span>';
-      return '<div style="margin-bottom: 40px;">' +
-        '<h2 style="font-size: 20px; margin-bottom: 8px;">Заказ #' + ord.id.replace('ORD-','') + ' от ' + d + '</h2>' +
-        (extraInfo ? '<div style="margin-bottom:16px;">' + extraInfo + '</div>' : '') +
-        itemsHtml +
-        '<div style="text-align: right; font-size: 18px; font-weight: bold;">Итого: ' + new Intl.NumberFormat('ru-RU').format(ord.total) + ' ₽</div>' +
+      var itemCount = (ord.items || []).length;
+      var firstTitle = (ord.items && ord.items[0]) ? (ord.items[0].title || 'Товар') : 'Товар';
+      var moreText = itemCount > 1 ? ' и ещё ' + (itemCount - 1) + ' поз.' : '';
+      var badges = '';
+      if (ord.delivery) badges += '<span style="display:inline-block;margin-right:8px;padding:3px 8px;background:#f0f0f0;font-size:11px;">Доставка</span>';
+      if (ord.install) badges += '<span style="display:inline-block;padding:3px 8px;background:#f0f0f0;font-size:11px;">Установка</span>';
+
+      return '<div class="order-card" style="border:1px solid #eee;padding:20px;margin-bottom:16px;">' +
+        '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">' +
+          '<h3 style="margin:0;font-size:16px;">Заказ #' + ord.id.replace('ORD-','') + '</h3>' +
+          '<span style="font-size:13px;color:#999;">' + d + '</span>' +
+        '</div>' +
+        '<p style="margin:0 0 8px;font-size:14px;color:#555;">' + esc(firstTitle) + moreText + '</p>' +
+        (badges ? '<div style="margin-bottom:8px;">' + badges + '</div>' : '') +
+        '<div style="display:flex;justify-content:space-between;align-items:center;">' +
+          '<span style="font-size:16px;font-weight:700;">' + fmt(ord.total) + ' ₽</span>' +
+          '<button type="button" class="btn btn_primary" style="padding:8px 20px;font-size:13px;" data-order-detail="' + (orders.length - 1 - revIdx) + '">Подробнее</button>' +
+        '</div>' +
       '</div>';
     }).join('');
+
+    // Bind detail buttons
+    section.querySelectorAll('[data-order-detail]').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var idx = Number(btn.getAttribute('data-order-detail'));
+        showOrderDetail(orders[idx], labels);
+      });
+    });
+
+    // Highlight newest order if redirected from checkout
+    var params = new URLSearchParams(window.location.search);
+    var highlightId = params.get('order');
+    if (highlightId) {
+      // Find the card for this order
+      var cards = section.querySelectorAll('.order-card');
+      cards.forEach(function(card) {
+        if (card.innerHTML.indexOf(highlightId.replace('ORD-','')) !== -1) {
+          card.style.borderColor = '#611025';
+          card.style.borderWidth = '2px';
+        }
+      });
+      // Clean URL
+      window.history.replaceState({}, '', 'account.html');
+    }
+  }
+
+  function showOrderDetail(ord, labels) {
+    // Remove existing detail modal
+    var existing = document.getElementById('order-detail-modal');
+    if (existing) existing.remove();
+
+    var itemsHtml = (ord.items || []).map(function(it) {
+      var doorQty = it.doorQty || 1;
+      var doorProps = '';
+      if (it.options) {
+        doorProps = '<div style="margin-top:12px;display:grid;gap:6px;font-size:13px;color:#555;">';
+        for (var k in labels) {
+          if (it.options[k] && it.options[k] !== '-') {
+            doorProps += '<div><span style="color:#999">' + labels[k] + ':</span> ' + it.options[k] + '</div>';
+          }
+        }
+        doorProps += '</div>';
+      }
+
+      var accHtml = '';
+      if (it.accessories && it.accessories.length) {
+        accHtml = '<div style="margin-top:16px;border-top:1px solid #f0f0f0;padding-top:12px;">';
+        accHtml += '<div style="font-size:13px;font-weight:600;margin-bottom:8px;">Фурнитура и погонаж</div>';
+        it.accessories.forEach(function(acc) {
+          accHtml += '<div style="display:flex;gap:12px;margin-bottom:8px;font-size:13px;">';
+          if (acc.image) accHtml += '<img src="' + acc.image + '" style="width:40px;height:40px;object-fit:contain;background:#f5f5f5;" alt="">';
+          accHtml += '<div>' + esc(acc.title || 'Аксессуар');
+          if (acc.spec) accHtml += ' <span style="color:#999">(' + esc(acc.spec) + ')</span>';
+          accHtml += ' × ' + (acc.qty || 1);
+          accHtml += '</div></div>';
+        });
+        accHtml += '</div>';
+      }
+
+      return '<div style="display:flex;gap:16px;padding:16px 0;border-bottom:1px solid #f0f0f0;">' +
+        '<img src="' + (it.image || 'images/card-door-1.svg') + '" style="width:80px;height:100px;object-fit:contain;background:#f9f9f9;padding:4px;flex-shrink:0;" alt="">' +
+        '<div style="flex:1;min-width:0;">' +
+          '<div style="display:flex;justify-content:space-between;align-items:flex-start;">' +
+            '<h4 style="margin:0;font-size:15px;">' + esc(it.title || 'Товар') + (doorQty > 1 ? ' <span style="color:#999">× ' + doorQty + '</span>' : '') + '</h4>' +
+            '<span style="font-weight:600;white-space:nowrap;margin-left:12px;">' + fmt((it.priceSum || it.price || 0) * doorQty) + ' ₽</span>' +
+          '</div>' +
+          doorProps +
+          accHtml +
+        '</div>' +
+      '</div>';
+    }).join('');
+
+    var d = new Date(ord.date).toLocaleDateString('ru-RU');
+    var badges = '';
+    if (ord.delivery) badges += '<span style="display:inline-block;margin-right:8px;padding:4px 10px;background:#f0f0f0;font-size:12px;">Доставка</span>';
+    if (ord.install) badges += '<span style="display:inline-block;padding:4px 10px;background:#f0f0f0;font-size:12px;">Установка</span>';
+
+    var modal = document.createElement('div');
+    modal.id = 'order-detail-modal';
+    modal.style.cssText = 'position:fixed;inset:0;z-index:10000;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.5);';
+    modal.innerHTML = '<div style="background:#fff;width:min(600px,calc(100vw - 32px));max-height:85vh;overflow-y:auto;padding:32px;">' +
+      '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">' +
+        '<h2 style="margin:0;font-size:20px;">Заказ #' + ord.id.replace('ORD-','') + '</h2>' +
+        '<button type="button" id="close-order-detail" style="background:none;border:none;font-size:24px;cursor:pointer;padding:0;line-height:1;">×</button>' +
+      '</div>' +
+      '<p style="margin:0 0 12px;font-size:13px;color:#999;">Дата: ' + d + '</p>' +
+      (badges ? '<div style="margin-bottom:16px;">' + badges + '</div>' : '') +
+      itemsHtml +
+      '<div style="text-align:right;margin-top:20px;padding-top:16px;border-top:1px solid #eee;font-size:18px;font-weight:700;">Итого: ' + fmt(ord.total) + ' ₽</div>' +
+    '</div>';
+
+    document.body.appendChild(modal);
+    document.body.style.overflow = 'hidden';
+
+    function closeDetail() {
+      modal.remove();
+      document.body.style.overflow = '';
+    }
+    modal.querySelector('#close-order-detail').addEventListener('click', closeDetail);
+    modal.addEventListener('click', function(e) { if (e.target === modal) closeDetail(); });
+    document.addEventListener('keydown', function handler(e) {
+      if (e.key === 'Escape') { closeDetail(); document.removeEventListener('keydown', handler); }
+    });
   }
 
   function initLogout() {

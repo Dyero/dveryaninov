@@ -7981,9 +7981,10 @@ body {
 
 /* Configurator coating swatches */
 .cfg-coatings-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 6px;
+  width: 100%;
 }
 .cfg-coating-swatch {
   display: flex;
@@ -7996,6 +7997,8 @@ body {
   background: none;
   cursor: pointer;
   transition: border-color .15s;
+  width: 80px;
+  flex-shrink: 0;
 }
 .cfg-coating-swatch:hover {
   border-color: #ccc;

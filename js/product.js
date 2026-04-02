@@ -334,22 +334,23 @@
     try { data = JSON.parse(raw); } catch(e) { return; }
     if (!data || !data.item) return;
 
-    // Only act on the matching product page
-    var currentPage = window.location.pathname.split('/').pop();
-    if (data.item.productUrl && data.item.productUrl !== currentPage) {
-      // Wrong page - clear and ignore
-      localStorage.removeItem("dveryaninov_edit_item");
+    // Check we're on a product page
+    if (!document.querySelector(".product__title")) {
+      // Not a product page — don't consume the edit state
       return;
     }
 
     var opts = data.item.options || {};
+
+    // Normalize size strings for comparison (both Cyrillic х and × multiplication sign)
+    function normSize(s) { return String(s || '').replace(/[хx×]/gi, '×'); }
 
     // Restore size selection
     if (opts.size) {
       var sizeBtns = document.querySelectorAll(".product__size");
       sizeBtns.forEach(function(btn) {
         if (btn.classList.contains("product__size_measure") || btn.classList.contains("product__size_own")) return;
-        var match = btn.textContent.trim().replace(/х/g, '×') === opts.size.replace(/х/g, '×');
+        var match = normSize(btn.textContent.trim()) === normSize(opts.size);
         btn.classList.toggle("product__size_active", match);
       });
       var sizeVal = document.querySelector(".product__option-value");
