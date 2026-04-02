@@ -107,6 +107,94 @@ COATINGS = [
 
 COATINGS_VISIBLE = 8  # Show first 8 swatches
 
+# Price data: (collection_name, [model_nums], pg_price_or_None, po_price_or_None)
+_PRICE_DATA = [
+    # Аврора
+    ("Аврора", ["1", "2"], 20300, 23140),
+    ("Аврора", ["3", "4", "5"], None, 23140),
+    # Альберта
+    ("Альберта", ["1", "2", "3"], None, 23140),
+    ("Альберта", ["4", "5", "6", "7"], None, 24560),
+    # Амери
+    ("Амери", [str(i) for i in range(1, 11)], 19300, 21860),
+    # Амфора
+    ("Амфора", [str(i) for i in range(1, 10)], 19870, None),
+    # Белуни
+    ("Белуни", [str(i) for i in range(1, 9)], 19440, 22000),
+    # Бланк
+    ("Бланк", [str(i) for i in range(1, 6)], 20860, 23700),
+    # Бона
+    ("Бона", [str(i) for i in range(1, 7)], 19300, 22000),
+    # Бонеко
+    ("Бонеко", [str(i) for i in range(1, 7)], 19440, 22280),
+    # Вектор
+    ("Вектор", ["1", "2", "3", "5", "6"], 19870, 22710),
+    ("Вектор", ["4", "7", "8", "9", "10", "11"], 19870, None),
+    # Верто
+    ("Верто", [str(i) for i in range(1, 10)], 20860, None),
+    # Витра
+    ("Витра", ["1", "2"], 22710, None),
+    ("Витра", ["3", "4", "5", "6", "7"], 21290, None),
+    # Д
+    ("Д", ["4", "14", "22"], None, 13620),
+    ("Д", ["16", "36", "43", "44", "48", "49", "50"], None, 13200),
+    ("Д", ["17"], 12770, None),
+    # Декар
+    ("Декар", [str(i) for i in range(1, 6)], 20860, 23420),
+    # Декар с багетом
+    ("Декар с багетом", [str(i) for i in range(1, 6)], 24560, 27400),
+    # Кант
+    ("Кант", [str(i) for i in range(1, 6)], 18020, 20860),
+    # Каскад
+    ("Каскад", [str(i) for i in range(1, 6)], 19870, 22280),
+    # Квант
+    ("Квант", [str(i) for i in range(1, 5)], 23140, 25550),
+    # Мета
+    ("Мета", [str(i) for i in range(1, 6)], 21720, None),
+    # Миура
+    ("Миура", [str(i) for i in range(1, 6)], 20440, 22710),
+    # Модена
+    ("Модена", ["1"], 23140, 32520),
+    ("Модена", ["2", "3", "4", "5"], 23140, 31230),
+    # Моно
+    ("Моно", [str(i) for i in range(1, 9)], 18450, None),
+    ("Моно", ["9", "10", "11", "12"], None, 19020),
+    # Нео
+    ("Нео", [str(i) for i in range(1, 7)], 19300, 22000),
+    # Оазис
+    ("Оазис", [str(i) for i in range(1, 6)], 20300, 22710),
+    # Палладио
+    ("Палладио", [str(i) for i in range(1, 7)], 20860, None),
+    # Плиссе (от 25 690 — минимальная из серий 80/120 мм)
+    ("Плиссе", ["1", "2", "3"], 25690, None),
+    # Терра
+    ("Терра", [str(i) for i in range(1, 6)], 21720, None),
+    # Ультра
+    ("Ультра", ["1", "2", "3"], 19870, 22570),
+    ("Ультра", ["4", "5"], 19870, 24700),
+    # Флай
+    ("Флай", [str(i) for i in range(1, 9)], None, 24560),
+    # Форм
+    ("Форм", [str(i) for i in range(1, 6)], 20860, None),
+    # Этерна
+    ("Этерна", [str(i) for i in range(1, 6)], 19300, 22000),
+]
+
+PRICES = {}
+for _coll, _models, _pg, _po in _PRICE_DATA:
+    for _m in _models:
+        PRICES[(_coll, _m)] = (_pg, _po)
+
+def format_price(price):
+    """19300 → '19 300'"""
+    return f"{price:,}".replace(",", " ")
+
+def get_min_price(coll_name, model_num):
+    """Return (min_price, pg_price, po_price) or (None, None, None)."""
+    pg, po = PRICES.get((coll_name, str(model_num)), (None, None))
+    prices = [p for p in (pg, po) if p]
+    return (min(prices) if prices else None, pg, po)
+
 # Folder name aliases — where folder name ≠ filename prefix
 COLL_ALIASES = {
     "Бонеко": ["БОНЭКО", "Бонэко", "бонэко"],
@@ -251,6 +339,10 @@ def generate_collection_page(coll_name, models):
         elif has_po:
             variant = "ПО"
         
+        # Get price for this model
+        min_p, _, _ = get_min_price(coll_name, num)
+        card_price = f'<span class="card__price-prefix">от</span> {format_price(min_p)} ₽' if min_p else 'Цена по запросу'
+        
         cards_html += f'''        <article class="card">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
@@ -259,7 +351,7 @@ def generate_collection_page(coll_name, models):
           <div class="card__info">
             <h3 class="card__title"><a href="product-{product_slug}.html">{m['display_name']}</a></h3>
             {f'<p class="card__variant">{variant}</p>' if variant else ''}
-            <p class="card__price"><span class="card__price-prefix">от</span> Цена по запросу</p>
+            <p class="card__price">{card_price}</p>
           </div>
         </article>
 '''
@@ -360,6 +452,11 @@ def generate_product_page(coll_name, model_num, model_data, all_models):
     coatings_html += f'              <button type="button" class="product__size product__size_own">Свой цвет</button>\n'
     coatings_html += f'            </div>\n'
     default_coating = COATINGS[0][0]
+    
+    # Get price for this model
+    min_p, _, _ = get_min_price(coll_name, model_num)
+    price_text = f"от {format_price(min_p)} ₽" if min_p else "Цена по запросу"
+    
     # Related products (other models from same collection, max 4)
     related_html = ""
     count = 0
@@ -370,12 +467,14 @@ def generate_product_page(coll_name, model_num, model_data, all_models):
             break
         rslug = slugify(m['display_name'])
         rimg = f"images/Коллекции/{coll_name}/{m['primary_file']}"
+        rmin, _, _ = get_min_price(coll_name, num)
+        rprice = f"от {format_price(rmin)} ₽" if rmin else "Цена по запросу"
         related_html += f'''        <article class="card">
           <div class="card__image-wrap">
             <img class="card__image" src="{rimg}" alt="{m['display_name']}" width="288" height="320">
           </div>
           <h3 class="card__title"><a href="product-{rslug}.html">{m['display_name']}</a></h3>
-          <p class="card__price">Цена по запросу</p>
+          <p class="card__price">{rprice}</p>
         </article>
 '''
         count += 1
@@ -450,7 +549,7 @@ def generate_product_page(coll_name, model_num, model_data, all_models):
         </div>
 
         <div class="product__price-block">
-          <p class="product__price">Цена по запросу</p>
+          <p class="product__price">{price_text}</p>
           <div class="product__actions">
             <button type="button" class="product__btn product__btn_cart">
               <span class="product__btn-icon product__btn-icon_cart" aria-hidden="true"></span>
