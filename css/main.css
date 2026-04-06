@@ -2542,11 +2542,12 @@ a {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  max-height: 0;
-  padding: 0;
+  max-height: 200px;
+  padding-top: 16px;
+  padding-bottom: 0;
   margin: 0;
-  opacity: 0;
-  visibility: hidden;
+  opacity: 1;
+  visibility: visible;
   overflow: hidden;
   transition:
     max-height 0.35s ease,
@@ -2560,7 +2561,7 @@ a {
   padding-bottom: 8px;
   opacity: 1;
   visibility: visible;
-  overflow-y: auto;
+  overflow: visible;
 }
 
 /* Config items (т?вар?ые о?зиции) */
@@ -6020,11 +6021,11 @@ a.order-item__title:hover {
 
 /* Карточки фурнитуры — анимация аккордеона */
 .cfg-section__body {
-  max-height: 0;
-  padding: 0;
+  max-height: 200px;
+  padding: 12px 0 0;
   margin: 0;
-  opacity: 0;
-  visibility: hidden;
+  opacity: 1;
+  visibility: visible;
   overflow: hidden;
   transition:
     max-height 0.35s ease,
@@ -6032,6 +6033,9 @@ a.order-item__title:hover {
     margin 0.25s ease,
     opacity 0.25s ease;
   border-bottom: 1px solid var(--color-border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .cfg-section__body.is-open {
@@ -6039,9 +6043,7 @@ a.order-item__title:hover {
   padding: 12px 0;
   opacity: 1;
   visibility: visible;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  overflow: visible;
 }
 
 .cfg-item {
@@ -8036,7 +8038,7 @@ body {
   border: 1px solid rgba(0,0,0,.12);
   border-radius: 0;
   box-shadow: 0 4px 16px rgba(0,0,0,.1);
-  z-index: 100;
+  z-index: 10100;
   pointer-events: none;
 }
 

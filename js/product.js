@@ -127,8 +127,35 @@
     });
     const val = document.querySelector(".product__option_coating .product__option-value");
     if (val) val.textContent = name;
-    // Move selected to first position
-    const activeBtn = document.querySelector('.product__color[aria-label="' + name + '"]');
+    // Find or create swatch
+    let activeBtn = document.querySelector('.product__color[aria-label="' + name + '"]');
+    if (!activeBtn) {
+      // Find hex from coatings data
+      var hex = "#ccc";
+      var coatings = window.DVERYANINOV_COATINGS;
+      if (coatings) {
+        for (var i = 0; i < coatings.length; i++) {
+          if (coatings[i][0] === name) { hex = coatings[i][1]; break; }
+        }
+      }
+      activeBtn = document.createElement("button");
+      activeBtn.type = "button";
+      activeBtn.className = "product__color product__color_active";
+      activeBtn.setAttribute("aria-label", name);
+      activeBtn.title = name;
+      activeBtn.style.cssText = "--color-swatch: " + hex + ";";
+      activeBtn.innerHTML = '<span class="product__color-inner" style="background: ' + hex + ';"></span>';
+      activeBtn.addEventListener("click", function() {
+        document.querySelectorAll(".product__color").forEach(function(b) { if (!b.classList.contains("product__color_more")) b.classList.remove("product__color_active"); });
+        this.classList.add("product__color_active");
+        var v = document.querySelector(".product__option_coating .product__option-value");
+        if (v) v.textContent = name;
+        reorderProductColors(this);
+        syncCoatingToConfigurator(name);
+      });
+      var container = document.querySelector(".product__colors");
+      if (container) container.insertBefore(activeBtn, container.firstElementChild);
+    }
     if (activeBtn) reorderProductColors(activeBtn);
   };
 
@@ -172,16 +199,33 @@
           // Update product page color
           const pageColors = document.querySelectorAll(".product__color");
           pageColors.forEach(b => { if (!b.classList.contains("product__color_more")) b.classList.remove("product__color_active"); });
-          // Find matching visible swatch or just update value
-          let found = false;
-          pageColors.forEach(b => {
-            if (b.getAttribute("aria-label") === name) { b.classList.add("product__color_active"); found = true; }
-          });
+          // Find matching visible swatch or create one
+          let matched = document.querySelector('.product__color[aria-label="' + name + '"]');
+          if (!matched) {
+            // Create a new swatch for this color
+            matched = document.createElement("button");
+            matched.type = "button";
+            matched.className = "product__color";
+            matched.setAttribute("aria-label", name);
+            matched.title = name;
+            matched.style.cssText = "--color-swatch: " + hex + ";";
+            matched.innerHTML = '<span class="product__color-inner" style="background: ' + hex + ';"></span>';
+            matched.addEventListener("click", function() {
+              document.querySelectorAll(".product__color").forEach(b => { if (!b.classList.contains("product__color_more")) b.classList.remove("product__color_active"); });
+              this.classList.add("product__color_active");
+              var v = document.querySelector(".product__option_coating .product__option-value");
+              if (v) v.textContent = name;
+              reorderProductColors(this);
+              syncCoatingToConfigurator(name);
+            });
+            var colorsContainer = document.querySelector(".product__colors");
+            if (colorsContainer) colorsContainer.insertBefore(matched, colorsContainer.firstElementChild);
+          }
+          matched.classList.add("product__color_active");
           const val = document.querySelector(".product__option_coating .product__option-value");
           if (val) val.textContent = name;
           // Move selected to first position
-          const matched = document.querySelector('.product__color[aria-label="' + name + '"]');
-          if (matched) reorderProductColors(matched);
+          reorderProductColors(matched);
           syncCoatingToConfigurator(name);
         });
         grid.appendChild(swatch);

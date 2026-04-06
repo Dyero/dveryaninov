@@ -547,6 +547,8 @@ def generate_product_page(coll_name, model_num, model_data, all_models):
             <span class="product__option-label">Покрытие:</span>
             <span class="product__option-value">{default_coating}</span>
           </div>
+          <div class="product__colors">
+{coatings_html}          </div>
         </div>
 
         <div class="product__price-block">
@@ -559,8 +561,6 @@ def generate_product_page(coll_name, model_num, model_data, all_models):
             </button>
             <button type="button" class="product__btn product__btn_wishlist" aria-label="В избранное"></button>
           </div>
-          <div class="product__colors">
-{coatings_html}          </div>
           <button type="button" class="product__btn product__btn_config" data-open-config><img src="images/0203 vuesax 04 conf.svg" alt="" width="20" height="20" aria-hidden="true"> Конструктор</button>
         </div>
       </div>
