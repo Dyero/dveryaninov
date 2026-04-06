@@ -352,14 +352,18 @@ def generate_collection_page(coll_name, models):
         min_p, _, _ = get_min_price(coll_name, num)
         card_price = f'<span class="card__price-prefix">от</span> {format_price(min_p)} ₽' if min_p else 'Цена по запросу'
         
+        variant_html = f'<span class="card__variant">{variant}</span>' if variant else ''
+        
         cards_html += f'''        <article class="card">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="{img_path}" alt="{m['display_name']}">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-{product_slug}.html">{m['display_name']}</a></h3>
-            {f'<p class="card__variant">{variant}</p>' if variant else ''}
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-{product_slug}.html">{m['display_name']}</a></h3>
+              {variant_html}
+            </div>
             <p class="card__price">{card_price}</p>
           </div>
         </article>
@@ -486,8 +490,10 @@ def generate_product_page(coll_name, model_num, model_data, all_models):
           <div class="card__image-wrap">
             <img class="card__image" src="{rimg}" alt="{m['display_name']}" width="288" height="320">
           </div>
-          <h3 class="card__title"><a href="product-{rslug}.html">{m['display_name']}</a></h3>
-          <p class="card__price">{rprice}</p>
+          <div class="card__info">
+            <h3 class="card__title"><a href="product-{rslug}.html">{m['display_name']}</a></h3>
+            <p class="card__price">{rprice}</p>
+          </div>
         </article>
 '''
         count += 1
@@ -702,12 +708,15 @@ for coll_name in sorted(os.listdir(COLLECTIONS_DIR)):
 
 # Generate catalog.html — flat list of ALL doors across all collections
 catalog_cards = ""
+catalog_collections = set()
 for coll_name in sorted(all_collections.keys()):
     models = all_collections[coll_name]
     for num in sorted(models.keys(), key=lambda x: (len(x), x)):
         m = models[num]
         if not m['primary_file']:
             continue
+        catalog_collections.add(coll_name)
+        coll_slug = slugify(coll_name)
         img_path = f"images/Коллекции/{coll_name}/{m['primary_file']}"
         product_slug = slugify(m['display_name'])
         min_p, _, _ = get_min_price(coll_name, num)
@@ -721,18 +730,27 @@ for coll_name in sorted(all_collections.keys()):
             variant = "ПГ"
         elif has_po:
             variant = "ПО"
-        catalog_cards += f'''        <article class="card">
+        variant_html = f'<span class="card__variant">{variant}</span>' if variant else ''
+        catalog_cards += f'''        <article class="card" data-collection="{coll_slug}">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="{img_path}" alt="{m['display_name']}">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-{product_slug}.html">{m['display_name']}</a></h3>
-            {f'<p class="card__variant">{variant}</p>' if variant else ''}
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-{product_slug}.html">{m['display_name']}</a></h3>
+              {variant_html}
+            </div>
             <p class="card__price">{card_price}</p>
           </div>
         </article>
 '''
+
+# Build sidebar filter HTML
+filter_buttons = ""
+for cn in sorted(catalog_collections):
+    cs = slugify(cn)
+    filter_buttons += f'        <button type="button" class="catalog__filter-btn" data-filter-collection="{cs}">{cn}</button>\n'
 
 catalog_html = f'''<!DOCTYPE html>
 <html lang="ru">
@@ -770,8 +788,25 @@ catalog_html = f'''<!DOCTYPE html>
         <button type="button" class="catalog__cat-btn" data-category="invisible">Скрытые двери (Invisible)</button>
       </div>
 
-      <div class="section__cards section__cards_wrap catalog__grid">
-{catalog_cards}      </div>
+      <!-- Mobile filter toggle -->
+      <button type="button" class="catalog__filter-toggle" id="catalogFilterToggle">Фильтры</button>
+
+      <div class="catalog__body">
+        <!-- Sidebar filters -->
+        <aside class="catalog__sidebar" id="catalogSidebar">
+          <div class="catalog__sidebar-head">
+            <h3 class="catalog__sidebar-title">Коллекции</h3>
+            <button type="button" class="catalog__sidebar-close" id="catalogSidebarClose" aria-label="Закрыть фильтры">&times;</button>
+          </div>
+          <div class="catalog__filter-list">
+            <button type="button" class="catalog__filter-btn catalog__filter-btn_active" data-filter-collection="all">Все коллекции</button>
+{filter_buttons}          </div>
+        </aside>
+
+        <!-- Cards grid -->
+        <div class="section__cards section__cards_wrap catalog__grid">
+{catalog_cards}        </div>
+      </div>
     </section>
   </main>
 

@@ -34,2152 +34,2589 @@
         <button type="button" class="catalog__cat-btn" data-category="invisible">Скрытые двери (Invisible)</button>
       </div>
 
-      <div class="section__cards section__cards_wrap catalog__grid">
-        <article class="card">
+      <!-- Mobile filter toggle -->
+      <button type="button" class="catalog__filter-toggle" id="catalogFilterToggle">Фильтры</button>
+
+      <div class="catalog__body">
+        <!-- Sidebar filters -->
+        <aside class="catalog__sidebar" id="catalogSidebar">
+          <div class="catalog__sidebar-head">
+            <h3 class="catalog__sidebar-title">Коллекции</h3>
+            <button type="button" class="catalog__sidebar-close" id="catalogSidebarClose" aria-label="Закрыть фильтры">&times;</button>
+          </div>
+          <div class="catalog__filter-list">
+            <button type="button" class="catalog__filter-btn catalog__filter-btn_active" data-filter-collection="all">Все коллекции</button>
+        <button type="button" class="catalog__filter-btn" data-filter-collection="avrora">Аврора</button>
+        <button type="button" class="catalog__filter-btn" data-filter-collection="alberta">Альберта</button>
+        <button type="button" class="catalog__filter-btn" data-filter-collection="ameri">Амери</button>
+        <button type="button" class="catalog__filter-btn" data-filter-collection="amfora">Амфора</button>
+        <button type="button" class="catalog__filter-btn" data-filter-collection="beluni">Белуни</button>
+        <button type="button" class="catalog__filter-btn" data-filter-collection="blank">Бланк</button>
+        <button type="button" class="catalog__filter-btn" data-filter-collection="bona">Бона</button>
+        <button type="button" class="catalog__filter-btn" data-filter-collection="boneko">Бонеко</button>
+        <button type="button" class="catalog__filter-btn" data-filter-collection="vektor">Вектор</button>
+        <button type="button" class="catalog__filter-btn" data-filter-collection="verto">Верто</button>
+        <button type="button" class="catalog__filter-btn" data-filter-collection="vitra">Витра</button>
+        <button type="button" class="catalog__filter-btn" data-filter-collection="d">Д</button>
+        <button type="button" class="catalog__filter-btn" data-filter-collection="dekar">Декар</button>
+        <button type="button" class="catalog__filter-btn" data-filter-collection="dekar-s-bagetom">Декар с багетом</button>
+        <button type="button" class="catalog__filter-btn" data-filter-collection="kant">Кант</button>
+        <button type="button" class="catalog__filter-btn" data-filter-collection="kaskad">Каскад</button>
+        <button type="button" class="catalog__filter-btn" data-filter-collection="kvant">Квант</button>
+        <button type="button" class="catalog__filter-btn" data-filter-collection="meta">Мета</button>
+        <button type="button" class="catalog__filter-btn" data-filter-collection="miura">Миура</button>
+        <button type="button" class="catalog__filter-btn" data-filter-collection="modena">Модена</button>
+        <button type="button" class="catalog__filter-btn" data-filter-collection="mono">Моно</button>
+        <button type="button" class="catalog__filter-btn" data-filter-collection="neo">Нео</button>
+        <button type="button" class="catalog__filter-btn" data-filter-collection="oazis">Оазис</button>
+        <button type="button" class="catalog__filter-btn" data-filter-collection="palladio">Палладио</button>
+        <button type="button" class="catalog__filter-btn" data-filter-collection="plisse">Плиссе</button>
+        <button type="button" class="catalog__filter-btn" data-filter-collection="terra">Терра</button>
+        <button type="button" class="catalog__filter-btn" data-filter-collection="ultra">Ультра</button>
+        <button type="button" class="catalog__filter-btn" data-filter-collection="flaj">Флай</button>
+        <button type="button" class="catalog__filter-btn" data-filter-collection="form">Форм</button>
+        <button type="button" class="catalog__filter-btn" data-filter-collection="eterna">Этерна</button>
+          </div>
+        </aside>
+
+        <!-- Cards grid -->
+        <div class="section__cards section__cards_wrap catalog__grid">
+        <article class="card" data-collection="avrora">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Аврора/Аврора 1 ПГ 1.jpg" alt="Аврора 1">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-avrora-1.html">Аврора 1</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-avrora-1.html">Аврора 1</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 20 300 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="avrora">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Аврора/Аврора 2 ПГ 1.jpg" alt="Аврора 2">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-avrora-2.html">Аврора 2</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-avrora-2.html">Аврора 2</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 20 300 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="avrora">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Аврора/Аврора 3 ПО 1.jpg" alt="Аврора 3">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-avrora-3.html">Аврора 3</a></h3>
-            <p class="card__variant">ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-avrora-3.html">Аврора 3</a></h3>
+              <span class="card__variant">ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 23 140 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="avrora">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Аврора/Аврора 4 ПО 1.jpg" alt="Аврора 4">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-avrora-4.html">Аврора 4</a></h3>
-            <p class="card__variant">ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-avrora-4.html">Аврора 4</a></h3>
+              <span class="card__variant">ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 23 140 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="avrora">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Аврора/Аврора 5 ПО 1.jpg" alt="Аврора 5">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-avrora-5.html">Аврора 5</a></h3>
-            <p class="card__variant">ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-avrora-5.html">Аврора 5</a></h3>
+              <span class="card__variant">ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 23 140 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="alberta">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Альберта/Альберта 1 1.png" alt="Альберта 1">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-alberta-1.html">Альберта 1</a></h3>
-            <p class="card__variant">ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-alberta-1.html">Альберта 1</a></h3>
+              <span class="card__variant">ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 23 140 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="alberta">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Альберта/Альберта 2 1.png" alt="Альберта 2">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-alberta-2.html">Альберта 2</a></h3>
-            <p class="card__variant">ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-alberta-2.html">Альберта 2</a></h3>
+              <span class="card__variant">ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 23 140 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="alberta">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Альберта/Альберта 3 1.png" alt="Альберта 3">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-alberta-3.html">Альберта 3</a></h3>
-            <p class="card__variant">ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-alberta-3.html">Альберта 3</a></h3>
+              <span class="card__variant">ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 23 140 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="alberta">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Альберта/Альберта 4 1.png" alt="Альберта 4">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-alberta-4.html">Альберта 4</a></h3>
-            <p class="card__variant">ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-alberta-4.html">Альберта 4</a></h3>
+              <span class="card__variant">ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 24 560 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="alberta">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Альберта/Альберта 5 1.png" alt="Альберта 5">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-alberta-5.html">Альберта 5</a></h3>
-            <p class="card__variant">ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-alberta-5.html">Альберта 5</a></h3>
+              <span class="card__variant">ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 24 560 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="alberta">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Альберта/Альберта 6 1.png" alt="Альберта 6">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-alberta-6.html">Альберта 6</a></h3>
-            <p class="card__variant">ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-alberta-6.html">Альберта 6</a></h3>
+              <span class="card__variant">ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 24 560 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="alberta">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Альберта/Альберта 7 1.png" alt="Альберта 7">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-alberta-7.html">Альберта 7</a></h3>
-            <p class="card__variant">ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-alberta-7.html">Альберта 7</a></h3>
+              <span class="card__variant">ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 24 560 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="ameri">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Амери/амери 1 ПГ 1.png" alt="Амери 1">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-ameri-1.html">Амери 1</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-ameri-1.html">Амери 1</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 300 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="ameri">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Амери/амери 2 ПГ 1.png" alt="Амери 2">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-ameri-2.html">Амери 2</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-ameri-2.html">Амери 2</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 300 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="ameri">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Амери/амери 3 ПГ 1.png" alt="Амери 3">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-ameri-3.html">Амери 3</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-ameri-3.html">Амери 3</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 300 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="ameri">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Амери/амери 4 ПГ 1.png" alt="Амери 4">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-ameri-4.html">Амери 4</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-ameri-4.html">Амери 4</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 300 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="ameri">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Амери/амери 5 ПГ 1.png" alt="Амери 5">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-ameri-5.html">Амери 5</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-ameri-5.html">Амери 5</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 300 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="ameri">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Амери/амери 6пг 1.png" alt="Амери 6">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-ameri-6.html">Амери 6</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-ameri-6.html">Амери 6</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 300 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="ameri">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Амери/амери 7пг 1.png" alt="Амери 7">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-ameri-7.html">Амери 7</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-ameri-7.html">Амери 7</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 300 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="ameri">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Амери/амери 8пг 1.png" alt="Амери 8">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-ameri-8.html">Амери 8</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-ameri-8.html">Амери 8</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 300 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="ameri">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Амери/амери 9пг 1.png" alt="Амери 9">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-ameri-9.html">Амери 9</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-ameri-9.html">Амери 9</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 300 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="ameri">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Амери/амери 10пг 1.png" alt="Амери 10">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-ameri-10.html">Амери 10</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-ameri-10.html">Амери 10</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 300 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="amfora">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Амфора/Амфора 1 1.png" alt="Амфора 1">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-amfora-1.html">Амфора 1</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-amfora-1.html">Амфора 1</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 870 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="amfora">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Амфора/Амфора 2 1.png" alt="Амфора 2">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-amfora-2.html">Амфора 2</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-amfora-2.html">Амфора 2</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 870 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="amfora">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Амфора/Амфора 3 3.png" alt="Амфора 3">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-amfora-3.html">Амфора 3</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-amfora-3.html">Амфора 3</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 870 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="amfora">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Амфора/Амфора 4 1.png" alt="Амфора 4">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-amfora-4.html">Амфора 4</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-amfora-4.html">Амфора 4</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 870 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="amfora">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Амфора/Амфора 5 1.png" alt="Амфора 5">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-amfora-5.html">Амфора 5</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-amfora-5.html">Амфора 5</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 870 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="amfora">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Амфора/Амфора 6 1.png" alt="Амфора 6">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-amfora-6.html">Амфора 6</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-amfora-6.html">Амфора 6</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 870 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="amfora">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Амфора/Амфора 7 1.png" alt="Амфора 7">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-amfora-7.html">Амфора 7</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-amfora-7.html">Амфора 7</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 870 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="amfora">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Амфора/Амфора 8 1.png" alt="Амфора 8">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-amfora-8.html">Амфора 8</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-amfora-8.html">Амфора 8</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 870 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="amfora">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Амфора/Амфора 9 1.png" alt="Амфора 9">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-amfora-9.html">Амфора 9</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-amfora-9.html">Амфора 9</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 870 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="beluni">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Белуни/БЕЛУНИ 1ПГ 1.png" alt="Белуни 1">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-beluni-1.html">Белуни 1</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-beluni-1.html">Белуни 1</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 440 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="beluni">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Белуни/БЕЛУНИ 2ПГ 1.png" alt="Белуни 2">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-beluni-2.html">Белуни 2</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-beluni-2.html">Белуни 2</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 440 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="beluni">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Белуни/БЕЛУНИ 3ПГ 1.png" alt="Белуни 3">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-beluni-3.html">Белуни 3</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-beluni-3.html">Белуни 3</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 440 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="beluni">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Белуни/БЕЛУНИ 4ПГ 1.png" alt="Белуни 4">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-beluni-4.html">Белуни 4</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-beluni-4.html">Белуни 4</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 440 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="beluni">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Белуни/БЕЛУНИ 5ПГ 1.png" alt="Белуни 5">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-beluni-5.html">Белуни 5</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-beluni-5.html">Белуни 5</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 440 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="beluni">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Белуни/БЕЛУНИ 6ПГ 1.png" alt="Белуни 6">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-beluni-6.html">Белуни 6</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-beluni-6.html">Белуни 6</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 440 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="beluni">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Белуни/БЕЛУНИ 7ПГ 1.png" alt="Белуни 7">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-beluni-7.html">Белуни 7</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-beluni-7.html">Белуни 7</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 440 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="beluni">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Белуни/БЕЛУНИ 8 ПГ 1.png" alt="Белуни 8">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-beluni-8.html">Белуни 8</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-beluni-8.html">Белуни 8</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 440 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="blank">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Бланк/Бланк 1 ПГ 1.png" alt="Бланк 1">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-blank-1.html">Бланк 1</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-blank-1.html">Бланк 1</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 20 860 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="blank">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Бланк/Бланк 2 ПГ 1.png" alt="Бланк 2">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-blank-2.html">Бланк 2</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-blank-2.html">Бланк 2</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 20 860 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="blank">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Бланк/Бланк 3 ПГ 1.png" alt="Бланк 3">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-blank-3.html">Бланк 3</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-blank-3.html">Бланк 3</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 20 860 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="blank">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Бланк/Бланк 4 ПГ 1.png" alt="Бланк 4">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-blank-4.html">Бланк 4</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-blank-4.html">Бланк 4</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 20 860 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="blank">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Бланк/Бланк 5 ПГ 1.png" alt="Бланк 5">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-blank-5.html">Бланк 5</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-blank-5.html">Бланк 5</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 20 860 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="bona">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Бона/БОНА 1пг 1.png" alt="Бона 1">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-bona-1.html">Бона 1</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-bona-1.html">Бона 1</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 300 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="bona">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Бона/БОНА 2 пг 1.png" alt="Бона 2">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-bona-2.html">Бона 2</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-bona-2.html">Бона 2</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 300 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="bona">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Бона/БОНА 3 пг 1.png" alt="Бона 3">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-bona-3.html">Бона 3</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-bona-3.html">Бона 3</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 300 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="bona">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Бона/БОНА 4 пг 1.png" alt="Бона 4">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-bona-4.html">Бона 4</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-bona-4.html">Бона 4</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 300 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="bona">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Бона/БОНА 5 пг 1.png" alt="Бона 5">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-bona-5.html">Бона 5</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-bona-5.html">Бона 5</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 300 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="bona">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Бона/БОНА 6 пг 1.png" alt="Бона 6">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-bona-6.html">Бона 6</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-bona-6.html">Бона 6</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 300 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="boneko">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Бонеко/БОНЭКО 1 ПГ 1.png" alt="Бонеко 1">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-boneko-1.html">Бонеко 1</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-boneko-1.html">Бонеко 1</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 440 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="boneko">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Бонеко/БОНЭКО 2 ПГ 1.png" alt="Бонеко 2">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-boneko-2.html">Бонеко 2</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-boneko-2.html">Бонеко 2</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 440 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="boneko">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Бонеко/БОНЭКО 3 ПГ 1.png" alt="Бонеко 3">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-boneko-3.html">Бонеко 3</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-boneko-3.html">Бонеко 3</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 440 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="boneko">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Бонеко/БОНЭКО 4 ПГ 1.png" alt="Бонеко 4">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-boneko-4.html">Бонеко 4</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-boneko-4.html">Бонеко 4</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 440 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="boneko">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Бонеко/БОНЭКО 5 ПГ 1.png" alt="Бонеко 5">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-boneko-5.html">Бонеко 5</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-boneko-5.html">Бонеко 5</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 440 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="boneko">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Бонеко/БОНЭКО 6 ПГ 1.png" alt="Бонеко 6">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-boneko-6.html">Бонеко 6</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-boneko-6.html">Бонеко 6</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 440 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="vektor">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Вектор/вектор 1пг 1.png" alt="Вектор 1">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-vektor-1.html">Вектор 1</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-vektor-1.html">Вектор 1</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 870 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="vektor">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Вектор/вектор 2пг 1.png" alt="Вектор 2">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-vektor-2.html">Вектор 2</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-vektor-2.html">Вектор 2</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 870 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="vektor">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Вектор/вектор 3пг 1.png" alt="Вектор 3">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-vektor-3.html">Вектор 3</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-vektor-3.html">Вектор 3</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 870 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="vektor">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Вектор/вектор 4пг 1.png" alt="Вектор 4">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-vektor-4.html">Вектор 4</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-vektor-4.html">Вектор 4</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 870 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="vektor">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Вектор/вектор 5пг 1.png" alt="Вектор 5">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-vektor-5.html">Вектор 5</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-vektor-5.html">Вектор 5</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 870 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="vektor">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Вектор/вектор 6пг 1.png" alt="Вектор 6">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-vektor-6.html">Вектор 6</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-vektor-6.html">Вектор 6</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 870 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="vektor">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Вектор/вектор 7пг 1.png" alt="Вектор 7">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-vektor-7.html">Вектор 7</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-vektor-7.html">Вектор 7</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 870 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="vektor">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Вектор/вектор 8пг 1.png" alt="Вектор 8">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-vektor-8.html">Вектор 8</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-vektor-8.html">Вектор 8</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 870 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="vektor">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Вектор/вектор 9пг 1.png" alt="Вектор 9">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-vektor-9.html">Вектор 9</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-vektor-9.html">Вектор 9</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 870 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="vektor">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Вектор/вектор 10пг 1.png" alt="Вектор 10">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-vektor-10.html">Вектор 10</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-vektor-10.html">Вектор 10</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 870 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="vektor">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Вектор/вектор 11пг 1.png" alt="Вектор 11">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-vektor-11.html">Вектор 11</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-vektor-11.html">Вектор 11</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 870 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="verto">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Верто/Верто 1 1.png" alt="Верто 1">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-verto-1.html">Верто 1</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-verto-1.html">Верто 1</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 20 860 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="verto">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Верто/Верто 2 1.png" alt="Верто 2">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-verto-2.html">Верто 2</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-verto-2.html">Верто 2</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 20 860 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="verto">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Верто/Верто 3 1.png" alt="Верто 3">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-verto-3.html">Верто 3</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-verto-3.html">Верто 3</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 20 860 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="verto">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Верто/Верто 4 1.png" alt="Верто 4">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-verto-4.html">Верто 4</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-verto-4.html">Верто 4</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 20 860 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="verto">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Верто/Верто 5 1.png" alt="Верто 5">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-verto-5.html">Верто 5</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-verto-5.html">Верто 5</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 20 860 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="verto">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Верто/Верто 6 1.png" alt="Верто 6">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-verto-6.html">Верто 6</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-verto-6.html">Верто 6</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 20 860 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="verto">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Верто/Верто 7 1.png" alt="Верто 7">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-verto-7.html">Верто 7</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-verto-7.html">Верто 7</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 20 860 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="verto">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Верто/Верто 8 1.png" alt="Верто 8">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-verto-8.html">Верто 8</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-verto-8.html">Верто 8</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 20 860 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="verto">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Верто/Верто 9 1.png" alt="Верто 9">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-verto-9.html">Верто 9</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-verto-9.html">Верто 9</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 20 860 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="verto">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Верто/Верто 10 1.png" alt="Верто 10">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-verto-10.html">Верто 10</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-verto-10.html">Верто 10</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price">Цена по запросу</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="vitra">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Витра/Витра 1 ПГ 1.png" alt="Витра 1">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-vitra-1.html">Витра 1</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-vitra-1.html">Витра 1</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 22 710 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="vitra">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Витра/Витра 2 ПГ 1.png" alt="Витра 2">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-vitra-2.html">Витра 2</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-vitra-2.html">Витра 2</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 22 710 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="vitra">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Витра/Витра 3 ПГ 1.png" alt="Витра 3">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-vitra-3.html">Витра 3</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-vitra-3.html">Витра 3</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 21 290 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="vitra">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Витра/Витра 4 ПГ 1.png" alt="Витра 4">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-vitra-4.html">Витра 4</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-vitra-4.html">Витра 4</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 21 290 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="vitra">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Витра/Витра 5 ПГ 1.png" alt="Витра 5">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-vitra-5.html">Витра 5</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-vitra-5.html">Витра 5</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 21 290 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="vitra">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Витра/Витра 6 ПГ 1.png" alt="Витра 6">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-vitra-6.html">Витра 6</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-vitra-6.html">Витра 6</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 21 290 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="vitra">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Витра/Витра 7 ПГ 1.png" alt="Витра 7">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-vitra-7.html">Витра 7</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-vitra-7.html">Витра 7</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 21 290 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="d">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Д/Д4.png" alt="Д4">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-d4.html">Д4</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-d4.html">Д4</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 13 620 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="d">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Д/Д14.png" alt="Д14">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-d14.html">Д14</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-d14.html">Д14</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 13 620 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="d">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Д/Д16.png" alt="Д16">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-d16.html">Д16</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-d16.html">Д16</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 13 200 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="d">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Д/Д17.png" alt="Д17">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-d17.html">Д17</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-d17.html">Д17</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 12 770 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="d">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Д/Д22.png" alt="Д22">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-d22.html">Д22</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-d22.html">Д22</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 13 620 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="d">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Д/Д36.png" alt="Д36">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-d36.html">Д36</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-d36.html">Д36</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 13 200 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="d">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Д/Д43.png" alt="Д43">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-d43.html">Д43</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-d43.html">Д43</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 13 200 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="d">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Д/Д44.png" alt="Д44">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-d44.html">Д44</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-d44.html">Д44</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 13 200 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="d">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Д/Д48.png" alt="Д48">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-d48.html">Д48</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-d48.html">Д48</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 13 200 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="d">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Д/Д49.png" alt="Д49">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-d49.html">Д49</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-d49.html">Д49</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 13 200 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="d">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Д/Д50.png" alt="Д50">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-d50.html">Д50</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-d50.html">Д50</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 13 200 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="dekar">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Декар/Декар 1 ПГ 1.png" alt="Декар 1">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-dekar-1.html">Декар 1</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-dekar-1.html">Декар 1</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 20 860 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="dekar">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Декар/Декар 2 ПГ 1.png" alt="Декар 2">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-dekar-2.html">Декар 2</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-dekar-2.html">Декар 2</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 20 860 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="dekar">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Декар/Декар 3 ПГ 1.png" alt="Декар 3">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-dekar-3.html">Декар 3</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-dekar-3.html">Декар 3</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 20 860 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="dekar">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Декар/Декар 4 ПГ 1.png" alt="Декар 4">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-dekar-4.html">Декар 4</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-dekar-4.html">Декар 4</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 20 860 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="dekar">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Декар/Декар 5 ПГ 1.png" alt="Декар 5">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-dekar-5.html">Декар 5</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-dekar-5.html">Декар 5</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 20 860 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="dekar-s-bagetom">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Декар с багетом/Декар с багетом 1 1.png" alt="Декар с багетом 1">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-dekar-s-bagetom-1.html">Декар с багетом 1</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-dekar-s-bagetom-1.html">Декар с багетом 1</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 24 560 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="dekar-s-bagetom">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Декар с багетом/Декар с багетом 2 1.png" alt="Декар с багетом 2">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-dekar-s-bagetom-2.html">Декар с багетом 2</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-dekar-s-bagetom-2.html">Декар с багетом 2</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 24 560 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="dekar-s-bagetom">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Декар с багетом/Декар с багетом 3 1.png" alt="Декар с багетом 3">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-dekar-s-bagetom-3.html">Декар с багетом 3</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-dekar-s-bagetom-3.html">Декар с багетом 3</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 24 560 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="dekar-s-bagetom">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Декар с багетом/Декар с багетом 4 1.png" alt="Декар с багетом 4">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-dekar-s-bagetom-4.html">Декар с багетом 4</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-dekar-s-bagetom-4.html">Декар с багетом 4</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 24 560 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="dekar-s-bagetom">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Декар с багетом/Декар с багетом 5 1.png" alt="Декар с багетом 5">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-dekar-s-bagetom-5.html">Декар с багетом 5</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-dekar-s-bagetom-5.html">Декар с багетом 5</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 24 560 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="kant">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Кант/кант 1ПГ 1.png" alt="Кант 1">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-kant-1.html">Кант 1</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-kant-1.html">Кант 1</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 18 020 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="kant">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Кант/кант 2 ПГ 1.png" alt="Кант 2">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-kant-2.html">Кант 2</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-kant-2.html">Кант 2</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 18 020 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="kant">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Кант/кант 3 ПГ 1.png" alt="Кант 3">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-kant-3.html">Кант 3</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-kant-3.html">Кант 3</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 18 020 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="kant">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Кант/кант 4 ПГ 1.png" alt="Кант 4">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-kant-4.html">Кант 4</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-kant-4.html">Кант 4</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 18 020 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="kant">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Кант/кант 5 ПГ 1.png" alt="Кант 5">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-kant-5.html">Кант 5</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-kant-5.html">Кант 5</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 18 020 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="kaskad">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Каскад/Каскад 1 ПГ 2.png" alt="Каскад 1">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-kaskad-1.html">Каскад 1</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-kaskad-1.html">Каскад 1</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 870 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="kaskad">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Каскад/Каскад 2 ПГ 1.png" alt="Каскад 2">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-kaskad-2.html">Каскад 2</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-kaskad-2.html">Каскад 2</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 870 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="kaskad">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Каскад/Каскад 3 ПГ 1.png" alt="Каскад 3">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-kaskad-3.html">Каскад 3</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-kaskad-3.html">Каскад 3</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 870 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="kaskad">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Каскад/Каскад 4 ПГ 1.png" alt="Каскад 4">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-kaskad-4.html">Каскад 4</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-kaskad-4.html">Каскад 4</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 870 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="kaskad">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Каскад/Каскад 5 ПГ 1.png" alt="Каскад 5">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-kaskad-5.html">Каскад 5</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-kaskad-5.html">Каскад 5</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 870 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="kvant">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Квант/Квант 1 ПГ 1.png" alt="Квант 1">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-kvant-1.html">Квант 1</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-kvant-1.html">Квант 1</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 23 140 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="kvant">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Квант/Квант 2 ПГ 1.png" alt="Квант 2">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-kvant-2.html">Квант 2</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-kvant-2.html">Квант 2</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 23 140 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="kvant">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Квант/Квант 3 ПГ 1.png" alt="Квант 3">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-kvant-3.html">Квант 3</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-kvant-3.html">Квант 3</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 23 140 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="kvant">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Квант/Квант 4 ПГ 1.png" alt="Квант 4">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-kvant-4.html">Квант 4</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-kvant-4.html">Квант 4</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 23 140 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="meta">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Мета/мета 1пг 1.png" alt="Мета 1">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-meta-1.html">Мета 1</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-meta-1.html">Мета 1</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 21 720 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="meta">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Мета/мета 2пг 1.png" alt="Мета 2">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-meta-2.html">Мета 2</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-meta-2.html">Мета 2</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 21 720 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="meta">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Мета/мета 3пг 1.png" alt="Мета 3">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-meta-3.html">Мета 3</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-meta-3.html">Мета 3</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 21 720 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="meta">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Мета/мета 4пг 1.png" alt="Мета 4">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-meta-4.html">Мета 4</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-meta-4.html">Мета 4</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 21 720 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="meta">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Мета/мета 5пг 1.png" alt="Мета 5">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-meta-5.html">Мета 5</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-meta-5.html">Мета 5</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 21 720 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="miura">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Миура/миура 1ПГ 2.png" alt="Миура 1">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-miura-1.html">Миура 1</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-miura-1.html">Миура 1</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 20 440 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="miura">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Миура/миура 2ПГ 1.png" alt="Миура 2">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-miura-2.html">Миура 2</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-miura-2.html">Миура 2</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 20 440 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="miura">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Миура/миура 3ПГ 1.png" alt="Миура 3">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-miura-3.html">Миура 3</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-miura-3.html">Миура 3</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 20 440 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="miura">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Миура/миура 4ПГ 1.png" alt="Миура 4">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-miura-4.html">Миура 4</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-miura-4.html">Миура 4</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 20 440 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="miura">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Миура/миура 5ПГ 1.png" alt="Миура 5">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-miura-5.html">Миура 5</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-miura-5.html">Миура 5</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 20 440 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="modena">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Модена/Модена 1 ПГ 1.png" alt="Модена 1">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-modena-1.html">Модена 1</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-modena-1.html">Модена 1</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 23 140 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="modena">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Модена/Модена 2 ПГ 1.png" alt="Модена 2">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-modena-2.html">Модена 2</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-modena-2.html">Модена 2</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 23 140 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="modena">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Модена/Модена 3 ПГ 1.png" alt="Модена 3">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-modena-3.html">Модена 3</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-modena-3.html">Модена 3</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 23 140 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="modena">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Модена/Модена 4 ПГ 1.png" alt="Модена 4">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-modena-4.html">Модена 4</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-modena-4.html">Модена 4</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 23 140 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="modena">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Модена/Модена 5 ПГ 1.png" alt="Модена 5">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-modena-5.html">Модена 5</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-modena-5.html">Модена 5</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 23 140 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="mono">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Моно/моно 1 3.png" alt="Моно 1">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-mono-1.html">Моно 1</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-mono-1.html">Моно 1</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 18 450 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="mono">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Моно/моно 2 1.png" alt="Моно 2">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-mono-2.html">Моно 2</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-mono-2.html">Моно 2</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 18 450 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="mono">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Моно/моно 3 1.png" alt="Моно 3">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-mono-3.html">Моно 3</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-mono-3.html">Моно 3</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 18 450 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="mono">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Моно/моно 4 1.png" alt="Моно 4">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-mono-4.html">Моно 4</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-mono-4.html">Моно 4</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 18 450 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="mono">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Моно/моно 5 1.png" alt="Моно 5">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-mono-5.html">Моно 5</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-mono-5.html">Моно 5</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 18 450 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="mono">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Моно/моно 6 1.png" alt="Моно 6">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-mono-6.html">Моно 6</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-mono-6.html">Моно 6</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 18 450 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="mono">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Моно/моно 7 1.png" alt="Моно 7">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-mono-7.html">Моно 7</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-mono-7.html">Моно 7</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 18 450 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="mono">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Моно/моно 8 1.png" alt="Моно 8">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-mono-8.html">Моно 8</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-mono-8.html">Моно 8</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 18 450 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="mono">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Моно/моно 9 1.png" alt="Моно 9">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-mono-9.html">Моно 9</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-mono-9.html">Моно 9</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 020 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="mono">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Моно/моно 10 1.png" alt="Моно 10">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-mono-10.html">Моно 10</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-mono-10.html">Моно 10</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 020 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="mono">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Моно/моно 11 1.png" alt="Моно 11">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-mono-11.html">Моно 11</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-mono-11.html">Моно 11</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 020 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="mono">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Моно/моно 12 1.png" alt="Моно 12">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-mono-12.html">Моно 12</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-mono-12.html">Моно 12</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 020 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="neo">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Нео/нео 1пг 1.png" alt="Нео 1">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-neo-1.html">Нео 1</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-neo-1.html">Нео 1</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 300 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="neo">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Нео/нео 2пг 1.png" alt="Нео 2">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-neo-2.html">Нео 2</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-neo-2.html">Нео 2</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 300 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="neo">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Нео/нео 3пг 1.png" alt="Нео 3">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-neo-3.html">Нео 3</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-neo-3.html">Нео 3</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 300 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="neo">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Нео/нео 4пг 1.png" alt="Нео 4">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-neo-4.html">Нео 4</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-neo-4.html">Нео 4</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 300 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="neo">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Нео/нео 5пг 1.png" alt="Нео 5">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-neo-5.html">Нео 5</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-neo-5.html">Нео 5</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 300 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="neo">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Нео/нео 6пг 1.png" alt="Нео 6">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-neo-6.html">Нео 6</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-neo-6.html">Нео 6</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 300 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="oazis">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Оазис/Оазис 1 ПГ 1.png" alt="Оазис 1">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-oazis-1.html">Оазис 1</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-oazis-1.html">Оазис 1</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 20 300 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="oazis">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Оазис/Оазис 2 ПГ 1.png" alt="Оазис 2">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-oazis-2.html">Оазис 2</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-oazis-2.html">Оазис 2</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 20 300 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="oazis">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Оазис/Оазис 3 ПГ 1.png" alt="Оазис 3">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-oazis-3.html">Оазис 3</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-oazis-3.html">Оазис 3</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 20 300 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="oazis">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Оазис/Оазис 4 ПГ 1.png" alt="Оазис 4">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-oazis-4.html">Оазис 4</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-oazis-4.html">Оазис 4</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 20 300 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="oazis">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Оазис/Оазис 5 ПГ 1.png" alt="Оазис 5">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-oazis-5.html">Оазис 5</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-oazis-5.html">Оазис 5</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 20 300 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="palladio">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Палладио/Палладио 1 ПГ 1.png" alt="Палладио 1">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-palladio-1.html">Палладио 1</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-palladio-1.html">Палладио 1</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 20 860 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="palladio">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Палладио/Палладио 2 ПГ 1.png" alt="Палладио 2">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-palladio-2.html">Палладио 2</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-palladio-2.html">Палладио 2</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 20 860 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="palladio">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Палладио/Палладио 3 ПГ 1.png" alt="Палладио 3">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-palladio-3.html">Палладио 3</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-palladio-3.html">Палладио 3</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 20 860 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="palladio">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Палладио/Палладио 4 ПГ 1.png" alt="Палладио 4">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-palladio-4.html">Палладио 4</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-palladio-4.html">Палладио 4</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 20 860 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="palladio">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Палладио/Палладио 5 ПГ 1.png" alt="Палладио 5">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-palladio-5.html">Палладио 5</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-palladio-5.html">Палладио 5</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 20 860 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="palladio">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Палладио/Палладио 6 ПГ 1.png" alt="Палладио 6">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-palladio-6.html">Палладио 6</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-palladio-6.html">Палладио 6</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 20 860 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="plisse">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Плиссе/плиссе 1.png" alt="Плиссе ">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-plisse.html">Плиссе </a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-plisse.html">Плиссе </a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price">Цена по запросу</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="plisse">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Плиссе/плиссе 1 1.png" alt="Плиссе 1">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-plisse-1.html">Плиссе 1</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-plisse-1.html">Плиссе 1</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 25 690 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="plisse">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Плиссе/плиссе 2 1.png" alt="Плиссе 2">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-plisse-2.html">Плиссе 2</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-plisse-2.html">Плиссе 2</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 25 690 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="plisse">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Плиссе/плиссе 3 1.png" alt="Плиссе 3">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-plisse-3.html">Плиссе 3</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-plisse-3.html">Плиссе 3</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 25 690 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="terra">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Терра/Терра 1 ПГ 1.png" alt="Терра 1">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-terra-1.html">Терра 1</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-terra-1.html">Терра 1</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 21 720 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="terra">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Терра/Терра 2 ПГ 1.png" alt="Терра 2">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-terra-2.html">Терра 2</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-terra-2.html">Терра 2</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 21 720 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="terra">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Терра/Терра 3 ПГ 1.png" alt="Терра 3">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-terra-3.html">Терра 3</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-terra-3.html">Терра 3</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 21 720 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="terra">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Терра/Терра 4 ПГ 1.png" alt="Терра 4">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-terra-4.html">Терра 4</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-terra-4.html">Терра 4</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 21 720 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="terra">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Терра/Терра 5 ПГ 1.png" alt="Терра 5">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-terra-5.html">Терра 5</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-terra-5.html">Терра 5</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 21 720 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="ultra">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Ультра/ультра 1пг 1.png" alt="Ультра 1">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-ultra-1.html">Ультра 1</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-ultra-1.html">Ультра 1</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 870 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="ultra">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Ультра/ультра 2 пг 1.png" alt="Ультра 2">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-ultra-2.html">Ультра 2</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-ultra-2.html">Ультра 2</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 870 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="ultra">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Ультра/ультра 3 пг 1.png" alt="Ультра 3">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-ultra-3.html">Ультра 3</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-ultra-3.html">Ультра 3</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 870 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="ultra">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Ультра/ультра 4 пг 1.png" alt="Ультра 4">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-ultra-4.html">Ультра 4</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-ultra-4.html">Ультра 4</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 870 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="ultra">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Ультра/ультра 5 пг 1.png" alt="Ультра 5">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-ultra-5.html">Ультра 5</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-ultra-5.html">Ультра 5</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 870 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="flaj">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Флай/ФЛАЙ 1 1.png" alt="Флай 1">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-flaj-1.html">Флай 1</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-flaj-1.html">Флай 1</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 24 560 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="flaj">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Флай/ФЛАЙ 2 1.png" alt="Флай 2">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-flaj-2.html">Флай 2</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-flaj-2.html">Флай 2</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 24 560 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="flaj">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Флай/ФЛАЙ 3 1.png" alt="Флай 3">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-flaj-3.html">Флай 3</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-flaj-3.html">Флай 3</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 24 560 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="flaj">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Флай/ФЛАЙ 4 1.png" alt="Флай 4">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-flaj-4.html">Флай 4</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-flaj-4.html">Флай 4</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 24 560 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="flaj">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Флай/ФЛАЙ 5 1.png" alt="Флай 5">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-flaj-5.html">Флай 5</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-flaj-5.html">Флай 5</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 24 560 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="flaj">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Флай/ФЛАЙ 6 1.png" alt="Флай 6">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-flaj-6.html">Флай 6</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-flaj-6.html">Флай 6</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 24 560 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="flaj">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Флай/ФЛАЙ 7 1.png" alt="Флай 7">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-flaj-7.html">Флай 7</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-flaj-7.html">Флай 7</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 24 560 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="flaj">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Флай/ФЛАЙ 8 1.png" alt="Флай 8">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-flaj-8.html">Флай 8</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-flaj-8.html">Флай 8</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 24 560 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="form">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Форм/Форм 1 2.png" alt="Форм 1">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-form-1.html">Форм 1</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-form-1.html">Форм 1</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 20 860 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="form">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Форм/Форм 2 1.png" alt="Форм 2">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-form-2.html">Форм 2</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-form-2.html">Форм 2</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 20 860 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="form">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Форм/Форм 3 1.png" alt="Форм 3">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-form-3.html">Форм 3</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-form-3.html">Форм 3</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 20 860 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="form">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Форм/Форм 4 1.png" alt="Форм 4">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-form-4.html">Форм 4</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-form-4.html">Форм 4</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 20 860 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="form">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Форм/Форм 5 1.png" alt="Форм 5">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-form-5.html">Форм 5</a></h3>
-            <p class="card__variant">ПГ</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-form-5.html">Форм 5</a></h3>
+              <span class="card__variant">ПГ</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 20 860 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="eterna">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Этерна/Этерна 1 ПГ 2.png" alt="Этерна 1">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-eterna-1.html">Этерна 1</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-eterna-1.html">Этерна 1</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 300 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="eterna">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Этерна/Этерна 2 ПГ 1.png" alt="Этерна 2">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-eterna-2.html">Этерна 2</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-eterna-2.html">Этерна 2</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 300 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="eterna">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Этерна/Этерна 3 ПГ 1.png" alt="Этерна 3">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-eterna-3.html">Этерна 3</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-eterna-3.html">Этерна 3</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 300 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="eterna">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Этерна/Этерна 4 ПГ 1.png" alt="Этерна 4">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-eterna-4.html">Этерна 4</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-eterna-4.html">Этерна 4</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 300 ₽</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-collection="eterna">
           <div class="card__image-wrap">
             <button class="card__fav" aria-label="В избранное"></button>
             <img class="card__image" src="images/Коллекции/Этерна/Этерна 5 ПГ 1.png" alt="Этерна 5">
           </div>
           <div class="card__info">
-            <h3 class="card__title"><a href="product-eterna-5.html">Этерна 5</a></h3>
-            <p class="card__variant">ПГ / ПО</p>
+            <div class="card__title-row">
+              <h3 class="card__title"><a href="product-eterna-5.html">Этерна 5</a></h3>
+              <span class="card__variant">ПГ / ПО</span>
+            </div>
             <p class="card__price"><span class="card__price-prefix">от</span> 19 300 ₽</p>
           </div>
         </article>
+        </div>
       </div>
     </section>
   </main>

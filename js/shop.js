@@ -1899,4 +1899,43 @@
 document.addEventListener("DOMContentLoaded", () => {
   if (typeof updateWishlistBadge === "function") updateWishlistBadge();
   if (typeof updateCartBadge === "function") updateCartBadge();
+
+  // --- Catalog collection filter ---
+  (function() {
+    var sidebar = document.getElementById("catalogSidebar");
+    var toggle = document.getElementById("catalogFilterToggle");
+    var closeBtn = document.getElementById("catalogSidebarClose");
+    if (!sidebar) return;
+
+    var filterBtns = sidebar.querySelectorAll("[data-filter-collection]");
+    var cards = document.querySelectorAll(".catalog__grid .card[data-collection]");
+
+    filterBtns.forEach(function(btn) {
+      btn.addEventListener("click", function() {
+        var coll = btn.getAttribute("data-filter-collection");
+        filterBtns.forEach(function(b) { b.classList.remove("catalog__filter-btn_active"); });
+        btn.classList.add("catalog__filter-btn_active");
+        cards.forEach(function(card) {
+          if (coll === "all" || card.getAttribute("data-collection") === coll) {
+            card.style.display = "";
+          } else {
+            card.style.display = "none";
+          }
+        });
+        // Close mobile sidebar
+        sidebar.classList.remove("is-open");
+      });
+    });
+
+    if (toggle) {
+      toggle.addEventListener("click", function() {
+        sidebar.classList.add("is-open");
+      });
+    }
+    if (closeBtn) {
+      closeBtn.addEventListener("click", function() {
+        sidebar.classList.remove("is-open");
+      });
+    }
+  })();
 });
