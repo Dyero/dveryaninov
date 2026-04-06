@@ -330,6 +330,17 @@
       }
     }
 
+    // ─── Стандартные кол-ва погонажа на одностворчатую дверь ───
+    var MOLDING_DEFAULT_QTY = {
+      box: 3,       // стойка короба: 2 на бока + 1 на верх
+      casing: 5,    // наличник: 2.5 на сторону × 2 стороны
+      dobor: 0,     // добор: 0 по умолчанию
+      handle: 1,
+      locker: 1,
+      hinges: 1,
+      glazing: 1
+    };
+
     // ─── Декларативные зависимости между параметрами ───
     // Ключ верхнего уровня — группа-источник (changedGroup).
     // Для каждого значения источника — массив допустимых data-radio-value
@@ -1016,11 +1027,13 @@
             });
           }
         });
-        // Элементы из radio-групп (активный = qty 1)
+        // Элементы из radio-групп (активный = дефолтный qty по типу)
         modal.querySelectorAll(".cfg-radio-group .cfg-item_active").forEach((item) => {
           if (item.querySelector(".cfg-qty-input")) return; // уже учтён выше
           const accTitle = item.querySelector(".cfg-item__name")?.textContent.trim() || "";
           if (!accTitle) return;
+          // Skip "Без добора" / "Без остекления" — не добавлять в аксессуары
+          if (/^Без\s/i.test(accTitle)) return;
           const spec = item.querySelector(".cfg-item__spec")?.textContent.trim() || "";
           var price = 0;
           if (item.hasAttribute("data-price")) {
@@ -1029,11 +1042,14 @@
             price = Number(item.querySelector(".config-item__amount")?.textContent.replace(/[^\d]/g, "")) || 0;
           }
           const accImg = item.querySelector('.cfg-item__thumb img')?.getAttribute('src') || '';
+          var groupName = item.closest("[data-radio-group]")?.getAttribute("data-radio-group") || "";
+          var defaultQty = MOLDING_DEFAULT_QTY[groupName] !== undefined ? MOLDING_DEFAULT_QTY[groupName] : 1;
+          if (defaultQty === 0) return; // Не добавлять если qty = 0
           accessories.push({
             id: `acc-${Date.now()}-${Math.random().toString(36).slice(2)}`,
             title: accTitle,
             spec,
-            qty: 1,
+            qty: defaultQty,
             price,
             oldPrice: 0,
             image: accImg,
@@ -1195,10 +1211,16 @@
       var qtyTotal = 0;
 
       // 1) Radio-группы (погонаж: стойка короба, наличник, добор; фурнитура: ручка, защёлка, петли)
-      //    Активный элемент = 1 шт, цена из data-price или .config-item__amount
+      //    Активный элемент × дефолтное кол-во из MOLDING_DEFAULT_QTY
       modal.querySelectorAll(".cfg-radio-group").forEach(function(group) {
         var active = group.querySelector(".cfg-item_active");
         if (!active) return;
+        var accTitle = active.querySelector(".cfg-item__name")?.textContent.trim() || "";
+        // Пропускаем "Без добора" / "Без остекления"
+        if (/^Без\s/i.test(accTitle)) return;
+        var groupName = group.getAttribute("data-radio-group") || "";
+        var qty = MOLDING_DEFAULT_QTY[groupName] !== undefined ? MOLDING_DEFAULT_QTY[groupName] : 1;
+        if (qty === 0) return;
         var price = 0;
         if (active.hasAttribute("data-price")) {
           price = Number(active.getAttribute("data-price")) || 0;
@@ -1208,7 +1230,7 @@
             price = Number(amountEl.textContent.replace(/\s/g, "")) || 0;
           }
         }
-        radioTotal += price;
+        radioTotal += price * qty;
       });
 
       // 2) Элементы со счётчиками (не в radio-группе): порог, плинтус, и т.д.
@@ -1353,6 +1375,7 @@
           accessoriesHtml += '<div class="cart-item__accessories-group">';
           accessoriesHtml += '<div class="cart-item__accessories-header">Фурнитура и погонаж</div>';
           item.accessories.forEach(function (acc) {
+            var accPriceStr = acc.price ? new Intl.NumberFormat("ru-RU").format(acc.price) + ' ₽/шт' : '';
             accessoriesHtml += '<div class="cart-item__accessory">'
               + '<div class="cart-item__accessory-img">'
               + '<img src="' + (acc.image || item.image || "images/card-door-1.svg") + '" alt="' + (acc.title || "") + '">'
@@ -1360,7 +1383,7 @@
               + '<div class="cart-item__accessory-info">'
               + '<strong class="cart-item__accessory-title">' + (acc.title || "Аксессуар") + '</strong>'
               + (acc.spec ? '<div class="cart-item__accessory-spec">' + acc.spec + '</div>' : '')
-              + (acc.qty ? '<div class="cart-item__accessory-qty-label">Кол-во: ' + acc.qty + ' шт.</div>' : '')
+              + (acc.qty ? '<div class="cart-item__accessory-qty-label">' + accPriceStr + ' × ' + acc.qty + ' шт.</div>' : '')
               + '</div>'
               + '</div>';
           });
