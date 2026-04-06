@@ -224,6 +224,24 @@
         totalAmount.textContent = formatPriceRub(total);
       }
       updateConfigTotal();
+      updateQtyDisplay();
+    }
+
+    function updateQtyDisplay() {
+      var displayEl = modal?.querySelector("[data-qty-display]");
+      if (!displayEl) return;
+      var parts = [];
+      modal.querySelectorAll(".cfg-item").forEach(function(item) {
+        if (item.closest(".cfg-radio-group")) return;
+        var qtyInput = item.querySelector(".cfg-qty-input");
+        if (!qtyInput) return;
+        var qty = Number(qtyInput.value) || 0;
+        if (qty > 0) {
+          var name = item.querySelector(".cfg-item__name")?.textContent.trim() || "";
+          parts.push(name + " ×" + qty);
+        }
+      });
+      displayEl.textContent = parts.length ? parts.join(", ") : "\u2014";
     }
 
     function populateCoatingSwatches() {
@@ -267,6 +285,146 @@
           state.finish = matches[0];
         }
       }
+    }
+
+    // ─── Декларативные зависимости между параметрами ───
+    // Ключ верхнего уровня — группа-источник (changedGroup).
+    // Для каждого значения источника — массив допустимых data-radio-value
+    // в группе-потребителе. Если значение отсутствует в карте, все элементы видимы.
+    var DEPENDENCIES = {
+      // Стойка короба → Наличник
+      box: {
+        casing: {
+          "Телескоп":     ["Телескоп 80мм", "Телескоп 100мм", "Телескоп+", "Плоский", "Декоративный"],
+          "Компланарная": ["Компланарный"],
+          "Книжка":       ["Телескоп 80мм", "Телескоп 100мм", "Телескоп+", "Плоский"]
+        },
+        dobor: {
+          "Телескоп":     ["Телескоп ТИП 2", "Без добора"],
+          "Компланарная": ["Без добора"],
+          "Книжка":       ["Без добора"]
+        }
+      },
+      // Вариант открывания → видимость секций фурнитуры
+      opening: {
+        _sections: {
+          "Раздвижная": { hide: ["handle", "locker", "hinges"] },
+          "Распашная":  { hide: [] }
+        }
+      }
+    };
+
+    // Показать toast-уведомление при авто-сбросе параметра
+    function showDepToast(msg) {
+      var toast = document.createElement("div");
+      toast.className = "cfg-dep-toast";
+      toast.textContent = msg;
+      (modal || document.body).appendChild(toast);
+      requestAnimationFrame(function() { toast.classList.add("cfg-dep-toast_show"); });
+      setTimeout(function() {
+        toast.classList.remove("cfg-dep-toast_show");
+        setTimeout(function() { toast.remove(); }, 300);
+      }, 3000);
+    }
+
+    /**
+     * applyDependencies(changedGroup) — фильтрует зависимые группы.
+     * Для каждого зависимого radio-group:
+     *   - скрывает несовместимые элементы
+     *   - если текущий активный стал скрыт — авто-выбирает первый видимый
+     *   - при авто-сбросе показывает toast и рекурсивно вызывает себя
+     * Для _sections — скрывает/показывает целые cfg-section по data-radio-group.
+     */
+    function applyDependencies(changedGroup) {
+      if (!modal) return;
+      var deps = DEPENDENCIES[changedGroup];
+      if (!deps) return;
+      var srcValue = state[changedGroup];
+
+      // --- обработка _sections (показ/скрытие целых секций) ---
+      if (deps._sections) {
+        var rule = deps._sections[srcValue];
+        var hideList = rule ? rule.hide : [];
+        // Показываем все секции из пула, затем скрываем нужные
+        var allGroupNames = new Set();
+        Object.keys(deps._sections).forEach(function(k) {
+          (deps._sections[k].hide || []).forEach(function(g) { allGroupNames.add(g); });
+        });
+        allGroupNames.forEach(function(groupName) {
+          var section = modal.querySelector('[data-radio-group="' + groupName + '"]');
+          if (section) {
+            var cfgSection = section.closest(".cfg-section");
+            if (cfgSection) {
+              var hidden = hideList.indexOf(groupName) !== -1;
+              cfgSection.style.display = hidden ? "none" : "";
+              // Если скрыли — деактивируем текущий выбор, обнуляем state
+              if (hidden) {
+                section.querySelectorAll(".cfg-item_active").forEach(function(el) {
+                  el.classList.remove("cfg-item_active");
+                });
+                state[groupName] = undefined;
+                var displayEl = modal.querySelector('[data-radio-display="' + groupName + '"]');
+                if (displayEl) displayEl.textContent = "\u2014";
+              }
+            }
+          }
+        });
+      }
+
+      // --- обработка radio-group фильтрации ---
+      Object.keys(deps).forEach(function(targetGroup) {
+        if (targetGroup === "_sections") return;
+        var allowed = deps[targetGroup][srcValue];
+        // Если нет правил для этого значения — показать всё
+        var showAll = !allowed;
+
+        var rg = modal.querySelector('[data-radio-group="' + targetGroup + '"]');
+        if (!rg) return;
+
+        var activeItem = rg.querySelector(".cfg-item_active");
+        var activeValue = activeItem ? activeItem.getAttribute("data-radio-value") : null;
+        var activeHidden = false;
+
+        rg.querySelectorAll(".cfg-item").forEach(function(item) {
+          var val = item.getAttribute("data-radio-value");
+          if (showAll) {
+            item.style.display = "";
+          } else {
+            var visible = allowed.indexOf(val) !== -1;
+            item.style.display = visible ? "" : "none";
+            if (!visible && val === activeValue) activeHidden = true;
+          }
+        });
+
+        // Если активный элемент стал скрыт — авто-выбор первого видимого
+        if (activeHidden) {
+          var firstVisible = rg.querySelector('.cfg-item:not([style*="display: none"])');
+          if (firstVisible) {
+            rg.querySelectorAll(".cfg-item").forEach(function(el) { el.classList.remove("cfg-item_active"); });
+            firstVisible.classList.add("cfg-item_active");
+            var newVal = firstVisible.getAttribute("data-radio-value");
+            state[targetGroup] = newVal;
+            // Обновить display в аккордеоне
+            var displayEl = modal.querySelector('[data-radio-display="' + targetGroup + '"]');
+            var newName = firstVisible.querySelector(".cfg-item__name")?.textContent.trim();
+            if (displayEl && newName) displayEl.textContent = newName;
+            // Toast
+            var labelEl = rg.closest(".cfg-section")?.querySelector(".config-detail-label");
+            var label = labelEl ? labelEl.textContent.trim() : targetGroup;
+            showDepToast(label + ' изменён на «' + (newName || newVal) + '» — совместим с выбранным параметром');
+            // Рекурсивный каскад
+            applyDependencies(targetGroup);
+          } else {
+            // Ни один элемент не доступен — сбрасываем
+            rg.querySelectorAll(".cfg-item").forEach(function(el) { el.classList.remove("cfg-item_active"); });
+            state[targetGroup] = undefined;
+            var displayEl2 = modal.querySelector('[data-radio-display="' + targetGroup + '"]');
+            if (displayEl2) displayEl2.textContent = "\u2014";
+          }
+        }
+      });
+
+      updateConfigTotal();
     }
 
     // Hide glazing section for ПГ (глухое полотно) doors
@@ -518,7 +676,12 @@
           const groupName = radioGroup.getAttribute("data-radio-group");
           const radioValue = cfgItemToSelect.getAttribute("data-radio-value");
           if (groupName && radioValue) state[groupName] = radioValue;
+          // Обновляем отображение в заголовке аккордеона
+          var displayEl = modal.querySelector('[data-radio-display="' + groupName + '"]');
+          var itemName = cfgItemToSelect.querySelector(".cfg-item__name")?.textContent.trim();
+          if (displayEl && itemName) displayEl.textContent = itemName;
           updateConfigTotal();
+          applyDependencies(groupName);
           return;
         }
 
@@ -709,6 +872,7 @@
 
         // Обновляем итоговую цену
         updateConfigTotal();
+        applyDependencies(pick);
         return;
       }
 

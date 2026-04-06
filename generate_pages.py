@@ -553,6 +553,7 @@ def generate_product_page(coll_name, model_num, model_data, all_models):
 
         <div class="product__price-block">
           <p class="product__price">{price_text}</p>
+          <span class="product__price-note">цена за полотно</span>
           <div class="product__actions">
             <button type="button" class="product__btn product__btn_cart">
               <span class="product__btn-icon product__btn-icon_cart" aria-hidden="true"></span>

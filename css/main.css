@@ -1651,6 +1651,12 @@ a {
   gap: 0;
 }
 
+.product__price-note {
+  font-size: 13px;
+  color: var(--color-text-light, #888);
+  margin-top: -4px;
+}
+
 .product__currency {
   font-family: "IBM Plex Sans", "Manrope", sans-serif;
   font-weight: 500;
@@ -8047,6 +8053,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  width: 100%;
 }
 .cfg-color-tile {
   display: flex;
@@ -8119,4 +8126,29 @@ body {
 /* Product__colors relative positioning for popup */
 .product__colors {
   position: relative;
+}
+
+/* Dependency auto-reset toast */
+.cfg-dep-toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--color-text, #232323);
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.4;
+  padding: 12px 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,.18);
+  opacity: 0;
+  transition: opacity .3s, transform .3s;
+  z-index: 10001;
+  pointer-events: none;
+  max-width: 420px;
+  text-align: center;
+}
+.cfg-dep-toast_show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
