@@ -482,10 +482,15 @@
     }
 
     // Hide glazing section for ПГ (глухое полотно) doors
+    // Определяем наличие остекления по миниатюрам: если есть thumb с «ПО» в alt — дверь со стеклом
     function toggleGlazingVisibility() {
       if (!modal) return;
-      var title = document.querySelector(".product__title")?.textContent.trim() || "";
-      var isPG = /(^|\s)ПГ(\s|$)/i.test(title);
+      var thumbs = document.querySelectorAll(".product__thumb img");
+      var hasPO = false;
+      thumbs.forEach(function(img) {
+        if (/ПО/i.test(img.getAttribute("alt") || "")) hasPO = true;
+      });
+      var isPG = !hasPO;
       // Glazing is now a cfg-section with data-radio-group="glazing"
       var glazingBody = modal.querySelector('[data-radio-group="glazing"]');
       if (glazingBody) {
@@ -497,6 +502,29 @@
           }
         }
       }
+    }
+
+    // Переключаем изображение двери в конструкторе при смене остекления
+    // «Без остекления» → ПГ-картинка, любое стекло → ПО-картинка
+    function swapDoorImage(glazingValue) {
+      if (!modal) return;
+      var cfgImgEl = modal.querySelector("#cfgImageEl");
+      if (!cfgImgEl) return;
+      var thumbs = document.querySelectorAll(".product__thumb img");
+      var pgSrc = null, poSrc = null;
+      thumbs.forEach(function(img) {
+        var alt = img.getAttribute("alt") || "";
+        var src = img.getAttribute("src") || "";
+        if (/ПО/i.test(alt)) {
+          poSrc = src;
+        } else if (!poSrc || /ПГ/i.test(alt)) {
+          pgSrc = src;
+        }
+      });
+      // Если нет отдельных ПГ/ПО — не переключаем
+      if (!pgSrc || !poSrc) return;
+      var wantGlazed = glazingValue && !/^Без\s/i.test(glazingValue);
+      cfgImgEl.src = wantGlazed ? poSrc : pgSrc;
     }
 
     // Конфигурация шагов: текст кнопки «Далее». Изображение берётся с карточки товара.
@@ -614,8 +642,10 @@
           ".config-detail-header",
         )?.nextElementSibling;
         if (options) options.classList.add("is-open");
+        // Не открываем cfg-section одновременно с config-detail (эксклюзивно)
+        return;
       }
-      // Открываем первую cfg-section (погонаж, фурнитура)
+      // Открываем первую cfg-section (погонаж, фурнитура) — только если нет config-detail
       const firstSection = stepEl.querySelector("[data-section-toggle]");
       if (firstSection) {
         const toggle = firstSection.querySelector(".config-detail-toggle");
@@ -738,6 +768,8 @@
           var displayEl = modal.querySelector('[data-radio-display="' + groupName + '"]');
           var itemName = cfgItemToSelect.querySelector(".cfg-item__name")?.textContent.trim();
           if (displayEl && itemName) displayEl.textContent = itemName;
+          // Переключаем изображение двери при выборе остекления
+          if (groupName === "glazing") swapDoorImage(radioValue);
           updateConfigTotal();
           applyDependencies(groupName);
           return;
