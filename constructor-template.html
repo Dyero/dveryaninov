@@ -196,17 +196,37 @@
             </div>
           </div>
 
-          <div class="config-detail-item">
-            <div class="config-detail-header">
+          <div class="cfg-section">
+            <div class="cfg-section__header config-detail-header cfg-section__header_toggle" data-section-toggle>
               <span class="config-detail-label">Тип открывания</span>
-              <span class="config-detail-value">Схема 1</span>
-              <button class="config-detail-toggle" type="button" aria-expanded="false" aria-label="Показать опции"></button>
+              <span class="config-detail-value" data-radio-display="opening-type">Левое на себя</span>
+              <button class="config-detail-toggle config-detail-toggle_minus" type="button" aria-expanded="false" aria-label="Свернуть"></button>
             </div>
-            <div class="config-detail-options">
-              <button type="button" class="config-chip config-chip_active" data-pick="opening-type" data-price="0" data-value="Схема 1">Схема 1</button>
-              <button type="button" class="config-chip" data-pick="opening-type" data-price="500" data-value="Схема 2">Схема 2</button>
-              <button type="button" class="config-chip" data-pick="opening-type" data-price="1000" data-value="Схема 3">Схема 3</button>
-              <button type="button" class="config-chip" data-pick="opening-type" data-price="1500" data-value="Схема 4">Схема 4</button>
+            <div class="cfg-section__body cfg-radio-group" data-radio-group="opening-type">
+              <div class="cfg-item cfg-item_active" data-radio-value="Левое на себя" data-price="0">
+                <div class="cfg-item__thumb"><img src="images/открывание/левое на себя.jpg" alt="Левое на себя" loading="lazy"></div>
+                <div class="cfg-item__info">
+                  <span class="cfg-item__name config-item__title">Левое на себя</span>
+                </div>
+              </div>
+              <div class="cfg-item" data-radio-value="Левое от себя" data-price="0">
+                <div class="cfg-item__thumb"><img src="images/открывание/левое от себя.jpg" alt="Левое от себя" loading="lazy"></div>
+                <div class="cfg-item__info">
+                  <span class="cfg-item__name config-item__title">Левое от себя</span>
+                </div>
+              </div>
+              <div class="cfg-item" data-radio-value="Правое на себя" data-price="0">
+                <div class="cfg-item__thumb"><img src="images/открывание/правое на себя.jpg" alt="Правое на себя" loading="lazy"></div>
+                <div class="cfg-item__info">
+                  <span class="cfg-item__name config-item__title">Правое на себя</span>
+                </div>
+              </div>
+              <div class="cfg-item" data-radio-value="Правое от себя" data-price="0">
+                <div class="cfg-item__thumb"><img src="images/открывание/правое от себя.jpg" alt="Правое от себя" loading="lazy"></div>
+                <div class="cfg-item__info">
+                  <span class="cfg-item__name config-item__title">Правое от себя</span>
+                </div>
+              </div>
             </div>
           </div>
 
