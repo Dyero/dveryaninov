@@ -78,6 +78,17 @@
     });
   }
 
+  // Move selected color to first position with 64px gap
+  function reorderProductColors(selectedBtn) {
+    var container = selectedBtn.closest(".product__colors");
+    if (!container) return;
+    // Move selected to first child (before all other color buttons)
+    var firstChild = container.firstElementChild;
+    if (firstChild !== selectedBtn) {
+      container.insertBefore(selectedBtn, firstChild);
+    }
+  }
+
   // Color selection
   function initColorSelection() {
     const colors = document.querySelectorAll(".product__color");
@@ -86,8 +97,10 @@
       btn.addEventListener("click", () => {
         colors.forEach(b => { if (!b.classList.contains("product__color_more")) b.classList.remove("product__color_active"); });
         btn.classList.add("product__color_active");
-        const val = btn.closest(".product__option")?.querySelector(".product__option-value");
+        const val = document.querySelector(".product__option_coating .product__option-value");
         if (val && btn.getAttribute("title")) val.textContent = btn.getAttribute("title");
+        // Move selected color to first position
+        reorderProductColors(btn);
         // Sync with configurator if open
         syncCoatingToConfigurator(btn.getAttribute("aria-label") || btn.getAttribute("title"));
       });
@@ -112,8 +125,11 @@
       if (b.classList.contains("product__color_more")) return;
       b.classList.toggle("product__color_active", b.getAttribute("aria-label") === name);
     });
-    const val = document.querySelector(".product__colors")?.closest(".product__option")?.querySelector(".product__option-value");
+    const val = document.querySelector(".product__option_coating .product__option-value");
     if (val) val.textContent = name;
+    // Move selected to first position
+    const activeBtn = document.querySelector('.product__color[aria-label="' + name + '"]');
+    if (activeBtn) reorderProductColors(activeBtn);
   };
 
   // +83 coatings popup
@@ -161,8 +177,11 @@
           pageColors.forEach(b => {
             if (b.getAttribute("aria-label") === name) { b.classList.add("product__color_active"); found = true; }
           });
-          const val = document.querySelector(".product__colors")?.closest(".product__option")?.querySelector(".product__option-value");
+          const val = document.querySelector(".product__option_coating .product__option-value");
           if (val) val.textContent = name;
+          // Move selected to first position
+          const matched = document.querySelector('.product__color[aria-label="' + name + '"]');
+          if (matched) reorderProductColors(matched);
           syncCoatingToConfigurator(name);
         });
         grid.appendChild(swatch);

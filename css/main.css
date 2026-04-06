@@ -1534,22 +1534,21 @@ a {
   border-color: var(--color-border);
 }
 
-/* Colors — Figma: 76×76 swatches, 5px white border, absolute positioned */
+/* Colors — flex layout: selected first, then gap, then rest */
 .product__colors {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
-  gap: 0;
+  gap: 6px;
   position: relative;
-  min-height: 248px;
 }
 
 .product__color {
-  position: absolute;
-  width: 76px;
-  height: 76px;
-  padding: 1px;
-  border: 1px solid transparent;
+  position: relative;
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  border: 2px solid transparent;
   background: transparent;
   cursor: pointer;
   transition: border-color 0.2s ease;
@@ -1557,34 +1556,16 @@ a {
   overflow: hidden;
 }
 
-/* Row 1 positions */
-.product__color:nth-child(1) {
-  left: 0;
-  top: 0;
-}
-.product__color:nth-child(2) {
-  left: 80px;
-  top: 0;
-}
-.product__color:nth-child(3) {
-  left: 160px;
-  top: 0;
-}
-.product__color:nth-child(4) {
-  left: 240px;
-  top: 0;
-}
-/* Row 2 positions */
-.product__color:nth-child(5) {
-  left: 0;
-  top: 92px;
+/* Selected color (first child) — 64px gap to the right */
+.product__color_active {
+  border-color: var(--color-text);
+  margin-right: 58px;
 }
 
 .product__color-inner {
   display: block;
   width: 100%;
-  height: 74px;
-  border: 5px solid var(--color-white);
+  height: 100%;
   box-sizing: border-box;
 }
 
@@ -1592,28 +1573,21 @@ a {
   border-color: var(--color-text);
 }
 
-.product__color_active {
-  border-color: var(--color-text);
-}
-
 .product__color_more {
-  position: absolute;
-  left: 80px;
-  top: 92px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 76px;
-  height: 76px;
-  padding: 6px;
+  width: 52px;
+  height: 52px;
+  padding: 4px;
   font-family: var(--font-heading);
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.5;
   color: var(--color-text);
   background: var(--color-bg-header);
-  border: 6px solid var(--color-white);
+  border: 2px solid transparent;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: border-color 0.2s ease;
 }
 
 .product__color_more:hover {
@@ -1621,13 +1595,10 @@ a {
 }
 
 .product__color-custom-wrap {
-  position: absolute;
-  left: 0;
-  top: 184px;
   width: 100%;
-  height: 64px;
   display: flex;
   align-items: center;
+  margin-top: 8px;
 }
 
 /* Price block */
@@ -8010,22 +7981,23 @@ body {
 .cfg-coatings-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 10px;
   width: 100%;
 }
 .cfg-coating-swatch {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3px;
-  padding: 6px 4px;
+  gap: 6px;
+  padding: 6px;
   border: 2px solid transparent;
   border-radius: 0;
   background: none;
   cursor: pointer;
   transition: border-color .15s;
-  width: 80px;
+  width: 100px;
   flex-shrink: 0;
+  position: relative;
 }
 .cfg-coating-swatch:hover {
   border-color: #ccc;
@@ -8035,37 +8007,59 @@ body {
 }
 .cfg-coating-swatch__color {
   display: block;
-  width: 36px;
-  height: 36px;
+  width: 80px;
+  height: 80px;
   border-radius: 0;
-  border: 1px solid rgba(0,0,0,.1);
+  border: 1px solid rgba(0,0,0,.08);
 }
 .cfg-coating-swatch__name {
-  font-size: 10px;
+  font-size: 11px;
   line-height: 1.2;
   text-align: center;
   word-break: break-word;
   color: #333;
 }
 
+/* Hover zoom popup for coating swatches */
+.cfg-coating-swatch:hover .cfg-swatch-zoom,
+.cfg-color-tile:hover .cfg-swatch-zoom {
+  display: block;
+}
+.cfg-swatch-zoom {
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 250px;
+  border: 1px solid rgba(0,0,0,.12);
+  border-radius: 0;
+  box-shadow: 0 4px 16px rgba(0,0,0,.1);
+  z-index: 100;
+  pointer-events: none;
+}
+
 /* Configurator color chips as tiles */
 .cfg-color-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 10px;
   width: 100%;
 }
 .cfg-color-tile {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3px;
+  gap: 6px;
   padding: 6px;
   border: 2px solid transparent;
-  border-radius: 2px;
+  border-radius: 0;
   background: none;
   cursor: pointer;
   transition: border-color .15s;
+  width: 100px;
+  position: relative;
 }
 .cfg-color-tile:hover {
   border-color: #ccc;
@@ -8075,13 +8069,13 @@ body {
 }
 .cfg-color-tile__swatch {
   display: block;
-  width: 32px;
-  height: 32px;
+  width: 80px;
+  height: 80px;
   border-radius: 0;
-  border: 1px solid rgba(0,0,0,.1);
+  border: 1px solid rgba(0,0,0,.08);
 }
 .cfg-color-tile__label {
-  font-size: 10px;
+  font-size: 11px;
   line-height: 1.2;
   text-align: center;
   color: #333;

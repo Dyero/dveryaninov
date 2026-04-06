@@ -270,8 +270,12 @@
         var label = document.createElement("span");
         label.className = "cfg-coating-swatch__name";
         label.textContent = c[0];
+        var zoom = document.createElement("span");
+        zoom.className = "cfg-swatch-zoom";
+        zoom.style.background = c[1];
         btn.appendChild(swatch);
         btn.appendChild(label);
+        btn.appendChild(zoom);
         grid.appendChild(btn);
       });
       container.appendChild(grid);
