@@ -1117,11 +1117,14 @@
           }
         });
 
+        // Берём изображение из конфигуратора (может быть ПО), если нет — с карточки
+        var cfgImg = modal.querySelector("#cfgImageEl");
+        var cartImage = (cfgImg && cfgImg.src) ? cfgImg.getAttribute("src") : (imgEl ? imgEl.getAttribute("src") : "");
         var newItem = {
           id: `p-${Date.now()}`,
           title,
           price: totalPrice,
-          image: imgEl ? imgEl.getAttribute("src") : "",
+          image: cartImage,
           qty: 1,
           options: { ...state },
           accessories,

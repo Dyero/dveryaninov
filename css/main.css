@@ -2434,26 +2434,31 @@ a {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 3px;
-  border: 1px solid var(--color-border);
-  background: transparent;
+  height: 44px;
+  padding: 1px 19px;
+  font-family: var(--font-heading);
+  font-size: 15px;
+  line-height: 1.5;
+  text-align: center;
   color: var(--color-text-light);
-  border-radius: 2px;
-  padding: 10px 18px;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: 0;
   cursor: pointer;
-  font-size: 13px;
-  line-height: 1.2;
   transition: all 0.2s ease;
+  white-space: nowrap;
 }
 
 .config-chip:hover {
-  border-color: var(--color-primary);
-  color: var(--color-primary);
+  border-color: var(--color-text);
+  color: var(--color-text);
 }
 
 .config-chip_active {
-  border-color: var(--color-primary);
-  color: var(--color-primary);
+  border-color: var(--color-text);
+  color: var(--color-text);
   background: transparent;
   font-weight: 500;
 }
@@ -5734,10 +5739,6 @@ a.order-item__title:hover {
 
 /* Chip with price delta badge */
 .config-chip {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 3px;
   vertical-align: top;
 }
 
@@ -5752,7 +5753,7 @@ a.order-item__title:hover {
 }
 
 .config-chip_active .config-chip__delta {
-  color: var(--color-primary);
+  color: var(--color-text);
   opacity: 0.85;
 }
 
@@ -5801,6 +5802,8 @@ a.order-item__title:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 5% 0;
+  box-sizing: border-box;
 }
 
 .cfg-modal__image img {
