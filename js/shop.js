@@ -816,6 +816,7 @@
               openModal(modal);
               initModalSelection();
               addPriceBadges();
+              addItemZoomPopups();
               updateConfigTotal();
               setStep("config");
             });
@@ -826,6 +827,7 @@
         openModal(modal);
         initModalSelection();
         addPriceBadges();
+        addItemZoomPopups();
         updateConfigTotal();
         setStep("config");
         return;
@@ -839,6 +841,7 @@
         openModal(modal);
         initModalSelection();
         addPriceBadges();
+        addItemZoomPopups();
         updateConfigTotal();
         setStep(step);
         return;
@@ -1126,14 +1129,29 @@
         .forEach(function (chip) {
           if (chip.querySelector(".config-chip__delta")) return;
           var price = Number(chip.getAttribute("data-price")) || 0;
+          if (price === 0) return; // Don't show badge for base price
           var badge = document.createElement("small");
           badge.className = "config-chip__delta";
           badge.textContent =
-            price > 0
-              ? "+\u2009" + formatPriceRub(price) + "\u00a0\u20bd"
-              : "база";
+            "+\u2009" + formatPriceRub(price) + "\u00a0\u20bd";
           chip.appendChild(badge);
         });
+    }
+
+    function addItemZoomPopups() {
+      modal.querySelectorAll(".cfg-item").forEach(function(item) {
+        if (item.querySelector(".cfg-item__zoom")) return;
+        var thumb = item.querySelector(".cfg-item__thumb img");
+        if (!thumb) return;
+        var zoom = document.createElement("span");
+        zoom.className = "cfg-item__zoom";
+        var img = document.createElement("img");
+        img.src = thumb.src;
+        img.alt = thumb.alt || "";
+        img.loading = "lazy";
+        zoom.appendChild(img);
+        item.appendChild(zoom);
+      });
     }
 
     function updateConfigTotal() {
