@@ -6088,7 +6088,6 @@ a.order-item__title:hover {
 .cfg-item__zoom {
   display: none;
   position: absolute;
-  bottom: calc(100% + 8px);
   left: 50%;
   transform: translateX(-50%);
   width: 200px;
@@ -6099,6 +6098,17 @@ a.order-item__title:hover {
   z-index: 10100;
   pointer-events: none;
   background: #fff;
+}
+.cfg-item__zoom.is-visible {
+  display: block;
+}
+.cfg-item__zoom:not(.cfg-item__zoom_below) {
+  bottom: calc(100% + 8px);
+  top: auto;
+}
+.cfg-item__zoom.cfg-item__zoom_below {
+  top: calc(100% + 8px);
+  bottom: auto;
 }
 .cfg-item__zoom img {
   width: 100%;
@@ -8050,14 +8060,9 @@ body {
 }
 
 /* Hover zoom popup for coating swatches */
-.cfg-coating-swatch:hover .cfg-swatch-zoom,
-.cfg-color-tile:hover .cfg-swatch-zoom {
-  display: block;
-}
 .cfg-swatch-zoom {
   display: none;
   position: absolute;
-  bottom: calc(100% + 8px);
   left: 50%;
   transform: translateX(-50%);
   width: 200px;
@@ -8067,6 +8072,17 @@ body {
   box-shadow: 0 4px 16px rgba(0,0,0,.1);
   z-index: 10100;
   pointer-events: none;
+}
+.cfg-swatch-zoom.is-visible {
+  display: block;
+}
+.cfg-swatch-zoom:not(.cfg-swatch-zoom_below) {
+  bottom: calc(100% + 8px);
+  top: auto;
+}
+.cfg-swatch-zoom.cfg-swatch-zoom_below {
+  top: calc(100% + 8px);
+  bottom: auto;
 }
 
 /* Configurator color chips as tiles */

@@ -538,13 +538,14 @@
       // При смене шага сбрасываем аккордеон: открываем только первый элемент нового шага
       const newStepEl = modal.querySelector('[data-step="' + step + '"]');
       if (newStepEl) {
-        modal.querySelectorAll(".config-detail-options").forEach((el) => {
+        // Сбрасываем только в пределах нового шага
+        newStepEl.querySelectorAll(".config-detail-options").forEach((el) => {
           el.classList.remove("is-open");
         });
-        modal.querySelectorAll(".cfg-section__body").forEach((el) => {
+        newStepEl.querySelectorAll(".cfg-section__body").forEach((el) => {
           el.classList.remove("is-open");
         });
-        modal.querySelectorAll(".config-detail-toggle").forEach((btn) => {
+        newStepEl.querySelectorAll(".config-detail-toggle").forEach((btn) => {
           btn.setAttribute("aria-expanded", "false");
         });
         openFirstAccordionItem(newStepEl);
@@ -570,16 +571,19 @@
         }
       });
 
-      // 2. Закрываем все аккордеон-элементы
-      modal.querySelectorAll(".config-detail-options").forEach((el) => {
-        el.classList.remove("is-open");
-      });
-      modal.querySelectorAll(".cfg-section__body").forEach((el) => {
-        el.classList.remove("is-open");
-      });
-      modal.querySelectorAll(".config-detail-toggle").forEach((btn) => {
-        btn.setAttribute("aria-expanded", "false");
-      });
+      // 2. Закрываем все аккордеон-элементы в активном шаге
+      var activeStep = modal.querySelector(".config-step_active");
+      if (activeStep) {
+        activeStep.querySelectorAll(".config-detail-options").forEach((el) => {
+          el.classList.remove("is-open");
+        });
+        activeStep.querySelectorAll(".cfg-section__body").forEach((el) => {
+          el.classList.remove("is-open");
+        });
+        activeStep.querySelectorAll(".config-detail-toggle").forEach((btn) => {
+          btn.setAttribute("aria-expanded", "false");
+        });
+      }
 
       // 3. Открываем первый аккордеон-элемент активного шага
       openFirstAccordionItem(modal.querySelector(".config-step_active"));
@@ -817,6 +821,7 @@
               initModalSelection();
               addPriceBadges();
               addItemZoomPopups();
+              initSmartZoom();
               updateConfigTotal();
               setStep("config");
             });
@@ -828,6 +833,7 @@
         initModalSelection();
         addPriceBadges();
         addItemZoomPopups();
+        initSmartZoom();
         updateConfigTotal();
         setStep("config");
         return;
@@ -842,6 +848,7 @@
         initModalSelection();
         addPriceBadges();
         addItemZoomPopups();
+        initSmartZoom();
         updateConfigTotal();
         setStep(step);
         return;
@@ -1152,6 +1159,33 @@
         zoom.appendChild(img);
         item.appendChild(zoom);
       });
+    }
+
+    // Smart zoom: show above or below based on viewport space
+    function initSmartZoom() {
+      if (modal._smartZoomInit) return;
+      modal._smartZoomInit = true;
+      modal.addEventListener("mouseenter", function(e) {
+        var trigger = e.target.closest(".cfg-coating-swatch, .cfg-color-tile, .cfg-item");
+        if (!trigger) return;
+        var zoom = trigger.querySelector(".cfg-swatch-zoom, .cfg-item__zoom");
+        if (!zoom) return;
+        var rect = trigger.getBoundingClientRect();
+        var spaceAbove = rect.top;
+        var zoomH = 258; // 250 + 8 gap
+        if (spaceAbove < zoomH) {
+          zoom.classList.add(zoom.classList.contains("cfg-swatch-zoom") ? "cfg-swatch-zoom_below" : "cfg-item__zoom_below");
+        } else {
+          zoom.classList.remove("cfg-swatch-zoom_below", "cfg-item__zoom_below");
+        }
+        zoom.classList.add("is-visible");
+      }, true);
+      modal.addEventListener("mouseleave", function(e) {
+        var trigger = e.target.closest(".cfg-coating-swatch, .cfg-color-tile, .cfg-item");
+        if (!trigger) return;
+        var zoom = trigger.querySelector(".cfg-swatch-zoom, .cfg-item__zoom");
+        if (zoom) zoom.classList.remove("is-visible");
+      }, true);
     }
 
     function updateConfigTotal() {
