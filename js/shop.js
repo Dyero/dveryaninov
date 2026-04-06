@@ -170,7 +170,12 @@
     });
   }
 
-  const BASE_PRICE = 52000;
+  function getBasePrice() {
+    var priceEl = document.querySelector(".product__price");
+    if (!priceEl) return 52000;
+    var text = priceEl.textContent || "0";
+    return Number((text.match(/\d[\d\s]*/)?.[0] || "0").replace(/\s/g, "")) || 52000;
+  }
 
   function initConfigurator() {
     let modal = document.querySelector(".cfg-modal");
@@ -794,7 +799,12 @@
           const accTitle = item.querySelector(".cfg-item__name")?.textContent.trim() || "";
           if (!accTitle) return;
           const spec = item.querySelector(".cfg-item__spec")?.textContent.trim() || "";
-          const price = Number(item.querySelector(".config-item__amount")?.textContent.replace(/[^\d]/g, "")) || 0;
+          var price = 0;
+          if (item.hasAttribute("data-price")) {
+            price = Number(item.getAttribute("data-price")) || 0;
+          } else {
+            price = Number(item.querySelector(".config-item__amount")?.textContent.replace(/[^\d]/g, "")) || 0;
+          }
           const accImg = item.querySelector('.cfg-item__thumb img')?.getAttribute('src') || '';
           accessories.push({
             id: `acc-${Date.now()}-${Math.random().toString(36).slice(2)}`,
@@ -883,11 +893,18 @@
     });
 
     function getChipsTotal() {
-      let total = 0;
+      var total = 0;
+      // config-chip (размер, остекление, открывание, ограничитель и т.д.)
       modal
         .querySelectorAll(".config-chip_active[data-price]")
         .forEach(function (chip) {
           total += Number(chip.getAttribute("data-price")) || 0;
+        });
+      // cfg-color-tile (цвет ручки и т.д.)
+      modal
+        .querySelectorAll(".cfg-color-tile_active[data-price]")
+        .forEach(function (tile) {
+          total += Number(tile.getAttribute("data-price")) || 0;
         });
       return total;
     }
@@ -909,31 +926,54 @@
     }
 
     function updateConfigTotal() {
-      // Считаем cfg-item (новые карточки фурнитуры)
-      const cfgItemsTotal = Array.from(
-        modal?.querySelectorAll(".cfg-item") || [],
-      ).reduce((sum, item) => {
-        const price =
-          Number(
-            item
-              .querySelector(".config-item__amount")
-              ?.textContent.replace(/\s/g, ""),
-          ) || 0;
-        const qty = Math.max(
-          0,
-          Number(item.querySelector(".cfg-qty-input")?.value) || 0,
-        );
-        return sum + price * qty;
-      }, 0);
-      // Считаем config-item (старые, если останутся)
-      const configItemsTotal = Array.from(
-        modal?.querySelectorAll(".config-item") || [],
-      ).reduce((sum, item) => sum + calcItemTotal(item), 0);
-      const chipsTotal = getChipsTotal();
-      const totalPriceEl = modal?.querySelector(".config-total-price");
+      var radioTotal = 0;
+      var qtyTotal = 0;
+
+      // 1) Radio-группы (погонаж: стойка короба, наличник, добор; фурнитура: ручка, защёлка, петли)
+      //    Активный элемент = 1 шт, цена из data-price или .config-item__amount
+      modal.querySelectorAll(".cfg-radio-group").forEach(function(group) {
+        var active = group.querySelector(".cfg-item_active");
+        if (!active) return;
+        var price = 0;
+        if (active.hasAttribute("data-price")) {
+          price = Number(active.getAttribute("data-price")) || 0;
+        } else {
+          var amountEl = active.querySelector(".config-item__amount");
+          if (amountEl) {
+            price = Number(amountEl.textContent.replace(/\s/g, "")) || 0;
+          }
+        }
+        radioTotal += price;
+      });
+
+      // 2) Элементы со счётчиками (не в radio-группе): порог, плинтус, и т.д.
+      modal.querySelectorAll(".cfg-item").forEach(function(item) {
+        // Пропускаем элементы в radio-группе — они уже посчитаны выше
+        if (item.closest(".cfg-radio-group")) return;
+        var qtyInput = item.querySelector(".cfg-qty-input");
+        if (!qtyInput) return;
+        var qty = Math.max(0, Number(qtyInput.value) || 0);
+        if (qty === 0) return;
+        var price = 0;
+        var amountEl = item.querySelector(".config-item__amount");
+        if (amountEl) {
+          price = Number(amountEl.textContent.replace(/\s/g, "")) || 0;
+        }
+        qtyTotal += price * qty;
+      });
+
+      // 3) Старые config-item (если остались)
+      var configItemsTotal = Array.from(
+        modal.querySelectorAll(".config-item") || [],
+      ).reduce(function(sum, item) { return sum + calcItemTotal(item); }, 0);
+
+      // 4) Чипы + цветовые плитки
+      var chipsTotal = getChipsTotal();
+
+      var totalPriceEl = modal.querySelector(".config-total-price");
       if (totalPriceEl) {
         totalPriceEl.textContent = formatPriceRub(
-          BASE_PRICE + cfgItemsTotal + configItemsTotal + chipsTotal,
+          getBasePrice() + radioTotal + qtyTotal + configItemsTotal + chipsTotal,
         );
       }
     }
