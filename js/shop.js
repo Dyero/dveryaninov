@@ -632,26 +632,27 @@
 
     function openFirstAccordionItem(stepEl) {
       if (!stepEl) return;
-      // Ищем первый config-detail-item с toggle (пропускаем те, что без опций)
-      const firstItem = stepEl.querySelector(
-        ".config-detail-item .config-detail-toggle",
-      );
-      if (firstItem) {
-        firstItem.setAttribute("aria-expanded", "true");
-        const options = firstItem.closest(
-          ".config-detail-header",
-        )?.nextElementSibling;
-        if (options) options.classList.add("is-open");
-        // Не открываем cfg-section одновременно с config-detail (эксклюзивно)
-        return;
-      }
-      // Открываем первую cfg-section (погонаж, фурнитура) — только если нет config-detail
-      const firstSection = stepEl.querySelector("[data-section-toggle]");
-      if (firstSection) {
-        const toggle = firstSection.querySelector(".config-detail-toggle");
-        const body = firstSection.closest(".cfg-section")?.querySelector(".cfg-section__body");
-        if (toggle) toggle.setAttribute("aria-expanded", "true");
-        if (body) body.classList.add("is-open");
+      // Ищем первый аккордеон ЛЮБОГО типа в порядке DOM
+      // (config-detail-item с toggle ИЛИ cfg-section с data-section-toggle)
+      var allHeaders = stepEl.querySelectorAll(".config-detail-header");
+      for (var i = 0; i < allHeaders.length; i++) {
+        var header = allHeaders[i];
+        var toggle = header.querySelector(".config-detail-toggle");
+        if (!toggle) continue;
+        // Определяем тип: cfg-section или config-detail-item
+        var sectionToggle = header.closest("[data-section-toggle]");
+        if (sectionToggle) {
+          // cfg-section: открываем body
+          var body = sectionToggle.closest(".cfg-section")?.querySelector(".cfg-section__body");
+          toggle.setAttribute("aria-expanded", "true");
+          if (body) body.classList.add("is-open");
+        } else {
+          // config-detail-item: открываем options
+          toggle.setAttribute("aria-expanded", "true");
+          var options = header.nextElementSibling;
+          if (options) options.classList.add("is-open");
+        }
+        return; // Открываем только первый
       }
     }
 
