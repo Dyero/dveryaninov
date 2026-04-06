@@ -109,7 +109,7 @@
       var cards = section.querySelectorAll('.order-card');
       cards.forEach(function(card) {
         if (card.innerHTML.indexOf(highlightId.replace('ORD-','')) !== -1) {
-          card.style.borderColor = '#611025';
+          card.style.borderColor = '#8C1F3B';
           card.style.borderWidth = '2px';
         }
       });

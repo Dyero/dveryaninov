@@ -238,8 +238,8 @@ main,
 }
 
 .modal__tab_active {
-  border-color: #611025;
-  color: #611025;
+  border-color: var(--color-accent, #8C1F3B);
+  color: var(--color-accent, #8C1F3B);
 }
 
 .config-step {
@@ -327,8 +327,8 @@ main,
 }
 
 .config-chip_active {
-  border-color: #611025;
-  color: #611025;
+  border-color: var(--color-accent, #8C1F3B);
+  color: var(--color-accent, #8C1F3B);
 }
 
 .config-item__qty {
@@ -363,15 +363,15 @@ main,
 .modal__btn {
   min-height: 42px;
   padding: 0 18px;
-  border: 1px solid #611025;
-  background: #611025;
+  border: 1px solid var(--color-accent, #8C1F3B);
+  background: var(--color-accent, #8C1F3B);
   color: #fff;
   cursor: pointer;
 }
 
 .modal__btn_secondary {
   background: #fff;
-  color: #611025;
+  color: var(--color-accent, #8C1F3B);
 }
 
 @media (max-width: 1200px) {
