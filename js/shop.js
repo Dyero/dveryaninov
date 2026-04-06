@@ -185,7 +185,7 @@
       size: "2000×600",
       "coating-type": "ПВХ",
       finish: "RAL 9003",
-      glazing: "Стекло 1",
+      glazing: "Сатинато белое",
       pattern: "Без узора",
       opening: "Распашная",
       "opening-type": "Схема 1",
@@ -475,15 +475,17 @@
       if (!modal) return;
       var title = document.querySelector(".product__title")?.textContent.trim() || "";
       var isPG = /(^|\s)ПГ(\s|$)/i.test(title);
-      modal.querySelectorAll(".config-detail-item").forEach(function(item) {
-        var label = item.querySelector(".config-detail-label");
-        if (label && label.textContent.trim() === "Остекление") {
-          item.style.display = isPG ? "none" : "";
+      // Glazing is now a cfg-section with data-radio-group="glazing"
+      var glazingBody = modal.querySelector('[data-radio-group="glazing"]');
+      if (glazingBody) {
+        var cfgSection = glazingBody.closest(".cfg-section");
+        if (cfgSection) {
+          cfgSection.style.display = isPG ? "none" : "";
           if (isPG) {
             state.glazing = "-";
           }
         }
-      });
+      }
     }
 
     // Конфигурация шагов: текст кнопки «Далее». Изображение берётся с карточки товара.

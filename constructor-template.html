@@ -79,32 +79,108 @@
             </div>
           </div>
 
-          <div class="config-detail-item">
-            <div class="config-detail-header">
+          <div class="cfg-section">
+            <div class="cfg-section__header config-detail-header cfg-section__header_toggle" data-section-toggle>
               <span class="config-detail-label">Остекление</span>
-              <span class="config-detail-value">Белое матовое</span>
-              <button class="config-detail-toggle" type="button" aria-expanded="false" aria-label="Показать опции"></button>
+              <span class="config-detail-value" data-radio-display="glazing">Сатинато белое</span>
+              <button class="config-detail-toggle config-detail-toggle_minus" type="button" aria-expanded="false" aria-label="Свернуть"></button>
             </div>
-            <div class="config-detail-options">
-              <button type="button" class="config-chip config-chip_active" data-pick="glazing" data-price="0" data-value="Белое матовое">
-                <span class="cfg-glazing-swatch" style="background:rgba(255,255,255,0.85)"></span> Белое матовое
-              </button>
-              <button type="button" class="config-chip" data-pick="glazing" data-price="1200" data-value="Чёрное матовое">
-                <span class="cfg-glazing-swatch" style="background:#333"></span> Чёрное матовое
-              </button>
-              <button type="button" class="config-chip" data-pick="glazing" data-price="1500" data-value="Бронзовое матовое">
-                <span class="cfg-glazing-swatch" style="background:#C4A47C"></span> Бронзовое матовое
-              </button>
-              <button type="button" class="config-chip" data-pick="glazing" data-price="2000" data-value="Белое глянцевое">
-                <span class="cfg-glazing-swatch" style="background:#fff;border:1px solid #ddd"></span> Белое глянцевое
-              </button>
-              <button type="button" class="config-chip" data-pick="glazing" data-price="2000" data-value="Чёрное глянцевое">
-                <span class="cfg-glazing-swatch" style="background:#1a1a1a"></span> Чёрное глянцевое
-              </button>
-              <button type="button" class="config-chip" data-pick="glazing" data-price="2500" data-value="Матовое с рисунком">
-                <span class="cfg-glazing-swatch" style="background:linear-gradient(135deg,rgba(255,255,255,0.9) 50%,rgba(200,200,200,0.5) 50%)"></span> Матовое с рисунком
-              </button>
-              <button type="button" class="config-chip" data-pick="glazing" data-price="0" data-value="Без остекления">Без остекления</button>
+            <div class="cfg-section__body cfg-radio-group" data-radio-group="glazing">
+              <div class="cfg-item cfg-item_active" data-radio-value="Сатинато белое" data-price="0">
+                <div class="cfg-item__thumb"><img src="images/Стёкла/Сатинато белое 1.png" alt="Сатинато белое" loading="lazy"></div>
+                <div class="cfg-item__info">
+                  <span class="cfg-item__name config-item__title">Сатинато белое</span>
+                </div>
+                <div class="cfg-item__price">
+                  <span class="config-item__amount">0</span>
+                  <span class="cfg-item__currency">₽</span>
+                </div>
+              </div>
+              <div class="cfg-item" data-radio-value="Сатинато бронза" data-price="1200">
+                <div class="cfg-item__thumb"><img src="images/Стёкла/Сатинато бронза 1.png" alt="Сатинато бронза" loading="lazy"></div>
+                <div class="cfg-item__info">
+                  <span class="cfg-item__name config-item__title">Сатинато бронза</span>
+                </div>
+                <div class="cfg-item__price">
+                  <span class="config-item__amount">1 200</span>
+                  <span class="cfg-item__currency">₽</span>
+                </div>
+              </div>
+              <div class="cfg-item" data-radio-value="Сатинато графит" data-price="1200">
+                <div class="cfg-item__thumb"><img src="images/Стёкла/Сатинато графит 1.png" alt="Сатинато графит" loading="lazy"></div>
+                <div class="cfg-item__info">
+                  <span class="cfg-item__name config-item__title">Сатинато графит</span>
+                </div>
+                <div class="cfg-item__price">
+                  <span class="config-item__amount">1 200</span>
+                  <span class="cfg-item__currency">₽</span>
+                </div>
+              </div>
+              <div class="cfg-item" data-radio-value="Сатинато тонированное" data-price="1500">
+                <div class="cfg-item__thumb"><img src="images/Стёкла/Сатинато тонированное 1.png" alt="Сатинато тонированное" loading="lazy"></div>
+                <div class="cfg-item__info">
+                  <span class="cfg-item__name config-item__title">Сатинато тонированное</span>
+                </div>
+                <div class="cfg-item__price">
+                  <span class="config-item__amount">1 500</span>
+                  <span class="cfg-item__currency">₽</span>
+                </div>
+              </div>
+              <div class="cfg-item" data-radio-value="Бронза" data-price="1500">
+                <div class="cfg-item__thumb"><img src="images/Стёкла/Бронза 1.png" alt="Бронза" loading="lazy"></div>
+                <div class="cfg-item__info">
+                  <span class="cfg-item__name config-item__title">Бронза</span>
+                </div>
+                <div class="cfg-item__price">
+                  <span class="config-item__amount">1 500</span>
+                  <span class="cfg-item__currency">₽</span>
+                </div>
+              </div>
+              <div class="cfg-item" data-radio-value="Грей" data-price="1500">
+                <div class="cfg-item__thumb"><img src="images/Стёкла/Грей 1.png" alt="Грей" loading="lazy"></div>
+                <div class="cfg-item__info">
+                  <span class="cfg-item__name config-item__title">Грей</span>
+                </div>
+                <div class="cfg-item__price">
+                  <span class="config-item__amount">1 500</span>
+                  <span class="cfg-item__currency">₽</span>
+                </div>
+              </div>
+              <div class="cfg-item" data-radio-value="Рефлектив серебро" data-price="2000">
+                <div class="cfg-item__thumb"><img src="images/Стёкла/Рефлектив серебро 1.png" alt="Рефлектив серебро" loading="lazy"></div>
+                <div class="cfg-item__info">
+                  <span class="cfg-item__name config-item__title">Рефлектив серебро</span>
+                </div>
+                <div class="cfg-item__price">
+                  <span class="config-item__amount">2 000</span>
+                  <span class="cfg-item__currency">₽</span>
+                </div>
+              </div>
+              <div class="cfg-item" data-radio-value="Флутс прозрачный" data-price="2000">
+                <div class="cfg-item__thumb"><img src="images/Стёкла/Флутс прозрачный 1.png" alt="Флутс прозрачный" loading="lazy"></div>
+                <div class="cfg-item__info">
+                  <span class="cfg-item__name config-item__title">Флутс прозрачный</span>
+                </div>
+                <div class="cfg-item__price">
+                  <span class="config-item__amount">2 000</span>
+                  <span class="cfg-item__currency">₽</span>
+                </div>
+              </div>
+              <div class="cfg-item" data-radio-value="Флутс грей" data-price="2500">
+                <div class="cfg-item__thumb"><img src="images/Стёкла/Флутс грей 1.png" alt="Флутс грей" loading="lazy"></div>
+                <div class="cfg-item__info">
+                  <span class="cfg-item__name config-item__title">Флутс грей</span>
+                </div>
+                <div class="cfg-item__price">
+                  <span class="config-item__amount">2 500</span>
+                  <span class="cfg-item__currency">₽</span>
+                </div>
+              </div>
+              <div class="cfg-item" data-radio-value="Без остекления" data-price="0">
+                <div class="cfg-item__info">
+                  <span class="cfg-item__name config-item__title">Без остекления</span>
+                </div>
+              </div>
             </div>
           </div>
 
