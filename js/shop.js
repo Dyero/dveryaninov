@@ -183,6 +183,7 @@
     const state = {
       // Шаг 1 — Конфигурация двери
       size: "2000×600",
+      "coating-type": "ПВХ",
       finish: "RAL 9003",
       glazing: "Стекло 1",
       pattern: "Без узора",
@@ -244,6 +245,13 @@
       displayEl.textContent = parts.length ? parts.join(", ") : "\u2014";
     }
 
+    // Определение типа покрытия по имени
+    function getCoatingType(name) {
+      if (/ПЭТ/i.test(name)) return "ПЭТ";
+      if (/Эмаль/i.test(name)) return "Эмаль";
+      return "ПВХ";
+    }
+
     function populateCoatingSwatches() {
       var container = modal?.querySelector("#cfgCoatingsContainer");
       if (!container || !window.DVERYANINOV_COATINGS) return;
@@ -252,8 +260,9 @@
       window.DVERYANINOV_COATINGS.forEach(function(c, i) {
         var btn = document.createElement("button");
         btn.type = "button";
-        btn.className = "cfg-coating-swatch" + (i === 0 ? " cfg-coating-swatch_active" : "");
+        btn.className = "cfg-coating-swatch";
         btn.setAttribute("data-coating", c[0]);
+        btn.setAttribute("data-coating-type", getCoatingType(c[0]));
         btn.title = c[0];
         var swatch = document.createElement("span");
         swatch.className = "cfg-coating-swatch__color";
@@ -266,6 +275,36 @@
         grid.appendChild(btn);
       });
       container.appendChild(grid);
+    }
+
+    // Фильтрация покрытий по выбранному типу (ПВХ/ПЭТ/Эмаль)
+    function filterCoatingsByType(type) {
+      if (!modal) return;
+      var swatches = modal.querySelectorAll(".cfg-coating-swatch");
+      var activeHidden = false;
+      var hasActive = false;
+      swatches.forEach(function(btn) {
+        var btnType = btn.getAttribute("data-coating-type");
+        var visible = btnType === type;
+        btn.style.display = visible ? "" : "none";
+        if (btn.classList.contains("cfg-coating-swatch_active")) {
+          if (!visible) activeHidden = true;
+          else hasActive = true;
+        }
+      });
+      // Если текущий активный скрыт или нет активного — выбрать первый видимый
+      if (activeHidden || !hasActive) {
+        swatches.forEach(function(btn) { btn.classList.remove("cfg-coating-swatch_active"); });
+        var first = modal.querySelector('.cfg-coating-swatch:not([style*="display: none"])');
+        if (first) {
+          first.classList.add("cfg-coating-swatch_active");
+          var name = first.getAttribute("data-coating");
+          state.finish = name;
+          var coatingHeader = modal.querySelector("#cfgCoatingsContainer")?.closest(".config-detail-item")?.querySelector(".config-detail-value");
+          if (coatingHeader) coatingHeader.textContent = name;
+        }
+      }
+      updateConfigTotal();
     }
 
     function syncStateFromPage() {
@@ -767,6 +806,7 @@
               if (cfgImgEl) cfgImgEl.src = productImg;
               // Populate coating swatches from global data
               populateCoatingSwatches();
+              filterCoatingsByType(state["coating-type"] || "ПВХ");
               syncStateFromPage();
               toggleGlazingVisibility();
               openModal(modal);
@@ -828,6 +868,11 @@
         const pick = chip.getAttribute("data-pick");
         const value = chip.getAttribute("data-value");
         state[pick] = value;
+
+        // Фильтрация покрытий по типу (ПВХ/ПЭТ/Эмаль)
+        if (pick === "coating-type") {
+          filterCoatingsByType(value);
+        }
 
         // Фильтрация погонажа по размеру двери
         if (pick === "size" && modal) {

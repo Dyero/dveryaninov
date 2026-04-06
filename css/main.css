@@ -6095,7 +6095,7 @@ a.order-item__title:hover {
   width: 80px;
   height: 80px;
   background: var(--color-bg-header);
-  border: 1px solid var(--color-border);
+  border: none;
   flex-shrink: 0;
   overflow: hidden;
 }
