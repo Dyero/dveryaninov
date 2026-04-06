@@ -806,7 +806,7 @@ a {
 
 /* News section */
 .section_news {
-  background: rgba(97, 16, 37, 0.15);
+  background: rgba(140, 31, 59, 0.15);
   padding: clamp(40px, 6vw, 80px) clamp(16px, 3vw, 40px) clamp(40px, 5vw, 60px);
 }
 
@@ -1250,8 +1250,8 @@ a {
 
 .product__thumb_active {
   border-color: var(--color-primary);
-  background: rgba(97, 16, 37, 0.05);
-  box-shadow: 0 2px 6px rgba(97, 16, 37, 0.12);
+  background: rgba(140, 31, 59, 0.05);
+  box-shadow: 0 2px 6px rgba(140, 31, 59, 0.12);
 }
 
 .product__thumb img {
@@ -1335,7 +1335,7 @@ a {
 .product__arrow:hover:not(:disabled) {
   background: rgba(255, 255, 255, 1);
   border-color: var(--color-primary);
-  box-shadow: 0 4px 12px rgba(97, 16, 37, 0.15);
+  box-shadow: 0 4px 12px rgba(140, 31, 59, 0.15);
 }
 
 .product__arrow:focus-visible:not(:disabled) {
@@ -1526,7 +1526,7 @@ a {
 }
 
 .product__size_measure:hover {
-  background: rgba(97, 16, 37, 0.04);
+  background: rgba(140, 31, 59, 0.04);
 }
 
 .product__size_own {
@@ -2146,14 +2146,14 @@ a {
   margin-bottom: 30px;
 }
 
-/* Help block — Figma: bg rgba(97,16,37,0.15), text left, image right */
+/* Help block — Figma: bg rgba(140, 31, 59,0.15), text left, image right */
 .product-help {
   width: 100%;
   max-width: 1920px;
   margin: 40px auto 0;
   display: grid;
   grid-template-columns: minmax(260px, 1fr) minmax(260px, 1fr);
-  background: rgba(97, 16, 37, 0.15);
+  background: rgba(140, 31, 59, 0.15);
   position: relative;
   overflow: hidden;
   min-height: 659px;
@@ -2461,10 +2461,10 @@ a {
   border: 1px solid var(--color-border);
   background: transparent;
   color: var(--color-text-light);
-  border-radius: 0;
-  padding: 8px 16px;
+  border-radius: 2px;
+  padding: 8px 14px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.2;
   transition: all 0.2s ease;
 }
@@ -2602,7 +2602,7 @@ a {
 
 .config-item:hover {
   border-color: var(--color-primary);
-  box-shadow: 0 2px 6px rgba(97, 16, 37, 0.1);
+  box-shadow: 0 2px 6px rgba(140, 31, 59, 0.1);
 }
 
 .config-item__header {
@@ -2683,7 +2683,7 @@ a {
 .config-item__body {
   padding: 12px;
   border-top: 1px solid var(--color-border);
-  background: rgba(97, 16, 37, 0.02);
+  background: rgba(140, 31, 59, 0.02);
 }
 
 .config-item__row {
@@ -2727,7 +2727,7 @@ a {
 }
 
 .config-qty-btn:hover {
-  background: rgba(97, 16, 37, 0.05);
+  background: rgba(140, 31, 59, 0.05);
   color: var(--color-primary);
 }
 
@@ -2770,7 +2770,7 @@ a {
 .config-summary {
   margin: 24px 0;
   padding: 16px;
-  background: rgba(97, 16, 37, 0.05);
+  background: rgba(140, 31, 59, 0.05);
   border-radius: 0;
 }
 
@@ -4035,7 +4035,7 @@ a {
   transition: background 0.2s;
 }
 .cart-item__qty-btn:hover {
-  background: rgba(97, 16, 37, 0.05);
+  background: rgba(140, 31, 59, 0.05);
   color: var(--color-primary);
 }
 .cart-item__qty-value {
@@ -5993,36 +5993,38 @@ a.order-item__title:hover {
 
 .cfg-btn {
   border: none;
+  border-radius: 2px;
   cursor: pointer;
   font-family: var(--font-main);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  padding: 12px 18px;
+  padding: 13px 24px;
   white-space: nowrap;
   transition: all 0.2s;
 }
 
 .cfg-btn_outline {
-  background: var(--color-white);
-  border: 1.5px solid var(--color-primary);
-  color: var(--color-primary);
+  background: transparent;
+  border: 1.5px solid var(--color-text-primary, #1A1A1A);
+  color: var(--color-text-primary, #1A1A1A);
 }
 
 .cfg-btn_outline:hover {
-  background: rgba(97, 16, 37, 0.05);
+  border-color: var(--color-accent, #8C1F3B);
+  color: var(--color-accent, #8C1F3B);
 }
 
 .cfg-btn_fill {
-  background: var(--color-primary);
+  background: var(--color-accent, #8C1F3B);
   color: var(--color-white);
-  border: 1.5px solid var(--color-primary);
+  border: 1.5px solid var(--color-accent, #8C1F3B);
 }
 
 .cfg-btn_fill:hover {
-  background: #7a1530;
-  border-color: #7a1530;
+  background: var(--color-accent-hover, #6E1630);
+  border-color: var(--color-accent-hover, #6E1630);
 }
 
 /* Секция с заголовком (напр. "Модель ручки") */
@@ -6140,7 +6142,7 @@ a.order-item__title:hover {
 }
 
 .cfg-qty-btn:hover {
-  background: rgba(97, 16, 37, 0.07);
+  background: rgba(140, 31, 59, 0.07);
   color: var(--color-primary);
 }
 
@@ -8042,9 +8044,9 @@ body {
 
 /* Configurator color chips as tiles */
 .cfg-color-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-  gap: 6px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 .cfg-color-tile {
   display: flex;
@@ -8053,7 +8055,7 @@ body {
   gap: 3px;
   padding: 6px;
   border: 2px solid transparent;
-  border-radius: 0;
+  border-radius: 2px;
   background: none;
   cursor: pointer;
   transition: border-color .15s;
