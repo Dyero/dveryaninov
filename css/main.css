@@ -568,7 +568,24 @@ a {
   width: auto;
   height: 90%;
   object-fit: contain;
-  transition: transform 0.4s ease;
+  transition: transform 0.4s ease, opacity 0.35s ease;
+}
+
+.card__image_hover {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: auto;
+  height: 90%;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.card:hover .card__image_hover {
+  opacity: 1;
 }
 
 .card:hover .card__image {
@@ -2471,7 +2488,7 @@ a {
 /* Config detail items */
 .config-detail-item {
   border-bottom: 1px solid var(--color-border);
-  padding: 12px 0;
+  padding: 24px 0;
 }
 
 .config-detail-item:last-child {
@@ -2507,11 +2524,17 @@ a {
   background-size: 24px 24px;
   background-image: url("../images/Plus.svg");
   border: none;
+  outline: none;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: transform 0.2s ease;
+}
+
+.config-detail-toggle::before {
+  content: none;
+  display: none;
 }
 
 .config-detail-toggle[aria-expanded="true"] {
@@ -2540,7 +2563,7 @@ a {
 }
 .config-detail-options.is-open {
   max-height: 5000px;
-  padding: 16px 16px 16px;
+  padding: 24px 24px;
   opacity: 1;
   visibility: visible;
   overflow: visible;
@@ -2581,6 +2604,7 @@ a {
   padding: 0;
   background: transparent;
   border: none;
+  outline: none;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -2641,7 +2665,7 @@ a {
 
 /* Config item body (раскрытые оараметры) */
 .config-item__body {
-  padding: 16px 16px 16px;
+  padding: 24px 24px;
   border-top: 1px solid var(--color-border);
   background: rgba(140, 31, 59, 0.02);
 }
@@ -6201,11 +6225,19 @@ a.order-item__title:hover {
 
 .cfg-modal__params .config-detail-item {
   border-bottom: 1px solid var(--color-border);
-  padding: 14px 0;
+  padding: 24px 24px;
 }
 
 .cfg-modal__params .config-detail-item:last-child {
   border-bottom: none;
+}
+
+.cfg-modal__params .config-detail-options.is-open {
+  padding: 24px 24px;
+}
+
+.cfg-modal__params .config-item__body:not([hidden]) {
+  padding: 24px 24px;
 }
 
 /* Фиксированный футер */

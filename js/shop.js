@@ -1939,4 +1939,37 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
   })();
+
+  /* ── Hover: показ ПО-варианта на карточках каталога ── */
+  (function initCardHover() {
+    document.querySelectorAll(".card").forEach(function (card) {
+      var variant = card.querySelector(".card__variant");
+      if (!variant || variant.textContent.trim() !== "ПГ / ПО") return;
+      var img = card.querySelector(".card__image");
+      if (!img) return;
+      var src = img.getAttribute("src");
+      // Заменяем ПГ → ПО (в любом регистре, с пробелом или без)
+      var hoverSrc = src.replace(/(\s?)ПГ(\s)/i, function (m, before, after) {
+        var base = m.replace(/пг/i, function (pg) {
+          return pg === "ПГ" ? "ПО" : pg === "пг" ? "по" : pg === "Пг" ? "По" : "ПО";
+        });
+        return base;
+      });
+      // Для слитных вариантов: "6пг " → "6по "
+      if (hoverSrc === src) {
+        hoverSrc = src.replace(/пг(\s)/i, function (m, after) {
+          return m.replace(/пг/i, function (pg) {
+            return pg === "ПГ" ? "ПО" : pg === "пг" ? "по" : "ПО";
+          });
+        });
+      }
+      if (hoverSrc === src) return; // не удалось построить путь
+      var hoverImg = document.createElement("img");
+      hoverImg.className = "card__image card__image_hover";
+      hoverImg.alt = img.alt;
+      hoverImg.loading = "lazy";
+      hoverImg.src = hoverSrc;
+      card.querySelector(".card__image-wrap").appendChild(hoverImg);
+    });
+  })();
 });
