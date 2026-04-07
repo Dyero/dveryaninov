@@ -592,7 +592,7 @@ a {
   opacity: 0;
 }
 
-.card:hover .card__image:not(.card__image--has-hover) {
+.card:hover .card__image:not(.card__image--has-hover):not(.card__image_hover) {
   transform: scale(1.05);
 }
 
