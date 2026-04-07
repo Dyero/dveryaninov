@@ -670,6 +670,7 @@ def generate_product_page(coll_name, model_num, model_data, all_models):
   </div>
 
   <script src="js/coatings-data.js"></script>
+  <script src="js/configurator-data.js"></script>
   <script src="js/product.js"></script>
   <script src="js/shop.js"></script>
 </body>

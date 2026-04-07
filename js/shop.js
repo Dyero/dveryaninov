@@ -184,26 +184,49 @@
       // Шаг 1 — Конфигурация двери
       size: "2000×600",
       "coating-type": "ПВХ",
-      finish: "RAL 9003",
-      glazing: "Сатинато белое",
-      pattern: "Без узора",
+      finish: "",
+      glazing: "",
+      engraving: "Без гравировки",
+      "alu-edge": "Без кромки",
+      moldings: "",
       opening: "Распашная",
       "opening-type": "Левое на себя",
       // Шаг 2 — Погонаж
-      box: "Телескопический",
-      casing: "Телескоп +",
-      quantity: "5 шт",
-      "height-add": "100 мм",
-      threshold: "Без порога",
+      box: "",
+      "casing-side1": "",
+      "casing-side2": "",
+      dobor: "",
       // Шаг 3 — Фурнитура
-      "handle-color": "Белый",
-      "lock-type": "Нажимные модели",
-      "lock-color": "Белый",
-      locker: "Завертка (WC)",
-      hinges: "Скрытые",
-      "hinges-color": "Белый",
+      "hw-color": "",
+      handle: "",
+      locker: "",
+      hinges: "",
       stopper: "Напольный",
     };
+
+    // Коллекция и модель — определяются из заголовка страницы
+    var _collection = "";
+    var _model = "";
+
+    function detectCollectionModel() {
+      var title = document.querySelector(".product__title")?.textContent.trim() || "";
+      // Пример: "Альберта 1 ПГ" → коллекция "Альберта", модель "Альберта 1"
+      var collections = [
+        "Декар с багетом","Альберта","Амери","Амфора","Аврора","Белуни","Бланк","Бона","Бонеко",
+        "Декар","Этерна","Флай","Форм","Кант","Каскад","Квант","Мета","Миура","Модена",
+        "Моно","Нео","Оазис","Палладио","Плиссе","Терра","Ультра","Вектор","Верто","Витра","Д"
+      ];
+      for (var i = 0; i < collections.length; i++) {
+        if (title.indexOf(collections[i]) === 0 || title.indexOf(collections[i]) !== -1) {
+          _collection = collections[i];
+          // Модель = коллекция + номер (напр. "Ультра 4")
+          var rest = title.replace(collections[i], "").trim();
+          var numMatch = rest.match(/^(\d+)/);
+          _model = numMatch ? collections[i] + " " + numMatch[1] : collections[i];
+          break;
+        }
+      }
+    }
 
     // Экспортируем для интеграции с Битрикс: window.cfgState даёт доступ
     // к каждому свойству как к отдельной переменной (state.size, state.finish, …)
@@ -284,12 +307,18 @@
     // Фильтрация покрытий по выбранному типу (ПВХ/ПЭТ/Эмаль)
     function filterCoatingsByType(type) {
       if (!modal) return;
+      var flyColors = (_collection === "Флай" && CFG.FLY_PVH_COLORS) ? CFG.FLY_PVH_COLORS : null;
       var swatches = modal.querySelectorAll(".cfg-coating-swatch");
       var activeHidden = false;
       var hasActive = false;
       swatches.forEach(function(btn) {
         var btnType = btn.getAttribute("data-coating-type");
         var visible = btnType === type;
+        // Для Флай — дополнительно фильтруем по 45 разрешённым цветам
+        if (visible && flyColors && type === "ПВХ") {
+          var name = btn.getAttribute("data-coating") || "";
+          visible = flyColors.indexOf(name) !== -1;
+        }
         btn.style.display = visible ? "" : "none";
         if (btn.classList.contains("cfg-coating-swatch_active")) {
           if (!visible) activeHidden = true;
@@ -332,154 +361,441 @@
 
     // ─── Стандартные кол-ва погонажа на одностворчатую дверь ───
     var MOLDING_DEFAULT_QTY = {
-      box: 3,       // стойка короба: 2 на бока + 1 на верх
-      casing: 5,    // наличник: 2.5 на сторону × 2 стороны
-      dobor: 0,     // добор: 0 по умолчанию
+      box: 1,       // стойка короба: 1 комплект (2.5 шт)
+      "casing-side1": 1,    // наличник 1 сторона: 1 комплект
+      "casing-side2": 1,    // наличник 2 сторона: 1 комплект
+      dobor: 1,     // добор: 1 комплект
       handle: 1,
       locker: 1,
       hinges: 1,
       glazing: 1,
-      "opening-type": 0  // тип открывания — не товар, не добавлять в аксессуары
+      engraving: 1,
+      "alu-edge": 1,
+      moldings: 1,
+      "opening-type": 0  // тип открывания — не товар
     };
 
-    // ─── Декларативные зависимости между параметрами ───
-    // Ключ верхнего уровня — группа-источник (changedGroup).
-    // Для каждого значения источника — массив допустимых data-radio-value
-    // в группе-потребителе. Если значение отсутствует в карте, все элементы видимы.
-    var DEPENDENCIES = {
-      // Стойка короба → Наличник
-      box: {
-        casing: {
-          "Телескоп":     ["Телескоп 80мм", "Телескоп 100мм", "Телескоп+", "Плоский", "Декоративный"],
-          "Компланарная": ["Компланарный"],
-          "Книжка":       ["Телескоп 80мм", "Телескоп 100мм", "Телескоп+", "Плоский"]
-        },
-        dobor: {
-          "Телескоп":     ["Телескоп ТИП 2", "Без добора"],
-          "Компланарная": ["Без добора"],
-          "Книжка":       ["Без добора"]
-        }
-      },
-      // Вариант открывания → видимость секций фурнитуры
-      opening: {
-        _sections: {
-          "Раздвижная": { hide: ["handle", "locker", "hinges"] },
-          "Распашная":  { hide: [] }
-        }
+    /* ═══════════════════════════════════════════
+     * Динамическое заполнение секций из DVERYANINOV_CFG
+     * ═══════════════════════════════════════════ */
+    var CFG = window.DVERYANINOV_CFG || {};
+
+    // Утилита: создать cfg-item HTML
+    /**
+     * Разбить название на заголовок и подзаголовок (размеры / кол-во).
+     * Расшифровывает сокращения: прод. → продольный, попер. → поперечный, компл. → комплект.
+     */
+    function splitNameSubtitle(name) {
+      var m = name.match(/^(.*?)\s*\(([^)]+)\)\s*(.*)$/);
+      if (!m) return { title: name, subtitle: "" };
+      var base = m[1].trim();
+      var dims = m[2].trim();
+      var suffix = m[3].trim().replace(/^,\s*/, "");
+      // Расшифровать сокращения
+      var exp = suffix
+        .replace(/\bпрод\.\s*/g, "продольный ")
+        .replace(/\bпопер\.\s*/g, "поперечный ")
+        .replace(/\bкомпл\.\s*/g, "комплект ")
+        .trim();
+      // «продольный + поперечный» — часть названия, не подзаголовка
+      if (/продольн|поперечн/.test(exp)) {
+        return { title: base + " " + exp, subtitle: "(" + dims + ")" };
       }
-    };
-
-    // Показать toast-уведомление при авто-сбросе параметра
-    function showDepToast(msg) {
-      var toast = document.createElement("div");
-      toast.className = "cfg-dep-toast";
-      toast.textContent = msg;
-      (modal || document.body).appendChild(toast);
-      requestAnimationFrame(function() { toast.classList.add("cfg-dep-toast_show"); });
-      setTimeout(function() {
-        toast.classList.remove("cfg-dep-toast_show");
-        setTimeout(function() { toast.remove(); }, 300);
-      }, 3000);
+      // «комплект ...» внутри скобок — не размеры
+      if (/комплект/i.test(dims)) {
+        return { title: base, subtitle: dims };
+      }
+      var sub = "(" + dims + ")";
+      if (exp) sub += ", " + exp;
+      return { title: base, subtitle: sub };
     }
 
-    /**
-     * applyDependencies(changedGroup) — фильтрует зависимые группы.
-     * Для каждого зависимого radio-group:
-     *   - скрывает несовместимые элементы
-     *   - если текущий активный стал скрыт — авто-выбирает первый видимый
-     *   - при авто-сбросе показывает toast и рекурсивно вызывает себя
-     * Для _sections — скрывает/показывает целые cfg-section по data-radio-group.
-     */
-    function applyDependencies(changedGroup) {
-      if (!modal) return;
-      var deps = DEPENDENCIES[changedGroup];
-      if (!deps) return;
-      var srcValue = state[changedGroup];
+    function buildRadioItem(name, price, img, extraClass) {
+      var div = document.createElement("div");
+      div.className = "cfg-item" + (extraClass ? " " + extraClass : "");
+      div.setAttribute("data-radio-value", name);
+      div.setAttribute("data-price", String(price));
+      var parts = splitNameSubtitle(name);
+      var html = "";
+      if (img) {
+        html += '<div class="cfg-item__thumb"><img src="' + img + '" alt="' + name + '" loading="lazy"></div>';
+      }
+      html += '<div class="cfg-item__info"><span class="cfg-item__name config-item__title">' + parts.title + '</span>';
+      if (parts.subtitle) {
+        html += '<span class="cfg-item__spec config-item__spec">' + parts.subtitle + '</span>';
+      }
+      html += '</div>';
+      if (price > 0) {
+        html += '<div class="cfg-item__price"><span class="config-item__amount">' + formatPriceRub(price) + '</span><span class="cfg-item__currency"> ₽</span></div>';
+      }
+      div.innerHTML = html;
+      return div;
+    }
 
-      // --- обработка _sections (показ/скрытие целых секций) ---
-      if (deps._sections) {
-        var rule = deps._sections[srcValue];
-        var hideList = rule ? rule.hide : [];
-        // Показываем все секции из пула, затем скрываем нужные
-        var allGroupNames = new Set();
-        Object.keys(deps._sections).forEach(function(k) {
-          (deps._sections[k].hide || []).forEach(function(g) { allGroupNames.add(g); });
-        });
-        allGroupNames.forEach(function(groupName) {
-          var section = modal.querySelector('[data-radio-group="' + groupName + '"]');
-          if (section) {
-            var cfgSection = section.closest(".cfg-section");
-            if (cfgSection) {
-              var hidden = hideList.indexOf(groupName) !== -1;
-              cfgSection.style.display = hidden ? "none" : "";
-              // Если скрыли — деактивируем текущий выбор, обнуляем state
-              if (hidden) {
-                section.querySelectorAll(".cfg-item_active").forEach(function(el) {
-                  el.classList.remove("cfg-item_active");
-                });
-                state[groupName] = undefined;
-                var displayEl = modal.querySelector('[data-radio-display="' + groupName + '"]');
-                if (displayEl) displayEl.textContent = "\u2014";
-              }
-            }
+    // Заполнить размеры
+    function populateSizes() {
+      var container = modal?.querySelector("#cfgSizeOptions");
+      if (!container || !CFG.SIZES) return;
+      container.innerHTML = "";
+      CFG.SIZES.forEach(function(s, i) {
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "config-chip" + (s === state.size ? " config-chip_active" : "");
+        btn.setAttribute("data-pick", "size");
+        btn.setAttribute("data-price", "0");
+        btn.setAttribute("data-value", s);
+        btn.textContent = s;
+        container.appendChild(btn);
+      });
+    }
+
+    // Заполнить типы покрытия (ПВХ/ПЭТ/Эмаль) по коллекции
+    function populateCoatingTypes() {
+      var container = modal?.querySelector("#cfgCoatingTypeOptions");
+      if (!container || !CFG.getAllowedCoatings) return;
+      var allowed = CFG.getAllowedCoatings(_collection);
+      container.innerHTML = "";
+      allowed.forEach(function(t) {
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "config-chip" + (t === state["coating-type"] ? " config-chip_active" : "");
+        btn.setAttribute("data-pick", "coating-type");
+        btn.setAttribute("data-price", "0");
+        btn.setAttribute("data-value", t);
+        btn.textContent = t;
+        container.appendChild(btn);
+      });
+      // Если текущий тип не в списке — переключить на первый
+      if (allowed.indexOf(state["coating-type"]) === -1) {
+        state["coating-type"] = allowed[0];
+        var header = modal.querySelector("#cfgCoatingTypeItem .config-detail-value");
+        if (header) header.textContent = allowed[0];
+      }
+      // Если только один тип — скрыть секцию
+      var item = modal.querySelector("#cfgCoatingTypeItem");
+      if (item) item.style.display = allowed.length <= 1 ? "none" : "";
+    }
+
+    // Заполнить остекление
+    function populateGlazing() {
+      var container = modal?.querySelector("#cfgGlazingOptions");
+      if (!container || !CFG.getGlasses) return;
+      var glasses = CFG.getGlasses(_collection, _model);
+      container.innerHTML = "";
+      // Если нет стёкол — скрыть секцию
+      var section = modal.querySelector("#cfgGlazingSection");
+      if (glasses.length === 0) {
+        if (section) section.style.display = "none";
+        state.glazing = "";
+        return;
+      }
+      if (section) section.style.display = "";
+      // Добавляем стёкла
+      glasses.forEach(function(g) {
+        container.appendChild(buildRadioItem(g.name, g.price, g.img));
+      });
+      // «Без остекления»
+      var noGlass = document.createElement("div");
+      noGlass.className = "cfg-item";
+      noGlass.setAttribute("data-radio-value", "Без остекления");
+      noGlass.setAttribute("data-price", "0");
+      noGlass.innerHTML = '<div class="cfg-item__info"><span class="cfg-item__name config-item__title">Без остекления</span></div>';
+      container.appendChild(noGlass);
+    }
+
+    // Заполнить гравировку
+    function populateEngraving() {
+      var container = modal?.querySelector("#cfgEngravingOptions");
+      var section = modal?.querySelector("#cfgEngravingSection");
+      if (!container || !section) return;
+      if (!CFG.isEngravingAvailable || !CFG.isEngravingAvailable(_collection, state.glazing)) {
+        section.style.display = "none";
+        state.engraving = "Без гравировки";
+        return;
+      }
+      section.style.display = "";
+      container.innerHTML = "";
+      CFG.ENGRAVING_OPTIONS.forEach(function(e) {
+        container.appendChild(buildRadioItem(e.name, e.price, ""));
+      });
+    }
+
+    // Заполнить алюминиевую кромку
+    function populateAluEdge() {
+      var container = modal?.querySelector("#cfgAluEdgeOptions");
+      var section = modal?.querySelector("#cfgAluEdgeSection");
+      if (!container || !section) return;
+      if (!CFG.ALU_BLOCKED || CFG.ALU_BLOCKED.indexOf(_collection) !== -1) {
+        section.style.display = "none";
+        state["alu-edge"] = "Без кромки";
+        return;
+      }
+      section.style.display = "";
+      container.innerHTML = "";
+      CFG.ALU_EDGE.forEach(function(edge) {
+        var name = edge.type + (edge.color ? " — " + edge.color : "");
+        container.appendChild(buildRadioItem(name, edge.price, ""));
+      });
+    }
+
+    // Заполнить молдинги
+    function populateMoldings() {
+      var container = modal?.querySelector("#cfgMoldingsOptions");
+      var section = modal?.querySelector("#cfgMoldingsSection");
+      if (!container || !section) return;
+      var opts = CFG.getMoldings ? CFG.getMoldings(_collection, _model) : null;
+      if (!opts) {
+        section.style.display = "none";
+        state.moldings = "";
+        return;
+      }
+      section.style.display = "";
+      container.innerHTML = "";
+      opts.forEach(function(m) {
+        container.appendChild(buildRadioItem(m.color, m.price, ""));
+      });
+    }
+
+    // Заполнить стойки короба
+    function populateBox() {
+      var container = modal?.querySelector("#cfgBoxOptions");
+      if (!container) return;
+      var cg = CFG.coatingGroup ? CFG.coatingGroup(state["coating-type"]) : "pvh";
+      var boxes = CFG.BOX_TYPES ? CFG.BOX_TYPES[cg] : [];
+      container.innerHTML = "";
+      (boxes || []).forEach(function(b) {
+        var img = /Телескоп/i.test(b.name) ? "images/ПОГОНАЖ/Стойка короба телескоп (МДФ), цветной уплотнитель.jpg" : "images/ПОГОНАЖ/Стойка короба компланарная, цветной уплотнитель.jpg";
+        container.appendChild(buildRadioItem(b.name, b.price, img));
+      });
+    }
+
+    // Заполнить наличники (1-я сторона)
+    function populateCasingSide1() {
+      var container = modal?.querySelector("#cfgCasingSide1Options");
+      if (!container) return;
+      var boxType = state.box || "";
+      var coatingType = state["coating-type"] || "ПВХ";
+      var casings = CFG.getCasings ? CFG.getCasings(boxType, coatingType, _collection) : [];
+      container.innerHTML = "";
+      casings.forEach(function(c) {
+        container.appendChild(buildRadioItem(c.name, c.price, ""));
+      });
+      // Сбросить текущий выбор
+      state["casing-side1"] = "";
+      var display = modal.querySelector('[data-radio-display="casing-side1"]');
+      if (display) display.textContent = "—";
+    }
+
+    // Заполнить наличники (2-я сторона)
+    function populateCasingSide2() {
+      var container = modal?.querySelector("#cfgCasingSide2Options");
+      var section = modal?.querySelector("#cfgCasingSide2Section");
+      if (!container || !section) return;
+      // Показывать только если есть выбор в 1-й стороне
+      if (!state["casing-side1"]) {
+        section.style.display = "none";
+        state["casing-side2"] = "";
+        return;
+      }
+      section.style.display = "";
+      var boxType = state.box || "";
+      var coatingType = state["coating-type"] || "ПВХ";
+      var casings = CFG.getCasingsSide2 ? CFG.getCasingsSide2(boxType, coatingType, _collection) : [];
+      container.innerHTML = "";
+      casings.forEach(function(c) {
+        container.appendChild(buildRadioItem(c.name, c.price, ""));
+      });
+      // Сбросить
+      state["casing-side2"] = "";
+      var display = modal.querySelector('[data-radio-display="casing-side2"]');
+      if (display) display.textContent = "—";
+    }
+
+    // Заполнить добор
+    function populateDobor() {
+      var container = modal?.querySelector("#cfgDoborOptions");
+      if (!container) return;
+      var cg = CFG.coatingGroup ? CFG.coatingGroup(state["coating-type"]) : "pvh";
+      var items = CFG.DOBOR ? CFG.DOBOR[cg] : [];
+      container.innerHTML = "";
+      (items || []).forEach(function(d) {
+        container.appendChild(buildRadioItem(d.name, d.price, d.price === 0 && !d.priceRequest ? "" : "images/ПОГОНАЖ/Добор телескоп ТИП 2 .jpg"));
+      });
+    }
+
+    // Обновить цены порога/плинтуса по типу покрытия
+    function updateExtrasPrice() {
+      var cg = CFG.coatingGroup ? CFG.coatingGroup(state["coating-type"]) : "pvh";
+      var extras = CFG.EXTRAS ? CFG.EXTRAS[cg] : {};
+      var porogPriceEl = modal?.querySelector("#cfgPorogPrice");
+      var plintusPriceEl = modal?.querySelector("#cfgPlintusPrice");
+      if (porogPriceEl && extras.porog) porogPriceEl.textContent = formatPriceRub(extras.porog.price);
+      if (plintusPriceEl && extras.plintus) plintusPriceEl.textContent = formatPriceRub(extras.plintus.price);
+      // Скрыть порог при компланарной стойке
+      var porogItem = modal?.querySelector("#cfgPorogItem");
+      if (porogItem) {
+        var porogVisible = CFG.isPorogAvailable ? CFG.isPorogAvailable(state.box) : true;
+        porogItem.style.display = porogVisible ? "" : "none";
+        if (!porogVisible) {
+          var inp = porogItem.querySelector("[data-item='porog']");
+          if (inp) inp.value = 0;
+        }
+      }
+    }
+
+    // Заполнить все динамические секции
+    function populateAllDynamicSections() {
+      populateSizes();
+      populateCoatingTypes();
+      populateGlazing();
+      populateEngraving();
+      populateAluEdge();
+      populateMoldings();
+      populateBox();
+      populateCasingSide1();
+      populateCasingSide2();
+      populateDobor();
+      updateExtrasPrice();
+      initHardwareColor();
+    }
+
+    // Обработка зависимостей при изменении параметра
+    function refreshDependentSections(changedGroup) {
+      if (!modal) return;
+
+      if (changedGroup === "coating-type") {
+        filterCoatingsByType(state["coating-type"]);
+        populateBox();
+        populateCasingSide1();
+        populateCasingSide2();
+        populateDobor();
+        updateExtrasPrice();
+      }
+
+      if (changedGroup === "glazing") {
+        populateEngraving();
+        swapDoorImage(state.glazing);
+      }
+
+      if (changedGroup === "box") {
+        populateCasingSide1();
+        populateCasingSide2();
+        updateExtrasPrice();
+      }
+
+      if (changedGroup === "casing-side1") {
+        populateCasingSide2();
+      }
+
+      if (changedGroup === "opening") {
+        // Раздвижная → скрыть цвет фурнитуры, ручку, защёлку, петли
+        var hideGroups = state.opening === "Раздвижная" ? ["handle", "locker", "hinges"] : [];
+        var hwColorPicker = modal.querySelector("#hw-color-picker");
+        if (hwColorPicker) hwColorPicker.style.display = hideGroups.length ? "none" : "";
+        ["handle", "locker", "hinges"].forEach(function(g) {
+          var rg = modal.querySelector('[data-radio-group="' + g + '"]');
+          if (rg) {
+            var cfgSection = rg.closest(".cfg-section");
+            if (cfgSection) cfgSection.style.display = hideGroups.indexOf(g) !== -1 ? "none" : "";
           }
         });
       }
 
-      // --- обработка radio-group фильтрации ---
-      Object.keys(deps).forEach(function(targetGroup) {
-        if (targetGroup === "_sections") return;
-        var allowed = deps[targetGroup][srcValue];
-        // Если нет правил для этого значения — показать всё
-        var showAll = !allowed;
+      updateConfigTotal();
+    }
 
-        var rg = modal.querySelector('[data-radio-group="' + targetGroup + '"]');
-        if (!rg) return;
+    /* ── Фурнитура: цвет → фильтрация ручек → авто-выбор защёлки/петель ── */
 
-        var activeItem = rg.querySelector(".cfg-item_active");
-        var activeValue = activeItem ? activeItem.getAttribute("data-radio-value") : null;
-        var activeHidden = false;
+    var COLOR_FALLBACK = {
+      brass:  ["brass", "gold", "chrome"],
+      emboss: ["emboss", "gold", "chrome"],
+      gold:   ["gold", "brass", "chrome"],
+      nickel: ["nickel", "chrome"],
+      chrome: ["chrome", "nickel"],
+      black:  ["black"]
+    };
 
-        rg.querySelectorAll(".cfg-item").forEach(function(item) {
-          var val = item.getAttribute("data-radio-value");
-          if (showAll) {
-            item.style.display = "";
-          } else {
-            var visible = allowed.indexOf(val) !== -1;
-            item.style.display = visible ? "" : "none";
-            if (!visible && val === activeValue) activeHidden = true;
+    var HW_COLOR_NAMES = {
+      black: "Чёрный", chrome: "Мат. хром", gold: "Мат. золото",
+      nickel: "Мат. никель", brass: "Флор. золото", emboss: "Итал. тисненый"
+    };
+
+    function filterHandlesByColor(selectedColor) {
+      var handleGroup = modal ? modal.querySelector('[data-radio-group="handle"]') : null;
+      if (!handleGroup) return;
+      var firstVisible = null;
+      handleGroup.querySelectorAll(".cfg-item").forEach(function(item) {
+        var colors = (item.getAttribute("data-hw-colors") || "").split(",");
+        var visible = colors.indexOf(selectedColor) !== -1;
+        item.style.display = visible ? "" : "none";
+        // Обновляем data-price для текущего цвета
+        if (visible) {
+          var priceAttr = item.getAttribute("data-hw-price-" + selectedColor);
+          if (priceAttr) {
+            item.setAttribute("data-price", priceAttr);
+            var priceDisplay = item.querySelector(".cfg-item__price-display");
+            if (priceDisplay) priceDisplay.textContent = formatPriceRub(Number(priceAttr)) + " ₽";
           }
-        });
-
-        // Если активный элемент стал скрыт — авто-выбор первого видимого
-        if (activeHidden) {
-          var firstVisible = rg.querySelector('.cfg-item:not([style*="display: none"])');
-          if (firstVisible) {
-            rg.querySelectorAll(".cfg-item").forEach(function(el) { el.classList.remove("cfg-item_active"); });
-            firstVisible.classList.add("cfg-item_active");
-            var newVal = firstVisible.getAttribute("data-radio-value");
-            state[targetGroup] = newVal;
-            // Обновить display в аккордеоне
-            var displayEl = modal.querySelector('[data-radio-display="' + targetGroup + '"]');
-            var newName = firstVisible.querySelector(".cfg-item__name")?.textContent.trim();
-            if (displayEl && newName) displayEl.textContent = newName;
-            // Toast
-            var labelEl = rg.closest(".cfg-section")?.querySelector(".config-detail-label");
-            var label = labelEl ? labelEl.textContent.trim() : targetGroup;
-            showDepToast(label + ' изменён на «' + (newName || newVal) + '» — совместим с выбранным параметром');
-            // Рекурсивный каскад
-            applyDependencies(targetGroup);
-          } else {
-            // Ни один элемент не доступен — сбрасываем
-            rg.querySelectorAll(".cfg-item").forEach(function(el) { el.classList.remove("cfg-item_active"); });
-            state[targetGroup] = undefined;
-            var displayEl2 = modal.querySelector('[data-radio-display="' + targetGroup + '"]');
-            if (displayEl2) displayEl2.textContent = "\u2014";
-          }
+          if (!firstVisible) firstVisible = item;
         }
       });
+      // Если активная ручка скрыта — выбираем первую видимую
+      var activeHandle = handleGroup.querySelector(".cfg-item_active");
+      if (activeHandle && activeHandle.style.display === "none") {
+        handleGroup.querySelectorAll(".cfg-item").forEach(function(i) { i.classList.remove("cfg-item_active"); });
+        if (firstVisible) {
+          firstVisible.classList.add("cfg-item_active");
+          state.handle = firstVisible.getAttribute("data-radio-value") || "";
+          var displayEl = modal.querySelector('[data-radio-display="handle"]');
+          var itemName = firstVisible.querySelector(".cfg-item__name");
+          if (displayEl && itemName) displayEl.textContent = itemName.textContent.trim();
+        }
+      }
+    }
 
+    function autoSelectHardwareByColor(selectedColor) {
+      var groups = ["locker", "hinges"];
+      groups.forEach(function(groupName) {
+        var group = modal ? modal.querySelector('[data-radio-group="' + groupName + '"]') : null;
+        if (!group) return;
+        var fallbackOrder = COLOR_FALLBACK[selectedColor] || [selectedColor];
+        var selected = null;
+        for (var i = 0; i < fallbackOrder.length; i++) {
+          selected = group.querySelector('.cfg-item[data-hw-color="' + fallbackOrder[i] + '"]');
+          if (selected) break;
+        }
+        if (!selected) selected = group.querySelector(".cfg-item");
+        if (selected) {
+          group.querySelectorAll(".cfg-item").forEach(function(i) { i.classList.remove("cfg-item_active"); });
+          selected.classList.add("cfg-item_active");
+          state[groupName] = selected.getAttribute("data-radio-value") || "";
+          var displayEl = modal.querySelector('[data-radio-display="' + groupName + '"]');
+          var name = selected.querySelector(".cfg-item__name");
+          if (displayEl && name) displayEl.textContent = name.textContent.trim();
+        }
+      });
       updateConfigTotal();
+    }
+
+    function initHardwareColor() {
+      if (!modal) return;
+      if (state["hw-color"]) {
+        filterHandlesByColor(state["hw-color"]);
+        autoSelectHardwareByColor(state["hw-color"]);
+        // Подсветить нужный тайл
+        var tile = modal.querySelector('.cfg-color-tile[data-hw-color="' + state["hw-color"] + '"]');
+        if (tile) {
+          var grid = tile.closest(".cfg-color-grid");
+          if (grid) grid.querySelectorAll(".cfg-color-tile").forEach(function(t) { t.classList.remove("cfg-color-tile_active"); });
+          tile.classList.add("cfg-color-tile_active");
+          var displayEl = modal.querySelector('[data-radio-display="hw-color"]');
+          if (displayEl) displayEl.textContent = HW_COLOR_NAMES[state["hw-color"]] || state["hw-color"];
+        }
+      } else {
+        // Дефолтный цвет — Чёрный
+        var defaultTile = modal.querySelector('.cfg-color-tile[data-hw-color="black"]');
+        if (defaultTile) defaultTile.click();
+      }
     }
 
     // Hide glazing section for ПГ (глухое полотно) doors
@@ -773,7 +1089,7 @@
           // Переключаем изображение двери при выборе остекления
           if (groupName === "glazing") swapDoorImage(radioValue);
           updateConfigTotal();
-          applyDependencies(groupName);
+          refreshDependentSections(groupName);
           return;
         }
 
@@ -859,8 +1175,12 @@
               modal = document.getElementById("configModal");
               var cfgImgEl = modal.querySelector("#cfgImageEl");
               if (cfgImgEl) cfgImgEl.src = productImg;
+              // Detect collection and model
+              detectCollectionModel();
               // Populate coating swatches from global data
               populateCoatingSwatches();
+              // Populate all dynamic sections
+              populateAllDynamicSections();
               filterCoatingsByType(state["coating-type"] || "ПВХ");
               syncStateFromPage();
               toggleGlazingVisibility();
@@ -875,6 +1195,8 @@
           return;
         }
         syncStateFromPage();
+        detectCollectionModel();
+        populateAllDynamicSections();
         toggleGlazingVisibility();
         openModal(modal);
         initModalSelection();
@@ -890,6 +1212,8 @@
       if (openStepEl) {
         const step = openStepEl.getAttribute("data-open-config-step");
         syncStateFromPage();
+        detectCollectionModel();
+        populateAllDynamicSections();
         toggleGlazingVisibility();
         openModal(modal);
         initModalSelection();
@@ -976,7 +1300,7 @@
 
         // Обновляем итоговую цену
         updateConfigTotal();
-        applyDependencies(pick);
+        refreshDependentSections(pick);
         return;
       }
 
@@ -1001,8 +1325,23 @@
         var colorGrid = colorTile.closest(".cfg-color-grid");
         if (colorGrid) colorGrid.querySelectorAll(".cfg-color-tile").forEach(function(t) { t.classList.remove("cfg-color-tile_active"); });
         colorTile.classList.add("cfg-color-tile_active");
-        // Обновляем header и state
+
         var pick = colorTile.getAttribute("data-pick");
+
+        // Цвет фурнитуры — специальная логика
+        if (pick === "hw-color") {
+          var hwColor = colorTile.getAttribute("data-hw-color");
+          state["hw-color"] = hwColor;
+          var hwDisplay = modal ? modal.querySelector('[data-radio-display="hw-color"]') : null;
+          var hwLabel = colorTile.querySelector(".cfg-color-tile__label");
+          if (hwDisplay && hwLabel) hwDisplay.textContent = hwLabel.textContent.trim();
+          filterHandlesByColor(hwColor);
+          autoSelectHardwareByColor(hwColor);
+          updateConfigTotal();
+          return;
+        }
+
+        // Все остальные цветовые плитки (покрытие и т.д.)
         var val = colorTile.getAttribute("data-value");
         if (pick) state[pick] = val;
         var tileHeader = colorTile.closest(".config-detail-item")?.querySelector(".config-detail-value");
@@ -1247,57 +1586,58 @@
       var radioTotal = 0;
       var qtyTotal = 0;
 
-      // 1) Radio-группы (погонаж: стойка короба, наличник, добор; фурнитура: ручка, защёлка, петли)
-      //    Активный элемент × дефолтное кол-во из MOLDING_DEFAULT_QTY
+      // 1) Radio-группы — активный элемент × дефолтное кол-во
       modal.querySelectorAll(".cfg-radio-group").forEach(function(group) {
         var active = group.querySelector(".cfg-item_active");
         if (!active) return;
         var accTitle = active.querySelector(".cfg-item__name")?.textContent.trim() || "";
-        // Пропускаем "Без добора" / "Без остекления"
+        // Пропускаем "Без добора" / "Без остекления" / "Без ..." 
         if (/^Без\s/i.test(accTitle)) return;
         var groupName = group.getAttribute("data-radio-group") || "";
         var qty = MOLDING_DEFAULT_QTY[groupName] !== undefined ? MOLDING_DEFAULT_QTY[groupName] : 1;
         if (qty === 0) return;
-        var price = 0;
-        if (active.hasAttribute("data-price")) {
-          price = Number(active.getAttribute("data-price")) || 0;
-        } else {
+        var price = Number(active.getAttribute("data-price")) || 0;
+        if (price === 0) {
           var amountEl = active.querySelector(".config-item__amount");
-          if (amountEl) {
-            price = Number(amountEl.textContent.replace(/\s/g, "")) || 0;
-          }
+          if (amountEl) price = Number(amountEl.textContent.replace(/\s/g, "")) || 0;
         }
         radioTotal += price * qty;
       });
 
-      // 2) Элементы со счётчиками (не в radio-группе): порог, плинтус, и т.д.
+      // 2) Элементы со счётчиками (порог, плинтус, притворная)
       modal.querySelectorAll(".cfg-item").forEach(function(item) {
-        // Пропускаем элементы в radio-группе — они уже посчитаны выше
         if (item.closest(".cfg-radio-group")) return;
         var qtyInput = item.querySelector(".cfg-qty-input");
         if (!qtyInput) return;
         var qty = Math.max(0, Number(qtyInput.value) || 0);
         if (qty === 0) return;
-        var price = 0;
         var amountEl = item.querySelector(".config-item__amount");
-        if (amountEl) {
-          price = Number(amountEl.textContent.replace(/\s/g, "")) || 0;
-        }
+        var price = amountEl ? Number(amountEl.textContent.replace(/\s/g, "")) || 0 : 0;
         qtyTotal += price * qty;
       });
 
-      // 3) Старые config-item (если остались)
-      var configItemsTotal = Array.from(
-        modal.querySelectorAll(".config-item") || [],
-      ).reduce(function(sum, item) { return sum + calcItemTotal(item); }, 0);
-
-      // 4) Чипы + цветовые плитки
+      // 3) Чипы + цветовые плитки
       var chipsTotal = getChipsTotal();
+
+      // 4) Наценка за эмаль
+      var enamelSurcharge = 0;
+      if (state["coating-type"] === "Эмаль" && CFG.ENAMEL_SURCHARGE) {
+        // ПГ или ПО — определяем по наличию остекления
+        var isGlazed = state.glazing && !/^Без\s|^$/i.test(state.glazing) && state.glazing !== "-";
+        enamelSurcharge = isGlazed ? CFG.ENAMEL_SURCHARGE.po : CFG.ENAMEL_SURCHARGE.pg;
+      }
+
+      // 5) Наценка за ширину 900 при наличии остекления
+      var w900Surcharge = 0;
+      if (CFG.WIDTH_900_PO_SURCHARGE && /900/.test(state.size)) {
+        var isGlazed2 = state.glazing && !/^Без\s|^$/i.test(state.glazing) && state.glazing !== "-";
+        if (isGlazed2) w900Surcharge = CFG.WIDTH_900_PO_SURCHARGE;
+      }
 
       var totalPriceEl = modal.querySelector(".config-total-price");
       if (totalPriceEl) {
         totalPriceEl.textContent = formatPriceRub(
-          getBasePrice() + radioTotal + qtyTotal + configItemsTotal + chipsTotal,
+          getBasePrice() + radioTotal + qtyTotal + chipsTotal + enamelSurcharge + w900Surcharge,
         );
       }
     }
@@ -1319,21 +1659,21 @@
     const labels = {
       size: "Размер",
       finish: "Цвет покрытия",
+      "coating-type": "Тип покрытия",
       glazing: "Остекление",
-      opening: "Тип открывания",
+      engraving: "Гравировка",
+      "alu-edge": "Алюминиевая кромка",
+      moldings: "Молдинги",
+      opening: "Вариант открывания",
       "opening-type": "Тип открывания",
-      pattern: "Узор",
-      box: "Тип погонажа",
-      casing: "Наличники",
-      quantity: "Шт. доборов",
-      "height-add": "Добор",
-      threshold: "Порог",
-      "handle-color": "Модель ручки",
-      "lock-type": "Тип замка",
-      "lock-color": "Цвет замка",
-      locker: "Запирание (Фиксатор)",
+      box: "Стойка короба",
+      "casing-side1": "Наличник (1-я сторона)",
+      "casing-side2": "Наличник (2-я сторона)",
+      dobor: "Добор",
+      "hw-color": "Цвет фурнитуры",
+      handle: "Ручка",
+      locker: "Защёлка",
       hinges: "Петли",
-      "hinges-color": "Цвет петель",
       stopper: "Ограничитель",
     };
 
@@ -1387,10 +1727,10 @@
         let propsHtml = "";
         if (item.options) {
           const doorKeys = [
-            "size", "finish", "glazing", "opening", "opening-type",
-            "pattern", "box", "casing", "quantity", "height-add",
-            "threshold", "handle-color", "lock-type", "lock-color",
-            "locker", "hinges", "hinges-color", "stopper"
+            "size", "coating-type", "finish", "glazing", "engraving", "alu-edge", "moldings",
+            "opening", "opening-type",
+            "box", "casing-side1", "casing-side2", "dobor",
+            "hw-color", "handle", "locker", "hinges", "stopper"
           ];
           propsHtml = '<div class="cart-item__props">';
           for (const key of doorKeys) {

@@ -6440,6 +6440,11 @@ a.order-item__title:hover {
   color: var(--color-text-light);
 }
 
+.cfg-item__price-display {
+  font-size: 12px;
+  color: var(--color-text-light);
+}
+
 /* Счётчик qty */
 .cfg-item__qty {
   display: flex;
