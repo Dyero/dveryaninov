@@ -568,7 +568,7 @@ a {
   width: auto;
   height: 90%;
   object-fit: contain;
-  transition: transform 0.4s ease, opacity 0.35s ease;
+  transition: opacity 0.35s ease;
 }
 
 .card__image_hover {
@@ -588,8 +588,12 @@ a {
   opacity: 1;
 }
 
-.card:hover .card__image {
-  transform: scale(1.05); /* Hover effect: scale image */
+.card:hover .card__image--has-hover {
+  opacity: 0;
+}
+
+.card:hover .card__image:not(.card__image--has-hover) {
+  transform: scale(1.05);
 }
 
 /* Text badge top-left */

@@ -1964,6 +1964,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       }
       if (hoverSrc === src) return; // не удалось построить путь
+      img.classList.add("card__image--has-hover");
       var hoverImg = document.createElement("img");
       hoverImg.className = "card__image card__image_hover";
       hoverImg.alt = img.alt;
