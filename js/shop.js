@@ -174,14 +174,15 @@
   (function populateProductColors() {
     var colorsWrap = document.querySelector(".product__colors");
     if (!colorsWrap || !window.DVERYANINOV_COATINGS) return;
-    var coatings = window.DVERYANINOV_COATINGS;
+    var coatings = window.DVERYANINOV_COATINGS.filter(function(c) { return c[1] !== "custom"; });
+    var VISIBLE = 8;
     colorsWrap.innerHTML = "";
     var optionValue = colorsWrap.closest(".product__option")?.querySelector(".product__option-value");
-    coatings.forEach(function(c, i) {
-      if (c[1] === "custom") return;
+
+    function makeColorBtn(c, active) {
       var btn = document.createElement("button");
       btn.type = "button";
-      btn.className = "product__color" + (i === 0 ? " product__color_active" : "");
+      btn.className = "product__color" + (active ? " product__color_active" : "");
       btn.setAttribute("aria-label", c[0]);
       btn.title = c[0];
       var inner = document.createElement("span");
@@ -194,10 +195,57 @@
         inner.style.background = c[1];
       }
       btn.appendChild(inner);
-      colorsWrap.appendChild(btn);
+      btn.addEventListener("click", function() {
+        colorsWrap.querySelectorAll(".product__color:not(.product__color_more)").forEach(function(b) {
+          b.classList.remove("product__color_active");
+        });
+        btn.classList.add("product__color_active");
+        if (optionValue) optionValue.textContent = c[0];
+      });
+      return btn;
+    }
+
+    // First VISIBLE colors
+    coatings.slice(0, VISIBLE).forEach(function(c, i) {
+      colorsWrap.appendChild(makeColorBtn(c, i === 0));
     });
-    // Set first coating name
-    if (optionValue && coatings.length > 0 && coatings[0][1] !== "custom") {
+
+    // "+N" button + hidden overflow
+    if (coatings.length > VISIBLE) {
+      var rest = coatings.length - VISIBLE;
+      var moreBtn = document.createElement("button");
+      moreBtn.type = "button";
+      moreBtn.className = "product__color product__color_more";
+      moreBtn.setAttribute("aria-label", "Ещё " + rest + " покрытий");
+      moreBtn.textContent = "+" + rest;
+
+      var overflowWrap = document.createElement("div");
+      overflowWrap.className = "product__colors-overflow";
+      overflowWrap.hidden = true;
+      coatings.slice(VISIBLE).forEach(function(c) {
+        overflowWrap.appendChild(makeColorBtn(c, false));
+      });
+
+      moreBtn.addEventListener("click", function() {
+        overflowWrap.hidden = !overflowWrap.hidden;
+        moreBtn.textContent = overflowWrap.hidden ? "+" + rest : "−";
+      });
+
+      colorsWrap.appendChild(moreBtn);
+      colorsWrap.appendChild(overflowWrap);
+    }
+
+    // «Свой цвет»
+    var customWrap = document.createElement("div");
+    customWrap.className = "product__color-custom-wrap";
+    var customBtn = document.createElement("button");
+    customBtn.type = "button";
+    customBtn.className = "product__size product__size_own";
+    customBtn.textContent = "Свой цвет";
+    customWrap.appendChild(customBtn);
+    colorsWrap.appendChild(customWrap);
+
+    if (optionValue && coatings.length > 0) {
       optionValue.textContent = coatings[0][0];
     }
   })();

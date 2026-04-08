@@ -1571,7 +1571,15 @@ a {
 }
 
 .product__color:hover {
-  border-color: var(--color-text);
+  border-color: #9C9B9A;
+}
+
+.product__colors-overflow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: 100%;
+  margin-top: 8px;
 }
 
 .product__color_more {
@@ -1592,7 +1600,7 @@ a {
 }
 
 .product__color_more:hover {
-  border-color: var(--color-text);
+  border-color: #9C9B9A;
 }
 
 .product__color-custom-wrap {
@@ -2982,23 +2990,24 @@ a {
   margin-bottom: 24px;
 }
 .catalog__hw-filter-btn {
-  padding: 8px 18px;
+  padding: 10px 20px;
   border: 1px solid var(--color-border);
   background: transparent;
   cursor: pointer;
   font-family: var(--font-main);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
   color: var(--color-text);
   transition: all 0.2s;
 }
 .catalog__hw-filter-btn:hover {
-  border-color: var(--color-text);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
 }
 .catalog__hw-filter-btn_active {
-  background: var(--color-text);
+  background: var(--color-primary);
   color: var(--color-white);
-  border-color: var(--color-text);
+  border-color: var(--color-primary);
 }
 
 .hw-card {
