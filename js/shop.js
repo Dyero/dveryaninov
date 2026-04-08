@@ -201,7 +201,7 @@
       handle: "",
       locker: "",
       hinges: "",
-      stopper: "Напольный",
+      stopper: "Apecs золотой DS-0014-GM",
     };
 
     // Коллекция и модель — определяются из заголовка страницы
@@ -271,7 +271,7 @@
     // Определение типа покрытия по имени
     function getCoatingType(name) {
       if (/ПЭТ/i.test(name)) return "ПЭТ";
-      if (/Эмаль/i.test(name)) return "Эмаль";
+      if (/Эмаль/i.test(name) || name === "Белый лёд" || name === "Свой цвет по RAL и NCS") return "Эмаль";
       return "ПВХ";
     }
 
@@ -283,19 +283,32 @@
       window.DVERYANINOV_COATINGS.forEach(function(c, i) {
         var btn = document.createElement("button");
         btn.type = "button";
-        btn.className = "cfg-coating-swatch";
+        var isCustom = c[1] === "custom";
+        btn.className = "cfg-coating-swatch" + (isCustom ? " cfg-coating-swatch_custom" : "");
         btn.setAttribute("data-coating", c[0]);
         btn.setAttribute("data-coating-type", getCoatingType(c[0]));
         btn.title = c[0];
         var swatch = document.createElement("span");
         swatch.className = "cfg-coating-swatch__color";
-        swatch.style.background = c[1];
+        if (!isCustom) {
+          if (c[2]) {
+            swatch.style.backgroundImage = "url(" + c[2] + ")";
+          } else {
+            swatch.style.background = c[1];
+          }
+        }
         var label = document.createElement("span");
         label.className = "cfg-coating-swatch__name";
         label.textContent = c[0];
         var zoom = document.createElement("span");
         zoom.className = "cfg-swatch-zoom";
-        zoom.style.background = c[1];
+        if (!isCustom) {
+          if (c[2]) {
+            zoom.style.backgroundImage = "url(" + c[2] + ")";
+          } else {
+            zoom.style.background = c[1];
+          }
+        }
         btn.appendChild(swatch);
         btn.appendChild(label);
         btn.appendChild(zoom);
@@ -351,8 +364,8 @@
       const activeColor = document.querySelector(".product__color_active");
       if (activeColor && activeColor.hasAttribute("aria-label")) {
         const colorLabel = activeColor.getAttribute("aria-label");
-        // Extract just the RAL code or color name
-        const matches = colorLabel.match(/RAL \d+|Дуб|Венге|Орех/);
+        // Extract just the color code or color name
+        const matches = colorLabel.match(/\d{4}|Дуб|Венге|Орех/);
         if (matches) {
           state.finish = matches[0];
         }
@@ -619,7 +632,24 @@
       var items = CFG.DOBOR ? CFG.DOBOR[cg] : [];
       container.innerHTML = "";
       (items || []).forEach(function(d) {
-        container.appendChild(buildRadioItem(d.name, d.price, d.price === 0 && !d.priceRequest ? "" : "images/ПОГОНАЖ/Добор телескоп ТИП 2 .jpg"));
+        var img = d.price === 0 && !d.priceRequest ? "" : "images/ПОГОНАЖ/Добор телескоп ТИП 2 .jpg";
+        var el = buildRadioItem(d.name, d.price, img);
+        // Override spec if provided in data
+        if (d.spec) {
+          var specEl = el.querySelector(".cfg-item__spec");
+          if (specEl) {
+            specEl.textContent = d.spec;
+          } else {
+            var info = el.querySelector(".cfg-item__info");
+            if (info) {
+              var sp = document.createElement("span");
+              sp.className = "cfg-item__spec config-item__spec";
+              sp.textContent = d.spec;
+              info.appendChild(sp);
+            }
+          }
+        }
+        container.appendChild(el);
       });
     }
 
@@ -656,6 +686,22 @@
       populateCasingSide2();
       populateDobor();
       updateExtrasPrice();
+      // Auto-assign data-hw-color to items that don't have it
+      if (modal) {
+        modal.querySelectorAll(
+          '[data-radio-group="handle"] .cfg-item,' +
+          '[data-radio-group="locker"] .cfg-item,' +
+          '[data-radio-group="hinges"] .cfg-item,' +
+          '[data-radio-group="stopper"] .cfg-item'
+        ).forEach(function(item) {
+          if (!item.getAttribute("data-hw-color")) {
+            var nameEl = item.querySelector(".cfg-item__name");
+            var imgEl = item.querySelector("img");
+            var txt = (nameEl ? nameEl.textContent : "") || (imgEl ? imgEl.getAttribute("alt") : "") || "";
+            item.setAttribute("data-hw-color", detectColorFromName(txt));
+          }
+        });
+      }
       initHardwareColor();
     }
 
@@ -707,12 +753,14 @@
     /* ── Фурнитура: цвет → фильтрация ручек → авто-выбор защёлки/петель ── */
 
     var COLOR_FALLBACK = {
-      brass:  ["brass", "gold", "chrome"],
-      emboss: ["emboss", "gold", "chrome"],
-      gold:   ["gold", "brass", "chrome"],
-      nickel: ["nickel", "chrome"],
-      chrome: ["chrome", "nickel"],
-      black:  ["black"]
+      black:  ["black"],
+      chrome: ["chrome", "nickel", "silver"],
+      gold:   ["gold", "brass", "champagne", "chrome"],
+      nickel: ["nickel", "chrome", "silver"],
+      brass:  ["brass", "gold", "champagne", "chrome"],
+      emboss: ["emboss", "brass", "gold", "chrome"],
+      champagne: ["champagne", "gold", "brass", "chrome"],
+      silver: ["silver", "chrome", "nickel"]
     };
 
     var HW_COLOR_NAMES = {
@@ -728,13 +776,22 @@
         var colors = (item.getAttribute("data-hw-colors") || "").split(",");
         var visible = colors.indexOf(selectedColor) !== -1;
         item.style.display = visible ? "" : "none";
-        // Обновляем data-price для текущего цвета
         if (visible) {
+          // Подменяем цену
           var priceAttr = item.getAttribute("data-hw-price-" + selectedColor);
           if (priceAttr) {
             item.setAttribute("data-price", priceAttr);
             var priceDisplay = item.querySelector(".cfg-item__price-display");
             if (priceDisplay) priceDisplay.textContent = formatPriceRub(Number(priceAttr)) + " ₽";
+          }
+          // Подменяем картинку на нужный цвет
+          var imgSrc = item.getAttribute("data-hw-img-" + selectedColor);
+          if (imgSrc) {
+            var img = item.querySelector(".cfg-item__thumb img");
+            if (img) img.src = imgSrc;
+            // Обновляем zoom-картинку если есть
+            var zoomImg = item.querySelector(".cfg-item__zoom img");
+            if (zoomImg) zoomImg.src = imgSrc;
           }
           if (!firstVisible) firstVisible = item;
         }
@@ -754,7 +811,7 @@
     }
 
     function autoSelectHardwareByColor(selectedColor) {
-      var groups = ["locker", "hinges"];
+      var groups = ["locker", "hinges", "stopper"];
       groups.forEach(function(groupName) {
         var group = modal ? modal.querySelector('[data-radio-group="' + groupName + '"]') : null;
         if (!group) return;
@@ -775,6 +832,18 @@
         }
       });
       updateConfigTotal();
+    }
+
+    function detectColorFromName(name) {
+      var n = name.toLowerCase();
+      if (/чёрн|черн|black|bl-/i.test(n))     return "black";
+      if (/хром|chrome|crs|mcr/i.test(n))      return "chrome";
+      if (/матов.*золот|mg\b|gold/i.test(n))   return "gold";
+      if (/никел|nickel|ni\b|nis/i.test(n))    return "nickel";
+      if (/латун|brass/i.test(n))              return "brass";
+      if (/шампан|champagne/i.test(n))         return "champagne";
+      if (/флорент|emboss|итальян/i.test(n))   return "emboss";
+      return "chrome";
     }
 
     function initHardwareColor() {
@@ -1472,6 +1541,11 @@
           productUrl: window.location.pathname.split('/').pop() || '',
         };
 
+        // Кастомный цвет — пометка для менеджера
+        if (state.finish === "Свой цвет по RAL и NCS") {
+          newItem.note = "Цвет по RAL/NCS — уточняется менеджером";
+        }
+
         // If editing an existing cart item, replace it
         if (typeof window._dvEditCartIndex === 'number') {
           var cartItems = safeJsonParse(localStorage.getItem("dveryaninov_cart_v1"), []);
@@ -2057,7 +2131,7 @@
       let priceVal = 0;
       let id = "p-" + Date.now();
       let size = "2000×600";
-      let color = "RAL 9003";
+      let color = "Эмаль 9003";
 
       if (card) {
           title = card.querySelector(".card__title")?.textContent.trim() || title;
@@ -2240,6 +2314,38 @@
 document.addEventListener("DOMContentLoaded", () => {
   if (typeof updateWishlistBadge === "function") updateWishlistBadge();
   if (typeof updateCartBadge === "function") updateCartBadge();
+
+  // --- Catalog category switch ---
+  (function() {
+    var catBtns = document.querySelectorAll('.catalog__cat-btn[data-category]');
+    if (!catBtns.length) return;
+    var doorsSection = document.getElementById('catalog-doors-section');
+    var hwSection    = document.getElementById('catalog-hardware-section');
+    var emptySection = document.getElementById('catalog-empty-section');
+    var filterToggle = document.getElementById('catalogFilterToggle');
+    var EMPTY_CATS   = ['partitions', 'invisible'];
+
+    function switchCatalogCategory(cat) {
+      catBtns.forEach(function(b) { b.classList.remove('catalog__cat-btn_active'); });
+      var active = document.querySelector('.catalog__cat-btn[data-category="' + cat + '"]');
+      if (active) active.classList.add('catalog__cat-btn_active');
+
+      var showDoors = (cat === 'all' || cat === 'doors');
+      var showHw    = (cat === 'hardware');
+      var showEmpty = EMPTY_CATS.indexOf(cat) !== -1;
+
+      if (doorsSection) doorsSection.hidden = !showDoors;
+      if (hwSection)    hwSection.hidden    = !showHw;
+      if (emptySection) emptySection.hidden = !showEmpty;
+      if (filterToggle) filterToggle.hidden = !showDoors;
+    }
+
+    catBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        switchCatalogCategory(btn.getAttribute('data-category'));
+      });
+    });
+  })();
 
   // --- Catalog collection filter ---
   (function() {

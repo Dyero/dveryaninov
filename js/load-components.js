@@ -7,7 +7,7 @@
     '    <div class="header__top-row">',
     '      <div class="header__location">',
     '        <img src="images/icon-location.svg" alt="" width="24" height="24" class="header__icon-img">',
-    '        <span class="header__city">Чебоксары</span>',
+    '        <span class="header__city">Новочебоксарск</span>',
     '      </div>',
     '      <a class="header__link" href="contacts.html">Адреса салонов</a>',
     '      <a class="header__link" href="about.html">О компании</a>',
