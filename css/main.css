@@ -2974,6 +2974,33 @@ a {
   letter-spacing: 0.01em;
 }
 .catalog-hardware__group-title:first-child { margin-top: 0; }
+
+.catalog-hardware__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.catalog__hw-filter-btn {
+  padding: 8px 18px;
+  border: 1px solid var(--color-border);
+  background: transparent;
+  cursor: pointer;
+  font-family: var(--font-main);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text);
+  transition: all 0.2s;
+}
+.catalog__hw-filter-btn:hover {
+  border-color: var(--color-text);
+}
+.catalog__hw-filter-btn_active {
+  background: var(--color-text);
+  color: var(--color-white);
+  border-color: var(--color-text);
+}
+
 .hw-card {
   background: var(--color-white);
   border: 1px solid var(--color-border);
@@ -7925,12 +7952,6 @@ body {
 }
 
 /* Nalichnik radio mode in configurator */
-.cfg-radio-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  padding: 12px 0;
-}
 .cfg-radio-group .cfg-item {
   cursor: pointer;
   border: 2px solid transparent;

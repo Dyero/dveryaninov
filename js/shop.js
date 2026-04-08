@@ -170,6 +170,38 @@
     });
   }
 
+  // Заполнить product__colors из coatings-data.js
+  (function populateProductColors() {
+    var colorsWrap = document.querySelector(".product__colors");
+    if (!colorsWrap || !window.DVERYANINOV_COATINGS) return;
+    var coatings = window.DVERYANINOV_COATINGS;
+    colorsWrap.innerHTML = "";
+    var optionValue = colorsWrap.closest(".product__option")?.querySelector(".product__option-value");
+    coatings.forEach(function(c, i) {
+      if (c[1] === "custom") return;
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "product__color" + (i === 0 ? " product__color_active" : "");
+      btn.setAttribute("aria-label", c[0]);
+      btn.title = c[0];
+      var inner = document.createElement("span");
+      inner.className = "product__color-inner";
+      if (c[2]) {
+        inner.style.backgroundImage = "url(" + c[2] + ")";
+        inner.style.backgroundSize = "cover";
+        inner.style.backgroundPosition = "center";
+      } else {
+        inner.style.background = c[1];
+      }
+      btn.appendChild(inner);
+      colorsWrap.appendChild(btn);
+    });
+    // Set first coating name
+    if (optionValue && coatings.length > 0 && coatings[0][1] !== "custom") {
+      optionValue.textContent = coatings[0][0];
+    }
+  })();
+
   function getBasePrice() {
     var priceEl = document.querySelector(".product__price");
     if (!priceEl) return 52000;
@@ -429,9 +461,10 @@
       div.setAttribute("data-radio-value", name);
       div.setAttribute("data-price", String(price));
       var parts = splitNameSubtitle(name);
+      var thumbImg = img || (/^Без\s/i.test(name) ? "images/Without.svg" : "");
       var html = "";
-      if (img) {
-        html += '<div class="cfg-item__thumb"><img src="' + img + '" alt="' + name + '" loading="lazy"></div>';
+      if (thumbImg) {
+        html += '<div class="cfg-item__thumb"><img src="' + thumbImg + '" alt="' + name + '" loading="lazy"></div>';
       }
       html += '<div class="cfg-item__info"><span class="cfg-item__name config-item__title">' + parts.title + '</span>';
       if (parts.subtitle) {
@@ -475,7 +508,12 @@
         btn.setAttribute("data-pick", "coating-type");
         btn.setAttribute("data-price", "0");
         btn.setAttribute("data-value", t);
-        btn.textContent = t;
+        if (t === "Эмаль" && CFG.ENAMEL_SURCHARGE) {
+          var surcharge = CFG.ENAMEL_SURCHARGE.pg || 0;
+          btn.innerHTML = t + ' <span class="config-chip__delta">+' + new Intl.NumberFormat("ru-RU").format(surcharge) + '&nbsp;₽</span>';
+        } else {
+          btn.textContent = t;
+        }
         container.appendChild(btn);
       });
       // Если текущий тип не в списке — переключить на первый
@@ -508,12 +546,7 @@
         container.appendChild(buildRadioItem(g.name, g.price, g.img));
       });
       // «Без остекления»
-      var noGlass = document.createElement("div");
-      noGlass.className = "cfg-item";
-      noGlass.setAttribute("data-radio-value", "Без остекления");
-      noGlass.setAttribute("data-price", "0");
-      noGlass.innerHTML = '<div class="cfg-item__info"><span class="cfg-item__name config-item__title">Без остекления</span></div>';
-      container.appendChild(noGlass);
+      container.appendChild(buildRadioItem("Без остекления", 0, ""));
     }
 
     // Заполнить гравировку
@@ -2343,6 +2376,28 @@ document.addEventListener("DOMContentLoaded", () => {
     catBtns.forEach(function(btn) {
       btn.addEventListener('click', function() {
         switchCatalogCategory(btn.getAttribute('data-category'));
+      });
+    });
+  })();
+
+  // --- Catalog hardware sub-filter ---
+  (function() {
+    var filterBtns = document.querySelectorAll('.catalog__hw-filter-btn[data-hw-filter]');
+    if (!filterBtns.length) return;
+    var groups = document.querySelectorAll('[data-hw-group]');
+    var titles = document.querySelectorAll('.catalog-hardware__group-title');
+
+    filterBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var filter = btn.getAttribute('data-hw-filter');
+        filterBtns.forEach(function(b) { b.classList.remove('catalog__hw-filter-btn_active'); });
+        btn.classList.add('catalog__hw-filter-btn_active');
+        var titleArr = Array.from(titles);
+        groups.forEach(function(g, i) {
+          var show = (filter === 'all' || g.getAttribute('data-hw-group') === filter);
+          g.style.display = show ? '' : 'none';
+          if (titleArr[i]) titleArr[i].style.display = show ? '' : 'none';
+        });
       });
     });
   })();
