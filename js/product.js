@@ -64,13 +64,108 @@
     });
   }
 
+  // Panel type selection (solid/glazed)
+  function initPanelTypeSelection() {
+    const panelBtns = document.querySelectorAll(".product__panel-type");
+    if (!panelBtns.length) return;
+
+    panelBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const panelType = btn.getAttribute("data-panel-type");
+        const priceModifier = Number(btn.getAttribute("data-price-modifier")) || 0;
+
+        // Update active state
+        panelBtns.forEach(b => b.classList.remove("product__size_active"));
+        btn.classList.add("product__size_active");
+
+        // Update option value
+        const val = btn.closest(".product__option")?.querySelector(".product__option-value");
+        if (val) val.textContent = btn.textContent.trim();
+
+        // Update price
+        updateProductPrice(priceModifier);
+
+        // Update image if glazed
+        if (panelType === "glazed") {
+          updateProductImage(true);
+        } else {
+          updateProductImage(false);
+        }
+      });
+    });
+  }
+
+  function updateProductPrice(modifier) {
+    const priceEl = document.querySelector(".product__price");
+    if (!priceEl) return;
+
+    // Get base price from text
+    const basePrice = getBasePrice();
+    const newPrice = basePrice + modifier;
+
+    priceEl.textContent = `от ${new Intl.NumberFormat("ru-RU").format(newPrice)} ₽`;
+  }
+
+  function getBasePrice() {
+    const priceEl = document.querySelector(".product__price");
+    if (!priceEl) return 18450;
+
+    const text = priceEl.textContent || "0";
+    const match = text.match(/\d[\d\s]*/);
+    if (!match) return 18450;
+
+    return Number(match[0].replace(/\s/g, "")) || 18450;
+  }
+
+  function updateProductImage(isGlazed) {
+    const mainImg = document.querySelector(".product__main-image img");
+    const thumbs = document.querySelectorAll(".product__thumb");
+
+    if (!mainImg) return;
+
+    // Get current image src
+    let currentSrc = mainImg.getAttribute("src") || "";
+
+    if (isGlazed) {
+      // Replace "3.png" with "1.png" (glazed version) or add "ПГ" marker
+      if (currentSrc.includes("3.png")) {
+        currentSrc = currentSrc.replace("3.png", "1.png");
+      }
+    } else {
+      // Replace back to solid version
+      if (currentSrc.includes("1.png")) {
+        currentSrc = currentSrc.replace("1.png", "3.png");
+      }
+    }
+
+    mainImg.setAttribute("src", currentSrc);
+
+    // Update thumbnails if they exist
+    thumbs.forEach(thumb => {
+      const thumbImg = thumb.querySelector("img");
+      if (thumbImg) {
+        let thumbSrc = thumbImg.getAttribute("src") || "";
+        if (isGlazed) {
+          thumbSrc = thumbSrc.replace("3.png", "1.png");
+        } else {
+          thumbSrc = thumbSrc.replace("1.png", "3.png");
+        }
+        thumbImg.setAttribute("src", thumbSrc);
+      }
+    });
+  }
+
   // Size selection
   function initSizeSelection() {
-    const sizes = document.querySelectorAll(".product__size");
+    const sizes = document.querySelectorAll(".product__size:not(.product__panel-type)");
     sizes.forEach(btn => {
-      if (btn.classList.contains("product__size_measure")) return;
+      if (btn.classList.contains("product__size_measure") || btn.classList.contains("product__size_own")) return;
       btn.addEventListener("click", () => {
-        sizes.forEach(b => { if (!b.classList.contains("product__size_measure")) b.classList.remove("product__size_active"); });
+        sizes.forEach(b => {
+          if (!b.classList.contains("product__size_measure") && !b.classList.contains("product__size_own")) {
+            b.classList.remove("product__size_active");
+          }
+        });
         btn.classList.add("product__size_active");
         const val = btn.closest(".product__option")?.querySelector(".product__option-value");
         if (val) val.textContent = btn.textContent.trim();
@@ -183,52 +278,112 @@
 
       popup = document.createElement("div");
       popup.className = "coatings-popup";
-      popup.innerHTML = '<div class="coatings-popup__header"><h3 class="coatings-popup__title">Все покрытия</h3><button type="button" class="coatings-popup__close" aria-label="Закрыть">&times;</button></div><div class="coatings-popup__grid"></div>';
+      popup.innerHTML = '<div class="coatings-popup__header"><h3 class="coatings-popup__title">Все покрытия</h3><button type="button" class="coatings-popup__close" aria-label="Закрыть">&times;</button></div><div class="coatings-popup__body"></div>';
 
-      const grid = popup.querySelector(".coatings-popup__grid");
-      coatings.forEach(([name, hex]) => {
-        const swatch = document.createElement("button");
-        swatch.type = "button";
-        swatch.className = "coatings-popup__swatch" + (name === activeLabel ? " coatings-popup__swatch_active" : "");
-        swatch.setAttribute("aria-label", name);
-        swatch.title = name;
-        swatch.innerHTML = '<span class="coatings-popup__color" style="background:' + hex + ';"></span><span class="coatings-popup__name">' + name + '</span>';
-        swatch.addEventListener("click", () => {
-          grid.querySelectorAll(".coatings-popup__swatch").forEach(s => s.classList.remove("coatings-popup__swatch_active"));
-          swatch.classList.add("coatings-popup__swatch_active");
-          // Update product page color
-          const pageColors = document.querySelectorAll(".product__color");
-          pageColors.forEach(b => { if (!b.classList.contains("product__color_more")) b.classList.remove("product__color_active"); });
-          // Find matching visible swatch or create one
-          let matched = document.querySelector('.product__color[aria-label="' + name + '"]');
-          if (!matched) {
-            // Create a new swatch for this color
-            matched = document.createElement("button");
-            matched.type = "button";
-            matched.className = "product__color";
-            matched.setAttribute("aria-label", name);
-            matched.title = name;
-            matched.style.cssText = "--color-swatch: " + hex + ";";
-            matched.innerHTML = '<span class="product__color-inner" style="background: ' + hex + ';"></span>';
-            matched.addEventListener("click", function() {
-              document.querySelectorAll(".product__color").forEach(b => { if (!b.classList.contains("product__color_more")) b.classList.remove("product__color_active"); });
-              this.classList.add("product__color_active");
-              var v = document.querySelector(".product__option_coating .product__option-value");
-              if (v) v.textContent = name;
-              reorderProductColors(this);
-              syncCoatingToConfigurator(name);
-            });
-            var colorsContainer = document.querySelector(".product__colors");
-            if (colorsContainer) colorsContainer.insertBefore(matched, colorsContainer.firstElementChild);
+      const body = popup.querySelector(".coatings-popup__body");
+
+      // Helper function to get coating type
+      function getCoatingType(name) {
+        if (/ПЭТ/i.test(name)) return "ПЭТ";
+        if (/Эмаль/i.test(name) || name === "Белый лёд" || name === "Свой цвет по RAL и NCS") return "Эмаль";
+        return "ПВХ";
+      }
+
+      // Group coatings by type
+      const grouped = { "ПВХ": [], "ПЭТ": [], "Эмаль": [] };
+      coatings.forEach(([name, hex, texture]) => {
+        const type = getCoatingType(name);
+        grouped[type].push([name, hex, texture]);
+      });
+
+      // Render each group
+      ["ПВХ", "ПЭТ", "Эмаль"].forEach(type => {
+        if (grouped[type].length === 0) return;
+
+        const section = document.createElement("div");
+        section.className = "coatings-popup__section";
+
+        const heading = document.createElement("h4");
+        heading.className = "coatings-popup__section-title";
+        heading.textContent = type;
+        section.appendChild(heading);
+
+        const grid = document.createElement("div");
+        grid.className = "coatings-popup__grid";
+
+        grouped[type].forEach(([name, hex, texture]) => {
+          const swatch = document.createElement("button");
+          swatch.type = "button";
+          swatch.className = "coatings-popup__swatch" + (name === activeLabel ? " coatings-popup__swatch_active" : "");
+          swatch.setAttribute("aria-label", name);
+          swatch.title = name;
+
+          const colorEl = document.createElement("span");
+          colorEl.className = "coatings-popup__color";
+          if (texture) {
+            colorEl.style.backgroundImage = `url(${texture})`;
+            colorEl.style.backgroundSize = "cover";
+            colorEl.style.backgroundPosition = "center";
+          } else {
+            colorEl.style.background = hex;
           }
-          matched.classList.add("product__color_active");
-          const val = document.querySelector(".product__option_coating .product__option-value");
-          if (val) val.textContent = name;
-          // Move selected to first position
-          reorderProductColors(matched);
-          syncCoatingToConfigurator(name);
+
+          const nameEl = document.createElement("span");
+          nameEl.className = "coatings-popup__name";
+          nameEl.textContent = name;
+
+          swatch.appendChild(colorEl);
+          swatch.appendChild(nameEl);
+
+          swatch.addEventListener("click", () => {
+            popup.querySelectorAll(".coatings-popup__swatch").forEach(s => s.classList.remove("coatings-popup__swatch_active"));
+            swatch.classList.add("coatings-popup__swatch_active");
+            // Update product page color
+            const pageColors = document.querySelectorAll(".product__color");
+            pageColors.forEach(b => { if (!b.classList.contains("product__color_more")) b.classList.remove("product__color_active"); });
+            // Find matching visible swatch or create one
+            let matched = document.querySelector('.product__color[aria-label="' + name + '"]');
+            if (!matched) {
+              // Create a new swatch for this color
+              matched = document.createElement("button");
+              matched.type = "button";
+              matched.className = "product__color";
+              matched.setAttribute("aria-label", name);
+              matched.title = name;
+              matched.style.cssText = "--color-swatch: " + hex + ";";
+              const inner = document.createElement("span");
+              inner.className = "product__color-inner";
+              if (texture) {
+                inner.style.backgroundImage = `url(${texture})`;
+                inner.style.backgroundSize = "cover";
+                inner.style.backgroundPosition = "center";
+              } else {
+                inner.style.background = hex;
+              }
+              matched.appendChild(inner);
+              matched.addEventListener("click", function() {
+                document.querySelectorAll(".product__color").forEach(b => { if (!b.classList.contains("product__color_more")) b.classList.remove("product__color_active"); });
+                this.classList.add("product__color_active");
+                var v = document.querySelector(".product__option_coating .product__option-value");
+                if (v) v.textContent = name;
+                reorderProductColors(this);
+                syncCoatingToConfigurator(name);
+              });
+              var colorsContainer = document.querySelector(".product__colors");
+              if (colorsContainer) colorsContainer.insertBefore(matched, colorsContainer.firstElementChild);
+            }
+            matched.classList.add("product__color_active");
+            const val = document.querySelector(".product__option_coating .product__option-value");
+            if (val) val.textContent = name;
+            // Move selected to first position
+            reorderProductColors(matched);
+            syncCoatingToConfigurator(name);
+          });
+          grid.appendChild(swatch);
         });
-        grid.appendChild(swatch);
+
+        section.appendChild(grid);
+        body.appendChild(section);
       });
 
       popup.querySelector(".coatings-popup__close").addEventListener("click", () => { popup.remove(); popup = null; });
@@ -259,6 +414,7 @@
   }
 
   initProductGallery();
+  initPanelTypeSelection();
   initSizeSelection();
   initColorSelection();
   initCoatingsPopup();
