@@ -1542,6 +1542,7 @@ a {
   align-items: flex-start;
   gap: 6px;
   position: relative;
+  margin-bottom: 16px;
 }
 
 .product__color {
@@ -1557,10 +1558,10 @@ a {
   overflow: hidden;
 }
 
-/* Selected color (first child) — 64px gap to the right */
+/* Selected color (first child) — 32px gap to the right */
 .product__color_active {
   border-color: var(--color-text);
-  margin-right: 58px;
+  margin-right: 26px;
 }
 
 .product__color-inner {
@@ -7790,6 +7791,26 @@ body {
   color: #888;
   padding: 0 4px;
 }
+.coatings-popup__body {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.coatings-popup__section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.coatings-popup__section-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e8e8e8;
+}
 .coatings-popup__grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
@@ -7883,7 +7904,7 @@ body {
 /* Hover zoom popup for coating swatches */
 .cfg-swatch-zoom {
   display: none;
-  position: absolute;
+  position: fixed;
   left: 50%;
   transform: translateX(-50%);
   width: 200px;

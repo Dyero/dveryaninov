@@ -523,6 +523,21 @@ main,
   .modal__btn {
     flex: 1;
   }
+
+  /* Fix cart layout on mobile */
+  .cart {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  .cart-summary {
+    position: static;
+    order: 2;
+  }
+
+  .cart__items {
+    order: 1;
+  }
 }
 
 /* Additional responsive fixes */
