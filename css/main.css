@@ -1277,7 +1277,14 @@ a {
 
 @media (max-width: 768px) {
   .product__main-image {
-    height: 320px;
+    height: 50vh;
+  }
+  .product__main-image img {
+    width: auto;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
   }
 }
 
@@ -1575,11 +1582,22 @@ a {
 }
 
 .product__colors-overflow {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  z-index: 50;
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   width: 100%;
-  margin-top: 8px;
+  max-width: 520px;
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 16px;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  box-sizing: border-box;
 }
 
 .product__color_more {
@@ -2843,7 +2861,7 @@ a {
 
 @media (max-width: 480px) {
   .collections__grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -6419,6 +6437,14 @@ a.order-item__title:hover {
 .cfg-section__header {
   padding: 24px;
   border-bottom: 1px solid var(--color-border);
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+/* Визуальное выделение активной секции */
+.cfg-section_active > .cfg-section__header,
+.cfg-section_active [data-section-toggle] {
+  background: transparent;
+  border-bottom-color: var(--color-border);
 }
 
 .cfg-section__header_toggle {
@@ -6438,7 +6464,7 @@ a.order-item__title:hover {
     padding 0.25s ease,
     margin 0.25s ease,
     opacity 0.25s ease;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: none;
 }
 
 .cfg-section__body.is-open {
@@ -6450,6 +6476,7 @@ a.order-item__title:hover {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .cfg-item {
@@ -6611,74 +6638,300 @@ a.order-item__title:hover {
   color: var(--color-text-light);
 }
 
+/* Скрыть мобильные элементы на десктопе */
+.cfg-modal__back-btn,
+.cfg-modal__door-info {
+  display: none;
+}
+
 /* Адаптив: мобильный — вертикально */
 @media (max-width: 768px) {
-  .cfg-modal {
-    flex-direction: column;
+
+  /* === Конфигуратор — общий контейнер === */
+  .cfg-modal[aria-hidden="false"] {
+    display: block !important;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+    background: #fff;
   }
 
+  /* === Изображение двери === */
   .cfg-modal__image {
+    width: 100%;
+    height: 50vh;
     flex: none;
-    width: 100%;
-    height: 200px;
+    position: static;
+    background: #EFEDEA;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    box-sizing: border-box;
+  }
+  .cfg-modal__image img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
   }
 
+  /* === Правая панель — в потоке === */
   .cfg-modal__side {
-    flex: 1 0 auto;
     width: 100%;
-    overflow: visible;
-  }
-
-  .cfg-modal__params {
-    overflow: visible;
-    padding: 0 16px;
-  }
-
-  .cfg-modal__footer {
-    position: sticky;
-    bottom: 0;
-    z-index: 10;
+    flex: none;
+    display: flex;
     flex-direction: column;
-    align-items: stretch;
-    gap: 8px;
-    padding: 12px 16px;
+    height: auto;
+    overflow: visible;
   }
 
-  .cfg-stepper__label {
+  /* === Топбар с степпером === */
+  .cfg-modal__topbar {
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    height: 48px;
+    border-bottom: 1px solid var(--color-border);
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  /* Степпер на мобиле: только активный шаг */
+  .cfg-stepper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    overflow: hidden;
+    padding: 0;
+  }
+  .cfg-stepper__step:not(.cfg-stepper__step_active),
+  .cfg-stepper__line {
     display: none;
   }
-
-  .cfg-stepper {
-    padding: 12px 0;
+  .cfg-stepper__step_active {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    opacity: 1;
+  }
+  .cfg-stepper__num {
+    width: 24px;
+    height: 24px;
+    font: 600 12px/24px 'Manrope';
+    text-align: center;
+    border-radius: 50%;
+    border: 1.5px solid var(--color-text);
+    color: var(--color-text);
+    flex-shrink: 0;
+  }
+  .cfg-stepper__step_active .cfg-stepper__num {
+    background: #fff;
+    border-color: var(--color-text);
+    color: var(--color-text);
+  }
+  .cfg-stepper__label {
+    display: block;
+    font: 600 15px/1 'Manrope';
+    color: var(--color-text);
+    white-space: nowrap;
   }
 
-  .cfg-modal__topbar {
+  /* Кнопка «Назад» в топбар */
+  .cfg-modal__back-btn {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-shrink: 0;
+    padding: 0;
+    color: var(--color-text);
+  }
+  .cfg-modal[data-step="molding"] .cfg-modal__back-btn,
+  .cfg-modal[data-step="hardware"] .cfg-modal__back-btn {
+    display: flex;
+  }
+
+  /* Кнопка закрыть */
+  .cfg-modal__close {
+    font: 400 13px/1 'Manrope';
+    color: var(--color-text-light);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* === Блок с названием двери и ценой === */
+  .cfg-modal__door-info {
+    display: block;
+    padding: 20px 16px 0;
+    flex-shrink: 0;
+  }
+  .cfg-modal__door-name {
+    font: 600 18px/1.3 'Manrope';
+    color: var(--color-text);
+    margin: 0 0 4px;
+  }
+  .cfg-modal__door-price {
+    font: 400 15px/1.3 'Manrope';
+    color: var(--color-text-light);
+    margin: 0;
+  }
+
+  /* === Параметры === */
+  .cfg-modal__params {
+    flex: none;
+    overflow: visible;
+    height: auto;
     padding: 0 16px;
   }
 
-  .cfg-modal__actions {
-    flex-direction: column;
-    gap: 8px;
+  .config-detail-header {
+    padding: 18px 0;
+    border-bottom: none;
+    cursor: pointer;
+  }
+  .config-detail-label {
+    font: 400 15px/1.4 'Manrope';
+    color: var(--color-text-light);
+  }
+  .config-detail-value {
+    font: 600 15px/1.4 'Manrope';
+    color: var(--color-text);
+  }
+  .config-detail-toggle::before {
+    content: "";
+    display: block;
+    width: 7px;
+    height: 12px;
+    background: url("data:image/svg+xml,%3Csvg width='7' height='12' viewBox='0 0 7 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5-5 5' stroke='%239E9E9E' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+      center/contain no-repeat;
+  }
+  .config-detail-toggle[aria-expanded="true"]::before {
+    transform: rotate(90deg);
   }
 
-  .cfg-btn {
-    width: 100%;
-    text-align: center;
-    padding: 14px 10px;
+  .config-detail-options.is-open {
+    padding: 16px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .config-chip {
+    height: 40px;
+    padding: 0 16px;
+    font: 400 14px/1 'Manrope';
+    border: 1px solid var(--color-border);
+    border-radius: 2px;
+    background: #fff;
+    color: var(--color-text);
+    white-space: nowrap;
+  }
+  .config-chip_active {
+    border-color: var(--color-text);
+    font-weight: 600;
   }
 
+  /* === Секции погонажа/фурнитуры === */
+  .cfg-section__header {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .cfg-section__body.is-open {
+    padding: 16px 0;
+  }
+
+  /* Карточка товара в конфигураторе */
   .cfg-item {
-    flex: 1 1 100px;
-    min-width: 90px;
-    max-width: 160px;
-    padding: 8px;
+    display: grid;
+    grid-template-columns: 60px 1fr auto;
+    gap: 12px;
+    align-items: center;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--color-border);
+    border-radius: 0;
+    flex: none;
+    min-width: 0;
+    max-width: 100%;
+    text-align: left;
+  }
+  .cfg-item__thumb {
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+  }
+  .cfg-item__thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .cfg-item__info {
+    flex: 1;
+    min-width: 0;
+    align-items: flex-start;
+  }
+  .cfg-item__name {
+    font: 600 14px/1.3 'Manrope';
+    display: block;
+    margin-bottom: 4px;
+  }
+  .cfg-item__spec {
+    font: 400 12px/1.4 'Manrope';
+    color: var(--color-text-light);
   }
 
-  .cfg-item__thumb {
-    width: 64px;
-    height: 64px;
+  .cfg-item__qty-price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+  .cfg-item__qty {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    border: 1px solid var(--color-border);
+    border-radius: 2px;
+  }
+  .cfg-qty-btn {
+    width: 32px;
+    height: 32px;
+    font: 400 18px/1 'Manrope';
+    color: var(--color-text);
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .cfg-qty-input {
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    font: 600 14px/1 'Manrope';
+    border: none;
+    border-left: 1px solid var(--color-border);
+    border-right: 1px solid var(--color-border);
+    background: transparent;
+  }
+  .cfg-item__price {
+    font: 600 14px/1 'Manrope';
+    color: var(--color-text);
+    white-space: nowrap;
+  }
+  .cfg-item__price-total {
+    font: 400 13px/1 'Manrope';
+    color: var(--color-text-muted);
+    text-decoration: line-through;
+    white-space: nowrap;
   }
 
   .cfg-item__zoom {
@@ -6692,6 +6945,62 @@ a.order-item__title:hover {
   .cfg-radio-group {
     padding: 8px 0;
     gap: 8px;
+  }
+
+  /* === Sticky footer === */
+  .cfg-modal__footer {
+    position: sticky;
+    bottom: 0;
+    z-index: 10;
+    background: #fff;
+    border-top: 1px solid var(--color-border);
+    padding: 12px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .cfg-modal__price {
+    font: 400 14px/1.3 'Manrope';
+    color: var(--color-text-light);
+    text-align: center;
+  }
+  .cfg-modal__price strong {
+    font-size: 18px;
+    color: var(--color-text);
+  }
+  .cfg-modal__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+  .cfg-btn {
+    width: 100%;
+    padding: 16px;
+    font: 600 13px/1 'Manrope';
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-align: center;
+    border-radius: 2px;
+  }
+  .cfg-btn_outline {
+    background: transparent;
+    border: 1.5px solid var(--color-text);
+    color: var(--color-text);
+  }
+  .cfg-btn_fill {
+    background: var(--color-primary);
+    color: #fff;
+    border: none;
+  }
+  .cfg-btn_outline::before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    margin-right: 8px;
+    background: url("images/icon-bag.svg") center/contain no-repeat;
   }
 }
 
@@ -7883,9 +8192,7 @@ body {
 /* Hover zoom popup for coating swatches */
 .cfg-swatch-zoom {
   display: none;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  position: fixed;
   width: 200px;
   height: 250px;
   border: 1px solid rgba(0,0,0,.12);
@@ -7898,14 +8205,6 @@ body {
 }
 .cfg-swatch-zoom.is-visible {
   display: block;
-}
-.cfg-swatch-zoom:not(.cfg-swatch-zoom_below) {
-  bottom: calc(100% + 8px);
-  top: auto;
-}
-.cfg-swatch-zoom.cfg-swatch-zoom_below {
-  top: calc(100% + 8px);
-  bottom: auto;
 }
 
 /* Configurator color chips as tiles */
@@ -7985,11 +8284,6 @@ body {
   margin-right: 4px;
 }
 
-/* Product__colors relative positioning for popup */
-.product__colors {
-  position: relative;
-}
-
 /* Dependency auto-reset toast */
 .cfg-dep-toast {
   position: fixed;
@@ -8013,4 +8307,603 @@ body {
 .cfg-dep-toast_show {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
+}
+
+/* ===== МОБИЛЬНАЯ ШАПКА ===== */
+@media (max-width: 768px) {
+  .header__level_1 {
+    display: none !important;
+  }
+  .header__level_2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    height: 56px;
+    position: relative;
+  }
+  .header__burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    flex-shrink: 0;
+  }
+  .header__burger-line {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: var(--color-text);
+  }
+  .header__logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .header__logo img {
+    width: 120px;
+    height: auto;
+  }
+  .header__phone-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    color: var(--color-text);
+  }
+  .header__nav,
+  .header__phone,
+  .header__actions {
+    display: none !important;
+  }
+}
+@media (min-width: 769px) {
+  .header__burger,
+  .header__phone-icon {
+    display: none;
+  }
+}
+
+/* ===== МОБИЛЬНОЕ МЕНЮ ===== */
+.mob-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  background: #fff;
+  display: none;
+  overflow: hidden;
+}
+.mob-menu[aria-hidden="false"] {
+  display: block;
+}
+.mob-panel {
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.28s ease;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.mob-panel_active {
+  transform: translateX(0);
+}
+.mob-panel_behind {
+  transform: translateX(-30%);
+}
+.mob-panel__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  min-height: 52px;
+  border-bottom: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+.mob-panel__back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text);
+  padding: 0;
+}
+.mob-panel__title {
+  font: 500 16px/1 'Manrope', sans-serif;
+  color: var(--color-text);
+}
+.mob-panel__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-light);
+  padding: 0;
+}
+.mob-panel__search {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+.mob-search-input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid var(--color-border);
+  padding: 8px 0;
+  font: 400 16px/1.4 'Manrope', sans-serif;
+  color: var(--color-text);
+  background: transparent;
+  outline: none;
+  box-sizing: border-box;
+}
+.mob-search-input::placeholder {
+  color: var(--color-text-muted);
+}
+.mob-menu__city {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 20px 20px 8px;
+  font: 400 14px/1.4 'Manrope', sans-serif;
+  color: var(--color-text-light);
+  flex-shrink: 0;
+}
+.mob-nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.mob-nav__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px;
+  font: 400 17px/1.3 'Manrope', sans-serif;
+  color: var(--color-text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-border);
+  background: none;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+.mob-nav__item:first-child {
+  border-top: 1px solid var(--color-border);
+}
+.mob-nav__chevron {
+  flex-shrink: 0;
+  color: var(--color-text-muted);
+}
+.mob-menu__footer {
+  padding: 32px 20px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  flex-shrink: 0;
+}
+.mob-menu__cta {
+  width: 100%;
+  padding: 18px;
+  background: var(--color-primary);
+  color: #fff;
+  font: 600 13px/1 'Manrope', sans-serif;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 32px;
+}
+.mob-menu__contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.mob-menu__contacts-label {
+  margin: 0 0 8px;
+  font: 500 11px/1 'Manrope', sans-serif;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+}
+.mob-menu__phone {
+  font: 600 24px/1.2 'Manrope', sans-serif;
+  color: var(--color-text);
+  text-decoration: none;
+}
+.mob-menu__hours {
+  margin: 0 0 16px;
+  font: 400 13px/1.4 'Manrope', sans-serif;
+  color: var(--color-text-light);
+}
+.mob-menu__email-label {
+  margin: 0;
+  font: 400 13px/1.4 'Manrope', sans-serif;
+  color: var(--color-text-light);
+}
+.mob-menu__email {
+  font: 500 16px/1.4 'Manrope', sans-serif;
+  color: var(--color-text);
+  text-decoration: none;
+}
+.mob-menu__social {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+.mob-menu__social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== МОБИЛЬНАЯ СЕТКА КАРТОЧЕК И ПОКРЫТИЙ ===== */
+@media (max-width: 768px) {
+  /* Гарантированно 2 карточки в ряд, вертикальный скролл */
+  .section__cards_wrap {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    flex-wrap: wrap !important;
+    overflow-x: visible !important;
+    overflow-y: visible !important;
+    scroll-snap-type: none !important;
+    padding-left: 12px;
+    padding-right: 12px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .section__cards_wrap > .card {
+    min-width: 0 !important;
+    flex: none !important;
+    scroll-snap-align: none !important;
+  }
+  .catalog__grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    overflow-x: visible !important;
+  }
+
+  /* Карточки дверей — убрать фон на мобиле */
+  .card {
+    background: transparent;
+  }
+  .card__image-wrap {
+    background: transparent;
+  }
+
+  /* Информация карточки — уменьшить */
+  .card__info {
+    padding: 8px 4px;
+    gap: 2px;
+  }
+  .card__title {
+    font-size: 13px;
+  }
+  .card__price {
+    font-size: 13px;
+  }
+
+  /* Цвета покрытий на странице товара — уменьшить до 4 в ряд */
+  .product__color {
+    width: 38px;
+    height: 38px;
+  }
+  .product__color_active {
+    margin-right: 42px;
+  }
+  .product__color_more {
+    width: 38px;
+    height: 38px;
+    font-size: 12px;
+  }
+  .product__colors-overflow .product__color {
+    width: 38px;
+    height: 38px;
+  }
+
+  /* Покрытия в конфигураторе — уменьшить, 4 в ряд */
+  .cfg-coating-swatch {
+    width: 72px;
+  }
+  .cfg-coating-swatch__color {
+    width: 56px;
+    height: 56px;
+  }
+  .cfg-coating-swatch__name {
+    font-size: 10px;
+  }
+
+  /* Товары в конфигураторе — ровно 2 в ряд */
+  .cfg-section__body.is-open {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .cfg-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 10px 6px;
+    border-bottom: none;
+    border-radius: 12px;
+    max-width: 100%;
+    min-width: 0;
+  }
+  .cfg-item__thumb {
+    width: 80px;
+    height: 80px;
+  }
+  .cfg-item__info {
+    align-items: center;
+  }
+
+  /* Коллекции карточки — уменьшить текст */
+  .collection-card__info {
+    padding: 10px;
+  }
+  .collection-card__title {
+    font-size: 14px;
+  }
+}
+
+/* ===== НИЖНЕЕ МОБИЛЬНОЕ МЕНЮ ===== */
+.bottom-nav {
+  display: none;
+}
+@media (max-width: 768px) {
+  .bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 400;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 60px;
+    background: #fff;
+    border-top: 1px solid var(--color-border);
+    padding: 4px 0 max(4px, env(safe-area-inset-bottom));
+  }
+  .bottom-nav__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    text-decoration: none;
+    color: var(--color-text-light);
+    font-size: 10px;
+    font-family: var(--font-heading);
+    transition: color 0.2s;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .bottom-nav__item.is-active {
+    color: var(--color-primary);
+  }
+  .bottom-nav__icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+  }
+  .bottom-nav__label {
+    line-height: 1;
+  }
+  /* Отступ body снизу для bottom-nav */
+  body {
+    padding-bottom: 64px;
+  }
+}
+
+/* ── Promo slider: 12-column width constraint ── */
+.promo-slider {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ── Swatch borders ── */
+.cfg-coating-swatch__color {
+  border-color: #E9E9E9;
+}
+
+/* ── Coatings popup: absolute positioning, no content shift ── */
+.cfg-coatings-wrapper {
+  position: relative;
+}
+.cfg-coatings-popup {
+  /* Overridden by .is-open below; base hidden via .config-detail-options */
+  flex-direction: column;
+}
+.cfg-coatings-popup.is-open {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 8px 24px rgba(0,0,0,.1);
+  max-height: 420px;
+  overflow-y: auto;
+  padding: 16px;
+  flex-direction: column;
+}
+
+/* ── Coatings group titles ── */
+.cfg-coatings-group {
+  margin-bottom: 16px;
+}
+.cfg-coatings-group__title {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* ── Chip price label (blade-type ПО surcharge) ── */
+.cfg-chip__price {
+  display: block;
+  font-size: 11px;
+  color: var(--color-text-light);
+  font-weight: 400;
+  margin-top: 2px;
+}
+
+/* ── Mobile cart layout fix ── */
+@media (max-width: 768px) {
+  .cart-item__door-section {
+    gap: 12px;
+  }
+  .cart-item__info {
+    min-width: 0;
+  }
+  .cart-item__title {
+    font-size: 15px;
+    word-break: break-word;
+  }
+}
+
+/* ── Blade surcharge price row ── */
+[data-price-row="blade-surcharge"] {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 24px;
+  font-size: 14px;
+}
+[data-price-row="blade-surcharge"][hidden] {
+  display: none;
+}
+
+/* ── Product page: blade type selector ── */
+.product__blade-types {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.product__blade-btn {
+  padding: 10px 20px;
+  font-family: var(--font-main);
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--color-text);
+  background: transparent;
+  border: 2px solid var(--color-border);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+.product__blade-btn:hover {
+  border-color: #9C9B9A;
+}
+.product__blade-btn_active {
+  border-color: var(--color-text);
+  font-weight: 600;
+}
+.product__blade-price {
+  display: block;
+  font-size: 12px;
+  color: var(--color-text-light);
+  font-weight: 400;
+  margin-top: 2px;
+}
+
+/* ── Mobile cart: prevent overlapping ── */
+@media (max-width: 768px) {
+  .cart-item {
+    overflow: visible;
+  }
+  .cart-item__door-section {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .cart-item__image-wrap {
+    width: 100%;
+    max-width: 200px;
+    min-height: 140px;
+    margin: 0 auto;
+  }
+  .cart-item__header {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .cart-item__action-links {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .cart-item__props {
+    grid-template-columns: 1fr;
+  }
+  .cart-item__qty-row {
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 480px) {
+  .cart-item__door-section {
+    grid-template-columns: 1fr;
+  }
+  .cart-item__image-wrap {
+    max-width: 160px;
+  }
+}
+
+/* ── Product coatings: selected first, gap, then rest ── */
+.product__color_active {
+  order: -1;
+  margin-right: 26px;
+}
+
+/* ── Coatings popup: groups inside overflow ── */
+.product__colors-overflow {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.product__colors-overflow .product__colors-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.product__colors-group__title {
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  width: 100%;
+}
+.product__colors-overflow .product__colors-group .product__colors-group__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ── Configurator: zoom not clipped by scroll container ── */
+.cfg-coating-swatch {
+  position: relative;
+  overflow: visible;
 }

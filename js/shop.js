@@ -2,6 +2,42 @@
   const CART_KEY = "dveryaninov_cart_v1";
   const WISHLIST_KEY = "dveryaninov_wishlist_v1";
 
+  // Цены погонажа
+  const MOLDING_PRICES = {
+    box_telescope_pvc: 3450,
+    box_telescope_enamel: 4980,
+    box_coplanar_pvc: 3680,
+    box_coplanar_enamel: 5380,
+    casing_80_pvc: 2030,
+    casing_80_enamel: 3150,
+    casing_plus_80_pvc: 2130,
+    casing_plus_80_enamel: 3200,
+    casing_100_pvc: 2900,
+    casing_100_enamel: 4780,
+    casing_coplanar_80_pvc: 2030,
+    casing_coplanar_80_enamel: 3230,
+    dobor_100_pvc: 2880,
+    dobor_100_enamel: 4620,
+    dobor_150_pvc: 3960,
+    dobor_150_enamel: 6930,
+    dobor_200_pvc: 4890,
+    dobor_200_enamel: 9240,
+    threshold_pvc: 1330,
+    threshold_enamel: 1940,
+    plinth_pvc: 1150,
+    plinth_enamel: 1900,
+    enamel_pg_surcharge: 12780,
+    enamel_po_surcharge: 14200,
+  };
+
+  // Наценка за тип полотна
+  const GLAZING_SURCHARGE = {
+    'pg': 0,
+    'po': 14200,
+  };
+
+  const DEFAULT_DOOR_PRICE = 52000;
+
   function safeJsonParse(value, fallback) {
     try {
       var result = JSON.parse(value);
@@ -168,6 +204,39 @@
         }
       });
     });
+
+    // Handle blade type selection (ПГ/ПО) on product page
+    var bladeButtons = document.querySelectorAll(".product__blade-btn");
+    var currentBladeType = "pg";
+    bladeButtons.forEach(function(btn) {
+      btn.addEventListener("click", function(e) {
+        e.preventDefault();
+        bladeButtons.forEach(function(b) { b.classList.remove("product__blade-btn_active"); });
+        btn.classList.add("product__blade-btn_active");
+        var bladeVal = btn.getAttribute("data-blade");
+        currentBladeType = bladeVal;
+        var bladeValueEl = document.getElementById("bladeTypeValue");
+        if (bladeValueEl) bladeValueEl.textContent = bladeVal === "po" ? "ПО" : "ПГ";
+        // Update price
+        var priceEl = document.querySelector(".product__price");
+        if (priceEl) {
+          var basePrice = DEFAULT_DOOR_PRICE;
+          var surcharge = GLAZING_SURCHARGE[bladeVal] || 0;
+          priceEl.textContent = "от " + new Intl.NumberFormat("ru-RU").format(basePrice + surcharge) + " ₽";
+        }
+        // Swap gallery image for ПО (add '-po' suffix convention)
+        var mainImg = document.querySelector(".product__main-image img");
+        if (mainImg) {
+          var origSrc = mainImg.getAttribute("data-src-pg") || mainImg.src;
+          if (!mainImg.hasAttribute("data-src-pg")) mainImg.setAttribute("data-src-pg", origSrc);
+          if (bladeVal === "po") {
+            mainImg.src = origSrc.replace(/(\.\w+)$/, " ПО$1");
+          } else {
+            mainImg.src = origSrc;
+          }
+        }
+      });
+    });
   }
 
   // Заполнить product__colors из coatings-data.js
@@ -188,7 +257,7 @@
       var inner = document.createElement("span");
       inner.className = "product__color-inner";
       if (c[2]) {
-        inner.style.backgroundImage = "url(" + c[2] + ")";
+        inner.style.backgroundImage = 'url("' + c[2] + '")';
         inner.style.backgroundSize = "cover";
         inner.style.backgroundPosition = "center";
       } else {
@@ -222,13 +291,46 @@
       var overflowWrap = document.createElement("div");
       overflowWrap.className = "product__colors-overflow";
       overflowWrap.hidden = true;
+
+      // Group remaining coatings by type
+      var COATING_GROUP_LABELS = { pvc: "ПВХ", pet: "ПЭТ", enamel: "Эмаль" };
+      var COATING_GROUP_ORDER = ["pvc", "pet", "enamel"];
+      var grouped = {};
+      COATING_GROUP_ORDER.forEach(function(t) { grouped[t] = []; });
       coatings.slice(VISIBLE).forEach(function(c) {
-        overflowWrap.appendChild(makeColorBtn(c, false));
+        var type = c[3] || "pvc";
+        if (!grouped[type]) grouped[type] = [];
+        grouped[type].push(c);
+      });
+      COATING_GROUP_ORDER.forEach(function(type) {
+        if (!grouped[type] || !grouped[type].length) return;
+        var section = document.createElement("div");
+        section.className = "product__colors-group";
+        var title = document.createElement("div");
+        title.className = "product__colors-group__title";
+        title.textContent = COATING_GROUP_LABELS[type] || type;
+        section.appendChild(title);
+        var grid = document.createElement("div");
+        grid.className = "product__colors-group__grid";
+        grouped[type].forEach(function(c) {
+          grid.appendChild(makeColorBtn(c, false));
+        });
+        section.appendChild(grid);
+        overflowWrap.appendChild(section);
       });
 
-      moreBtn.addEventListener("click", function() {
+      moreBtn.addEventListener("click", function(e) {
+        e.stopPropagation();
         overflowWrap.hidden = !overflowWrap.hidden;
         moreBtn.textContent = overflowWrap.hidden ? "+" + rest : "−";
+      });
+
+      overflowWrap.addEventListener("click", function(e) { e.stopPropagation(); });
+      document.addEventListener("click", function() {
+        if (!overflowWrap.hidden) {
+          overflowWrap.hidden = true;
+          moreBtn.textContent = "+" + rest;
+        }
       });
 
       colorsWrap.appendChild(moreBtn);
@@ -252,9 +354,9 @@
 
   function getBasePrice() {
     var priceEl = document.querySelector(".product__price");
-    if (!priceEl) return 52000;
+    if (!priceEl) return DEFAULT_DOOR_PRICE;
     var text = priceEl.textContent || "0";
-    return Number((text.match(/\d[\d\s]*/)?.[0] || "0").replace(/\s/g, "")) || 52000;
+    return Number((text.match(/\d[\d\s]*/)?.[0] || "0").replace(/\s/g, "")) || DEFAULT_DOOR_PRICE;
   }
 
   function initConfigurator() {
@@ -262,6 +364,8 @@
 
     const state = {
       // Шаг 1 — Конфигурация двери
+      "blade-type": "pg",
+      "blade-surcharge": 0,
       size: "2000×600",
       "coating-type": "ПВХ",
       finish: "",
@@ -349,66 +453,112 @@
     }
 
     // Определение типа покрытия по имени
-    function getCoatingType(name) {
-      if (/ПЭТ/i.test(name)) return "ПЭТ";
-      if (/Эмаль/i.test(name) || name === "Белый лёд" || name === "Свой цвет по RAL и NCS") return "Эмаль";
-      return "ПВХ";
+    function getCoatingType(name, entry) {
+      if (entry && entry[3]) return entry[3];
+      if (/ПЭТ/i.test(name)) return "pet";
+      if (/Эмаль/i.test(name) || name === "Белый лёд" || name === "Свой цвет по RAL и NCS") return "enamel";
+      return "pvc";
     }
+
+    var COATING_TYPE_LABELS = { pvc: "ПВХ", pet: "ПЭТ", enamel: "Эмаль" };
+    var COATING_TYPE_ORDER = ["pvc", "pet", "enamel"];
 
     function populateCoatingSwatches() {
       var container = modal?.querySelector("#cfgCoatingsContainer");
       if (!container || !window.DVERYANINOV_COATINGS) return;
-      var grid = document.createElement("div");
-      grid.className = "cfg-coatings-grid";
-      window.DVERYANINOV_COATINGS.forEach(function(c, i) {
-        var btn = document.createElement("button");
-        btn.type = "button";
-        var isCustom = c[1] === "custom";
-        btn.className = "cfg-coating-swatch" + (isCustom ? " cfg-coating-swatch_custom" : "");
-        btn.setAttribute("data-coating", c[0]);
-        btn.setAttribute("data-coating-type", getCoatingType(c[0]));
-        btn.title = c[0];
-        var swatch = document.createElement("span");
-        swatch.className = "cfg-coating-swatch__color";
-        if (!isCustom) {
-          if (c[2]) {
-            swatch.style.backgroundImage = "url(" + c[2] + ")";
-          } else {
-            swatch.style.background = c[1];
-          }
-        }
-        var label = document.createElement("span");
-        label.className = "cfg-coating-swatch__name";
-        label.textContent = c[0];
-        var zoom = document.createElement("span");
-        zoom.className = "cfg-swatch-zoom";
-        if (!isCustom) {
-          if (c[2]) {
-            zoom.style.backgroundImage = "url(" + c[2] + ")";
-          } else {
-            zoom.style.background = c[1];
-          }
-        }
-        btn.appendChild(swatch);
-        btn.appendChild(label);
-        btn.appendChild(zoom);
-        grid.appendChild(btn);
+
+      // Группировка по типу
+      var groups = {};
+      COATING_TYPE_ORDER.forEach(function(t) { groups[t] = []; });
+      window.DVERYANINOV_COATINGS.forEach(function(c) {
+        if (c[1] === "custom") return; // «Свой цвет» отдельно
+        var type = getCoatingType(c[0], c);
+        if (!groups[type]) groups[type] = [];
+        groups[type].push(c);
       });
-      container.appendChild(grid);
+
+      COATING_TYPE_ORDER.forEach(function(type) {
+        var items = groups[type];
+        if (!items || !items.length) return;
+        var section = document.createElement("div");
+        section.className = "cfg-coatings-group";
+        section.setAttribute("data-coating-group", type);
+        var heading = document.createElement("div");
+        heading.className = "cfg-coatings-group__title";
+        heading.textContent = COATING_TYPE_LABELS[type] || type;
+        section.appendChild(heading);
+        var grid = document.createElement("div");
+        grid.className = "cfg-coatings-grid";
+        items.forEach(function(c) {
+          grid.appendChild(createCoatingSwatch(c, type));
+        });
+        section.appendChild(grid);
+        container.appendChild(section);
+      });
+
+      // «Свой цвет по RAL и NCS»
+      var customEntry = window.DVERYANINOV_COATINGS.find(function(c) { return c[1] === "custom"; });
+      if (customEntry) {
+        container.appendChild(createCoatingSwatch(customEntry, "custom"));
+      }
+    }
+
+    function createCoatingSwatch(c, type) {
+      var btn = document.createElement("button");
+      btn.type = "button";
+      var isCustom = c[1] === "custom";
+      btn.className = "cfg-coating-swatch" + (isCustom ? " cfg-coating-swatch_custom" : "");
+      btn.setAttribute("data-coating", c[0]);
+      btn.setAttribute("data-coating-type", type);
+      btn.title = c[0];
+      var swatch = document.createElement("span");
+      swatch.className = "cfg-coating-swatch__color";
+      if (!isCustom) {
+        if (c[2]) {
+          swatch.style.backgroundImage = 'url("' + c[2] + '")';
+        } else {
+          swatch.style.background = c[1];
+        }
+      }
+      var label = document.createElement("span");
+      label.className = "cfg-coating-swatch__name";
+      label.textContent = c[0];
+      var zoom = document.createElement("span");
+      zoom.className = "cfg-swatch-zoom";
+      if (!isCustom) {
+        if (c[2]) {
+          zoom.style.backgroundImage = 'url("' + c[2] + '")';
+        } else {
+          zoom.style.background = c[1];
+        }
+      }
+      btn.appendChild(swatch);
+      btn.appendChild(label);
+      btn.appendChild(zoom);
+      return btn;
     }
 
     // Фильтрация покрытий по выбранному типу (ПВХ/ПЭТ/Эмаль)
+    var COATING_TYPE_MAP = { "ПВХ": "pvc", "ПЭТ": "pet", "Эмаль": "enamel" };
     function filterCoatingsByType(type) {
       if (!modal) return;
+      var typeKey = COATING_TYPE_MAP[type] || type;
       var flyColors = (_collection === "Флай" && CFG.FLY_PVH_COLORS) ? CFG.FLY_PVH_COLORS : null;
+
+      // Показать/скрыть группы
+      modal.querySelectorAll(".cfg-coatings-group").forEach(function(group) {
+        var groupType = group.getAttribute("data-coating-group");
+        group.style.display = (groupType === typeKey) ? "" : "none";
+      });
+
       var swatches = modal.querySelectorAll(".cfg-coating-swatch");
       var activeHidden = false;
       var hasActive = false;
       swatches.forEach(function(btn) {
         var btnType = btn.getAttribute("data-coating-type");
-        var visible = btnType === type;
+        var visible = btnType === typeKey;
         // Для Флай — дополнительно фильтруем по 45 разрешённым цветам
-        if (visible && flyColors && type === "ПВХ") {
+        if (visible && flyColors && typeKey === "pvc") {
           var name = btn.getAttribute("data-coating") || "";
           visible = flyColors.indexOf(name) !== -1;
         }
@@ -431,6 +581,29 @@
         }
       }
       updateConfigTotal();
+    }
+
+    function syncDoorInfoToConfigurator() {
+      var nameEl  = modal?.querySelector('#cfgDoorName');
+      var priceEl = modal?.querySelector('#cfgDoorBasePrice');
+      var pageTitle = document.querySelector('.product__title')?.textContent.trim();
+      var pagePrice = document.querySelector('.product__price')?.textContent
+        .replace(/[^\d\s]/g, '').trim();
+      if (nameEl && pageTitle) nameEl.textContent = pageTitle;
+      if (priceEl && pagePrice) priceEl.textContent = pagePrice;
+    }
+
+    function initBackButton() {
+      var backBtn = modal?.querySelector('#cfgBackBtn');
+      if (backBtn && !backBtn._bound) {
+        backBtn._bound = true;
+        backBtn.addEventListener('click', function() {
+          var stepMap = { molding: 'config', hardware: 'molding' };
+          var currentStep = modal.dataset.step || 'config';
+          var prevStep = stepMap[currentStep];
+          if (prevStep) setStep(prevStep);
+        });
+      }
     }
 
     function syncStateFromPage() {
@@ -1011,6 +1184,7 @@
     };
 
     function setStep(step) {
+      modal.dataset.step = step;
       // Переключаем секции параметров
       modal.querySelectorAll("[data-step]").forEach((el) => {
         el.classList.toggle(
@@ -1110,9 +1284,11 @@
         var sectionToggle = header.closest("[data-section-toggle]");
         if (sectionToggle) {
           // cfg-section: открываем body
-          var body = sectionToggle.closest(".cfg-section")?.querySelector(".cfg-section__body");
+          var cfgSection = sectionToggle.closest(".cfg-section");
+          var body = cfgSection?.querySelector(".cfg-section__body");
           toggle.setAttribute("aria-expanded", "true");
           if (body) body.classList.add("is-open");
+          if (cfgSection) cfgSection.classList.add("cfg-section_active");
         } else {
           // config-detail-item: открываем options
           toggle.setAttribute("aria-expanded", "true");
@@ -1185,6 +1361,7 @@
               const b = s.querySelector(".cfg-section__body");
               if (t) t.setAttribute("aria-expanded", "false");
               if (b) b.classList.remove("is-open");
+              s.classList.remove("cfg-section_active");
             });
             stepEl.querySelectorAll(".config-detail-header").forEach((h) => {
               if (h.closest("[data-section-toggle]")) return;
@@ -1198,6 +1375,7 @@
 
         toggle.setAttribute("aria-expanded", isExpanded ? "false" : "true");
         body.classList.toggle("is-open", !isExpanded);
+        section.classList.toggle("cfg-section_active", !isExpanded);
         return;
       }
 
@@ -1340,6 +1518,8 @@
               addItemZoomPopups();
               initSmartZoom();
               updateConfigTotal();
+              syncDoorInfoToConfigurator();
+              initBackButton();
               setStep("config");
             });
           return;
@@ -1354,6 +1534,8 @@
         addItemZoomPopups();
         initSmartZoom();
         updateConfigTotal();
+        syncDoorInfoToConfigurator();
+        initBackButton();
         setStep("config");
         return;
       }
@@ -1403,6 +1585,11 @@
         const pick = chip.getAttribute("data-pick");
         const value = chip.getAttribute("data-value");
         state[pick] = value;
+
+        // Тип полотна (ПГ/ПО) — обновляем наценку
+        if (pick === "blade-type") {
+          state["blade-surcharge"] = GLAZING_SURCHARGE[value] || 0;
+        }
 
         // Фильтрация покрытий по типу (ПВХ/ПЭТ/Эмаль)
         if (pick === "coating-type") {
@@ -1720,12 +1907,19 @@
         var zoom = trigger.querySelector(".cfg-swatch-zoom, .cfg-item__zoom");
         if (!zoom) return;
         var rect = trigger.getBoundingClientRect();
+        var zoomW = 200, zoomH = 250;
         var spaceAbove = rect.top;
-        var zoomH = 258; // 250 + 8 gap
-        if (spaceAbove < zoomH) {
-          zoom.classList.add(zoom.classList.contains("cfg-swatch-zoom") ? "cfg-swatch-zoom_below" : "cfg-item__zoom_below");
+        // Position zoom fixed so it escapes overflow:auto containers
+        zoom.style.position = "fixed";
+        zoom.style.left = (rect.left + rect.width / 2 - zoomW / 2) + "px";
+        zoom.style.width = zoomW + "px";
+        zoom.style.height = zoomH + "px";
+        if (spaceAbove < zoomH + 8) {
+          zoom.style.top = (rect.bottom + 8) + "px";
+          zoom.style.bottom = "auto";
         } else {
-          zoom.classList.remove("cfg-swatch-zoom_below", "cfg-item__zoom_below");
+          zoom.style.top = "auto";
+          zoom.style.bottom = (window.innerHeight - rect.top + 8) + "px";
         }
         zoom.classList.add("is-visible");
       }, true);
@@ -1789,12 +1983,26 @@
         if (isGlazed2) w900Surcharge = CFG.WIDTH_900_PO_SURCHARGE;
       }
 
+      // 6) Наценка за тип полотна (ПО = остеклённое)
+      var bladeSurcharge = state["blade-surcharge"] || 0;
+
       var totalPriceEl = modal.querySelector(".config-total-price");
       if (totalPriceEl) {
         totalPriceEl.textContent = formatPriceRub(
-          getBasePrice() + radioTotal + qtyTotal + chipsTotal + enamelSurcharge + w900Surcharge,
+          getBasePrice() + radioTotal + qtyTotal + chipsTotal + enamelSurcharge + w900Surcharge + bladeSurcharge,
         );
       }
+
+      // Показ/скрытие строки «Полотно остеклённое» в разбивке цены
+      updateBladeSurchargeRow(state["blade-type"]);
+    }
+
+    function updateBladeSurchargeRow(bladeType) {
+      var row = modal?.querySelector('[data-price-row="blade-surcharge"]');
+      if (!row) return;
+      row.hidden = (bladeType !== 'po');
+      var valEl = row.querySelector('.cfg-price-row__value');
+      if (valEl) valEl.textContent = '+' + formatPriceRub(GLAZING_SURCHARGE['po'] || 14200) + ' ₽';
     }
 
     document.addEventListener("keydown", (e) => {
@@ -2386,7 +2594,7 @@
       const name = inputs[0]?.value.trim() || "";
       const phone = inputs[1]?.value.trim() || "";
       if (!name || !phone) return;
-      console.log("[Лид] Заявка:", { name, phone });
+      // TODO: send lead to CRM
       leadForm.innerHTML = '<p style="text-align:center;font-size:16px;color:#333;padding:20px 0;">Спасибо! Мы свяжемся с вами в ближайшее время.</p>';
     });
   }

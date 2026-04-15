@@ -62,14 +62,24 @@
             <span class="product__option-value">2000х600</span>
           </div>
           <a class="product__option-link" href="#">Нужна консультация</a>
-          <p class="product__option-hint">Данная модель изготавливается в размерах от 2000х600 до 2400х900 мм</p>
+          <p class="product__option-hint">Данная модель изготавливается в размерах от 2000х600 до 2000х800 мм</p>
           <div class="product__sizes">
             <button type="button" class="product__size">2000х800</button>
             <button type="button" class="product__size">2000х700</button>
             <button type="button" class="product__size product__size_active">2000х600</button>
-            <button type="button" class="product__size">2000х900</button>
             <button type="button" class="product__size product__size_measure">Нужен замер</button>
             <button type="button" class="product__size product__size_own">Свой размер</button>
+          </div>
+        </div>
+
+        <div class="product__option">
+          <div class="product__option-header">
+            <span class="product__option-label">Тип полотна:</span>
+            <span class="product__option-value" id="bladeTypeValue">ПГ</span>
+          </div>
+          <div class="product__blade-types">
+            <button type="button" class="product__blade-btn product__blade-btn_active" data-blade="pg">ПГ (глухое)</button>
+            <button type="button" class="product__blade-btn" data-blade="po">ПО (остеклённое) <span class="product__blade-price">+14 200 ₽</span></button>
           </div>
         </div>
 
@@ -337,6 +347,9 @@
 
       <!-- Верхняя панель: степпер + кнопка закрыть (в одной строке, без перекрытия) -->
       <div class="cfg-modal__topbar">
+        <button class="cfg-modal__back-btn" type="button" aria-label="Предыдущий шаг" id="cfgBackBtn">
+          <svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M7 1L1 7l6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
         <div class="cfg-stepper" aria-label="Шаги конфигуратора">
           <div class="cfg-stepper__step cfg-stepper__step_active" data-step-tab="config">
             <span class="cfg-stepper__num">1</span>
@@ -354,6 +367,11 @@
           </div>
         </div>
         <button class="cfg-modal__close" type="button" aria-label="Закрыть конфигуратор" data-close-config>Закрыть ×</button>
+      </div>
+
+      <div class="cfg-modal__door-info" id="cfgDoorInfo">
+        <p class="cfg-modal__door-name" id="cfgDoorName">Дверь</p>
+        <p class="cfg-modal__door-price">от <span id="cfgDoorBasePrice">52 000</span> ₽</p>
       </div>
 
       <!-- Прокручиваемый блок с параметрами -->
@@ -379,7 +397,6 @@
               <button type="button" class="config-chip config-chip_active" data-pick="size" data-price="0" data-value="2000×600">2000×600</button>
               <button type="button" class="config-chip" data-pick="size" data-price="1500" data-value="2000×700">2000×700</button>
               <button type="button" class="config-chip" data-pick="size" data-price="3000" data-value="2000×800">2000×800</button>
-              <button type="button" class="config-chip" data-pick="size" data-price="5000" data-value="2000×900">2000×900</button>
             </div>
           </div>
 
