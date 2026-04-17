@@ -60,17 +60,7 @@
             </div>
           </div>
 
-          <div class="config-detail-item">
-            <div class="config-detail-header">
-              <span class="config-detail-label">Тип полотна</span>
-              <span class="config-detail-value">ПГ</span>
-              <button class="config-detail-toggle" type="button" aria-expanded="false" aria-label="Показать опции"></button>
-            </div>
-            <div class="config-detail-options" id="cfgBladeTypeOptions">
-              <button class="config-chip config-chip_active" data-pick="blade-type" data-value="pg" type="button">ПГ</button>
-              <button class="config-chip" data-pick="blade-type" data-value="po" type="button">ПО<span class="cfg-chip__price">+14 200 ₽</span></button>
-            </div>
-          </div>
+          <!-- Тип полотна: управляется из product.js, в конфигуратор автоматически синхронизируется через state -->
 
           <div class="config-detail-item" id="cfgCoatingTypeItem">
             <div class="config-detail-header">
@@ -83,13 +73,13 @@
             </div>
           </div>
 
-          <div class="config-detail-item cfg-coatings-wrapper">
+          <div class="config-detail-item">
             <div class="config-detail-header">
               <span class="config-detail-label">Покрытие</span>
               <span class="config-detail-value" id="cfgCoatingDisplay">—</span>
               <button class="config-detail-toggle" type="button" aria-expanded="false" aria-label="Показать опции"></button>
             </div>
-            <div class="config-detail-options cfg-coatings-popup" id="cfgCoatingsContainer">
+            <div class="config-detail-options" id="cfgCoatingsContainer">
               <!-- Populated dynamically from window.DVERYANINOV_COATINGS in shop.js -->
             </div>
           </div>
@@ -142,15 +132,53 @@
             </div>
           </div>
 
-          <div class="config-detail-item">
-            <div class="config-detail-header">
+          <div class="cfg-section">
+            <div class="cfg-section__header config-detail-header cfg-section__header_toggle" data-section-toggle>
               <span class="config-detail-label">Вариант открывания</span>
-              <span class="config-detail-value">Распашная</span>
-              <button class="config-detail-toggle" type="button" aria-expanded="false" aria-label="Показать опции"></button>
+              <span class="config-detail-value" data-radio-display="opening-system">Распашные прямые</span>
+              <button class="config-detail-toggle" type="button" aria-expanded="false" aria-label="Свернуть"></button>
             </div>
-            <div class="config-detail-options">
-              <button type="button" class="config-chip config-chip_active" data-pick="opening" data-price="0" data-value="Распашная">Распашная</button>
-              <button type="button" class="config-chip" data-pick="opening" data-price="5000" data-value="Раздвижная">Раздвижная</button>
+            <div class="cfg-section__body cfg-radio-group" data-radio-group="opening-system">
+              <div class="cfg-item cfg-item_active" data-radio-value="Распашные прямые" data-price="0">
+                <div class="cfg-item__thumb"><img src="images/Вариант открывания/Распашные прямые.gif" alt="Распашные прямые" loading="lazy"></div>
+                <div class="cfg-item__info">
+                  <span class="cfg-item__name config-item__title">Распашные прямые</span>
+                </div>
+              </div>
+              <div class="cfg-item" data-radio-value="Распашные двухстворчатая" data-price="0">
+                <div class="cfg-item__thumb"><img src="images/Вариант открывания/Распашные двухстворчатая.gif" alt="Распашные двухстворчатая" loading="lazy"></div>
+                <div class="cfg-item__info">
+                  <span class="cfg-item__name config-item__title">Распашные двухстворчатая</span>
+                </div>
+              </div>
+              <div class="cfg-item" data-radio-value="Раздвижные купе" data-price="5000">
+                <div class="cfg-item__thumb"><img src="images/Вариант открывания/Раздвижные купе.gif" alt="Раздвижные купе" loading="lazy"></div>
+                <div class="cfg-item__info">
+                  <span class="cfg-item__name config-item__title">Раздвижные купе</span>
+                  <span class="cfg-item__spec config-item__spec">+5 000 ₽</span>
+                </div>
+              </div>
+              <div class="cfg-item" data-radio-value="Раздвижные скрытые" data-price="5000">
+                <div class="cfg-item__thumb"><img src="images/Вариант открывания/Раздвижные скрытые.gif" alt="Раздвижные скрытые" loading="lazy"></div>
+                <div class="cfg-item__info">
+                  <span class="cfg-item__name config-item__title">Раздвижные скрытые</span>
+                  <span class="cfg-item__spec config-item__spec">+5 000 ₽</span>
+                </div>
+              </div>
+              <div class="cfg-item" data-radio-value="Компакт книжка" data-price="5000">
+                <div class="cfg-item__thumb"><img src="images/Вариант открывания/Компакт книжка.gif" alt="Компакт книжка" loading="lazy"></div>
+                <div class="cfg-item__info">
+                  <span class="cfg-item__name config-item__title">Компакт книжка</span>
+                  <span class="cfg-item__spec config-item__spec">+5 000 ₽</span>
+                </div>
+              </div>
+              <div class="cfg-item" data-radio-value="Компакт либра" data-price="5000">
+                <div class="cfg-item__thumb"><img src="images/Вариант открывания/Компакт либра.gif" alt="Компакт либра" loading="lazy"></div>
+                <div class="cfg-item__info">
+                  <span class="cfg-item__name config-item__title">Компакт либра</span>
+                  <span class="cfg-item__spec config-item__spec">+5 000 ₽</span>
+                </div>
+              </div>
             </div>
           </div>
 

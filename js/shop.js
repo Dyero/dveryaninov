@@ -205,38 +205,7 @@
       });
     });
 
-    // Handle blade type selection (ПГ/ПО) on product page
-    var bladeButtons = document.querySelectorAll(".product__blade-btn");
-    var currentBladeType = "pg";
-    bladeButtons.forEach(function(btn) {
-      btn.addEventListener("click", function(e) {
-        e.preventDefault();
-        bladeButtons.forEach(function(b) { b.classList.remove("product__blade-btn_active"); });
-        btn.classList.add("product__blade-btn_active");
-        var bladeVal = btn.getAttribute("data-blade");
-        currentBladeType = bladeVal;
-        var bladeValueEl = document.getElementById("bladeTypeValue");
-        if (bladeValueEl) bladeValueEl.textContent = bladeVal === "po" ? "ПО" : "ПГ";
-        // Update price
-        var priceEl = document.querySelector(".product__price");
-        if (priceEl) {
-          var basePrice = DEFAULT_DOOR_PRICE;
-          var surcharge = GLAZING_SURCHARGE[bladeVal] || 0;
-          priceEl.textContent = "от " + new Intl.NumberFormat("ru-RU").format(basePrice + surcharge) + " ₽";
-        }
-        // Swap gallery image for ПО (add '-po' suffix convention)
-        var mainImg = document.querySelector(".product__main-image img");
-        if (mainImg) {
-          var origSrc = mainImg.getAttribute("data-src-pg") || mainImg.src;
-          if (!mainImg.hasAttribute("data-src-pg")) mainImg.setAttribute("data-src-pg", origSrc);
-          if (bladeVal === "po") {
-            mainImg.src = origSrc.replace(/(\.\w+)$/, " ПО$1");
-          } else {
-            mainImg.src = origSrc;
-          }
-        }
-      });
-    });
+    // Blade-type selection now handled by product.js initBladeTypeSelector()
   }
 
   // Заполнить product__colors из coatings-data.js
@@ -374,6 +343,7 @@
       "alu-edge": "Без кромки",
       moldings: "",
       opening: "Распашная",
+      "opening-system": "Распашные прямые",
       "opening-type": "Левое на себя",
       // Шаг 2 — Погонаж
       box: "",
@@ -623,6 +593,15 @@
           state.finish = matches[0];
         }
       }
+
+      // Sync blade-type from product.js (stored in localStorage)
+      try {
+        var savedBlade = localStorage.getItem("dv_blade_type");
+        if (savedBlade === "pg" || savedBlade === "po") {
+          state["blade-type"] = savedBlade;
+          state["blade-surcharge"] = GLAZING_SURCHARGE[savedBlade] || 0;
+        }
+      } catch(e) {}
     }
 
     // ─── Стандартные кол-ва погонажа на одностворчатую дверь ───
@@ -638,7 +617,8 @@
       engraving: 1,
       "alu-edge": 1,
       moldings: 1,
-      "opening-type": 0  // тип открывания — не товар
+      "opening-type": 0,  // тип открывания — не товар
+      "opening-system": 0  // вариант открывания — не товар
     };
 
     /* ═══════════════════════════════════════════
@@ -674,6 +654,41 @@
       var sub = "(" + dims + ")";
       if (exp) sub += ", " + exp;
       return { title: base, subtitle: sub };
+    }
+
+    // Resolve molding image by item name (size-independent)
+    var MOLDING_IMG_MAP = {
+      "Телескоп (МДФ)": "images/ПОГОНАЖ/Стойка короба телескоп (МДФ), цветной уплотнитель.jpg",
+      "Компланарная": "images/ПОГОНАЖ/Стойка короба компланарная, цветной уплотнитель.jpg",
+      "Книжка": "images/ПОГОНАЖ/Стойка короба для двери книжка, шт. (под механизм книжка).jpg",
+      "Телескоп плюс прод.": "images/ПОГОНАЖ/Наличник телескоп плюс продольный 2200 х 80 мм х 12 мм.jpg",
+      "Телескоп плюс попер.": "images/ПОГОНАЖ/Наличник телескоп плюс поперечный 2200 х 80 мм х 10 мм.jpg",
+      "Телескоп прод.": "images/ПОГОНАЖ/Наличник телескоп продольный 2200 х 80 мм х 12 мм.jpg",
+      "Телескоп попер.": "images/ПОГОНАЖ/Наличник телескоп поперечный 2200 х 80 мм х 10 мм.jpg",
+      "Компланарный": "images/ПОГОНАЖ/Наличник компланарный 2200 х 80 мм х 10 мм.jpg",
+      "Плоский прод.": "images/ПОГОНАЖ/Наличник (плоский продольный) 2200 х 80 мм х 10 мм.jpg",
+      "Плоский попер.": "images/ПОГОНАЖ/Наличник (плоский поперечный) 2200 х 80 мм х 10 мм.jpg",
+      "Декоративный": "images/ПОГОНАЖ/Наличник телескоп декоративный 2200 х 70 х 12 мм.jpg",
+      "Добор": "images/ПОГОНАЖ/Добор телескоп ТИП 2 .jpg",
+      "Добор на купе": "images/ПОГОНАЖ/Добор на купе.jpg"
+    };
+    function resolveMoldingImg(name) {
+      for (var key in MOLDING_IMG_MAP) {
+        if (name.indexOf(key) !== -1) return MOLDING_IMG_MAP[key];
+      }
+      // Fallback heuristics
+      if (/стойк.*телеск/i.test(name)) return MOLDING_IMG_MAP["Телескоп (МДФ)"];
+      if (/стойк.*комплан/i.test(name)) return MOLDING_IMG_MAP["Компланарная"];
+      if (/наличник.*комплан/i.test(name)) return MOLDING_IMG_MAP["Компланарный"];
+      if (/наличник.*плюс.*прод/i.test(name)) return MOLDING_IMG_MAP["Телескоп плюс прод."];
+      if (/наличник.*плюс.*попер/i.test(name)) return MOLDING_IMG_MAP["Телескоп плюс попер."];
+      if (/наличник.*100.*прод/i.test(name)) return "images/ПОГОНАЖ/Наличник телескоп продольный 2200 х 100 мм х 12 мм.jpg";
+      if (/наличник.*100.*попер/i.test(name)) return "images/ПОГОНАЖ/Наличник телескоп поперечный 2200 х 100 мм х 10 мм.jpg";
+      if (/наличник.*прод/i.test(name)) return MOLDING_IMG_MAP["Телескоп прод."];
+      if (/наличник.*попер/i.test(name)) return MOLDING_IMG_MAP["Телескоп попер."];
+      if (/добор.*купе/i.test(name)) return MOLDING_IMG_MAP["Добор на купе"];
+      if (/добор/i.test(name)) return MOLDING_IMG_MAP["Добор"];
+      return "";
     }
 
     function buildRadioItem(name, price, img, extraClass) {
@@ -787,6 +802,21 @@
       });
     }
 
+    // Resolve aluminum edge image by color
+    var ALU_EDGE_IMG = {
+      "золот": "images/Алюминиевая кромка/золото кромка.jpg",
+      "хром":  "images/Алюминиевая кромка/серебро кромка.jpg",
+      "чёрн":  "images/Алюминиевая кромка/черная кромка.jpg",
+      "черн":  "images/Алюминиевая кромка/черная кромка.jpg"
+    };
+    function resolveAluEdgeImg(name) {
+      var lower = name.toLowerCase();
+      for (var key in ALU_EDGE_IMG) {
+        if (lower.indexOf(key) !== -1) return ALU_EDGE_IMG[key];
+      }
+      return "";
+    }
+
     // Заполнить алюминиевую кромку
     function populateAluEdge() {
       var container = modal?.querySelector("#cfgAluEdgeOptions");
@@ -801,7 +831,8 @@
       container.innerHTML = "";
       CFG.ALU_EDGE.forEach(function(edge) {
         var name = edge.type + (edge.color ? " — " + edge.color : "");
-        container.appendChild(buildRadioItem(name, edge.price, ""));
+        var img = resolveAluEdgeImg(name);
+        container.appendChild(buildRadioItem(name, edge.price, img));
       });
     }
 
@@ -831,7 +862,7 @@
       var boxes = CFG.BOX_TYPES ? CFG.BOX_TYPES[cg] : [];
       container.innerHTML = "";
       (boxes || []).forEach(function(b) {
-        var img = /Телескоп/i.test(b.name) ? "images/ПОГОНАЖ/Стойка короба телескоп (МДФ), цветной уплотнитель.jpg" : "images/ПОГОНАЖ/Стойка короба компланарная, цветной уплотнитель.jpg";
+        var img = resolveMoldingImg(b.name);
         container.appendChild(buildRadioItem(b.name, b.price, img));
       });
     }
@@ -845,7 +876,7 @@
       var casings = CFG.getCasings ? CFG.getCasings(boxType, coatingType, _collection) : [];
       container.innerHTML = "";
       casings.forEach(function(c) {
-        container.appendChild(buildRadioItem(c.name, c.price, ""));
+        container.appendChild(buildRadioItem(c.name, c.price, resolveMoldingImg(c.name)));
       });
       // Сбросить текущий выбор
       state["casing-side1"] = "";
@@ -870,7 +901,7 @@
       var casings = CFG.getCasingsSide2 ? CFG.getCasingsSide2(boxType, coatingType, _collection) : [];
       container.innerHTML = "";
       casings.forEach(function(c) {
-        container.appendChild(buildRadioItem(c.name, c.price, ""));
+        container.appendChild(buildRadioItem(c.name, c.price, resolveMoldingImg(c.name)));
       });
       // Сбросить
       state["casing-side2"] = "";
@@ -886,7 +917,7 @@
       var items = CFG.DOBOR ? CFG.DOBOR[cg] : [];
       container.innerHTML = "";
       (items || []).forEach(function(d) {
-        var img = d.price === 0 && !d.priceRequest ? "" : "images/ПОГОНАЖ/Добор телескоп ТИП 2 .jpg";
+        var img = d.price === 0 && !d.priceRequest ? "" : resolveMoldingImg(d.name);
         var el = buildRadioItem(d.name, d.price, img);
         // Override spec if provided in data
         if (d.spec) {
@@ -2028,6 +2059,7 @@
       "alu-edge": "Алюминиевая кромка",
       moldings: "Молдинги",
       opening: "Вариант открывания",
+      "opening-system": "Вариант открывания",
       "opening-type": "Тип открывания",
       box: "Стойка короба",
       "casing-side1": "Наличник (1-я сторона)",
@@ -2091,7 +2123,7 @@
         if (item.options) {
           const doorKeys = [
             "size", "coating-type", "finish", "glazing", "engraving", "alu-edge", "moldings",
-            "opening", "opening-type",
+            "opening-system", "opening-type",
             "box", "casing-side1", "casing-side2", "dobor",
             "hw-color", "handle", "locker", "hinges", "stopper"
           ];

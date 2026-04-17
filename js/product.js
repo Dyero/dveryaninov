@@ -258,9 +258,80 @@
     });
   }
 
+  // Dynamic blade-type selector (ПГ / ПО)
+  function initBladeTypeSelector() {
+    // Detect if there's a ПО variant (title contains "ПГ" or product has data-blade-po)
+    var title = document.querySelector(".product__title");
+    if (!title) return;
+    var titleText = title.textContent.trim();
+
+    // Insert before the coating option (product__option_coating or second product__option)
+    var coatingOption = document.querySelector(".product__option_coating");
+    if (!coatingOption) {
+      // Find containing options and insert before the second one (coating)
+      var options = document.querySelectorAll(".product__info .product__option");
+      if (options.length >= 2) coatingOption = options[1];
+    }
+    if (!coatingOption) return;
+
+    var surcharge = 14200;
+    var wrapper = document.createElement("div");
+    wrapper.className = "product__option product__option_blade-type";
+    wrapper.innerHTML =
+      '<div class="product__option-header">' +
+        '<span class="product__option-label">Тип полотна:</span>' +
+        '<span class="product__option-value" id="bladeTypeValue">ПГ</span>' +
+      '</div>' +
+      '<div class="product__blade-types">' +
+        '<button type="button" class="product__blade-btn product__blade-btn_active" data-blade="pg">' +
+          '<svg class="product__blade-icon" width="32" height="56" viewBox="0 0 32 56" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="30" height="54" rx="1" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="27" cy="28" r="2" fill="currentColor"/></svg>' +
+          '<span class="product__blade-label">ПГ (глухое)</span>' +
+        '</button>' +
+        '<button type="button" class="product__blade-btn" data-blade="po">' +
+          '<svg class="product__blade-icon" width="32" height="56" viewBox="0 0 32 56" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="30" height="54" rx="1" stroke="currentColor" stroke-width="1.5" fill="none"/><rect x="5" y="8" width="22" height="40" rx="1" stroke="currentColor" stroke-width="1" fill="none" stroke-dasharray="2 2"/><circle cx="27" cy="28" r="2" fill="currentColor"/></svg>' +
+          '<span class="product__blade-label">ПО (остеклённое)</span>' +
+          '<span class="product__blade-price">+' + new Intl.NumberFormat("ru-RU").format(surcharge) + ' ₽</span>' +
+        '</button>' +
+      '</div>';
+
+    coatingOption.parentNode.insertBefore(wrapper, coatingOption);
+
+    // Click handler
+    var currentBlade = "pg";
+    wrapper.addEventListener("click", function(e) {
+      var btn = e.target.closest(".product__blade-btn");
+      if (!btn) return;
+      e.preventDefault();
+      wrapper.querySelectorAll(".product__blade-btn").forEach(function(b) { b.classList.remove("product__blade-btn_active"); });
+      btn.classList.add("product__blade-btn_active");
+      var val = btn.getAttribute("data-blade");
+      currentBlade = val;
+      var labelEl = wrapper.querySelector("#bladeTypeValue");
+      if (labelEl) labelEl.textContent = val === "po" ? "ПО" : "ПГ";
+      // Update page price
+      var priceEl = document.querySelector(".product__price");
+      if (priceEl) {
+        var base = Number((priceEl.getAttribute("data-base-price") || priceEl.textContent || "0").replace(/[^\d]/g, "")) || 52000;
+        if (!priceEl.hasAttribute("data-base-price")) priceEl.setAttribute("data-base-price", String(base));
+        var total = base + (val === "po" ? surcharge : 0);
+        priceEl.textContent = "от " + new Intl.NumberFormat("ru-RU").format(total) + " ₽";
+      }
+      // Swap gallery image
+      var mainImg = document.querySelector(".product__main-image img");
+      if (mainImg) {
+        var origSrc = mainImg.getAttribute("data-src-pg") || mainImg.src;
+        if (!mainImg.hasAttribute("data-src-pg")) mainImg.setAttribute("data-src-pg", origSrc);
+        mainImg.src = val === "po" ? origSrc.replace(/(\.\w+)$/, " ПО$1") : origSrc;
+      }
+      // Save to localStorage for configurator sync
+      try { localStorage.setItem("dv_blade_type", val); } catch(e) {}
+    });
+  }
+
   initProductGallery();
   initSizeSelection();
   initColorSelection();
+  initBladeTypeSelector();
   initCoatingsPopup();
   initReviewReadMore();
   initShowAllReviews();

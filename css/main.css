@@ -6173,6 +6173,15 @@ a.order-item__title:hover {
   color: var(--color-text);
 }
 
+/* Remove focus outline from accordion toggle buttons */
+.config-detail-toggle:focus,
+.config-detail-toggle:focus-visible,
+.cfg-section__header_toggle:focus,
+.cfg-section__header_toggle:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
 /* Config summary with highlighted price */
 .config-summary__value {
   font-size: 20px;
@@ -8726,28 +8735,7 @@ body {
   border-color: #E9E9E9;
 }
 
-/* ── Coatings popup: absolute positioning, no content shift ── */
-.cfg-coatings-wrapper {
-  position: relative;
-}
-.cfg-coatings-popup {
-  /* Overridden by .is-open below; base hidden via .config-detail-options */
-  flex-direction: column;
-}
-.cfg-coatings-popup.is-open {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  z-index: 20;
-  background: #fff;
-  border: 1px solid var(--color-border);
-  box-shadow: 0 8px 24px rgba(0,0,0,.1);
-  max-height: 420px;
-  overflow-y: auto;
-  padding: 16px;
-  flex-direction: column;
-}
+/* ── Coatings: standard accordion (no popup overlay) ── */
 
 /* ── Coatings group titles ── */
 .cfg-coatings-group {
