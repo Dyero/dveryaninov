@@ -1,0 +1,97 @@
+UF_XML_ID;UF_NAME;UF_COLOR_HEX;UF_TYPE;UF_IMAGE_PATH;UF_SORT;UF_ACTIVE
+antracit_pet_1;Антрацит ПЭТ-1;#cccccc;pet;images/Покрытия/ПЭТ/Антрацит ПЭТ-1.jpg;10;1
+antracit_pet;Антрацит ПЭТ;#383838;pet;images/Покрытия/ПЭТ/Антрацит ПЭТ.jpg;20;1
+brash_blyu_pet;Браш блю ПЭТ;#6B8FAD;pet;images/Покрытия/ПЭТ/Браш блю ПЭТ.jpg;30;1
+beysik_vayt_pet;Бэйсик вайт ПЭТ;#F5F5F0;pet;images/Покрытия/ПЭТ/Бэйсик вайт ПЭТ.jpg;40;1
+layt_grey_pet;Лайт грей ПЭТ;#D3D3D3;pet;images/Покрытия/ПЭТ/Лайт грей ПЭТ.jpg;50;1
+meni_grin_pet;Мени грин ПЭТ;#5B7A5E;pet;images/Покрытия/ПЭТ/Мени грин ПЭТ.jpg;60;1
+snou_pet;Сноу ПЭТ;#FFFAFA;pet;images/Покрытия/ПЭТ/Сноу ПЭТ.jpg;70;1
+tekstura_grey_pet;Текстура грей ПЭТ;#A9A9A9;pet;images/Покрытия/ПЭТ/Текстура грей ПЭТ.jpg;80;1
+antracit;Антрацит;#3B3B3B;pvc;images/Покрытия/ПВХ/Антрацит.jpg;100;1
+atlantik_soft;Атлантик софт;#4B6F8F;pvc;images/Покрытия/ПВХ/Атлантик софт.jpg;110;1
+belyy_matovyy;Белый матовый;#F5F5F5;pvc;images/Покрытия/ПВХ/Белый матовый.jpg;120;1
+blanzh;Бланж;#F0E6D8;pvc;images/Покрытия/ПВХ/Бланж.jpg;130;1
+veluto_vanil;Велуто ваниль;#F3E5AB;pvc;images/Покрытия/ПВХ/Велуто ваниль.jpg;140;1
+vena;Вена;#C8B898;pvc;images/Покрытия/ПВХ/Вена.jpg;150;1
+venge_premium;Венге премиум;#2F1B14;pvc;images/Покрытия/ПВХ/Венге премиум.jpg;160;1
+vud_silver;Вуд сильвер;#C0B8A8;pvc;images/Покрытия/ПВХ/Вуд сильвер.jpg;170;1
+vyaz_grafit;Вяз графит;#5A5A52;pvc;images/Покрытия/ПВХ/Вяз графит.jpg;180;1
+vyaz_grey;Вяз грей;#B0A89C;pvc;images/Покрытия/ПВХ/Вяз грей.jpg;190;1
+vyaz_milk;Вяз милк;#EDE3D0;pvc;images/Покрытия/ПВХ/Вяз милк.jpg;200;1
+gorchitsa_soft;Горчица софт;#FFDB58;pvc;images/Покрытия/ПВХ/Горчица софт.jpg;210;1
+grafit_temnyy;Графит тёмный;#4A4A4A;pvc;images/Покрытия/ПВХ/Графит тёмный.jpg;220;1
+dub_akvamarin;Дуб аквамарин;#7FBAAD;pvc;images/Покрытия/ПВХ/Дуб аквамарин.jpg;230;1
+dub_bodega_zolotoy;Дуб бодега золотой;#C8A848;pvc;images/Покрытия/ПВХ/Дуб бодега золотой.jpg;240;1
+dub_bodega_naturalnyy;Дуб бодега натуральный;#B5A088;pvc;images/Покрытия/ПВХ/Дуб бодега натуральный.jpg;250;1
+dub_bodega_svetlyy;Дуб бодега светлый;#CFC0A8;pvc;images/Покрытия/ПВХ/Дуб бодега светлый.jpg;260;1
+dub_bolotnyy;Дуб болотный;#5E6E50;pvc;images/Покрытия/ПВХ/Дуб болотный.jpg;270;1
+dub_krem;Дуб крем;#EBD9B4;pvc;images/Покрытия/ПВХ/Дуб крем.jpg;280;1
+dub_mavella;Дуб мавелла;#A08060;pvc;images/Покрытия/ПВХ/Дуб мавелла.jpg;290;1
+dub_molochnyy;Дуб молочный;#E8D5B7;pvc;images/Покрытия/ПВХ/Дуб молочный.jpg;300;1
+dub_pudra;Дуб пудра;#D4C4B0;pvc;images/Покрытия/ПВХ/Дуб пудра.jpg;310;1
+dub_s_patinoy;Дуб с патиной;#A89060;pvc;images/Покрытия/ПВХ/Дуб с патиной.jpg;320;1
+dub_siena_seryy_diagonal;Дуб сиена серый диагональ;#9A8A7A;pvc;images/Покрытия/ПВХ/Дуб сиена серый диагональ.jpg;330;1
+dub_siena_seryy;Дуб сиена серый;#9E8E7E;pvc;images/Покрытия/ПВХ/Дуб сиена серый.jpg;340;1
+dub_siena_yantarnyy_diagonal;Дуб сиена янтарный диагональ;#C48C4C;pvc;images/Покрытия/ПВХ/Дуб сиена янтарный диагональ.jpg;350;1
+dub_siena_yantarnyy;Дуб сиена янтарный;#C89050;pvc;images/Покрытия/ПВХ/Дуб сиена янтарный.jpg;360;1
+dyuna_briz;Дюна бриз;#D0C8B8;pvc;images/Покрытия/ПВХ/Дюна бриз.jpg;370;1
+dyuna_mistral;Дюна мистраль;#C8BCA8;pvc;images/Покрытия/ПВХ/Дюна мистраль.jpg;380;1
+dyuna_nord;Дюна норд;#E8D8C0;pvc;images/Покрытия/ПВХ/Дюна норд.jpg;390;1
+karagach_svetlyy;Карагач светлый;#C8A878;pvc;images/Покрытия/ПВХ/Карагач светлый.jpg;400;1
+kvazar;Квазар;#5C5470;pvc;images/Покрытия/ПВХ/Квазар.jpg;410;1
+keramik_belyy;Керамик белый;#F0EBE3;pvc;images/Покрытия/ПВХ/Керамик белый.jpg;420;1
+keramik_kakao;Керамик какао;#8B6F5E;pvc;images/Покрытия/ПВХ/Керамик какао.jpg;430;1
+keramik_kapuchino;Керамик капучино;#C4A882;pvc;images/Покрытия/ПВХ/Керамик капучино.jpg;440;1
+keramik_matovyy;Керамик матовый;#E8E0D8;pvc;images/Покрытия/ПВХ/Керамик матовый.jpg;450;1
+keramik_seryy;Керамик серый;#B8B0A8;pvc;images/Покрытия/ПВХ/Керамик серый.jpg;460;1
+krasnaya_burgundiya;Красная бургундия;#800020;pvc;images/Покрытия/ПВХ/Красная бургундия.jpg;470;1
+kroskat;Кроскат;#A89880;pvc;images/Покрытия/ПВХ/Кроскат.jpg;480;1
+lipa_amurskaya;Липа амурская;#B0A080;pvc;images/Покрытия/ПВХ/Липа амурская.jpg;490;1
+lipa_olivera;Липа оливьера;#9A8F68;pvc;images/Покрытия/ПВХ/Липа оливьера.jpg;500;1
+loft;Лофт;#7A7267;pvc;images/Покрытия/ПВХ/Лофт.jpg;510;1
+makassar;Макассар;#3C2820;pvc;images/Покрытия/ПВХ/Макассар.jpg;520;1
+manila;Манила;#FFDB8B;pvc;images/Покрытия/ПВХ/Манила.jpg;530;1
+marra;Марра;#785040;pvc;images/Покрытия/ПВХ/Марра.jpg;540;1
+mahagon_klassicheskiy;Махагон классический;#C04000;pvc;images/Покрытия/ПВХ/Махагон классический.jpg;550;1
+merbau;Мербау;#7B3F00;pvc;images/Покрытия/ПВХ/Мербау.jpg;560;1
+merino;Мерино;#F5EEDC;pvc;images/Покрытия/ПВХ/Мерино.jpg;570;1
+midori;Мидори;#4DB560;pvc;images/Покрытия/ПВХ/Мидори.jpg;580;1
+monte_rustik;Монте рустик;#8B7355;pvc;images/Покрытия/ПВХ/Монте рустик.jpg;590;1
+monte_tiberio;Монте тиберио;#6B5B4B;pvc;images/Покрытия/ПВХ/Монте тиберио.jpg;600;1
+neapol;Неаполь;#FADA5E;pvc;images/Покрытия/ПВХ/Неаполь.jpg;610;1
+nefrit;Нефрит;#00A86B;pvc;images/Покрытия/ПВХ/Нефрит.jpg;620;1
+okeaniya;Океания;#4A90A4;pvc;images/Покрытия/ПВХ/Океания.jpg;630;1
+olivin;Оливин;#9AB973;pvc;images/Покрытия/ПВХ/Оливин.jpg;640;1
+oreh_pekan_medovyy;Орех пекан медовый;#D4A04C;pvc;images/Покрытия/ПВХ/Орех пекан медовый.jpg;650;1
+oreh_pekan_slivochnyy_strong;Орех пекан сливочный стронг;#C8A87C;pvc;images/Покрытия/ПВХ/Орех пекан сливочный стронг.jpg;660;1
+oreh_pekan_shokolad;Орех пекан шоколад;#6B4423;pvc;images/Покрытия/ПВХ/Орех пекан шоколад.jpg;670;1
+oreh_svetlyy;Орех светлый;#C4A77D;pvc;images/Покрытия/ПВХ/Орех светлый.jpg;680;1
+oreh_toskana_karamel;Орех тоскана карамель;#cccccc;pvc;images/Покрытия/ПВХ/Орех тоскана карамель.jpg;690;1
+oreh_toskana_kofe;Орех тоскана кофе;#cccccc;pvc;images/Покрытия/ПВХ/Орех тоскана кофе.jpg;700;1
+oreh_toskana_tryufel;Орех тоскана трюфель;#cccccc;pvc;images/Покрытия/ПВХ/Орех тоскана трюфель.jpg;710;1
+platan_shokoladnyy;Платан шоколадный;#5C4030;pvc;images/Покрытия/ПВХ/Платан шоколадный.jpg;720;1
+platina;Платина;#E5E4E2;pvc;images/Покрытия/ПВХ/Платина.jpg;730;1
+skay_soft;Скай софт;#87CEEB;pvc;images/Покрытия/ПВХ/Скай софт.jpg;740;1
+skandi_ayvori;Сканди айвори;#FFFFF0;pvc;images/Покрытия/ПВХ/Сканди айвори.jpg;750;1
+slanec_belyy;Сланец белый;#E8E4E0;pvc;images/Покрытия/ПВХ/Сланец белый.jpg;760;1
+slanec_chernyy;Сланец чёрный;#343434;pvc;images/Покрытия/ПВХ/Сланец чёрный.jpg;770;1
+spireya_belaya;Спирея белая;#FAFAF5;pvc;images/Покрытия/ПВХ/Спирея белая.jpg;780;1
+talk;Тальк;#F0EDE5;pvc;images/Покрытия/ПВХ/Тальк.jpg;790;1
+tvil_bezh;Твил беж;#C8B8A0;pvc;images/Покрытия/ПВХ/Твил беж.jpg;800;1
+tvil_len;Твил лён;#D8CDB8;pvc;images/Покрытия/ПВХ/Твил лён.jpg;810;1
+tvil_fly;Твил флай;#B0A090;pvc;images/Покрытия/ПВХ/Твил флай.jpg;820;1
+terrakot;Терракот;#CC6B49;pvc;images/Покрытия/ПВХ/Терракот.jpg;830;1
+tokio;Токио;#8B4049;pvc;images/Покрытия/ПВХ/Токио.jpg;840;1
+shpon_yasenya_gold;Шпон ясеня голд;#C8AA58;pvc;images/Покрытия/ПВХ/Шпон ясеня голд.jpg;850;1
+yasen_belyy_soft;Ясень белый софт;#F0EAE0;pvc;images/Покрытия/ПВХ/Ясень белый софт.jpg;860;1
+yasen_grafit;Ясень графит;#58524A;pvc;images/Покрытия/ПВХ/Ясень графит.jpg;870;1
+yasen_grey;Ясень грей;#8F8478;pvc;images/Покрытия/ПВХ/Ясень грей.jpg;880;1
+yasen_chernyy_soft;Ясень чёрный софт;#3A3630;pvc;images/Покрытия/ПВХ/Ясень чёрный софт.jpg;890;1
+belyy_led;Белый лёд;#EEF2F5;enamel;images/Покрытия/Эмаль/Белый лёд.jpg;900;1
+emal_1013;Эмаль 1013;#E3D9C6;enamel;images/Покрытия/Эмаль/Эмаль 1013.jpg;910;1
+emal_127;Эмаль 127;#D4C5A9;enamel;images/Покрытия/Эмаль/Эмаль 127.jpg;920;1
+emal_459;Эмаль 459;#8B7355;enamel;images/Покрытия/Эмаль/Эмаль 459.jpg;930;1
+emal_7036;Эмаль 7036;#9C9B9A;enamel;images/Покрытия/Эмаль/Эмаль 7036.jpg;940;1
+emal_9001;Эмаль 9001;#FDF4E3;enamel;images/Покрытия/Эмаль/Эмаль 9001.jpg;950;1
+emal_9003;Эмаль 9003;#F4F4F4;enamel;images/Покрытия/Эмаль/Эмаль 9003.jpg;960;1
+custom_color;Свой цвет по RAL и NCS;;custom;;970;1

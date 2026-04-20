@@ -1,0 +1,18 @@
+UF_XML_ID;UF_NAME;UF_PRICE;UF_IMAGE_PATH;UF_CATEGORY;UF_SORT;UF_ACTIVE
+satinato_beloe;Сатинато белое;0;images/Стёкла/Сатинато белое 1.png;common;10;1
+satinato_bronza;Сатинато бронза;0;images/Стёкла/Сатинато бронза 1.png;common;20;1
+satinato_grafit;Сатинато графит;0;images/Стёкла/Сатинато графит 1.png;common;30;1
+reflektiv_serebro;Рефлектив серебро;0;images/Стёкла/Рефлектив серебро 1.png;common;40;1
+bronza;Бронза;0;images/Стёкла/Бронза 1.png;common;50;1
+grey;Грей;0;images/Стёкла/Грей 1.png;common;60;1
+fluts_prozrachnyy;Флутс прозрачный;12400;images/Стёкла/Флутс прозрачный 1.png;common;70;1
+fluts_grafit;Флутс графит;12400;images/Стёкла/Флутс грей 1.png;common;80;1
+mramor_belyy;Мрамор белый;0;;marble;90;1
+mramor_chernyy;Мрамор чёрный;0;;marble;100;1
+mramor_bezhevyy;Мрамор бежевый;0;;marble;110;1
+chernyy_tripleks_d4_d22;Черный триплекс;2790;;d_extra_4_22;120;1
+belyy_tripleks_d4_d22;Белый триплекс;2790;;d_extra_4_22;130;1
+chernyy_tripleks_d36_d50;Черный триплекс;1550;;d_extra_36_50;140;1
+belyy_tripleks_d36_d50;Белый триплекс;1550;;d_extra_36_50;150;1
+reflekt_s_facetom;Рефлект с фацетом;4650;;ameri_extra;160;1
+satinato_beloe_s_facetom;Сатинато белое с фацетом;4650;;ameri_extra;170;1

@@ -1,0 +1,8 @@
+UF_XML_ID;UF_TYPE;UF_COLOR;UF_PRICE;UF_SORT;UF_ACTIVE
+alu_edge_long_chrome;Продольная;Матовый хром;1710;10;1
+alu_edge_long_black;Продольная;Чёрный;2170;20;1
+alu_edge_long_gold;Продольная;Матовое золото;2640;30;1
+alu_edge_perim_chrome;По периметру;Матовый хром;2640;40;1
+alu_edge_perim_black;По периметру;Чёрный;3100;50;1
+alu_edge_perim_gold;По периметру;Матовое золото;3570;60;1
+alu_edge_none;Без кромки;;0;70;1
