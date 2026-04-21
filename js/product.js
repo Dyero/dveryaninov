@@ -85,6 +85,8 @@
     // Move selected to first child (before all other color buttons)
     var firstChild = container.firstElementChild;
     if (firstChild !== selectedBtn) {
+      // Remove from current position and insert at beginning
+      selectedBtn.remove();
       container.insertBefore(selectedBtn, firstChild);
     }
   }
