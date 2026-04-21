@@ -304,6 +304,82 @@
 			</help_message>
 			<base_type>int</base_type>
 		</field>
+		<field>
+			<id>8</id>
+			<entity_id>HLBLOCK_2</entity_id>
+			<field_name>UF_DESCRIPTION</field_name>
+			<user_type_id>string</user_type_id>
+			<xml_id/>
+			<sort>100</sort>
+			<multiple>N</multiple>
+			<mandatory>N</mandatory>
+			<show_filter>N</show_filter>
+			<show_in_list>Y</show_in_list>
+			<edit_in_list>Y</edit_in_list>
+			<is_searchable>N</is_searchable>
+			<settings>
+				<size>20</size>
+				<rows>1</rows>
+				<regexp/>
+				<min_length>0</min_length>
+				<max_length>0</max_length>
+				<default_value/>
+			</settings>
+			<edit_form_label>
+				<ru>Описание</ru>
+			</edit_form_label>
+			<list_column_label>
+				<ru>Описание</ru>
+			</list_column_label>
+			<list_filter_label>
+				<ru>Описание</ru>
+			</list_filter_label>
+			<error_message>
+				<ru/>
+			</error_message>
+			<help_message>
+				<ru/>
+			</help_message>
+			<base_type>string</base_type>
+		</field>
+		<field>
+			<id>9</id>
+			<entity_id>HLBLOCK_2</entity_id>
+			<field_name>UF_FULL_DESCRIPTION</field_name>
+			<user_type_id>string</user_type_id>
+			<xml_id/>
+			<sort>100</sort>
+			<multiple>N</multiple>
+			<mandatory>N</mandatory>
+			<show_filter>N</show_filter>
+			<show_in_list>Y</show_in_list>
+			<edit_in_list>Y</edit_in_list>
+			<is_searchable>N</is_searchable>
+			<settings>
+				<size>20</size>
+				<rows>1</rows>
+				<regexp/>
+				<min_length>0</min_length>
+				<max_length>0</max_length>
+				<default_value/>
+			</settings>
+			<edit_form_label>
+				<ru>Полное описание</ru>
+			</edit_form_label>
+			<list_column_label>
+				<ru>Полное описание</ru>
+			</list_column_label>
+			<list_filter_label>
+				<ru>Полное описание</ru>
+			</list_filter_label>
+			<error_message>
+				<ru/>
+			</error_message>
+			<help_message>
+				<ru/>
+			</help_message>
+			<base_type>string</base_type>
+		</field>
 	</fields>
 	<items>
 		<item>
@@ -311,153 +387,204 @@
 			<uf_xml_id>satinato_beloe</uf_xml_id>
 			<uf_name>Сатинато белое</uf_name>
 			<uf_price>0</uf_price>
+			<uf_image/>
 			<uf_category>common</uf_category>
 			<uf_sort>10</uf_sort>
 			<uf_active>1</uf_active>
+			<uf_description/>
+			<uf_full_description/>
 		</item>
 		<item>
 			<id>2</id>
 			<uf_xml_id>satinato_bronza</uf_xml_id>
 			<uf_name>Сатинато бронза</uf_name>
 			<uf_price>0</uf_price>
+			<uf_image/>
 			<uf_category>common</uf_category>
 			<uf_sort>20</uf_sort>
 			<uf_active>1</uf_active>
+			<uf_description/>
+			<uf_full_description/>
 		</item>
 		<item>
 			<id>3</id>
 			<uf_xml_id>satinato_grafit</uf_xml_id>
 			<uf_name>Сатинато графит</uf_name>
 			<uf_price>0</uf_price>
+			<uf_image/>
 			<uf_category>common</uf_category>
 			<uf_sort>30</uf_sort>
 			<uf_active>1</uf_active>
+			<uf_description/>
+			<uf_full_description/>
 		</item>
 		<item>
 			<id>4</id>
 			<uf_xml_id>reflektiv_serebro</uf_xml_id>
 			<uf_name>Рефлектив серебро</uf_name>
 			<uf_price>0</uf_price>
+			<uf_image/>
 			<uf_category>common</uf_category>
 			<uf_sort>40</uf_sort>
 			<uf_active>1</uf_active>
+			<uf_description/>
+			<uf_full_description/>
 		</item>
 		<item>
 			<id>5</id>
 			<uf_xml_id>bronza</uf_xml_id>
 			<uf_name>Бронза</uf_name>
 			<uf_price>0</uf_price>
+			<uf_image/>
 			<uf_category>common</uf_category>
 			<uf_sort>50</uf_sort>
 			<uf_active>1</uf_active>
+			<uf_description/>
+			<uf_full_description/>
 		</item>
 		<item>
 			<id>6</id>
 			<uf_xml_id>grey</uf_xml_id>
 			<uf_name>Грей</uf_name>
 			<uf_price>0</uf_price>
+			<uf_image/>
 			<uf_category>common</uf_category>
 			<uf_sort>60</uf_sort>
 			<uf_active>1</uf_active>
+			<uf_description/>
+			<uf_full_description/>
 		</item>
 		<item>
 			<id>7</id>
 			<uf_xml_id>fluts_prozrachnyy</uf_xml_id>
 			<uf_name>Флутс прозрачный</uf_name>
 			<uf_price>12400</uf_price>
+			<uf_image/>
 			<uf_category>common</uf_category>
 			<uf_sort>70</uf_sort>
 			<uf_active>1</uf_active>
+			<uf_description/>
+			<uf_full_description/>
 		</item>
 		<item>
 			<id>8</id>
 			<uf_xml_id>fluts_grafit</uf_xml_id>
 			<uf_name>Флутс графит</uf_name>
 			<uf_price>12400</uf_price>
+			<uf_image/>
 			<uf_category>common</uf_category>
 			<uf_sort>80</uf_sort>
 			<uf_active>1</uf_active>
+			<uf_description/>
+			<uf_full_description/>
 		</item>
 		<item>
 			<id>9</id>
 			<uf_xml_id>mramor_belyy</uf_xml_id>
 			<uf_name>Мрамор белый</uf_name>
 			<uf_price>0</uf_price>
+			<uf_image/>
 			<uf_category>marble</uf_category>
 			<uf_sort>90</uf_sort>
 			<uf_active>1</uf_active>
+			<uf_description/>
+			<uf_full_description/>
 		</item>
 		<item>
 			<id>10</id>
 			<uf_xml_id>mramor_chernyy</uf_xml_id>
 			<uf_name>Мрамор чёрный</uf_name>
 			<uf_price>0</uf_price>
+			<uf_image/>
 			<uf_category>marble</uf_category>
 			<uf_sort>100</uf_sort>
 			<uf_active>1</uf_active>
+			<uf_description/>
+			<uf_full_description/>
 		</item>
 		<item>
 			<id>11</id>
 			<uf_xml_id>mramor_bezhevyy</uf_xml_id>
 			<uf_name>Мрамор бежевый</uf_name>
 			<uf_price>0</uf_price>
+			<uf_image/>
 			<uf_category>marble</uf_category>
 			<uf_sort>110</uf_sort>
 			<uf_active>1</uf_active>
+			<uf_description/>
+			<uf_full_description/>
 		</item>
 		<item>
 			<id>12</id>
 			<uf_xml_id>chernyy_tripleks_d4_d22</uf_xml_id>
 			<uf_name>Черный триплекс</uf_name>
 			<uf_price>2790</uf_price>
+			<uf_image/>
 			<uf_category>d_extra_4_22</uf_category>
 			<uf_sort>120</uf_sort>
 			<uf_active>1</uf_active>
+			<uf_description/>
+			<uf_full_description/>
 		</item>
 		<item>
 			<id>13</id>
 			<uf_xml_id>belyy_tripleks_d4_d22</uf_xml_id>
 			<uf_name>Белый триплекс</uf_name>
 			<uf_price>2790</uf_price>
+			<uf_image/>
 			<uf_category>d_extra_4_22</uf_category>
 			<uf_sort>130</uf_sort>
 			<uf_active>1</uf_active>
+			<uf_description/>
+			<uf_full_description/>
 		</item>
 		<item>
 			<id>14</id>
 			<uf_xml_id>chernyy_tripleks_d36_d50</uf_xml_id>
 			<uf_name>Черный триплекс</uf_name>
 			<uf_price>1550</uf_price>
+			<uf_image/>
 			<uf_category>d_extra_36_50</uf_category>
 			<uf_sort>140</uf_sort>
 			<uf_active>1</uf_active>
+			<uf_description/>
+			<uf_full_description/>
 		</item>
 		<item>
 			<id>15</id>
 			<uf_xml_id>belyy_tripleks_d36_d50</uf_xml_id>
 			<uf_name>Белый триплекс</uf_name>
 			<uf_price>1550</uf_price>
+			<uf_image/>
 			<uf_category>d_extra_36_50</uf_category>
 			<uf_sort>150</uf_sort>
 			<uf_active>1</uf_active>
+			<uf_description/>
+			<uf_full_description/>
 		</item>
 		<item>
 			<id>16</id>
 			<uf_xml_id>reflekt_s_facetom</uf_xml_id>
 			<uf_name>Рефлект с фацетом</uf_name>
 			<uf_price>4650</uf_price>
+			<uf_image/>
 			<uf_category>ameri_extra</uf_category>
 			<uf_sort>160</uf_sort>
 			<uf_active>1</uf_active>
+			<uf_description/>
+			<uf_full_description/>
 		</item>
 		<item>
 			<id>17</id>
 			<uf_xml_id>satinato_beloe_s_facetom</uf_xml_id>
 			<uf_name>Сатинато белое с фацетом</uf_name>
 			<uf_price>4650</uf_price>
+			<uf_image/>
 			<uf_category>ameri_extra</uf_category>
 			<uf_sort>170</uf_sort>
 			<uf_active>1</uf_active>
+			<uf_description/>
+			<uf_full_description/>
 		</item>
 	</items>
 </hiblock>
