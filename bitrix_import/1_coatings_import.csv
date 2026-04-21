@@ -1,97 +1,97 @@
 UF_XML_ID;UF_NAME;UF_COLOR_HEX;UF_TYPE;UF_SORT;UF_ACTIVE
-antracit_pet_1;Антрацит ПЭТ-1;#cccccc;pet;10;1
-antracit_pet;Антрацит ПЭТ;#383838;pet;20;1
+antracit_pet;Антрацит ПЭТ;#383838;pet;10;1
+antracit_pet_1;Антрацит ПЭТ-1;#cccccc;pet;20;1
 brash_blyu_pet;Браш блю ПЭТ;#6B8FAD;pet;30;1
 beysik_vayt_pet;Бэйсик вайт ПЭТ;#F5F5F0;pet;40;1
 layt_grey_pet;Лайт грей ПЭТ;#D3D3D3;pet;50;1
 meni_grin_pet;Мени грин ПЭТ;#5B7A5E;pet;60;1
 snou_pet;Сноу ПЭТ;#FFFAFA;pet;70;1
 tekstura_grey_pet;Текстура грей ПЭТ;#A9A9A9;pet;80;1
-antracit;Антрацит;#3B3B3B;pvc;100;1
-atlantik_soft;Атлантик софт;#4B6F8F;pvc;110;1
-belyy_matovyy;Белый матовый;#F5F5F5;pvc;120;1
-blanzh;Бланж;#F0E6D8;pvc;130;1
-veluto_vanil;Велуто ваниль;#F3E5AB;pvc;140;1
-vena;Вена;#C8B898;pvc;150;1
-venge_premium;Венге премиум;#2F1B14;pvc;160;1
-vud_silver;Вуд сильвер;#C0B8A8;pvc;170;1
-vyaz_grafit;Вяз графит;#5A5A52;pvc;180;1
-vyaz_grey;Вяз грей;#B0A89C;pvc;190;1
-vyaz_milk;Вяз милк;#EDE3D0;pvc;200;1
-gorchitsa_soft;Горчица софт;#FFDB58;pvc;210;1
-grafit_temnyy;Графит тёмный;#4A4A4A;pvc;220;1
-dub_akvamarin;Дуб аквамарин;#7FBAAD;pvc;230;1
-dub_bodega_zolotoy;Дуб бодега золотой;#C8A848;pvc;240;1
-dub_bodega_naturalnyy;Дуб бодега натуральный;#B5A088;pvc;250;1
-dub_bodega_svetlyy;Дуб бодега светлый;#CFC0A8;pvc;260;1
-dub_bolotnyy;Дуб болотный;#5E6E50;pvc;270;1
-dub_krem;Дуб крем;#EBD9B4;pvc;280;1
-dub_mavella;Дуб мавелла;#A08060;pvc;290;1
-dub_molochnyy;Дуб молочный;#E8D5B7;pvc;300;1
-dub_pudra;Дуб пудра;#D4C4B0;pvc;310;1
-dub_s_patinoy;Дуб с патиной;#A89060;pvc;320;1
-dub_siena_seryy_diagonal;Дуб сиена серый диагональ;#9A8A7A;pvc;330;1
-dub_siena_seryy;Дуб сиена серый;#9E8E7E;pvc;340;1
-dub_siena_yantarnyy_diagonal;Дуб сиена янтарный диагональ;#C48C4C;pvc;350;1
-dub_siena_yantarnyy;Дуб сиена янтарный;#C89050;pvc;360;1
-dyuna_briz;Дюна бриз;#D0C8B8;pvc;370;1
-dyuna_mistral;Дюна мистраль;#C8BCA8;pvc;380;1
-dyuna_nord;Дюна норд;#E8D8C0;pvc;390;1
-karagach_svetlyy;Карагач светлый;#C8A878;pvc;400;1
-kvazar;Квазар;#5C5470;pvc;410;1
-keramik_belyy;Керамик белый;#F0EBE3;pvc;420;1
-keramik_kakao;Керамик какао;#8B6F5E;pvc;430;1
-keramik_kapuchino;Керамик капучино;#C4A882;pvc;440;1
-keramik_matovyy;Керамик матовый;#E8E0D8;pvc;450;1
-keramik_seryy;Керамик серый;#B8B0A8;pvc;460;1
-krasnaya_burgundiya;Красная бургундия;#800020;pvc;470;1
-kroskat;Кроскат;#A89880;pvc;480;1
-lipa_amurskaya;Липа амурская;#B0A080;pvc;490;1
-lipa_olivera;Липа оливьера;#9A8F68;pvc;500;1
-loft;Лофт;#7A7267;pvc;510;1
-makassar;Макассар;#3C2820;pvc;520;1
-manila;Манила;#FFDB8B;pvc;530;1
-marra;Марра;#785040;pvc;540;1
-mahagon_klassicheskiy;Махагон классический;#C04000;pvc;550;1
-merbau;Мербау;#7B3F00;pvc;560;1
-merino;Мерино;#F5EEDC;pvc;570;1
-midori;Мидори;#4DB560;pvc;580;1
-monte_rustik;Монте рустик;#8B7355;pvc;590;1
-monte_tiberio;Монте тиберио;#6B5B4B;pvc;600;1
-neapol;Неаполь;#FADA5E;pvc;610;1
-nefrit;Нефрит;#00A86B;pvc;620;1
-okeaniya;Океания;#4A90A4;pvc;630;1
-olivin;Оливин;#9AB973;pvc;640;1
-oreh_pekan_medovyy;Орех пекан медовый;#D4A04C;pvc;650;1
-oreh_pekan_slivochnyy_strong;Орех пекан сливочный стронг;#C8A87C;pvc;660;1
-oreh_pekan_shokolad;Орех пекан шоколад;#6B4423;pvc;670;1
-oreh_svetlyy;Орех светлый;#C4A77D;pvc;680;1
-oreh_toskana_karamel;Орех тоскана карамель;#cccccc;pvc;690;1
-oreh_toskana_kofe;Орех тоскана кофе;#cccccc;pvc;700;1
-oreh_toskana_tryufel;Орех тоскана трюфель;#cccccc;pvc;710;1
-platan_shokoladnyy;Платан шоколадный;#5C4030;pvc;720;1
-platina;Платина;#E5E4E2;pvc;730;1
-skay_soft;Скай софт;#87CEEB;pvc;740;1
-skandi_ayvori;Сканди айвори;#FFFFF0;pvc;750;1
-slanec_belyy;Сланец белый;#E8E4E0;pvc;760;1
-slanec_chernyy;Сланец чёрный;#343434;pvc;770;1
-spireya_belaya;Спирея белая;#FAFAF5;pvc;780;1
-talk;Тальк;#F0EDE5;pvc;790;1
-tvil_bezh;Твил беж;#C8B8A0;pvc;800;1
-tvil_len;Твил лён;#D8CDB8;pvc;810;1
-tvil_fly;Твил флай;#B0A090;pvc;820;1
-terrakot;Терракот;#CC6B49;pvc;830;1
-tokio;Токио;#8B4049;pvc;840;1
-shpon_yasenya_gold;Шпон ясеня голд;#C8AA58;pvc;850;1
-yasen_belyy_soft;Ясень белый софт;#F0EAE0;pvc;860;1
-yasen_grafit;Ясень графит;#58524A;pvc;870;1
-yasen_grey;Ясень грей;#8F8478;pvc;880;1
-yasen_chernyy_soft;Ясень чёрный софт;#3A3630;pvc;890;1
-belyy_led;Белый лёд;#EEF2F5;enamel;900;1
-emal_1013;Эмаль 1013;#E3D9C6;enamel;910;1
-emal_127;Эмаль 127;#D4C5A9;enamel;920;1
-emal_459;Эмаль 459;#8B7355;enamel;930;1
-emal_7036;Эмаль 7036;#9C9B9A;enamel;940;1
-emal_9001;Эмаль 9001;#FDF4E3;enamel;950;1
-emal_9003;Эмаль 9003;#F4F4F4;enamel;960;1
-custom_color;Свой цвет по RAL и NCS;;custom;970;1
+venge_premium;Венге премиум;#2F1B14;pvc;90;1
+vyaz_grafit;Вяз графит;#5A5A52;pvc;100;1
+vyaz_grey;Вяз грей;#B0A89C;pvc;110;1
+vyaz_milk;Вяз милк;#EDE3D0;pvc;120;1
+dub_akvamarin;Дуб аквамарин;#7FBAAD;pvc;130;1
+dub_bodega_zolotoy;Дуб бодега золотой;#C8A848;pvc;140;1
+dub_bodega_naturalnyy;Дуб бодега натуральный;#B5A088;pvc;150;1
+dub_bodega_svetlyy;Дуб бодега светлый;#CFC0A8;pvc;160;1
+dub_bolotnyy;Дуб болотный;#5E6E50;pvc;170;1
+dub_krem;Дуб крем;#EBD9B4;pvc;180;1
+dub_mavella;Дуб мавелла;#A08060;pvc;190;1
+dub_molochnyy;Дуб молочный;#E8D5B7;pvc;200;1
+dub_pudra;Дуб пудра;#D4C4B0;pvc;210;1
+dub_s_patinoy;Дуб с патиной;#A89060;pvc;220;1
+dub_siena_seryy;Дуб сиена серый;#9E8E7E;pvc;230;1
+dub_siena_seryy_diagonal;Дуб сиена серый диагональ;#9A8A7A;pvc;240;1
+dub_siena_yantarnyy;Дуб сиена янтарный;#C89050;pvc;250;1
+dub_siena_yantarnyy_diagonal;Дуб сиена янтарный диагональ;#C48C4C;pvc;260;1
+karagach_svetlyy;Карагач светлый;#C8A878;pvc;270;1
+lipa_amurskaya;Липа амурская;#B0A080;pvc;280;1
+lipa_olivera;Липа оливьера;#9A8F68;pvc;290;1
+makassar;Макассар;#3C2820;pvc;300;1
+mahagon_klassicheskiy;Махагон классический;#C04000;pvc;310;1
+merbau;Мербау;#7B3F00;pvc;320;1
+monte_rustik;Монте рустик;#8B7355;pvc;330;1
+monte_tiberio;Монте тиберио;#6B5B4B;pvc;340;1
+oreh_pekan_medovyy;Орех пекан медовый;#D4A04C;pvc;350;1
+oreh_pekan_slivochnyy_strong;Орех пекан сливочный стронг;#C8A87C;pvc;360;1
+oreh_pekan_shokolad;Орех пекан шоколад;#6B4423;pvc;370;1
+oreh_svetlyy;Орех светлый;#C4A77D;pvc;380;1
+oreh_toskana_karamel;Орех тоскана карамель;#cccccc;pvc;390;1
+oreh_toskana_kofe;Орех тоскана кофе;#cccccc;pvc;400;1
+oreh_toskana_tryufel;Орех тоскана трюфель;#cccccc;pvc;410;1
+platan_shokoladnyy;Платан шоколадный;#5C4030;pvc;420;1
+shpon_yasenya_gold;Шпон ясеня голд;#C8AA58;pvc;430;1
+yasen_belyy_soft;Ясень белый софт;#F0EAE0;pvc;440;1
+yasen_grafit;Ясень графит;#58524A;pvc;450;1
+yasen_grey;Ясень грей;#8F8478;pvc;460;1
+yasen_chernyy_soft;Ясень чёрный софт;#3A3630;pvc;470;1
+antracit;Антрацит;#3B3B3B;pvc;480;1
+atlantik_soft;Атлантик софт;#4B6F8F;pvc;490;1
+belyy_matovyy;Белый матовый;#F5F5F5;pvc;500;1
+blanzh;Бланж;#F0E6D8;pvc;510;1
+veluto_vanil;Велуто ваниль;#F3E5AB;pvc;520;1
+vena;Вена;#C8B898;pvc;530;1
+vud_silver;Вуд сильвер;#C0B8A8;pvc;540;1
+gorchitsa_soft;Горчица софт;#FFDB58;pvc;550;1
+grafit_temnyy;Графит тёмный;#4A4A4A;pvc;560;1
+dyuna_briz;Дюна бриз;#D0C8B8;pvc;570;1
+dyuna_mistral;Дюна мистраль;#C8BCA8;pvc;580;1
+dyuna_nord;Дюна норд;#E8D8C0;pvc;590;1
+kvazar;Квазар;#5C5470;pvc;600;1
+keramik_belyy;Керамик белый;#F0EBE3;pvc;610;1
+keramik_kakao;Керамик какао;#8B6F5E;pvc;620;1
+keramik_kapuchino;Керамик капучино;#C4A882;pvc;630;1
+keramik_matovyy;Керамик матовый;#E8E0D8;pvc;640;1
+keramik_seryy;Керамик серый;#B8B0A8;pvc;650;1
+krasnaya_burgundiya;Красная бургундия;#800020;pvc;660;1
+kroskat;Кроскат;#A89880;pvc;670;1
+loft;Лофт;#7A7267;pvc;680;1
+manila;Манила;#FFDB8B;pvc;690;1
+marra;Марра;#785040;pvc;700;1
+merino;Мерино;#F5EEDC;pvc;710;1
+midori;Мидори;#4DB560;pvc;720;1
+neapol;Неаполь;#FADA5E;pvc;730;1
+nefrit;Нефрит;#00A86B;pvc;740;1
+okeaniya;Океания;#4A90A4;pvc;750;1
+olivin;Оливин;#9AB973;pvc;760;1
+platina;Платина;#E5E4E2;pvc;770;1
+skay_soft;Скай софт;#87CEEB;pvc;780;1
+skandi_ayvori;Сканди айвори;#FFFFF0;pvc;790;1
+slanec_belyy;Сланец белый;#E8E4E0;pvc;800;1
+slanec_chernyy;Сланец чёрный;#343434;pvc;810;1
+spireya_belaya;Спирея белая;#FAFAF5;pvc;820;1
+talk;Тальк;#F0EDE5;pvc;830;1
+tvil_bezh;Твил беж;#C8B8A0;pvc;840;1
+tvil_len;Твил лён;#D8CDB8;pvc;850;1
+tvil_fly;Твил флай;#B0A090;pvc;860;1
+terrakot;Терракот;#CC6B49;pvc;870;1
+tokio;Токио;#8B4049;pvc;880;1
+belyy_led;Белый лёд;#EEF2F5;enamel;890;1
+emal_1013;Эмаль 1013;#E3D9C6;enamel;900;1
+emal_127;Эмаль 127;#D4C5A9;enamel;910;1
+emal_459;Эмаль 459;#8B7355;enamel;920;1
+emal_7036;Эмаль 7036;#9C9B9A;enamel;930;1
+emal_9001;Эмаль 9001;#FDF4E3;enamel;940;1
+emal_9003;Эмаль 9003;#F4F4F4;enamel;950;1
+custom_color;Свой цвет по RAL и NCS;;custom;960;1
