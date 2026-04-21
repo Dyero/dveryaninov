@@ -1,0 +1,1272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hiblock>
+	<hiblock>
+		<id>4</id>
+		<name>Coatings</name>
+		<table_name>b_hlbd_coatings</table_name>
+	</hiblock>
+	<langs>
+		<lang>
+			<id>4</id>
+			<lid>ru</lid>
+			<name>Покрытия</name>
+		</lang>
+	</langs>
+	<fields>
+		<field>
+			<id>60</id>
+			<entity_id>HLBLOCK_4</entity_id>
+			<field_name>UF_XML_ID</field_name>
+			<user_type_id>string</user_type_id>
+			<xml_id />
+			<sort>100</sort>
+			<multiple>N</multiple>
+			<mandatory>Y</mandatory>
+			<show_filter>N</show_filter>
+			<show_in_list>Y</show_in_list>
+			<edit_in_list>Y</edit_in_list>
+			<is_searchable>N</is_searchable>
+			<settings>
+				<size>20</size>
+				<rows>1</rows>
+				<regexp />
+				<min_length>0</min_length>
+				<max_length>0</max_length>
+				<default_value />
+			</settings>
+			<edit_form_label>
+				<en />
+				<ru />
+			</edit_form_label>
+			<list_column_label>
+				<en />
+				<ru />
+			</list_column_label>
+			<list_filter_label>
+				<en />
+				<ru />
+			</list_filter_label>
+			<error_message>
+				<en />
+				<ru />
+			</error_message>
+			<help_message>
+				<en />
+				<ru />
+			</help_message>
+			<base_type>string</base_type>
+		</field>
+		<field>
+			<id>61</id>
+			<entity_id>HLBLOCK_4</entity_id>
+			<field_name>UF_NAME</field_name>
+			<user_type_id>string</user_type_id>
+			<xml_id />
+			<sort>100</sort>
+			<multiple>N</multiple>
+			<mandatory>Y</mandatory>
+			<show_filter>N</show_filter>
+			<show_in_list>Y</show_in_list>
+			<edit_in_list>Y</edit_in_list>
+			<is_searchable>N</is_searchable>
+			<settings>
+				<size>20</size>
+				<rows>1</rows>
+				<regexp />
+				<min_length>0</min_length>
+				<max_length>0</max_length>
+				<default_value />
+			</settings>
+			<edit_form_label>
+				<en />
+				<ru />
+			</edit_form_label>
+			<list_column_label>
+				<en />
+				<ru />
+			</list_column_label>
+			<list_filter_label>
+				<en />
+				<ru />
+			</list_filter_label>
+			<error_message>
+				<en />
+				<ru />
+			</error_message>
+			<help_message>
+				<en />
+				<ru />
+			</help_message>
+			<base_type>string</base_type>
+		</field>
+		<field>
+			<id>62</id>
+			<entity_id>HLBLOCK_4</entity_id>
+			<field_name>UF_COLOR_HEX</field_name>
+			<user_type_id>string</user_type_id>
+			<xml_id />
+			<sort>100</sort>
+			<multiple>N</multiple>
+			<mandatory>N</mandatory>
+			<show_filter>N</show_filter>
+			<show_in_list>Y</show_in_list>
+			<edit_in_list>Y</edit_in_list>
+			<is_searchable>N</is_searchable>
+			<settings>
+				<size>20</size>
+				<rows>1</rows>
+				<regexp />
+				<min_length>0</min_length>
+				<max_length>0</max_length>
+				<default_value />
+			</settings>
+			<edit_form_label>
+				<en />
+				<ru />
+			</edit_form_label>
+			<list_column_label>
+				<en />
+				<ru />
+			</list_column_label>
+			<list_filter_label>
+				<en />
+				<ru />
+			</list_filter_label>
+			<error_message>
+				<en />
+				<ru />
+			</error_message>
+			<help_message>
+				<en />
+				<ru />
+			</help_message>
+			<base_type>string</base_type>
+		</field>
+		<field>
+			<id>64</id>
+			<entity_id>HLBLOCK_4</entity_id>
+			<field_name>UF_SORT</field_name>
+			<user_type_id>double</user_type_id>
+			<xml_id />
+			<sort>100</sort>
+			<multiple>N</multiple>
+			<mandatory>N</mandatory>
+			<show_filter>N</show_filter>
+			<show_in_list>Y</show_in_list>
+			<edit_in_list>Y</edit_in_list>
+			<is_searchable>N</is_searchable>
+			<settings>
+				<precision>4</precision>
+				<size>20</size>
+				<min_value>0</min_value>
+				<max_value>0</max_value>
+				<default_value />
+			</settings>
+			<edit_form_label>
+				<en />
+				<ru />
+			</edit_form_label>
+			<list_column_label>
+				<en />
+				<ru />
+			</list_column_label>
+			<list_filter_label>
+				<en />
+				<ru />
+			</list_filter_label>
+			<error_message>
+				<en />
+				<ru />
+			</error_message>
+			<help_message>
+				<en />
+				<ru />
+			</help_message>
+			<base_type>double</base_type>
+		</field>
+		<field>
+			<id>65</id>
+			<entity_id>HLBLOCK_4</entity_id>
+			<field_name>UF_ACTIVE</field_name>
+			<user_type_id>boolean</user_type_id>
+			<xml_id />
+			<sort>100</sort>
+			<multiple>N</multiple>
+			<mandatory>N</mandatory>
+			<show_filter>N</show_filter>
+			<show_in_list>Y</show_in_list>
+			<edit_in_list>Y</edit_in_list>
+			<is_searchable>N</is_searchable>
+			<settings>
+				<default_value>0</default_value>
+				<display>CHECKBOX</display>
+				<label>
+					<0 />
+					<1 />
+				</label>
+				<label_checkbox />
+			</settings>
+			<edit_form_label>
+				<en />
+				<ru />
+			</edit_form_label>
+			<list_column_label>
+				<en />
+				<ru />
+			</list_column_label>
+			<list_filter_label>
+				<en />
+				<ru />
+			</list_filter_label>
+			<error_message>
+				<en />
+				<ru />
+			</error_message>
+			<help_message>
+				<en />
+				<ru />
+			</help_message>
+			<base_type>int</base_type>
+		</field>
+		<field>
+			<id>66</id>
+			<entity_id>HLBLOCK_4</entity_id>
+			<field_name>UF_IMAGE</field_name>
+			<user_type_id>file</user_type_id>
+			<xml_id />
+			<sort>100</sort>
+			<multiple>N</multiple>
+			<mandatory>N</mandatory>
+			<show_filter>N</show_filter>
+			<show_in_list>Y</show_in_list>
+			<edit_in_list>Y</edit_in_list>
+			<is_searchable>N</is_searchable>
+			<settings>
+				<size>20</size>
+				<list_width>0</list_width>
+				<list_height>0</list_height>
+				<max_show_size>0</max_show_size>
+				<max_allowed_size>0</max_allowed_size>
+				<extensions />
+				<target_blank>Y</target_blank>
+				<default_view />
+			</settings>
+			<edit_form_label>
+				<en />
+				<ru />
+			</edit_form_label>
+			<list_column_label>
+				<en />
+				<ru />
+			</list_column_label>
+			<list_filter_label>
+				<en />
+				<ru />
+			</list_filter_label>
+			<error_message>
+				<en />
+				<ru />
+			</error_message>
+			<help_message>
+				<en />
+				<ru />
+			</help_message>
+			<base_type>file</base_type>
+		</field>
+		<field>
+			<id>68</id>
+			<entity_id>HLBLOCK_4</entity_id>
+			<field_name>UF_TYPE</field_name>
+			<user_type_id>string</user_type_id>
+			<xml_id />
+			<sort>100</sort>
+			<multiple>N</multiple>
+			<mandatory>N</mandatory>
+			<show_filter>N</show_filter>
+			<show_in_list>Y</show_in_list>
+			<edit_in_list>Y</edit_in_list>
+			<is_searchable>N</is_searchable>
+			<settings>
+				<size>20</size>
+				<rows>1</rows>
+				<regexp />
+				<min_length>0</min_length>
+				<max_length>0</max_length>
+				<default_value />
+			</settings>
+			<edit_form_label>
+				<en />
+				<ru />
+			</edit_form_label>
+			<list_column_label>
+				<en />
+				<ru />
+			</list_column_label>
+			<list_filter_label>
+				<en />
+				<ru />
+			</list_filter_label>
+			<error_message>
+				<en />
+				<ru />
+			</error_message>
+			<help_message>
+				<en />
+				<ru />
+			</help_message>
+			<base_type>string</base_type>
+		</field>
+	</fields>
+	<items>
+		<item>
+			<id>191</id>
+			<uf_xml_id>antracit_pet</uf_xml_id>
+			<uf_name>Антрацит ПЭТ</uf_name>
+			<uf_color_hex>#383838</uf_color_hex>
+			<uf_sort>10</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/9dd/r21xih9fcu6wwficlapezkg6hr50l81y.jpg</uf_image>
+			<uf_type>pet</uf_type>
+		</item>
+		<item>
+			<id>193</id>
+			<uf_xml_id>brash_blyu_pet</uf_xml_id>
+			<uf_name>Браш блю ПЭТ</uf_name>
+			<uf_color_hex>#6B8FAD</uf_color_hex>
+			<uf_sort>30</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/375/djqbs13yi2km72y27gq2aj0hbo83tsov.jpg</uf_image>
+			<uf_type>pet</uf_type>
+		</item>
+		<item>
+			<id>194</id>
+			<uf_xml_id>beysik_vayt_pet</uf_xml_id>
+			<uf_name>Бэйсик вайт ПЭТ</uf_name>
+			<uf_color_hex>#F5F5F0</uf_color_hex>
+			<uf_sort>40</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/258/dfpxp20v9wzz2lu2mtv2mzur3qv421dh.jpg</uf_image>
+			<uf_type>pet</uf_type>
+		</item>
+		<item>
+			<id>195</id>
+			<uf_xml_id>layt_grey_pet</uf_xml_id>
+			<uf_name>Лайт грей ПЭТ</uf_name>
+			<uf_color_hex>#D3D3D3</uf_color_hex>
+			<uf_sort>50</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/441/oulespgdgzyl6n3nsswim2nk82fmhupb.jpg</uf_image>
+			<uf_type>pet</uf_type>
+		</item>
+		<item>
+			<id>196</id>
+			<uf_xml_id>meni_grin_pet</uf_xml_id>
+			<uf_name>Мени грин ПЭТ</uf_name>
+			<uf_color_hex>#5B7A5E</uf_color_hex>
+			<uf_sort>60</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/cc2/b59ogx8kcknos0rj5al45mwfc8ca2wno.jpg</uf_image>
+			<uf_type>pet</uf_type>
+		</item>
+		<item>
+			<id>197</id>
+			<uf_xml_id>snou_pet</uf_xml_id>
+			<uf_name>Сноу ПЭТ</uf_name>
+			<uf_color_hex>#FFFAFA</uf_color_hex>
+			<uf_sort>70</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/d47/doefqubrerka3m21qzwvdjy2asrbdmbn.jpg</uf_image>
+			<uf_type>pet</uf_type>
+		</item>
+		<item>
+			<id>198</id>
+			<uf_xml_id>tekstura_grey_pet</uf_xml_id>
+			<uf_name>Текстура грей ПЭТ</uf_name>
+			<uf_color_hex>#A9A9A9</uf_color_hex>
+			<uf_sort>80</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/536/hv4aqde13jui2a28n3mp0ew3u31fqnwh.jpg</uf_image>
+			<uf_type>pet</uf_type>
+		</item>
+		<item>
+			<id>199</id>
+			<uf_xml_id>venge_premium</uf_xml_id>
+			<uf_name>Венге премиум</uf_name>
+			<uf_color_hex>#2F1B14</uf_color_hex>
+			<uf_sort>90</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/36d/x55fw65b7jpbd3n9gicdmtbckqneh74u.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>200</id>
+			<uf_xml_id>vyaz_grafit</uf_xml_id>
+			<uf_name>Вяз графит</uf_name>
+			<uf_color_hex>#5A5A52</uf_color_hex>
+			<uf_sort>100</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/068/nutx5ih77dnb2126hjrussy259f1nan0.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>201</id>
+			<uf_xml_id>vyaz_grey</uf_xml_id>
+			<uf_name>Вяз грей</uf_name>
+			<uf_color_hex>#B0A89C</uf_color_hex>
+			<uf_sort>110</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/983/xrmpsesijit4bwf7i5wdrhdr7s4jxhxy.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>202</id>
+			<uf_xml_id>vyaz_milk</uf_xml_id>
+			<uf_name>Вяз милк</uf_name>
+			<uf_color_hex>#EDE3D0</uf_color_hex>
+			<uf_sort>120</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/0a3/pa9wfrayyl16z48xut644dumpd4cjfjw.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>203</id>
+			<uf_xml_id>dub_akvamarin</uf_xml_id>
+			<uf_name>Дуб аквамарин</uf_name>
+			<uf_color_hex>#7FBAAD</uf_color_hex>
+			<uf_sort>130</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/031/n0w4tqo6r8b2kj66eyivqrbam2alxtzb.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>204</id>
+			<uf_xml_id>dub_bodega_zolotoy</uf_xml_id>
+			<uf_name>Дуб бодега золотой</uf_name>
+			<uf_color_hex>#C8A848</uf_color_hex>
+			<uf_sort>140</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/95b/rikuzgtps1knk529u5qbx0utfwh4nakq.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>205</id>
+			<uf_xml_id>dub_bodega_naturalnyy</uf_xml_id>
+			<uf_name>Дуб бодега натуральный</uf_name>
+			<uf_color_hex>#B5A088</uf_color_hex>
+			<uf_sort>150</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/d8b/6f6muvf1zm9y8hz4qv56891i67s7g1vs.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>206</id>
+			<uf_xml_id>dub_bodega_svetlyy</uf_xml_id>
+			<uf_name>Дуб бодега светлый</uf_name>
+			<uf_color_hex>#CFC0A8</uf_color_hex>
+			<uf_sort>160</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/abb/3twk5yd49a2k7l0oze9bimovw5cq81a1.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>207</id>
+			<uf_xml_id>dub_bolotnyy</uf_xml_id>
+			<uf_name>Дуб болотный</uf_name>
+			<uf_color_hex>#5E6E50</uf_color_hex>
+			<uf_sort>170</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/5cb/s78kwovwkk2moti86iathlbex9ixlsi6.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>208</id>
+			<uf_xml_id>dub_krem</uf_xml_id>
+			<uf_name>Дуб крем</uf_name>
+			<uf_color_hex>#EBD9B4</uf_color_hex>
+			<uf_sort>180</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/ce1/d313qpbg9tybnhucp1b48h9lbxch59vb.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>209</id>
+			<uf_xml_id>dub_mavella</uf_xml_id>
+			<uf_name>Дуб мавелла</uf_name>
+			<uf_color_hex>#A08060</uf_color_hex>
+			<uf_sort>190</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/b61/1k5a5jfe0obvqyt3mbsr7o0usjt1jp3r.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>210</id>
+			<uf_xml_id>dub_molochnyy</uf_xml_id>
+			<uf_name>Дуб молочный</uf_name>
+			<uf_color_hex>#E8D5B7</uf_color_hex>
+			<uf_sort>200</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/452/87mxjz9vej5hl6yym8cxwg4pbwkkutwn.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>211</id>
+			<uf_xml_id>dub_pudra</uf_xml_id>
+			<uf_name>Дуб пудра</uf_name>
+			<uf_color_hex>#D4C4B0</uf_color_hex>
+			<uf_sort>210</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/a17/rk68wtr2y1nh57zq8itro0q5rre5tsq3.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>212</id>
+			<uf_xml_id>dub_s_patinoy</uf_xml_id>
+			<uf_name>Дуб с патиной</uf_name>
+			<uf_color_hex>#A89060</uf_color_hex>
+			<uf_sort>220</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/f98/6q32vuclb0e5il752zcnn6p8fkp8h0au.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>213</id>
+			<uf_xml_id>dub_siena_seryy</uf_xml_id>
+			<uf_name>Дуб сиена серый</uf_name>
+			<uf_color_hex>#9E8E7E</uf_color_hex>
+			<uf_sort>230</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/431/1vh22j01jmev75o7b6d4finrf4bgfpay.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>214</id>
+			<uf_xml_id>dub_siena_seryy_diagonal</uf_xml_id>
+			<uf_name>Дуб сиена серый диагональ</uf_name>
+			<uf_color_hex>#9A8A7A</uf_color_hex>
+			<uf_sort>240</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/936/tygd9bhodzwt907bjzcfvi2q8wn931w4.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>215</id>
+			<uf_xml_id>dub_siena_yantarnyy</uf_xml_id>
+			<uf_name>Дуб сиена янтарный</uf_name>
+			<uf_color_hex>#C89050</uf_color_hex>
+			<uf_sort>250</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/dae/nuu3vhebd225okk1ry6z9r0opg2ewxrq.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>216</id>
+			<uf_xml_id>dub_siena_yantarnyy_diagonal</uf_xml_id>
+			<uf_name>Дуб сиена янтарный диагональ</uf_name>
+			<uf_color_hex>#C48C4C</uf_color_hex>
+			<uf_sort>260</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/d68/j203zxhf3fjasv6cdxwi9c00cgcnwmep.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>217</id>
+			<uf_xml_id>karagach_svetlyy</uf_xml_id>
+			<uf_name>Карагач светлый</uf_name>
+			<uf_color_hex>#C8A878</uf_color_hex>
+			<uf_sort>270</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/5cb/o8a4sqjnfnss63nhhjmagifwuti2i0lf.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>218</id>
+			<uf_xml_id>lipa_amurskaya</uf_xml_id>
+			<uf_name>Липа амурская</uf_name>
+			<uf_color_hex>#B0A080</uf_color_hex>
+			<uf_sort>280</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/329/1fbisc67qbkzgq7bm5swfy4i1kz0vtft.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>219</id>
+			<uf_xml_id>lipa_olivera</uf_xml_id>
+			<uf_name>Липа оливьера</uf_name>
+			<uf_color_hex>#9A8F68</uf_color_hex>
+			<uf_sort>290</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/715/2ybb6wrzz6o8e14p5thjdlakglhonn35.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>220</id>
+			<uf_xml_id>makassar</uf_xml_id>
+			<uf_name>Макассар</uf_name>
+			<uf_color_hex>#3C2820</uf_color_hex>
+			<uf_sort>300</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/b58/rk1vu1kjs3b1msjkpbtqzbbyvp2pua1z.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>221</id>
+			<uf_xml_id>mahagon_klassicheskiy</uf_xml_id>
+			<uf_name>Махагон классический</uf_name>
+			<uf_color_hex>#C04000</uf_color_hex>
+			<uf_sort>310</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/5d6/1z06378sl0tewaeo7gocbiik9mv3vo0l.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>222</id>
+			<uf_xml_id>merbau</uf_xml_id>
+			<uf_name>Мербау</uf_name>
+			<uf_color_hex>#7B3F00</uf_color_hex>
+			<uf_sort>320</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/3b4/bsfp3zocagsbayhve7fb21ix83l7vq15.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>223</id>
+			<uf_xml_id>monte_rustik</uf_xml_id>
+			<uf_name>Монте рустик</uf_name>
+			<uf_color_hex>#8B7355</uf_color_hex>
+			<uf_sort>330</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/82c/csbs96g1y8ubf7g0tt9t9t2cvb8il0ti.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>224</id>
+			<uf_xml_id>monte_tiberio</uf_xml_id>
+			<uf_name>Монте тиберио</uf_name>
+			<uf_color_hex>#6B5B4B</uf_color_hex>
+			<uf_sort>340</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/3b7/p06x19yn85102yui447cflz3cfldtxp6.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>225</id>
+			<uf_xml_id>oreh_pekan_medovyy</uf_xml_id>
+			<uf_name>Орех пекан медовый</uf_name>
+			<uf_color_hex>#D4A04C</uf_color_hex>
+			<uf_sort>350</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/aa2/gp663v3tsuc7j53ay3txl7543tuq5txv.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>226</id>
+			<uf_xml_id>oreh_pekan_slivochnyy_strong</uf_xml_id>
+			<uf_name>Орех пекан сливочный стронг</uf_name>
+			<uf_color_hex>#C8A87C</uf_color_hex>
+			<uf_sort>360</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/88c/lgz533qe5k2gidw0ckofm6h83tbuioe7.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>227</id>
+			<uf_xml_id>oreh_pekan_shokolad</uf_xml_id>
+			<uf_name>Орех пекан шоколад</uf_name>
+			<uf_color_hex>#6B4423</uf_color_hex>
+			<uf_sort>370</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/e46/rlntico31vxdnovd3x7dow1tqgztjqf8.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>228</id>
+			<uf_xml_id>oreh_svetlyy</uf_xml_id>
+			<uf_name>Орех светлый</uf_name>
+			<uf_color_hex>#C4A77D</uf_color_hex>
+			<uf_sort>380</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/0d4/iymhjpij1uu6jfupko64zshuqkly71oh.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>229</id>
+			<uf_xml_id>oreh_toskana_karamel</uf_xml_id>
+			<uf_name>Орех тоскана карамель</uf_name>
+			<uf_color_hex>#cccccc</uf_color_hex>
+			<uf_sort>390</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/ad0/8l6anwidlizq9vou1oywd1gixiliitgw.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>230</id>
+			<uf_xml_id>oreh_toskana_kofe</uf_xml_id>
+			<uf_name>Орех тоскана кофе</uf_name>
+			<uf_color_hex>#cccccc</uf_color_hex>
+			<uf_sort>400</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/345/4ex8otyupnybm2hd8nxnsr7agmsxpbue.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>231</id>
+			<uf_xml_id>oreh_toskana_tryufel</uf_xml_id>
+			<uf_name>Орех тоскана трюфель</uf_name>
+			<uf_color_hex>#cccccc</uf_color_hex>
+			<uf_sort>410</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/9d3/tl3xcl6xpz2hw21kh0ju4t2futcavfgx.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>232</id>
+			<uf_xml_id>platan_shokoladnyy</uf_xml_id>
+			<uf_name>Платан шоколадный</uf_name>
+			<uf_color_hex>#5C4030</uf_color_hex>
+			<uf_sort>420</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/c88/z6tr3xqc0uv05258f2z6zpu4ooqyjrzn.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>233</id>
+			<uf_xml_id>shpon_yasenya_gold</uf_xml_id>
+			<uf_name>Шпон ясеня голд</uf_name>
+			<uf_color_hex>#C8AA58</uf_color_hex>
+			<uf_sort>430</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/264/kgrcz6l0ykw55wooym0ywyiv9e7wbhbo.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>234</id>
+			<uf_xml_id>yasen_belyy_soft</uf_xml_id>
+			<uf_name>Ясень белый софт</uf_name>
+			<uf_color_hex>#F0EAE0</uf_color_hex>
+			<uf_sort>440</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/44a/10hol92w8ijtekf9uezszj0f2zq0qcml.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>235</id>
+			<uf_xml_id>yasen_grafit</uf_xml_id>
+			<uf_name>Ясень графит</uf_name>
+			<uf_color_hex>#58524A</uf_color_hex>
+			<uf_sort>450</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/ca0/st65eix1bxw49r4ymfz4xzxvgdf33q5r.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>236</id>
+			<uf_xml_id>yasen_grey</uf_xml_id>
+			<uf_name>Ясень грей</uf_name>
+			<uf_color_hex>#8F8478</uf_color_hex>
+			<uf_sort>460</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/7c4/0gdtm4rf17kla7ya2jtr5etka01zrc16.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>237</id>
+			<uf_xml_id>yasen_chernyy_soft</uf_xml_id>
+			<uf_name>Ясень чёрный софт</uf_name>
+			<uf_color_hex>#3A3630</uf_color_hex>
+			<uf_sort>470</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/e7d/q8lfkw7mg5tl2s8w8135fus2oi0qoqqi.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>238</id>
+			<uf_xml_id>antracit</uf_xml_id>
+			<uf_name>Антрацит</uf_name>
+			<uf_color_hex>#3B3B3B</uf_color_hex>
+			<uf_sort>480</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/4f2/30y6rykus6hnxi8hl1gccesnm4xxdmyr.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>239</id>
+			<uf_xml_id>atlantik_soft</uf_xml_id>
+			<uf_name>Атлантик софт</uf_name>
+			<uf_color_hex>#4B6F8F</uf_color_hex>
+			<uf_sort>490</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/565/dsgicqruh37e1sgr7w35x5sda9bbi0k4.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>240</id>
+			<uf_xml_id>belyy_matovyy</uf_xml_id>
+			<uf_name>Белый матовый</uf_name>
+			<uf_color_hex>#F5F5F5</uf_color_hex>
+			<uf_sort>500</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/ec1/3s1uqb9jhvquy0wsmu9yf0b1p0l02eeq.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>241</id>
+			<uf_xml_id>blanzh</uf_xml_id>
+			<uf_name>Бланж</uf_name>
+			<uf_color_hex>#F0E6D8</uf_color_hex>
+			<uf_sort>510</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/e9b/rkoi92k2ie9lhbs252fmuba0swuwxj07.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>242</id>
+			<uf_xml_id>veluto_vanil</uf_xml_id>
+			<uf_name>Велуто ваниль</uf_name>
+			<uf_color_hex>#F3E5AB</uf_color_hex>
+			<uf_sort>520</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/531/t1ts0xobw8zm1qbyvycwffaz18x3v2yd.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>243</id>
+			<uf_xml_id>vena</uf_xml_id>
+			<uf_name>Вена</uf_name>
+			<uf_color_hex>#C8B898</uf_color_hex>
+			<uf_sort>530</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/9fb/j0hllpffwj3a2rug8t2g016ie3yossi2.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>244</id>
+			<uf_xml_id>vud_silver</uf_xml_id>
+			<uf_name>Вуд сильвер</uf_name>
+			<uf_color_hex>#C0B8A8</uf_color_hex>
+			<uf_sort>540</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/e5e/d27rcmqy8kp45h67fo3ad31270va0oip.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>245</id>
+			<uf_xml_id>gorchitsa_soft</uf_xml_id>
+			<uf_name>Горчица софт</uf_name>
+			<uf_color_hex>#FFDB58</uf_color_hex>
+			<uf_sort>550</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/c9b/do8qflza2f633zhfuzqlj4jvhlil2g1q.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>246</id>
+			<uf_xml_id>grafit_temnyy</uf_xml_id>
+			<uf_name>Графит тёмный</uf_name>
+			<uf_color_hex>#4A4A4A</uf_color_hex>
+			<uf_sort>560</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/045/8k1qo0zp2soke5sg2jichi9674lnvpfh.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>247</id>
+			<uf_xml_id>dyuna_briz</uf_xml_id>
+			<uf_name>Дюна бриз</uf_name>
+			<uf_color_hex>#D0C8B8</uf_color_hex>
+			<uf_sort>570</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/f82/wuu6kbowlxz0cbgl3kwtwxgxcczr3mln.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>248</id>
+			<uf_xml_id>dyuna_mistral</uf_xml_id>
+			<uf_name>Дюна мистраль</uf_name>
+			<uf_color_hex>#C8BCA8</uf_color_hex>
+			<uf_sort>580</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/828/few2i55rjqefuhg8yp8mmenhfxz30yqp.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>249</id>
+			<uf_xml_id>dyuna_nord</uf_xml_id>
+			<uf_name>Дюна норд</uf_name>
+			<uf_color_hex>#E8D8C0</uf_color_hex>
+			<uf_sort>590</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/cff/5spk1d79xkovgpxk0134bce62jh13hpz.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>250</id>
+			<uf_xml_id>kvazar</uf_xml_id>
+			<uf_name>Квазар</uf_name>
+			<uf_color_hex>#5C5470</uf_color_hex>
+			<uf_sort>600</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/f96/tx8anzucrpza59lnjn7t6tf88pxy21w2.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>251</id>
+			<uf_xml_id>keramik_belyy</uf_xml_id>
+			<uf_name>Керамик белый</uf_name>
+			<uf_color_hex>#F0EBE3</uf_color_hex>
+			<uf_sort>610</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/37f/nuc6cmr8dlp04af1yt8ztwmson3c5sgm.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>252</id>
+			<uf_xml_id>keramik_kakao</uf_xml_id>
+			<uf_name>Керамик какао</uf_name>
+			<uf_color_hex>#8B6F5E</uf_color_hex>
+			<uf_sort>620</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/365/dsbdjulqlgignujqyjly2yllnjsuosrn.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>253</id>
+			<uf_xml_id>keramik_kapuchino</uf_xml_id>
+			<uf_name>Керамик капучино</uf_name>
+			<uf_color_hex>#C4A882</uf_color_hex>
+			<uf_sort>630</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/2bd/qm6nzeyo9zc4zy2noshsjic0fhqpgcf9.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>254</id>
+			<uf_xml_id>keramik_matovyy</uf_xml_id>
+			<uf_name>Керамик матовый</uf_name>
+			<uf_color_hex>#E8E0D8</uf_color_hex>
+			<uf_sort>640</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/b80/21xkpkr2m9g6jbqgm2dcgzpvm4187n0w.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>255</id>
+			<uf_xml_id>keramik_seryy</uf_xml_id>
+			<uf_name>Керамик серый</uf_name>
+			<uf_color_hex>#B8B0A8</uf_color_hex>
+			<uf_sort>650</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/66c/2qh5okcpt9xhuev1okkqo5sel1e802va.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>256</id>
+			<uf_xml_id>krasnaya_burgundiya</uf_xml_id>
+			<uf_name>Красная бургундия</uf_name>
+			<uf_color_hex>#800020</uf_color_hex>
+			<uf_sort>660</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>0</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>257</id>
+			<uf_xml_id>kroskat</uf_xml_id>
+			<uf_name>Кроскат</uf_name>
+			<uf_color_hex>#A89880</uf_color_hex>
+			<uf_sort>670</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/019/8qolakqpcto1df40dhzy5xz2ymp48ltc.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>258</id>
+			<uf_xml_id>loft</uf_xml_id>
+			<uf_name>Лофт</uf_name>
+			<uf_color_hex>#7A7267</uf_color_hex>
+			<uf_sort>680</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/045/4mj92sv0iqb8peg45j0opwvhv6kntyjh.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>259</id>
+			<uf_xml_id>manila</uf_xml_id>
+			<uf_name>Манила</uf_name>
+			<uf_color_hex>#FFDB8B</uf_color_hex>
+			<uf_sort>690</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/88d/koc6hbbdlht4ck08vdxv48yvwl4alkjb.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>260</id>
+			<uf_xml_id>marra</uf_xml_id>
+			<uf_name>Марра</uf_name>
+			<uf_color_hex>#785040</uf_color_hex>
+			<uf_sort>700</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/658/ahx48biypsceb78iaymi0pgewloke418.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>261</id>
+			<uf_xml_id>merino</uf_xml_id>
+			<uf_name>Мерино</uf_name>
+			<uf_color_hex>#F5EEDC</uf_color_hex>
+			<uf_sort>710</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/673/y0stp03mwnx372wqtu1f5a8051l4jlqc.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>262</id>
+			<uf_xml_id>midori</uf_xml_id>
+			<uf_name>Мидори</uf_name>
+			<uf_color_hex>#4DB560</uf_color_hex>
+			<uf_sort>720</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/e7d/gr2kevqan0tw3yd19xe1cikdjn9pfag5.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>263</id>
+			<uf_xml_id>neapol</uf_xml_id>
+			<uf_name>Неаполь</uf_name>
+			<uf_color_hex>#FADA5E</uf_color_hex>
+			<uf_sort>730</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/599/2kjsq1isrc33wq38kwv9m83drcbh9g6r.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>264</id>
+			<uf_xml_id>nefrit</uf_xml_id>
+			<uf_name>Нефрит</uf_name>
+			<uf_color_hex>#00A86B</uf_color_hex>
+			<uf_sort>740</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/ba7/6j30jkc8pfejjpbwtik3paa90peunt1k.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>265</id>
+			<uf_xml_id>okeaniya</uf_xml_id>
+			<uf_name>Океания</uf_name>
+			<uf_color_hex>#4A90A4</uf_color_hex>
+			<uf_sort>750</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/68c/nj4x5a4uupszzm1dtyrsjj9gyp66797b.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>266</id>
+			<uf_xml_id>olivin</uf_xml_id>
+			<uf_name>Оливин</uf_name>
+			<uf_color_hex>#9AB973</uf_color_hex>
+			<uf_sort>760</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/107/9wku0mrm64bag0vnxv3b90p6leyguyua.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>267</id>
+			<uf_xml_id>platina</uf_xml_id>
+			<uf_name>Платина</uf_name>
+			<uf_color_hex>#E5E4E2</uf_color_hex>
+			<uf_sort>770</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/bcb/lalfymnb2y8zjfapezgzmi55wso9m7wk.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>268</id>
+			<uf_xml_id>skay_soft</uf_xml_id>
+			<uf_name>Скай софт</uf_name>
+			<uf_color_hex>#87CEEB</uf_color_hex>
+			<uf_sort>780</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/f10/qj2qxqqkvvc2s0sw8sfq7y08n06b9egr.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>269</id>
+			<uf_xml_id>skandi_ayvori</uf_xml_id>
+			<uf_name>Сканди айвори</uf_name>
+			<uf_color_hex>#FFFFF0</uf_color_hex>
+			<uf_sort>790</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/aab/7sozhyiz03ydmjbzx282jzdej1sdpn9j.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>270</id>
+			<uf_xml_id>slanec_belyy</uf_xml_id>
+			<uf_name>Сланец белый</uf_name>
+			<uf_color_hex>#E8E4E0</uf_color_hex>
+			<uf_sort>800</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/a5c/w2yd0onyw5g1eml2b9qqupp3bic051se.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>271</id>
+			<uf_xml_id>slanec_chernyy</uf_xml_id>
+			<uf_name>Сланец чёрный</uf_name>
+			<uf_color_hex>#343434</uf_color_hex>
+			<uf_sort>810</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/082/zpb576zmcjdslgs66l0jv6i6e6crhxkp.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>272</id>
+			<uf_xml_id>spireya_belaya</uf_xml_id>
+			<uf_name>Спирея белая</uf_name>
+			<uf_color_hex>#FAFAF5</uf_color_hex>
+			<uf_sort>820</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/c13/v91qnkstt79h2aabqsbisli2ha9ydqfx.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>273</id>
+			<uf_xml_id>talk</uf_xml_id>
+			<uf_name>Тальк</uf_name>
+			<uf_color_hex>#F0EDE5</uf_color_hex>
+			<uf_sort>830</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/d47/doefqubrerka3m21qzwvdjy2asrbdmbn.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>274</id>
+			<uf_xml_id>tvil_bezh</uf_xml_id>
+			<uf_name>Твил беж</uf_name>
+			<uf_color_hex>#C8B8A0</uf_color_hex>
+			<uf_sort>840</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/c56/mc371f3gfebpxkfy62dakeymde25oyy4.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>275</id>
+			<uf_xml_id>tvil_len</uf_xml_id>
+			<uf_name>Твил лён</uf_name>
+			<uf_color_hex>#D8CDB8</uf_color_hex>
+			<uf_sort>850</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/6b1/08vmbbtdog82pt2denu2o3qrlzmwc704.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>276</id>
+			<uf_xml_id>tvil_fly</uf_xml_id>
+			<uf_name>Твил флай</uf_name>
+			<uf_color_hex>#B0A090</uf_color_hex>
+			<uf_sort>860</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/b02/x6hp5u5z3dckk8f997vurzbprnt6he33.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>277</id>
+			<uf_xml_id>terrakot</uf_xml_id>
+			<uf_name>Терракот</uf_name>
+			<uf_color_hex>#CC6B49</uf_color_hex>
+			<uf_sort>870</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/1d6/2x7nbe2dxa8vpti0fcgpngilyy6eiqxv.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>278</id>
+			<uf_xml_id>tokio</uf_xml_id>
+			<uf_name>Токио</uf_name>
+			<uf_color_hex>#8B4049</uf_color_hex>
+			<uf_sort>880</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/21f/5q8l61vm9mb921m28jgajxyine4qc1k6.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>279</id>
+			<uf_xml_id>belyy_led</uf_xml_id>
+			<uf_name>Белый лёд</uf_name>
+			<uf_color_hex>#EEF2F5</uf_color_hex>
+			<uf_sort>890</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/d4d/f2x1mtpz2ouuldfki5e1g7rc61kqjpwv.jpg</uf_image>
+			<uf_type>enamel</uf_type>
+		</item>
+		<item>
+			<id>280</id>
+			<uf_xml_id>emal_1013</uf_xml_id>
+			<uf_name>Эмаль 1013</uf_name>
+			<uf_color_hex>#E3D9C6</uf_color_hex>
+			<uf_sort>900</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/04c/v2vejh209xxf36ji54s6txjnrjkq60kc.jpg</uf_image>
+			<uf_type>pvc</uf_type>
+		</item>
+		<item>
+			<id>281</id>
+			<uf_xml_id>emal_127</uf_xml_id>
+			<uf_name>Эмаль 127</uf_name>
+			<uf_color_hex>#D4C5A9</uf_color_hex>
+			<uf_sort>910</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/f58/iumqkb4wl4d34nivv7i42hsspaxy3wei.jpg</uf_image>
+			<uf_type>enamel</uf_type>
+		</item>
+		<item>
+			<id>282</id>
+			<uf_xml_id>emal_459</uf_xml_id>
+			<uf_name>Эмаль 459</uf_name>
+			<uf_color_hex>#8B7355</uf_color_hex>
+			<uf_sort>920</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/3f5/276s4xarl11jqc2het6j35d11hkyezgx.jpg</uf_image>
+			<uf_type>enamel</uf_type>
+		</item>
+		<item>
+			<id>283</id>
+			<uf_xml_id>emal_7036</uf_xml_id>
+			<uf_name>Эмаль 7036</uf_name>
+			<uf_color_hex>#9C9B9A</uf_color_hex>
+			<uf_sort>930</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/aa9/m09fmru1u7olel1vlpe3o9u41p3x5prb.jpg</uf_image>
+			<uf_type>enamel</uf_type>
+		</item>
+		<item>
+			<id>284</id>
+			<uf_xml_id>emal_9001</uf_xml_id>
+			<uf_name>Эмаль 9001</uf_name>
+			<uf_color_hex>#FDF4E3</uf_color_hex>
+			<uf_sort>940</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/c7a/1p037f7bz9j0mqpg3y4vm2qjit7ezayl.jpg</uf_image>
+			<uf_type>enamel</uf_type>
+		</item>
+		<item>
+			<id>285</id>
+			<uf_xml_id>emal_9003</uf_xml_id>
+			<uf_name>Эмаль 9003</uf_name>
+			<uf_color_hex>#F4F4F4</uf_color_hex>
+			<uf_sort>950</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/157/yvb47n1p4s8zaf5pz0e0fievku0yhhqk.jpg</uf_image>
+			<uf_type>enamel</uf_type>
+		</item>
+		<item>
+			<id>286</id>
+			<uf_xml_id>custom_color</uf_xml_id>
+			<uf_name>Свой цвет по RAL и NCS</uf_name>
+			<uf_color_hex />
+			<uf_sort>960</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_image>uf/968/x9q42g1oz2s7yv0l8xb2og7wrfbq5sko.jpg</uf_image>
+			<uf_type>enamel</uf_type>
+		</item>
+	</items>
+</hiblock>
