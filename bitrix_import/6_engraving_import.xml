@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <item>
+    <field name="UF_XML_ID">engraving_kontur</field>
+    <field name="UF_NAME">Контур</field>
+    <field name="UF_PRICE">1860</field>
+    <field name="UF_SORT">10</field>
+    <field name="UF_ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="UF_XML_ID">engraving_english_grid</field>
+    <field name="UF_NAME">Английская решётка</field>
+    <field name="UF_PRICE">1860</field>
+    <field name="UF_SORT">20</field>
+    <field name="UF_ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="UF_XML_ID">engraving_rhombus</field>
+    <field name="UF_NAME">Ромб</field>
+    <field name="UF_PRICE">1860</field>
+    <field name="UF_SORT">30</field>
+    <field name="UF_ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="UF_XML_ID">engraving_none</field>
+    <field name="UF_NAME">Без гравировки</field>
+    <field name="UF_PRICE">0</field>
+    <field name="UF_SORT">40</field>
+    <field name="UF_ACTIVE">1</field>
+  </item>
+</data>

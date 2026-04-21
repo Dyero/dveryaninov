@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <item>
+    <field name="UF_XML_ID">alu_edge_long_chrome</field>
+    <field name="UF_TYPE">Продольная</field>
+    <field name="UF_COLOR">Матовый хром</field>
+    <field name="UF_PRICE">1710</field>
+    <field name="UF_SORT">10</field>
+    <field name="UF_ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="UF_XML_ID">alu_edge_long_black</field>
+    <field name="UF_TYPE">Продольная</field>
+    <field name="UF_COLOR">Чёрный</field>
+    <field name="UF_PRICE">2170</field>
+    <field name="UF_SORT">20</field>
+    <field name="UF_ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="UF_XML_ID">alu_edge_long_gold</field>
+    <field name="UF_TYPE">Продольная</field>
+    <field name="UF_COLOR">Матовое золото</field>
+    <field name="UF_PRICE">2640</field>
+    <field name="UF_SORT">30</field>
+    <field name="UF_ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="UF_XML_ID">alu_edge_perim_chrome</field>
+    <field name="UF_TYPE">По периметру</field>
+    <field name="UF_COLOR">Матовый хром</field>
+    <field name="UF_PRICE">2640</field>
+    <field name="UF_SORT">40</field>
+    <field name="UF_ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="UF_XML_ID">alu_edge_perim_black</field>
+    <field name="UF_TYPE">По периметру</field>
+    <field name="UF_COLOR">Чёрный</field>
+    <field name="UF_PRICE">3100</field>
+    <field name="UF_SORT">50</field>
+    <field name="UF_ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="UF_XML_ID">alu_edge_perim_gold</field>
+    <field name="UF_TYPE">По периметру</field>
+    <field name="UF_COLOR">Матовое золото</field>
+    <field name="UF_PRICE">3570</field>
+    <field name="UF_SORT">60</field>
+    <field name="UF_ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="UF_XML_ID">alu_edge_none</field>
+    <field name="UF_TYPE">Без кромки</field>
+    <field name="UF_COLOR"/>
+    <field name="UF_PRICE">0</field>
+    <field name="UF_SORT">70</field>
+    <field name="UF_ACTIVE">1</field>
+  </item>
+</data>

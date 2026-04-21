@@ -1,0 +1,3187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <item>
+    <field name="XML_ID">alberta_1_pg</field>
+    <field name="NAME">Альберта 1 ПГ</field>
+    <field name="COLLECTION">Alberta</field>
+    <field name="MODEL_NUMBER">1</field>
+    <field name="BLADE_TYPE">PG</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO"/>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">10</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">alberta_1</field>
+    <field name="NAME">Альберта 1</field>
+    <field name="COLLECTION">Alberta</field>
+    <field name="MODEL_NUMBER">1</field>
+    <field name="BLADE_TYPE">PO</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">20</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">alberta_2</field>
+    <field name="NAME">Альберта 2</field>
+    <field name="COLLECTION">Alberta</field>
+    <field name="MODEL_NUMBER">2</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">30</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">alberta_3</field>
+    <field name="NAME">Альберта 3</field>
+    <field name="COLLECTION">Alberta</field>
+    <field name="MODEL_NUMBER">3</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">40</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">alberta_4</field>
+    <field name="NAME">Альберта 4</field>
+    <field name="COLLECTION">Alberta</field>
+    <field name="MODEL_NUMBER">4</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">50</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">alberta_5</field>
+    <field name="NAME">Альберта 5</field>
+    <field name="COLLECTION">Alberta</field>
+    <field name="MODEL_NUMBER">5</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">60</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">alberta_6</field>
+    <field name="NAME">Альберта 6</field>
+    <field name="COLLECTION">Alberta</field>
+    <field name="MODEL_NUMBER">6</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">70</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">alberta_7</field>
+    <field name="NAME">Альберта 7</field>
+    <field name="COLLECTION">Alberta</field>
+    <field name="MODEL_NUMBER">7</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">80</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">ameri_1</field>
+    <field name="NAME">Амери 1</field>
+    <field name="COLLECTION">Ameri</field>
+    <field name="MODEL_NUMBER">1</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">10</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">ameri_2</field>
+    <field name="NAME">Амери 2</field>
+    <field name="COLLECTION">Ameri</field>
+    <field name="MODEL_NUMBER">2</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">20</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">ameri_3</field>
+    <field name="NAME">Амери 3</field>
+    <field name="COLLECTION">Ameri</field>
+    <field name="MODEL_NUMBER">3</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">30</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">ameri_4</field>
+    <field name="NAME">Амери 4</field>
+    <field name="COLLECTION">Ameri</field>
+    <field name="MODEL_NUMBER">4</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">40</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">ameri_5</field>
+    <field name="NAME">Амери 5</field>
+    <field name="COLLECTION">Ameri</field>
+    <field name="MODEL_NUMBER">5</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">50</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">ameri_6</field>
+    <field name="NAME">Амери 6</field>
+    <field name="COLLECTION">Ameri</field>
+    <field name="MODEL_NUMBER">6</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">60</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">ameri_7</field>
+    <field name="NAME">Амери 7</field>
+    <field name="COLLECTION">Ameri</field>
+    <field name="MODEL_NUMBER">7</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">70</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">ameri_8</field>
+    <field name="NAME">Амери 8</field>
+    <field name="COLLECTION">Ameri</field>
+    <field name="MODEL_NUMBER">8</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">80</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">ameri_9</field>
+    <field name="NAME">Амери 9</field>
+    <field name="COLLECTION">Ameri</field>
+    <field name="MODEL_NUMBER">9</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">90</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">ameri_10</field>
+    <field name="NAME">Амери 10</field>
+    <field name="COLLECTION">Ameri</field>
+    <field name="MODEL_NUMBER">10</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">100</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">amfora_1</field>
+    <field name="NAME">Амфора 1</field>
+    <field name="COLLECTION">Amfora</field>
+    <field name="MODEL_NUMBER">1</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">1</field>
+    <field name="SORT">10</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">amfora_2</field>
+    <field name="NAME">Амфора 2</field>
+    <field name="COLLECTION">Amfora</field>
+    <field name="MODEL_NUMBER">2</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">1</field>
+    <field name="SORT">20</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">amfora_3</field>
+    <field name="NAME">Амфора 3</field>
+    <field name="COLLECTION">Amfora</field>
+    <field name="MODEL_NUMBER">3</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">1</field>
+    <field name="SORT">30</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">amfora_4</field>
+    <field name="NAME">Амфора 4</field>
+    <field name="COLLECTION">Amfora</field>
+    <field name="MODEL_NUMBER">4</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">1</field>
+    <field name="SORT">40</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">amfora_5</field>
+    <field name="NAME">Амфора 5</field>
+    <field name="COLLECTION">Amfora</field>
+    <field name="MODEL_NUMBER">5</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">1</field>
+    <field name="SORT">50</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">amfora_6</field>
+    <field name="NAME">Амфора 6</field>
+    <field name="COLLECTION">Amfora</field>
+    <field name="MODEL_NUMBER">6</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">1</field>
+    <field name="SORT">60</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">amfora_7</field>
+    <field name="NAME">Амфора 7</field>
+    <field name="COLLECTION">Amfora</field>
+    <field name="MODEL_NUMBER">7</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">1</field>
+    <field name="SORT">70</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">amfora_8</field>
+    <field name="NAME">Амфора 8</field>
+    <field name="COLLECTION">Amfora</field>
+    <field name="MODEL_NUMBER">8</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">1</field>
+    <field name="SORT">80</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">amfora_9</field>
+    <field name="NAME">Амфора 9</field>
+    <field name="COLLECTION">Amfora</field>
+    <field name="MODEL_NUMBER">9</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">1</field>
+    <field name="SORT">90</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">avrora_1</field>
+    <field name="NAME">Аврора 1</field>
+    <field name="COLLECTION">Avrora</field>
+    <field name="MODEL_NUMBER">1</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">10</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">avrora_2</field>
+    <field name="NAME">Аврора 2</field>
+    <field name="COLLECTION">Avrora</field>
+    <field name="MODEL_NUMBER">2</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">20</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">avrora_3</field>
+    <field name="NAME">Аврора 3</field>
+    <field name="COLLECTION">Avrora</field>
+    <field name="MODEL_NUMBER">3</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">30</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">avrora_4</field>
+    <field name="NAME">Аврора 4</field>
+    <field name="COLLECTION">Avrora</field>
+    <field name="MODEL_NUMBER">4</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">40</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">avrora_5</field>
+    <field name="NAME">Аврора 5</field>
+    <field name="COLLECTION">Avrora</field>
+    <field name="MODEL_NUMBER">5</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">50</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">beluni_1</field>
+    <field name="NAME">Белуни 1</field>
+    <field name="COLLECTION">Beluni</field>
+    <field name="MODEL_NUMBER">1</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">10</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">beluni_2</field>
+    <field name="NAME">Белуни 2</field>
+    <field name="COLLECTION">Beluni</field>
+    <field name="MODEL_NUMBER">2</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">20</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">beluni_3</field>
+    <field name="NAME">Белуни 3</field>
+    <field name="COLLECTION">Beluni</field>
+    <field name="MODEL_NUMBER">3</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">30</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">beluni_4</field>
+    <field name="NAME">Белуни 4</field>
+    <field name="COLLECTION">Beluni</field>
+    <field name="MODEL_NUMBER">4</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">40</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">beluni_5</field>
+    <field name="NAME">Белуни 5</field>
+    <field name="COLLECTION">Beluni</field>
+    <field name="MODEL_NUMBER">5</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">50</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">beluni_6</field>
+    <field name="NAME">Белуни 6</field>
+    <field name="COLLECTION">Beluni</field>
+    <field name="MODEL_NUMBER">6</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">60</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">beluni_7</field>
+    <field name="NAME">Белуни 7</field>
+    <field name="COLLECTION">Beluni</field>
+    <field name="MODEL_NUMBER">7</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">70</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">beluni_8</field>
+    <field name="NAME">Белуни 8</field>
+    <field name="COLLECTION">Beluni</field>
+    <field name="MODEL_NUMBER">8</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">80</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">blank_1</field>
+    <field name="NAME">Бланк 1</field>
+    <field name="COLLECTION">Blank</field>
+    <field name="MODEL_NUMBER">1</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">10</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">blank_2</field>
+    <field name="NAME">Бланк 2</field>
+    <field name="COLLECTION">Blank</field>
+    <field name="MODEL_NUMBER">2</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">20</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">blank_3</field>
+    <field name="NAME">Бланк 3</field>
+    <field name="COLLECTION">Blank</field>
+    <field name="MODEL_NUMBER">3</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">30</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">blank_4</field>
+    <field name="NAME">Бланк 4</field>
+    <field name="COLLECTION">Blank</field>
+    <field name="MODEL_NUMBER">4</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">40</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">blank_5</field>
+    <field name="NAME">Бланк 5</field>
+    <field name="COLLECTION">Blank</field>
+    <field name="MODEL_NUMBER">5</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">50</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">bona_1</field>
+    <field name="NAME">Бона 1</field>
+    <field name="COLLECTION">Bona</field>
+    <field name="MODEL_NUMBER">1</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">10</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">bona_2</field>
+    <field name="NAME">Бона 2</field>
+    <field name="COLLECTION">Bona</field>
+    <field name="MODEL_NUMBER">2</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">20</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">bona_3</field>
+    <field name="NAME">Бона 3</field>
+    <field name="COLLECTION">Bona</field>
+    <field name="MODEL_NUMBER">3</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">30</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">bona_4</field>
+    <field name="NAME">Бона 4</field>
+    <field name="COLLECTION">Bona</field>
+    <field name="MODEL_NUMBER">4</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">40</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">bona_5</field>
+    <field name="NAME">Бона 5</field>
+    <field name="COLLECTION">Bona</field>
+    <field name="MODEL_NUMBER">5</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">50</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">bona_6</field>
+    <field name="NAME">Бона 6</field>
+    <field name="COLLECTION">Bona</field>
+    <field name="MODEL_NUMBER">6</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">60</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">boneko_1</field>
+    <field name="NAME">Бонеко 1</field>
+    <field name="COLLECTION">Boneko</field>
+    <field name="MODEL_NUMBER">1</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">10</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">boneko_2</field>
+    <field name="NAME">Бонеко 2</field>
+    <field name="COLLECTION">Boneko</field>
+    <field name="MODEL_NUMBER">2</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">20</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">boneko_3</field>
+    <field name="NAME">Бонеко 3</field>
+    <field name="COLLECTION">Boneko</field>
+    <field name="MODEL_NUMBER">3</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">30</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">boneko_4</field>
+    <field name="NAME">Бонеко 4</field>
+    <field name="COLLECTION">Boneko</field>
+    <field name="MODEL_NUMBER">4</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">40</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">boneko_5</field>
+    <field name="NAME">Бонеко 5</field>
+    <field name="COLLECTION">Boneko</field>
+    <field name="MODEL_NUMBER">5</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">50</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">boneko_6</field>
+    <field name="NAME">Бонеко 6</field>
+    <field name="COLLECTION">Boneko</field>
+    <field name="MODEL_NUMBER">6</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">60</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">d_4</field>
+    <field name="NAME">Д4</field>
+    <field name="COLLECTION">D</field>
+    <field name="MODEL_NUMBER">4</field>
+    <field name="BLADE_TYPE">PG</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO"/>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">1</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">40</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">d_14</field>
+    <field name="NAME">Д14</field>
+    <field name="COLLECTION">D</field>
+    <field name="MODEL_NUMBER">14</field>
+    <field name="BLADE_TYPE">PG</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO"/>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">1</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">140</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">d_16</field>
+    <field name="NAME">Д16</field>
+    <field name="COLLECTION">D</field>
+    <field name="MODEL_NUMBER">16</field>
+    <field name="BLADE_TYPE">PG</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO"/>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">1</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">160</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">d_17</field>
+    <field name="NAME">Д17</field>
+    <field name="COLLECTION">D</field>
+    <field name="MODEL_NUMBER">17</field>
+    <field name="BLADE_TYPE">PG</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO"/>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">1</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">170</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">d_22</field>
+    <field name="NAME">Д22</field>
+    <field name="COLLECTION">D</field>
+    <field name="MODEL_NUMBER">22</field>
+    <field name="BLADE_TYPE">PG</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO"/>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">1</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">220</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">d_36</field>
+    <field name="NAME">Д36</field>
+    <field name="COLLECTION">D</field>
+    <field name="MODEL_NUMBER">36</field>
+    <field name="BLADE_TYPE">PG</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO"/>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">1</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">360</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">d_43</field>
+    <field name="NAME">Д43</field>
+    <field name="COLLECTION">D</field>
+    <field name="MODEL_NUMBER">43</field>
+    <field name="BLADE_TYPE">PG</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO"/>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">1</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">430</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">d_44</field>
+    <field name="NAME">Д44</field>
+    <field name="COLLECTION">D</field>
+    <field name="MODEL_NUMBER">44</field>
+    <field name="BLADE_TYPE">PG</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO"/>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">1</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">440</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">d_48</field>
+    <field name="NAME">Д48</field>
+    <field name="COLLECTION">D</field>
+    <field name="MODEL_NUMBER">48</field>
+    <field name="BLADE_TYPE">PG</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO"/>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">1</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">480</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">d_49</field>
+    <field name="NAME">Д49</field>
+    <field name="COLLECTION">D</field>
+    <field name="MODEL_NUMBER">49</field>
+    <field name="BLADE_TYPE">PG</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO"/>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">1</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">490</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">d_50</field>
+    <field name="NAME">Д50</field>
+    <field name="COLLECTION">D</field>
+    <field name="MODEL_NUMBER">50</field>
+    <field name="BLADE_TYPE">PG</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO"/>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">1</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">500</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">dekar_1</field>
+    <field name="NAME">Декар 1</field>
+    <field name="COLLECTION">Dekar</field>
+    <field name="MODEL_NUMBER">1</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">10</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">dekar_2</field>
+    <field name="NAME">Декар 2</field>
+    <field name="COLLECTION">Dekar</field>
+    <field name="MODEL_NUMBER">2</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">20</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">dekar_3</field>
+    <field name="NAME">Декар 3</field>
+    <field name="COLLECTION">Dekar</field>
+    <field name="MODEL_NUMBER">3</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">30</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">dekar_4</field>
+    <field name="NAME">Декар 4</field>
+    <field name="COLLECTION">Dekar</field>
+    <field name="MODEL_NUMBER">4</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">40</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">dekar_5</field>
+    <field name="NAME">Декар 5</field>
+    <field name="COLLECTION">Dekar</field>
+    <field name="MODEL_NUMBER">5</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">50</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">dekar_s_bagetom_1</field>
+    <field name="NAME">Декар с багетом 1</field>
+    <field name="COLLECTION">DekarSBagetom</field>
+    <field name="MODEL_NUMBER">1</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">10</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">dekar_s_bagetom_2</field>
+    <field name="NAME">Декар с багетом 2</field>
+    <field name="COLLECTION">DekarSBagetom</field>
+    <field name="MODEL_NUMBER">2</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">20</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">dekar_s_bagetom_3</field>
+    <field name="NAME">Декар с багетом 3</field>
+    <field name="COLLECTION">DekarSBagetom</field>
+    <field name="MODEL_NUMBER">3</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">30</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">dekar_s_bagetom_4</field>
+    <field name="NAME">Декар с багетом 4</field>
+    <field name="COLLECTION">DekarSBagetom</field>
+    <field name="MODEL_NUMBER">4</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">40</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">dekar_s_bagetom_5</field>
+    <field name="NAME">Декар с багетом 5</field>
+    <field name="COLLECTION">DekarSBagetom</field>
+    <field name="MODEL_NUMBER">5</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">50</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">eterna_1</field>
+    <field name="NAME">Этерна 1</field>
+    <field name="COLLECTION">Eterna</field>
+    <field name="MODEL_NUMBER">1</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">10</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">eterna_2</field>
+    <field name="NAME">Этерна 2</field>
+    <field name="COLLECTION">Eterna</field>
+    <field name="MODEL_NUMBER">2</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">20</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">eterna_3</field>
+    <field name="NAME">Этерна 3</field>
+    <field name="COLLECTION">Eterna</field>
+    <field name="MODEL_NUMBER">3</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">30</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">eterna_4</field>
+    <field name="NAME">Этерна 4</field>
+    <field name="COLLECTION">Eterna</field>
+    <field name="MODEL_NUMBER">4</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">40</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">eterna_5</field>
+    <field name="NAME">Этерна 5</field>
+    <field name="COLLECTION">Eterna</field>
+    <field name="MODEL_NUMBER">5</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">50</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">fly_1</field>
+    <field name="NAME">Флай 1</field>
+    <field name="COLLECTION">Fly</field>
+    <field name="MODEL_NUMBER">1</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2100</field>
+    <field name="COATING_TYPES">pvc</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">1</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">10</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">fly_2</field>
+    <field name="NAME">Флай 2</field>
+    <field name="COLLECTION">Fly</field>
+    <field name="MODEL_NUMBER">2</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2100</field>
+    <field name="COATING_TYPES">pvc</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">1</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">20</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">fly_3</field>
+    <field name="NAME">Флай 3</field>
+    <field name="COLLECTION">Fly</field>
+    <field name="MODEL_NUMBER">3</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2100</field>
+    <field name="COATING_TYPES">pvc</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">1</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">30</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">fly_4</field>
+    <field name="NAME">Флай 4</field>
+    <field name="COLLECTION">Fly</field>
+    <field name="MODEL_NUMBER">4</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2100</field>
+    <field name="COATING_TYPES">pvc</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">1</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">40</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">fly_5</field>
+    <field name="NAME">Флай 5</field>
+    <field name="COLLECTION">Fly</field>
+    <field name="MODEL_NUMBER">5</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2100</field>
+    <field name="COATING_TYPES">pvc</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">1</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">50</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">fly_6</field>
+    <field name="NAME">Флай 6</field>
+    <field name="COLLECTION">Fly</field>
+    <field name="MODEL_NUMBER">6</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2100</field>
+    <field name="COATING_TYPES">pvc</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">1</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">60</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">fly_7</field>
+    <field name="NAME">Флай 7</field>
+    <field name="COLLECTION">Fly</field>
+    <field name="MODEL_NUMBER">7</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2100</field>
+    <field name="COATING_TYPES">pvc</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">1</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">70</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">fly_8</field>
+    <field name="NAME">Флай 8</field>
+    <field name="COLLECTION">Fly</field>
+    <field name="MODEL_NUMBER">8</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2100</field>
+    <field name="COATING_TYPES">pvc</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">1</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">80</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">fly_8_pg</field>
+    <field name="NAME">Флай 8 ПГ</field>
+    <field name="COLLECTION">Fly</field>
+    <field name="MODEL_NUMBER">8</field>
+    <field name="BLADE_TYPE">PG</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO"/>
+    <field name="MAX_HEIGHT">2100</field>
+    <field name="COATING_TYPES">pvc</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">1</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">81</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">form_1</field>
+    <field name="NAME">Форма 1</field>
+    <field name="COLLECTION">Form</field>
+    <field name="MODEL_NUMBER">1</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">10</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">form_2</field>
+    <field name="NAME">Форма 2</field>
+    <field name="COLLECTION">Form</field>
+    <field name="MODEL_NUMBER">2</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">20</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">form_3</field>
+    <field name="NAME">Форма 3</field>
+    <field name="COLLECTION">Form</field>
+    <field name="MODEL_NUMBER">3</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">30</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">form_4</field>
+    <field name="NAME">Форма 4</field>
+    <field name="COLLECTION">Form</field>
+    <field name="MODEL_NUMBER">4</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">40</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">form_5</field>
+    <field name="NAME">Форма 5</field>
+    <field name="COLLECTION">Form</field>
+    <field name="MODEL_NUMBER">5</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">50</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">kant_1</field>
+    <field name="NAME">Кант 1</field>
+    <field name="COLLECTION">Kant</field>
+    <field name="MODEL_NUMBER">1</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">10</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">kant_2</field>
+    <field name="NAME">Кант 2</field>
+    <field name="COLLECTION">Kant</field>
+    <field name="MODEL_NUMBER">2</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">20</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">kant_3</field>
+    <field name="NAME">Кант 3</field>
+    <field name="COLLECTION">Kant</field>
+    <field name="MODEL_NUMBER">3</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">30</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">kant_4</field>
+    <field name="NAME">Кант 4</field>
+    <field name="COLLECTION">Kant</field>
+    <field name="MODEL_NUMBER">4</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">40</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">kant_5</field>
+    <field name="NAME">Кант 5</field>
+    <field name="COLLECTION">Kant</field>
+    <field name="MODEL_NUMBER">5</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">50</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">kaskad_1</field>
+    <field name="NAME">Каскад 1</field>
+    <field name="COLLECTION">Kaskad</field>
+    <field name="MODEL_NUMBER">1</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">10</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">kaskad_2</field>
+    <field name="NAME">Каскад 2</field>
+    <field name="COLLECTION">Kaskad</field>
+    <field name="MODEL_NUMBER">2</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">20</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">kaskad_3</field>
+    <field name="NAME">Каскад 3</field>
+    <field name="COLLECTION">Kaskad</field>
+    <field name="MODEL_NUMBER">3</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">30</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">kaskad_4</field>
+    <field name="NAME">Каскад 4</field>
+    <field name="COLLECTION">Kaskad</field>
+    <field name="MODEL_NUMBER">4</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">40</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">kaskad_5</field>
+    <field name="NAME">Каскад 5</field>
+    <field name="COLLECTION">Kaskad</field>
+    <field name="MODEL_NUMBER">5</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">50</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">kvant_1</field>
+    <field name="NAME">Квант 1</field>
+    <field name="COLLECTION">Kvant</field>
+    <field name="MODEL_NUMBER">1</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">1</field>
+    <field name="SORT">10</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">kvant_2</field>
+    <field name="NAME">Квант 2</field>
+    <field name="COLLECTION">Kvant</field>
+    <field name="MODEL_NUMBER">2</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">1</field>
+    <field name="SORT">20</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">kvant_3</field>
+    <field name="NAME">Квант 3</field>
+    <field name="COLLECTION">Kvant</field>
+    <field name="MODEL_NUMBER">3</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">1</field>
+    <field name="SORT">30</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">kvant_4</field>
+    <field name="NAME">Квант 4</field>
+    <field name="COLLECTION">Kvant</field>
+    <field name="MODEL_NUMBER">4</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">1</field>
+    <field name="SORT">40</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">meta_1_pg</field>
+    <field name="NAME">Мета 1 ПГ</field>
+    <field name="COLLECTION">Meta</field>
+    <field name="MODEL_NUMBER">1</field>
+    <field name="BLADE_TYPE">PG</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO"/>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">10</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">meta_1</field>
+    <field name="NAME">Мета 1</field>
+    <field name="COLLECTION">Meta</field>
+    <field name="MODEL_NUMBER">1</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">11</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">meta_2</field>
+    <field name="NAME">Мета 2</field>
+    <field name="COLLECTION">Meta</field>
+    <field name="MODEL_NUMBER">2</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">20</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">meta_3</field>
+    <field name="NAME">Мета 3</field>
+    <field name="COLLECTION">Meta</field>
+    <field name="MODEL_NUMBER">3</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">30</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">meta_4</field>
+    <field name="NAME">Мета 4</field>
+    <field name="COLLECTION">Meta</field>
+    <field name="MODEL_NUMBER">4</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">40</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">meta_5</field>
+    <field name="NAME">Мета 5</field>
+    <field name="COLLECTION">Meta</field>
+    <field name="MODEL_NUMBER">5</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">50</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">miura_1</field>
+    <field name="NAME">Миура 1</field>
+    <field name="COLLECTION">Miura</field>
+    <field name="MODEL_NUMBER">1</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">10</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">miura_2</field>
+    <field name="NAME">Миура 2</field>
+    <field name="COLLECTION">Miura</field>
+    <field name="MODEL_NUMBER">2</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">20</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">miura_3</field>
+    <field name="NAME">Миура 3</field>
+    <field name="COLLECTION">Miura</field>
+    <field name="MODEL_NUMBER">3</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">30</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">miura_4</field>
+    <field name="NAME">Миура 4</field>
+    <field name="COLLECTION">Miura</field>
+    <field name="MODEL_NUMBER">4</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">40</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">miura_5</field>
+    <field name="NAME">Миура 5</field>
+    <field name="COLLECTION">Miura</field>
+    <field name="MODEL_NUMBER">5</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">50</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">modena_1</field>
+    <field name="NAME">Модена 1</field>
+    <field name="COLLECTION">Modena</field>
+    <field name="MODEL_NUMBER">1</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">10</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">modena_2</field>
+    <field name="NAME">Модена 2</field>
+    <field name="COLLECTION">Modena</field>
+    <field name="MODEL_NUMBER">2</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">20</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">modena_3</field>
+    <field name="NAME">Модена 3</field>
+    <field name="COLLECTION">Modena</field>
+    <field name="MODEL_NUMBER">3</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">30</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">modena_4</field>
+    <field name="NAME">Модена 4</field>
+    <field name="COLLECTION">Modena</field>
+    <field name="MODEL_NUMBER">4</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">40</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">modena_5</field>
+    <field name="NAME">Модена 5</field>
+    <field name="COLLECTION">Modena</field>
+    <field name="MODEL_NUMBER">5</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">50</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">mono_1</field>
+    <field name="NAME">Моно 1</field>
+    <field name="COLLECTION">Mono</field>
+    <field name="MODEL_NUMBER">1</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">1</field>
+    <field name="SORT">10</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">mono_2</field>
+    <field name="NAME">Моно 2</field>
+    <field name="COLLECTION">Mono</field>
+    <field name="MODEL_NUMBER">2</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">1</field>
+    <field name="SORT">20</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">mono_3</field>
+    <field name="NAME">Моно 3</field>
+    <field name="COLLECTION">Mono</field>
+    <field name="MODEL_NUMBER">3</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">1</field>
+    <field name="SORT">30</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">mono_4</field>
+    <field name="NAME">Моно 4</field>
+    <field name="COLLECTION">Mono</field>
+    <field name="MODEL_NUMBER">4</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">1</field>
+    <field name="SORT">40</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">mono_5</field>
+    <field name="NAME">Моно 5</field>
+    <field name="COLLECTION">Mono</field>
+    <field name="MODEL_NUMBER">5</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">1</field>
+    <field name="SORT">50</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">mono_6</field>
+    <field name="NAME">Моно 6</field>
+    <field name="COLLECTION">Mono</field>
+    <field name="MODEL_NUMBER">6</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">1</field>
+    <field name="SORT">60</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">mono_7</field>
+    <field name="NAME">Моно 7</field>
+    <field name="COLLECTION">Mono</field>
+    <field name="MODEL_NUMBER">7</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">1</field>
+    <field name="SORT">70</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">mono_8</field>
+    <field name="NAME">Моно 8</field>
+    <field name="COLLECTION">Mono</field>
+    <field name="MODEL_NUMBER">8</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">1</field>
+    <field name="SORT">80</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">mono_9</field>
+    <field name="NAME">Моно 9</field>
+    <field name="COLLECTION">Mono</field>
+    <field name="MODEL_NUMBER">9</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">1</field>
+    <field name="SORT">90</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">mono_10</field>
+    <field name="NAME">Моно 10</field>
+    <field name="COLLECTION">Mono</field>
+    <field name="MODEL_NUMBER">10</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">1</field>
+    <field name="SORT">100</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">mono_11</field>
+    <field name="NAME">Моно 11</field>
+    <field name="COLLECTION">Mono</field>
+    <field name="MODEL_NUMBER">11</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">1</field>
+    <field name="SORT">110</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">mono_12</field>
+    <field name="NAME">Моно 12</field>
+    <field name="COLLECTION">Mono</field>
+    <field name="MODEL_NUMBER">12</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">1</field>
+    <field name="SORT">120</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">neo_1</field>
+    <field name="NAME">Нео 1</field>
+    <field name="COLLECTION">Neo</field>
+    <field name="MODEL_NUMBER">1</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">10</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">neo_2</field>
+    <field name="NAME">Нео 2</field>
+    <field name="COLLECTION">Neo</field>
+    <field name="MODEL_NUMBER">2</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">20</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">neo_3</field>
+    <field name="NAME">Нео 3</field>
+    <field name="COLLECTION">Neo</field>
+    <field name="MODEL_NUMBER">3</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">30</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">neo_4</field>
+    <field name="NAME">Нео 4</field>
+    <field name="COLLECTION">Neo</field>
+    <field name="MODEL_NUMBER">4</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">40</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">neo_5</field>
+    <field name="NAME">Нео 5</field>
+    <field name="COLLECTION">Neo</field>
+    <field name="MODEL_NUMBER">5</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">50</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">neo_6</field>
+    <field name="NAME">Нео 6</field>
+    <field name="COLLECTION">Neo</field>
+    <field name="MODEL_NUMBER">6</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">60</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">oazis_1</field>
+    <field name="NAME">Оазис 1</field>
+    <field name="COLLECTION">Oazis</field>
+    <field name="MODEL_NUMBER">1</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">10</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">oazis_2</field>
+    <field name="NAME">Оазис 2</field>
+    <field name="COLLECTION">Oazis</field>
+    <field name="MODEL_NUMBER">2</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">20</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">oazis_3</field>
+    <field name="NAME">Оазис 3</field>
+    <field name="COLLECTION">Oazis</field>
+    <field name="MODEL_NUMBER">3</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">30</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">oazis_4</field>
+    <field name="NAME">Оазис 4</field>
+    <field name="COLLECTION">Oazis</field>
+    <field name="MODEL_NUMBER">4</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">40</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">oazis_5</field>
+    <field name="NAME">Оазис 5</field>
+    <field name="COLLECTION">Oazis</field>
+    <field name="MODEL_NUMBER">5</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">50</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">palladio_1</field>
+    <field name="NAME">Палладио 1</field>
+    <field name="COLLECTION">Palladio</field>
+    <field name="MODEL_NUMBER">1</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">10</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">palladio_2</field>
+    <field name="NAME">Палладио 2</field>
+    <field name="COLLECTION">Palladio</field>
+    <field name="MODEL_NUMBER">2</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">20</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">palladio_3</field>
+    <field name="NAME">Палладио 3</field>
+    <field name="COLLECTION">Palladio</field>
+    <field name="MODEL_NUMBER">3</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">30</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">palladio_4</field>
+    <field name="NAME">Палладио 4</field>
+    <field name="COLLECTION">Palladio</field>
+    <field name="MODEL_NUMBER">4</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">40</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">palladio_5</field>
+    <field name="NAME">Палладио 5</field>
+    <field name="COLLECTION">Palladio</field>
+    <field name="MODEL_NUMBER">5</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">50</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">palladio_6</field>
+    <field name="NAME">Палладио 6</field>
+    <field name="COLLECTION">Palladio</field>
+    <field name="MODEL_NUMBER">6</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">60</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">plisse</field>
+    <field name="NAME">Плиссе</field>
+    <field name="COLLECTION">Plisse</field>
+    <field name="MODEL_NUMBER">0</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">1</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">5</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">plisse_1</field>
+    <field name="NAME">Плиссе 1</field>
+    <field name="COLLECTION">Plisse</field>
+    <field name="MODEL_NUMBER">1</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">1</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">10</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">plisse_2</field>
+    <field name="NAME">Плиссе 2</field>
+    <field name="COLLECTION">Plisse</field>
+    <field name="MODEL_NUMBER">2</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">1</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">20</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">plisse_3</field>
+    <field name="NAME">Плиссе 3</field>
+    <field name="COLLECTION">Plisse</field>
+    <field name="MODEL_NUMBER">3</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">1</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">30</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">terra_1</field>
+    <field name="NAME">Терра 1</field>
+    <field name="COLLECTION">Terra</field>
+    <field name="MODEL_NUMBER">1</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">10</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">terra_2</field>
+    <field name="NAME">Терра 2</field>
+    <field name="COLLECTION">Terra</field>
+    <field name="MODEL_NUMBER">2</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">20</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">terra_3</field>
+    <field name="NAME">Терра 3</field>
+    <field name="COLLECTION">Terra</field>
+    <field name="MODEL_NUMBER">3</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">30</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">terra_4</field>
+    <field name="NAME">Терра 4</field>
+    <field name="COLLECTION">Terra</field>
+    <field name="MODEL_NUMBER">4</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">40</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">terra_5</field>
+    <field name="NAME">Терра 5</field>
+    <field name="COLLECTION">Terra</field>
+    <field name="MODEL_NUMBER">5</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">50</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">ultra_1</field>
+    <field name="NAME">Ультра 1</field>
+    <field name="COLLECTION">Ultra</field>
+    <field name="MODEL_NUMBER">1</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">10</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">ultra_2</field>
+    <field name="NAME">Ультра 2</field>
+    <field name="COLLECTION">Ultra</field>
+    <field name="MODEL_NUMBER">2</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">20</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">ultra_3</field>
+    <field name="NAME">Ультра 3</field>
+    <field name="COLLECTION">Ultra</field>
+    <field name="MODEL_NUMBER">3</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">30</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">ultra_4</field>
+    <field name="NAME">Ультра 4</field>
+    <field name="COLLECTION">Ultra</field>
+    <field name="MODEL_NUMBER">4</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">40</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">ultra_5_pg</field>
+    <field name="NAME">Ультра 5 ПГ</field>
+    <field name="COLLECTION">Ultra</field>
+    <field name="MODEL_NUMBER">5</field>
+    <field name="BLADE_TYPE">PG</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO"/>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">50</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">ultra_5</field>
+    <field name="NAME">Ультра 5</field>
+    <field name="COLLECTION">Ultra</field>
+    <field name="MODEL_NUMBER">5</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">1</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">51</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">vektor_1</field>
+    <field name="NAME">Вектор 1</field>
+    <field name="COLLECTION">Vektor</field>
+    <field name="MODEL_NUMBER">1</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">10</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">vektor_2</field>
+    <field name="NAME">Вектор 2</field>
+    <field name="COLLECTION">Vektor</field>
+    <field name="MODEL_NUMBER">2</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">20</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">vektor_3</field>
+    <field name="NAME">Вектор 3</field>
+    <field name="COLLECTION">Vektor</field>
+    <field name="MODEL_NUMBER">3</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">30</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">vektor_4</field>
+    <field name="NAME">Вектор 4</field>
+    <field name="COLLECTION">Vektor</field>
+    <field name="MODEL_NUMBER">4</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">40</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">vektor_5</field>
+    <field name="NAME">Вектор 5</field>
+    <field name="COLLECTION">Vektor</field>
+    <field name="MODEL_NUMBER">5</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">50</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">vektor_6</field>
+    <field name="NAME">Вектор 6</field>
+    <field name="COLLECTION">Vektor</field>
+    <field name="MODEL_NUMBER">6</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">60</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">vektor_7</field>
+    <field name="NAME">Вектор 7</field>
+    <field name="COLLECTION">Vektor</field>
+    <field name="MODEL_NUMBER">7</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">70</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">vektor_8</field>
+    <field name="NAME">Вектор 8</field>
+    <field name="COLLECTION">Vektor</field>
+    <field name="MODEL_NUMBER">8</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">80</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">vektor_9</field>
+    <field name="NAME">Вектор 9</field>
+    <field name="COLLECTION">Vektor</field>
+    <field name="MODEL_NUMBER">9</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">90</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">vektor_10</field>
+    <field name="NAME">Вектор 10</field>
+    <field name="COLLECTION">Vektor</field>
+    <field name="MODEL_NUMBER">10</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">100</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">vektor_11</field>
+    <field name="NAME">Вектор 11</field>
+    <field name="COLLECTION">Vektor</field>
+    <field name="MODEL_NUMBER">11</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">110</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">verto_1</field>
+    <field name="NAME">Верто 1</field>
+    <field name="COLLECTION">Verto</field>
+    <field name="MODEL_NUMBER">1</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">10</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">verto_2</field>
+    <field name="NAME">Верто 2</field>
+    <field name="COLLECTION">Verto</field>
+    <field name="MODEL_NUMBER">2</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">20</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">verto_3</field>
+    <field name="NAME">Верто 3</field>
+    <field name="COLLECTION">Verto</field>
+    <field name="MODEL_NUMBER">3</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">30</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">verto_4</field>
+    <field name="NAME">Верто 4</field>
+    <field name="COLLECTION">Verto</field>
+    <field name="MODEL_NUMBER">4</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">40</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">verto_5</field>
+    <field name="NAME">Верто 5</field>
+    <field name="COLLECTION">Verto</field>
+    <field name="MODEL_NUMBER">5</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">50</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">verto_6</field>
+    <field name="NAME">Верто 6</field>
+    <field name="COLLECTION">Verto</field>
+    <field name="MODEL_NUMBER">6</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">60</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">verto_7</field>
+    <field name="NAME">Верто 7</field>
+    <field name="COLLECTION">Verto</field>
+    <field name="MODEL_NUMBER">7</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">70</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">verto_8</field>
+    <field name="NAME">Верто 8</field>
+    <field name="COLLECTION">Verto</field>
+    <field name="MODEL_NUMBER">8</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">80</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">verto_9</field>
+    <field name="NAME">Верто 9</field>
+    <field name="COLLECTION">Verto</field>
+    <field name="MODEL_NUMBER">9</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">90</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">verto_10</field>
+    <field name="NAME">Верто 10</field>
+    <field name="COLLECTION">Verto</field>
+    <field name="MODEL_NUMBER">10</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">100</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">vitra_1</field>
+    <field name="NAME">Витра 1</field>
+    <field name="COLLECTION">Vitra</field>
+    <field name="MODEL_NUMBER">1</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">10</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">vitra_2</field>
+    <field name="NAME">Витра 2</field>
+    <field name="COLLECTION">Vitra</field>
+    <field name="MODEL_NUMBER">2</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">20</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">vitra_3</field>
+    <field name="NAME">Витра 3</field>
+    <field name="COLLECTION">Vitra</field>
+    <field name="MODEL_NUMBER">3</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">30</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">vitra_4</field>
+    <field name="NAME">Витра 4</field>
+    <field name="COLLECTION">Vitra</field>
+    <field name="MODEL_NUMBER">4</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">40</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">vitra_5</field>
+    <field name="NAME">Витра 5</field>
+    <field name="COLLECTION">Vitra</field>
+    <field name="MODEL_NUMBER">5</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">50</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">vitra_6</field>
+    <field name="NAME">Витра 6</field>
+    <field name="COLLECTION">Vitra</field>
+    <field name="MODEL_NUMBER">6</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">60</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">vitra_7</field>
+    <field name="NAME">Витра 7</field>
+    <field name="COLLECTION">Vitra</field>
+    <field name="MODEL_NUMBER">7</field>
+    <field name="BLADE_TYPE">BOTH</field>
+    <field name="BASE_PRICE_PG">52000</field>
+    <field name="BASE_PRICE_PO">66200</field>
+    <field name="MAX_HEIGHT">2750</field>
+    <field name="COATING_TYPES">pvc,pet,enamel</field>
+    <field name="HAS_ENGRAVING">0</field>
+    <field name="ALU_EDGE_BLOCKED">0</field>
+    <field name="MOLDING_SUPPORT">0</field>
+    <field name="SORT">70</field>
+    <field name="ACTIVE">1</field>
+  </item>
+</data>

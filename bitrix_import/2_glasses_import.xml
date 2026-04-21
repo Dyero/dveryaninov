@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <item>
+    <field name="UF_XML_ID">satinato_beloe</field>
+    <field name="UF_NAME">Сатинато белое</field>
+    <field name="UF_PRICE">0</field>
+    <field name="UF_CATEGORY">common</field>
+    <field name="UF_SORT">10</field>
+    <field name="UF_ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="UF_XML_ID">satinato_bronza</field>
+    <field name="UF_NAME">Сатинато бронза</field>
+    <field name="UF_PRICE">0</field>
+    <field name="UF_CATEGORY">common</field>
+    <field name="UF_SORT">20</field>
+    <field name="UF_ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="UF_XML_ID">satinato_grafit</field>
+    <field name="UF_NAME">Сатинато графит</field>
+    <field name="UF_PRICE">0</field>
+    <field name="UF_CATEGORY">common</field>
+    <field name="UF_SORT">30</field>
+    <field name="UF_ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="UF_XML_ID">reflektiv_serebro</field>
+    <field name="UF_NAME">Рефлектив серебро</field>
+    <field name="UF_PRICE">0</field>
+    <field name="UF_CATEGORY">common</field>
+    <field name="UF_SORT">40</field>
+    <field name="UF_ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="UF_XML_ID">bronza</field>
+    <field name="UF_NAME">Бронза</field>
+    <field name="UF_PRICE">0</field>
+    <field name="UF_CATEGORY">common</field>
+    <field name="UF_SORT">50</field>
+    <field name="UF_ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="UF_XML_ID">grey</field>
+    <field name="UF_NAME">Грей</field>
+    <field name="UF_PRICE">0</field>
+    <field name="UF_CATEGORY">common</field>
+    <field name="UF_SORT">60</field>
+    <field name="UF_ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="UF_XML_ID">fluts_prozrachnyy</field>
+    <field name="UF_NAME">Флутс прозрачный</field>
+    <field name="UF_PRICE">12400</field>
+    <field name="UF_CATEGORY">common</field>
+    <field name="UF_SORT">70</field>
+    <field name="UF_ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="UF_XML_ID">fluts_grafit</field>
+    <field name="UF_NAME">Флутс графит</field>
+    <field name="UF_PRICE">12400</field>
+    <field name="UF_CATEGORY">common</field>
+    <field name="UF_SORT">80</field>
+    <field name="UF_ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="UF_XML_ID">mramor_belyy</field>
+    <field name="UF_NAME">Мрамор белый</field>
+    <field name="UF_PRICE">0</field>
+    <field name="UF_CATEGORY">marble</field>
+    <field name="UF_SORT">90</field>
+    <field name="UF_ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="UF_XML_ID">mramor_chernyy</field>
+    <field name="UF_NAME">Мрамор чёрный</field>
+    <field name="UF_PRICE">0</field>
+    <field name="UF_CATEGORY">marble</field>
+    <field name="UF_SORT">100</field>
+    <field name="UF_ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="UF_XML_ID">mramor_bezhevyy</field>
+    <field name="UF_NAME">Мрамор бежевый</field>
+    <field name="UF_PRICE">0</field>
+    <field name="UF_CATEGORY">marble</field>
+    <field name="UF_SORT">110</field>
+    <field name="UF_ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="UF_XML_ID">chernyy_tripleks_d4_d22</field>
+    <field name="UF_NAME">Черный триплекс</field>
+    <field name="UF_PRICE">2790</field>
+    <field name="UF_CATEGORY">d_extra_4_22</field>
+    <field name="UF_SORT">120</field>
+    <field name="UF_ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="UF_XML_ID">belyy_tripleks_d4_d22</field>
+    <field name="UF_NAME">Белый триплекс</field>
+    <field name="UF_PRICE">2790</field>
+    <field name="UF_CATEGORY">d_extra_4_22</field>
+    <field name="UF_SORT">130</field>
+    <field name="UF_ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="UF_XML_ID">chernyy_tripleks_d36_d50</field>
+    <field name="UF_NAME">Черный триплекс</field>
+    <field name="UF_PRICE">1550</field>
+    <field name="UF_CATEGORY">d_extra_36_50</field>
+    <field name="UF_SORT">140</field>
+    <field name="UF_ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="UF_XML_ID">belyy_tripleks_d36_d50</field>
+    <field name="UF_NAME">Белый триплекс</field>
+    <field name="UF_PRICE">1550</field>
+    <field name="UF_CATEGORY">d_extra_36_50</field>
+    <field name="UF_SORT">150</field>
+    <field name="UF_ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="UF_XML_ID">reflekt_s_facetom</field>
+    <field name="UF_NAME">Рефлект с фацетом</field>
+    <field name="UF_PRICE">4650</field>
+    <field name="UF_CATEGORY">ameri_extra</field>
+    <field name="UF_SORT">160</field>
+    <field name="UF_ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="UF_XML_ID">satinato_beloe_s_facetom</field>
+    <field name="UF_NAME">Сатинато белое с фацетом</field>
+    <field name="UF_PRICE">4650</field>
+    <field name="UF_CATEGORY">ameri_extra</field>
+    <field name="UF_SORT">170</field>
+    <field name="UF_ACTIVE">1</field>
+  </item>
+</data>
