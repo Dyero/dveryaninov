@@ -4,12 +4,10 @@
 
 ### CSV-файлы для импорта:
 
-1. **1_coatings_import.csv** - 98 покрытий
+1. **1_coatings_import.csv** - 96 покрытий
    - 8 ПЭТ
    - 81 ПВХ
    - 7 Эмаль
-   - 1 custom
-   - 1 лёд
 
 2. **2_glasses_import.csv** - 17 стёкол
    - 8 common (общие)

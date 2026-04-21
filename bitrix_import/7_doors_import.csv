@@ -1,200 +1,200 @@
-XML_ID;NAME;COLLECTION;MODEL_NUMBER;BLADE_TYPE;BASE_PRICE_PG;BASE_PRICE_PO;MAX_HEIGHT;COATING_TYPES;HAS_ENGRAVING;ALU_EDGE_BLOCKED;MOLDING_SUPPORT;IMAGE_PATH;SORT;ACTIVE
-alberta_1_pg;Альберта 1 ПГ;Alberta;1;PG;52000;;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Alberta/Alberta 1.png;10;1
-alberta_1;Альберта 1;Alberta;1;PO;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Alberta/Alberta 1 ПО.png;20;1
-alberta_2;Альберта 2;Alberta;2;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Alberta/Alberta 2.png;30;1
-alberta_3;Альберта 3;Alberta;3;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Alberta/Alberta 3.png;40;1
-alberta_4;Альберта 4;Alberta;4;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Alberta/Alberta 4.png;50;1
-alberta_5;Альберта 5;Alberta;5;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Alberta/Alberta 5.png;60;1
-alberta_6;Альберта 6;Alberta;6;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Alberta/Alberta 6.png;70;1
-alberta_7;Альберта 7;Alberta;7;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Alberta/Alberta 7.png;80;1
-ameri_1;Амери 1;Ameri;1;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Ameri/Ameri 1.png;10;1
-ameri_2;Амери 2;Ameri;2;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Ameri/Ameri 2.png;20;1
-ameri_3;Амери 3;Ameri;3;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Ameri/Ameri 3.png;30;1
-ameri_4;Амери 4;Ameri;4;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Ameri/Ameri 4.png;40;1
-ameri_5;Амери 5;Ameri;5;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Ameri/Ameri 5.png;50;1
-ameri_6;Амери 6;Ameri;6;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Ameri/Ameri 6.png;60;1
-ameri_7;Амери 7;Ameri;7;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Ameri/Ameri 7.png;70;1
-ameri_8;Амери 8;Ameri;8;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Ameri/Ameri 8.png;80;1
-ameri_9;Амери 9;Ameri;9;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Ameri/Ameri 9.png;90;1
-ameri_10;Амери 10;Ameri;10;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Ameri/Ameri 10.png;100;1
-amfora_1;Амфора 1;Amfora;1;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;1;images/Коллекции/Amfora/Amfora 1.png;10;1
-amfora_2;Амфора 2;Amfora;2;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;1;images/Коллекции/Amfora/Amfora 2.png;20;1
-amfora_3;Амфора 3;Amfora;3;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;1;images/Коллекции/Amfora/Amfora 3.png;30;1
-amfora_4;Амфора 4;Amfora;4;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;1;images/Коллекции/Amfora/Amfora 4.png;40;1
-amfora_5;Амфора 5;Amfora;5;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;1;images/Коллекции/Amfora/Amfora 5.png;50;1
-amfora_6;Амфора 6;Amfora;6;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;1;images/Коллекции/Amfora/Amfora 6.png;60;1
-amfora_7;Амфора 7;Amfora;7;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;1;images/Коллекции/Amfora/Amfora 7.png;70;1
-amfora_8;Амфора 8;Amfora;8;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;1;images/Коллекции/Amfora/Amfora 8.png;80;1
-amfora_9;Амфора 9;Amfora;9;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;1;images/Коллекции/Amfora/Amfora 9.png;90;1
-avrora_1;Аврора 1;Avrora;1;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Avrora/Avrora 1.png;10;1
-avrora_2;Аврора 2;Avrora;2;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Avrora/Avrora 2.png;20;1
-avrora_3;Аврора 3;Avrora;3;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Avrora/Avrora 3.png;30;1
-avrora_4;Аврора 4;Avrora;4;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Avrora/Avrora 4.png;40;1
-avrora_5;Аврора 5;Avrora;5;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Avrora/Avrora 5.png;50;1
-beluni_1;Белуни 1;Beluni;1;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Beluni/Beluni 1.png;10;1
-beluni_2;Белуни 2;Beluni;2;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Beluni/Beluni 2.png;20;1
-beluni_3;Белуни 3;Beluni;3;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Beluni/Beluni 3.png;30;1
-beluni_4;Белуни 4;Beluni;4;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Beluni/Beluni 4.png;40;1
-beluni_5;Белуни 5;Beluni;5;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Beluni/Beluni 5.png;50;1
-beluni_6;Белуни 6;Beluni;6;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Beluni/Beluni 6.png;60;1
-beluni_7;Белуни 7;Beluni;7;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Beluni/Beluni 7.png;70;1
-beluni_8;Белуни 8;Beluni;8;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Beluni/Beluni 8.png;80;1
-blank_1;Бланк 1;Blank;1;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Blank/Blank 1.png;10;1
-blank_2;Бланк 2;Blank;2;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Blank/Blank 2.png;20;1
-blank_3;Бланк 3;Blank;3;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Blank/Blank 3.png;30;1
-blank_4;Бланк 4;Blank;4;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Blank/Blank 4.png;40;1
-blank_5;Бланк 5;Blank;5;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Blank/Blank 5.png;50;1
-bona_1;Бона 1;Bona;1;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Bona/Bona 1.png;10;1
-bona_2;Бона 2;Bona;2;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Bona/Bona 2.png;20;1
-bona_3;Бона 3;Bona;3;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Bona/Bona 3.png;30;1
-bona_4;Бона 4;Bona;4;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Bona/Bona 4.png;40;1
-bona_5;Бона 5;Bona;5;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Bona/Bona 5.png;50;1
-bona_6;Бона 6;Bona;6;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Bona/Bona 6.png;60;1
-boneko_1;Бонеко 1;Boneko;1;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Boneko/Boneko 1.png;10;1
-boneko_2;Бонеко 2;Boneko;2;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Boneko/Boneko 2.png;20;1
-boneko_3;Бонеко 3;Boneko;3;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Boneko/Boneko 3.png;30;1
-boneko_4;Бонеко 4;Boneko;4;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Boneko/Boneko 4.png;40;1
-boneko_5;Бонеко 5;Boneko;5;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Boneko/Boneko 5.png;50;1
-boneko_6;Бонеко 6;Boneko;6;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Boneko/Boneko 6.png;60;1
-d_4;Д4;D;4;PG;52000;;2750;pvc;0;1;0;images/Коллекции/D/D4.png;40;1
-d_14;Д14;D;14;PG;52000;;2750;pvc;0;1;0;images/Коллекции/D/D14.png;140;1
-d_16;Д16;D;16;PG;52000;;2750;pvc;0;1;0;images/Коллекции/D/D16.png;160;1
-d_17;Д17;D;17;PG;52000;;2750;pvc;0;1;0;images/Коллекции/D/D17.png;170;1
-d_22;Д22;D;22;PG;52000;;2750;pvc;0;1;0;images/Коллекции/D/D22.png;220;1
-d_36;Д36;D;36;PG;52000;;2750;pvc;0;1;0;images/Коллекции/D/D36.png;360;1
-d_43;Д43;D;43;PG;52000;;2750;pvc;0;1;0;images/Коллекции/D/D43.png;430;1
-d_44;Д44;D;44;PG;52000;;2750;pvc;0;1;0;images/Коллекции/D/D44.png;440;1
-d_48;Д48;D;48;PG;52000;;2750;pvc;0;1;0;images/Коллекции/D/D48.png;480;1
-d_49;Д49;D;49;PG;52000;;2750;pvc;0;1;0;images/Коллекции/D/D49.png;490;1
-d_50;Д50;D;50;PG;52000;;2750;pvc;0;1;0;images/Коллекции/D/D50.png;500;1
-dekar_1;Декар 1;Dekar;1;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Dekar/Dekar 1.png;10;1
-dekar_2;Декар 2;Dekar;2;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Dekar/Dekar 2.png;20;1
-dekar_3;Декар 3;Dekar;3;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Dekar/Dekar 3.png;30;1
-dekar_4;Декар 4;Dekar;4;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Dekar/Dekar 4.png;40;1
-dekar_5;Декар 5;Dekar;5;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Dekar/Dekar 5.png;50;1
-dekar_s_bagetom_1;Декар с багетом 1;DekarSBagetom;1;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Dekar s bagetom/Dekar s bagetom 1.png;10;1
-dekar_s_bagetom_2;Декар с багетом 2;DekarSBagetom;2;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Dekar s bagetom/Dekar s bagetom 2.png;20;1
-dekar_s_bagetom_3;Декар с багетом 3;DekarSBagetom;3;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Dekar s bagetom/Dekar s bagetom 3.png;30;1
-dekar_s_bagetom_4;Декар с багетом 4;DekarSBagetom;4;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Dekar s bagetom/Dekar s bagetom 4.png;40;1
-dekar_s_bagetom_5;Декар с багетом 5;DekarSBagetom;5;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Dekar s bagetom/Dekar s bagetom 5.png;50;1
-eterna_1;Этерна 1;Eterna;1;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Eterna/Eterna 1.png;10;1
-eterna_2;Этерна 2;Eterna;2;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Eterna/Eterna 2.png;20;1
-eterna_3;Этерна 3;Eterna;3;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Eterna/Eterna 3.png;30;1
-eterna_4;Этерна 4;Eterna;4;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Eterna/Eterna 4.png;40;1
-eterna_5;Этерна 5;Eterna;5;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Eterna/Eterna 5.png;50;1
-fly_1;Флай 1;Fly;1;BOTH;52000;66200;2100;pvc;0;1;0;images/Коллекции/Флай/ФЛАЙ 1 1.png;10;1
-fly_2;Флай 2;Fly;2;BOTH;52000;66200;2100;pvc;0;1;0;images/Коллекции/Флай/ФЛАЙ 2 1.png;20;1
-fly_3;Флай 3;Fly;3;BOTH;52000;66200;2100;pvc;0;1;0;images/Коллекции/Флай/ФЛАЙ 3 1.png;30;1
-fly_4;Флай 4;Fly;4;BOTH;52000;66200;2100;pvc;0;1;0;images/Коллекции/Флай/ФЛАЙ 4 1.png;40;1
-fly_5;Флай 5;Fly;5;BOTH;52000;66200;2100;pvc;0;1;0;images/Коллекции/Флай/ФЛАЙ 5 1.png;50;1
-fly_6;Флай 6;Fly;6;BOTH;52000;66200;2100;pvc;0;1;0;images/Коллекции/Флай/ФЛАЙ 6 1.png;60;1
-fly_7;Флай 7;Fly;7;BOTH;52000;66200;2100;pvc;0;1;0;images/Коллекции/Флай/ФЛАЙ 7 1.png;70;1
-fly_8;Флай 8;Fly;8;BOTH;52000;66200;2100;pvc;0;1;0;images/Коллекции/Флай/ФЛАЙ 8 1.png;80;1
-fly_8_pg;Флай 8 ПГ;Fly;8;PG;52000;;2100;pvc;0;1;0;images/Коллекции/Флай/ФЛАЙ 8 ПГ 1.png;81;1
-form_1;Форма 1;Form;1;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Form/Form 1.png;10;1
-form_2;Форма 2;Form;2;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Form/Form 2.png;20;1
-form_3;Форма 3;Form;3;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Form/Form 3.png;30;1
-form_4;Форма 4;Form;4;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Form/Form 4.png;40;1
-form_5;Форма 5;Form;5;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Form/Form 5.png;50;1
-kant_1;Кант 1;Kant;1;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Kant/Kant 1.png;10;1
-kant_2;Кант 2;Kant;2;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Kant/Kant 2.png;20;1
-kant_3;Кант 3;Kant;3;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Kant/Kant 3.png;30;1
-kant_4;Кант 4;Kant;4;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Kant/Kant 4.png;40;1
-kant_5;Кант 5;Kant;5;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Kant/Kant 5.png;50;1
-kaskad_1;Каскад 1;Kaskad;1;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Kaskad/Kaskad 1.png;10;1
-kaskad_2;Каскад 2;Kaskad;2;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Kaskad/Kaskad 2.png;20;1
-kaskad_3;Каскад 3;Kaskad;3;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Kaskad/Kaskad 3.png;30;1
-kaskad_4;Каскад 4;Kaskad;4;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Kaskad/Kaskad 4.png;40;1
-kaskad_5;Каскад 5;Kaskad;5;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Kaskad/Kaskad 5.png;50;1
-kvant_1;Квант 1;Kvant;1;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;1;images/Коллекции/Kvant/Kvant 1.png;10;1
-kvant_2;Квант 2;Kvant;2;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;1;images/Коллекции/Kvant/Kvant 2.png;20;1
-kvant_3;Квант 3;Kvant;3;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;1;images/Коллекции/Kvant/Kvant 3.png;30;1
-kvant_4;Квант 4;Kvant;4;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;1;images/Коллекции/Kvant/Kvant 4.png;40;1
-meta_1_pg;Мета 1 ПГ;Meta;1;PG;52000;;2750;pvc,pet;0;0;0;images/Коллекции/Meta/Meta 1 ПГ.png;10;1
-meta_1;Мета 1;Meta;1;BOTH;52000;66200;2750;pvc,pet;0;0;0;images/Коллекции/Meta/Meta 1.png;11;1
-meta_2;Мета 2;Meta;2;BOTH;52000;66200;2750;pvc,pet;0;0;0;images/Коллекции/Meta/Meta 2.png;20;1
-meta_3;Мета 3;Meta;3;BOTH;52000;66200;2750;pvc,pet;0;0;0;images/Коллекции/Meta/Meta 3.png;30;1
-meta_4;Мета 4;Meta;4;BOTH;52000;66200;2750;pvc,pet;0;0;0;images/Коллекции/Meta/Meta 4.png;40;1
-meta_5;Мета 5;Meta;5;BOTH;52000;66200;2750;pvc,pet;0;0;0;images/Коллекции/Meta/Meta 5.png;50;1
-miura_1;Миура 1;Miura;1;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Miura/Miura 1.png;10;1
-miura_2;Миура 2;Miura;2;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Miura/Miura 2.png;20;1
-miura_3;Миура 3;Miura;3;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Miura/Miura 3.png;30;1
-miura_4;Миура 4;Miura;4;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Miura/Miura 4.png;40;1
-miura_5;Миура 5;Miura;5;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Miura/Miura 5.png;50;1
-modena_1;Модена 1;Modena;1;BOTH;52000;66200;2750;pvc,pet;0;0;0;images/Коллекции/Modena/Modena 1.png;10;1
-modena_2;Модена 2;Modena;2;BOTH;52000;66200;2750;pvc,pet;0;0;0;images/Коллекции/Modena/Modena 2.png;20;1
-modena_3;Модена 3;Modena;3;BOTH;52000;66200;2750;pvc,pet;0;0;0;images/Коллекции/Modena/Modena 3.png;30;1
-modena_4;Модена 4;Modena;4;BOTH;52000;66200;2750;pvc,pet;0;0;0;images/Коллекции/Modena/Modena 4.png;40;1
-modena_5;Модена 5;Modena;5;BOTH;52000;66200;2750;pvc,pet;0;0;0;images/Коллекции/Modena/Modena 5.png;50;1
-mono_1;Моно 1;Mono;1;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;1;images/Коллекции/Mono/Mono 1.png;10;1
-mono_2;Моно 2;Mono;2;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;1;images/Коллекции/Mono/Mono 2.png;20;1
-mono_3;Моно 3;Mono;3;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;1;images/Коллекции/Mono/Mono 3.png;30;1
-mono_4;Моно 4;Mono;4;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;1;images/Коллекции/Mono/Mono 4.png;40;1
-mono_5;Моно 5;Mono;5;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;1;images/Коллекции/Mono/Mono 5.png;50;1
-mono_6;Моно 6;Mono;6;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;1;images/Коллекции/Mono/Mono 6.png;60;1
-mono_7;Моно 7;Mono;7;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;1;images/Коллекции/Mono/Mono 7.png;70;1
-mono_8;Моно 8;Mono;8;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;1;images/Коллекции/Mono/Mono 8.png;80;1
-mono_9;Моно 9;Mono;9;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;1;images/Коллекции/Mono/Mono 9.png;90;1
-mono_10;Моно 10;Mono;10;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;1;images/Коллекции/Mono/Mono 10.png;100;1
-mono_11;Моно 11;Mono;11;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;1;images/Коллекции/Mono/Mono 11.png;110;1
-mono_12;Моно 12;Mono;12;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;1;images/Коллекции/Mono/Mono 12.png;120;1
-neo_1;Нео 1;Neo;1;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Neo/Neo 1.png;10;1
-neo_2;Нео 2;Neo;2;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Neo/Neo 2.png;20;1
-neo_3;Нео 3;Neo;3;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Neo/Neo 3.png;30;1
-neo_4;Нео 4;Neo;4;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Neo/Neo 4.png;40;1
-neo_5;Нео 5;Neo;5;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Neo/Neo 5.png;50;1
-neo_6;Нео 6;Neo;6;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Neo/Neo 6.png;60;1
-oazis_1;Оазис 1;Oazis;1;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Oazis/Oazis 1.png;10;1
-oazis_2;Оазис 2;Oazis;2;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Oazis/Oazis 2.png;20;1
-oazis_3;Оазис 3;Oazis;3;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Oazis/Oazis 3.png;30;1
-oazis_4;Оазис 4;Oazis;4;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Oazis/Oazis 4.png;40;1
-oazis_5;Оазис 5;Oazis;5;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Oazis/Oazis 5.png;50;1
-palladio_1;Палладио 1;Palladio;1;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Palladio/Palladio 1.png;10;1
-palladio_2;Палладио 2;Palladio;2;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Palladio/Palladio 2.png;20;1
-palladio_3;Палладио 3;Palladio;3;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Palladio/Palladio 3.png;30;1
-palladio_4;Палладио 4;Palladio;4;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Palladio/Palladio 4.png;40;1
-palladio_5;Палладио 5;Palladio;5;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Palladio/Palladio 5.png;50;1
-palladio_6;Палладио 6;Palladio;6;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Palladio/Palladio 6.png;60;1
-plisse;Плиссе;Plisse;0;BOTH;52000;66200;2750;pvc;0;1;0;images/Коллекции/Plisse/Plisse.png;5;1
-plisse_1;Плиссе 1;Plisse;1;BOTH;52000;66200;2750;pvc;0;1;0;images/Коллекции/Plisse/Plisse 1.png;10;1
-plisse_2;Плиссе 2;Plisse;2;BOTH;52000;66200;2750;pvc;0;1;0;images/Коллекции/Plisse/Plisse 2.png;20;1
-plisse_3;Плиссе 3;Plisse;3;BOTH;52000;66200;2750;pvc;0;1;0;images/Коллекции/Plisse/Plisse 3.png;30;1
-terra_1;Терра 1;Terra;1;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Terra/Terra 1.png;10;1
-terra_2;Терра 2;Terra;2;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Terra/Terra 2.png;20;1
-terra_3;Терра 3;Terra;3;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Terra/Terra 3.png;30;1
-terra_4;Терра 4;Terra;4;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Terra/Terra 4.png;40;1
-terra_5;Терра 5;Terra;5;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Terra/Terra 5.png;50;1
-ultra_1;Ультра 1;Ultra;1;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Ultra/Ultra 1.png;10;1
-ultra_2;Ультра 2;Ultra;2;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Ultra/Ultra 2.png;20;1
-ultra_3;Ультра 3;Ultra;3;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Ultra/Ultra 3.png;30;1
-ultra_4;Ультра 4;Ultra;4;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Ultra/Ultra 4.png;40;1
-ultra_5_pg;Ультра 5 ПГ;Ultra;5;PG;52000;;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Ultra/Ultra 5 ПГ.png;50;1
-ultra_5;Ультра 5;Ultra;5;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;images/Коллекции/Ultra/Ultra 5.png;51;1
-vektor_1;Вектор 1;Vektor;1;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Vektor/Vektor 1.png;10;1
-vektor_2;Вектор 2;Vektor;2;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Vektor/Vektor 2.png;20;1
-vektor_3;Вектор 3;Vektor;3;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Vektor/Vektor 3.png;30;1
-vektor_4;Вектор 4;Vektor;4;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Vektor/Vektor 4.png;40;1
-vektor_5;Вектор 5;Vektor;5;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Vektor/Vektor 5.png;50;1
-vektor_6;Вектор 6;Vektor;6;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Vektor/Vektor 6.png;60;1
-vektor_7;Вектор 7;Vektor;7;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Vektor/Vektor 7.png;70;1
-vektor_8;Вектор 8;Vektor;8;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Vektor/Vektor 8.png;80;1
-vektor_9;Вектор 9;Vektor;9;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Vektor/Vektor 9.png;90;1
-vektor_10;Вектор 10;Vektor;10;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Vektor/Vektor 10.png;100;1
-vektor_11;Вектор 11;Vektor;11;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Vektor/Vektor 11.png;110;1
-verto_1;Верто 1;Verto;1;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Verto/Verto 1.png;10;1
-verto_2;Верто 2;Verto;2;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Verto/Verto 2.png;20;1
-verto_3;Верто 3;Verto;3;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Verto/Verto 3.png;30;1
-verto_4;Верто 4;Verto;4;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Verto/Verto 4.png;40;1
-verto_5;Верто 5;Verto;5;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Verto/Verto 5.png;50;1
-verto_6;Верто 6;Verto;6;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Verto/Verto 6.png;60;1
-verto_7;Верто 7;Verto;7;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Verto/Verto 7.png;70;1
-verto_8;Верто 8;Verto;8;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Verto/Verto 8.png;80;1
-verto_9;Верто 9;Verto;9;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Verto/Verto 9.png;90;1
-verto_10;Верто 10;Verto;10;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Verto/Verto 10.png;100;1
-vitra_1;Витра 1;Vitra;1;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Vitra/Vitra 1.png;10;1
-vitra_2;Витра 2;Vitra;2;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Vitra/Vitra 2.png;20;1
-vitra_3;Витра 3;Vitra;3;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Vitra/Vitra 3.png;30;1
-vitra_4;Витра 4;Vitra;4;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Vitra/Vitra 4.png;40;1
-vitra_5;Витра 5;Vitra;5;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Vitra/Vitra 5.png;50;1
-vitra_6;Витра 6;Vitra;6;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Vitra/Vitra 6.png;60;1
-vitra_7;Витра 7;Vitra;7;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;images/Коллекции/Vitra/Vitra 7.png;70;1
+XML_ID;NAME;COLLECTION;MODEL_NUMBER;BLADE_TYPE;BASE_PRICE_PG;BASE_PRICE_PO;MAX_HEIGHT;COATING_TYPES;HAS_ENGRAVING;ALU_EDGE_BLOCKED;MOLDING_SUPPORT;SORT;ACTIVE
+alberta_1_pg;Альберта 1 ПГ;Alberta;1;PG;52000;;2750;pvc,pet,enamel;0;0;0;10;1
+alberta_1;Альберта 1;Alberta;1;PO;52000;66200;2750;pvc,pet,enamel;0;0;0;20;1
+alberta_2;Альберта 2;Alberta;2;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;30;1
+alberta_3;Альберта 3;Alberta;3;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;40;1
+alberta_4;Альберта 4;Alberta;4;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;50;1
+alberta_5;Альберта 5;Alberta;5;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;60;1
+alberta_6;Альберта 6;Alberta;6;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;70;1
+alberta_7;Альберта 7;Alberta;7;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;80;1
+ameri_1;Амери 1;Ameri;1;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;10;1
+ameri_2;Амери 2;Ameri;2;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;20;1
+ameri_3;Амери 3;Ameri;3;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;30;1
+ameri_4;Амери 4;Ameri;4;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;40;1
+ameri_5;Амери 5;Ameri;5;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;50;1
+ameri_6;Амери 6;Ameri;6;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;60;1
+ameri_7;Амери 7;Ameri;7;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;70;1
+ameri_8;Амери 8;Ameri;8;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;80;1
+ameri_9;Амери 9;Ameri;9;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;90;1
+ameri_10;Амери 10;Ameri;10;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;100;1
+amfora_1;Амфора 1;Amfora;1;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;1;10;1
+amfora_2;Амфора 2;Amfora;2;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;1;20;1
+amfora_3;Амфора 3;Amfora;3;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;1;30;1
+amfora_4;Амфора 4;Amfora;4;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;1;40;1
+amfora_5;Амфора 5;Amfora;5;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;1;50;1
+amfora_6;Амфора 6;Amfora;6;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;1;60;1
+amfora_7;Амфора 7;Amfora;7;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;1;70;1
+amfora_8;Амфора 8;Amfora;8;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;1;80;1
+amfora_9;Амфора 9;Amfora;9;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;1;90;1
+avrora_1;Аврора 1;Avrora;1;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;10;1
+avrora_2;Аврора 2;Avrora;2;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;20;1
+avrora_3;Аврора 3;Avrora;3;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;30;1
+avrora_4;Аврора 4;Avrora;4;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;40;1
+avrora_5;Аврора 5;Avrora;5;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;50;1
+beluni_1;Белуни 1;Beluni;1;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;10;1
+beluni_2;Белуни 2;Beluni;2;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;20;1
+beluni_3;Белуни 3;Beluni;3;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;30;1
+beluni_4;Белуни 4;Beluni;4;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;40;1
+beluni_5;Белуни 5;Beluni;5;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;50;1
+beluni_6;Белуни 6;Beluni;6;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;60;1
+beluni_7;Белуни 7;Beluni;7;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;70;1
+beluni_8;Белуни 8;Beluni;8;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;80;1
+blank_1;Бланк 1;Blank;1;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;10;1
+blank_2;Бланк 2;Blank;2;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;20;1
+blank_3;Бланк 3;Blank;3;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;30;1
+blank_4;Бланк 4;Blank;4;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;40;1
+blank_5;Бланк 5;Blank;5;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;50;1
+bona_1;Бона 1;Bona;1;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;10;1
+bona_2;Бона 2;Bona;2;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;20;1
+bona_3;Бона 3;Bona;3;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;30;1
+bona_4;Бона 4;Bona;4;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;40;1
+bona_5;Бона 5;Bona;5;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;50;1
+bona_6;Бона 6;Bona;6;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;60;1
+boneko_1;Бонеко 1;Boneko;1;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;10;1
+boneko_2;Бонеко 2;Boneko;2;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;20;1
+boneko_3;Бонеко 3;Boneko;3;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;30;1
+boneko_4;Бонеко 4;Boneko;4;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;40;1
+boneko_5;Бонеко 5;Boneko;5;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;50;1
+boneko_6;Бонеко 6;Boneko;6;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;60;1
+d_4;Д4;D;4;PG;52000;;2750;pvc;0;1;0;40;1
+d_14;Д14;D;14;PG;52000;;2750;pvc;0;1;0;140;1
+d_16;Д16;D;16;PG;52000;;2750;pvc;0;1;0;160;1
+d_17;Д17;D;17;PG;52000;;2750;pvc;0;1;0;170;1
+d_22;Д22;D;22;PG;52000;;2750;pvc;0;1;0;220;1
+d_36;Д36;D;36;PG;52000;;2750;pvc;0;1;0;360;1
+d_43;Д43;D;43;PG;52000;;2750;pvc;0;1;0;430;1
+d_44;Д44;D;44;PG;52000;;2750;pvc;0;1;0;440;1
+d_48;Д48;D;48;PG;52000;;2750;pvc;0;1;0;480;1
+d_49;Д49;D;49;PG;52000;;2750;pvc;0;1;0;490;1
+d_50;Д50;D;50;PG;52000;;2750;pvc;0;1;0;500;1
+dekar_1;Декар 1;Dekar;1;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;10;1
+dekar_2;Декар 2;Dekar;2;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;20;1
+dekar_3;Декар 3;Dekar;3;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;30;1
+dekar_4;Декар 4;Dekar;4;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;40;1
+dekar_5;Декар 5;Dekar;5;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;50;1
+dekar_s_bagetom_1;Декар с багетом 1;DekarSBagetom;1;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;10;1
+dekar_s_bagetom_2;Декар с багетом 2;DekarSBagetom;2;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;20;1
+dekar_s_bagetom_3;Декар с багетом 3;DekarSBagetom;3;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;30;1
+dekar_s_bagetom_4;Декар с багетом 4;DekarSBagetom;4;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;40;1
+dekar_s_bagetom_5;Декар с багетом 5;DekarSBagetom;5;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;50;1
+eterna_1;Этерна 1;Eterna;1;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;10;1
+eterna_2;Этерна 2;Eterna;2;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;20;1
+eterna_3;Этерна 3;Eterna;3;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;30;1
+eterna_4;Этерна 4;Eterna;4;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;40;1
+eterna_5;Этерна 5;Eterna;5;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;50;1
+fly_1;Флай 1;Fly;1;BOTH;52000;66200;2100;pvc;0;1;0;10;1
+fly_2;Флай 2;Fly;2;BOTH;52000;66200;2100;pvc;0;1;0;20;1
+fly_3;Флай 3;Fly;3;BOTH;52000;66200;2100;pvc;0;1;0;30;1
+fly_4;Флай 4;Fly;4;BOTH;52000;66200;2100;pvc;0;1;0;40;1
+fly_5;Флай 5;Fly;5;BOTH;52000;66200;2100;pvc;0;1;0;50;1
+fly_6;Флай 6;Fly;6;BOTH;52000;66200;2100;pvc;0;1;0;60;1
+fly_7;Флай 7;Fly;7;BOTH;52000;66200;2100;pvc;0;1;0;70;1
+fly_8;Флай 8;Fly;8;BOTH;52000;66200;2100;pvc;0;1;0;80;1
+fly_8_pg;Флай 8 ПГ;Fly;8;PG;52000;;2100;pvc;0;1;0;81;1
+form_1;Форма 1;Form;1;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;10;1
+form_2;Форма 2;Form;2;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;20;1
+form_3;Форма 3;Form;3;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;30;1
+form_4;Форма 4;Form;4;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;40;1
+form_5;Форма 5;Form;5;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;50;1
+kant_1;Кант 1;Kant;1;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;10;1
+kant_2;Кант 2;Kant;2;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;20;1
+kant_3;Кант 3;Kant;3;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;30;1
+kant_4;Кант 4;Kant;4;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;40;1
+kant_5;Кант 5;Kant;5;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;50;1
+kaskad_1;Каскад 1;Kaskad;1;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;10;1
+kaskad_2;Каскад 2;Kaskad;2;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;20;1
+kaskad_3;Каскад 3;Kaskad;3;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;30;1
+kaskad_4;Каскад 4;Kaskad;4;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;40;1
+kaskad_5;Каскад 5;Kaskad;5;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;50;1
+kvant_1;Квант 1;Kvant;1;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;1;10;1
+kvant_2;Квант 2;Kvant;2;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;1;20;1
+kvant_3;Квант 3;Kvant;3;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;1;30;1
+kvant_4;Квант 4;Kvant;4;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;1;40;1
+meta_1_pg;Мета 1 ПГ;Meta;1;PG;52000;;2750;pvc,pet;0;0;0;10;1
+meta_1;Мета 1;Meta;1;BOTH;52000;66200;2750;pvc,pet;0;0;0;11;1
+meta_2;Мета 2;Meta;2;BOTH;52000;66200;2750;pvc,pet;0;0;0;20;1
+meta_3;Мета 3;Meta;3;BOTH;52000;66200;2750;pvc,pet;0;0;0;30;1
+meta_4;Мета 4;Meta;4;BOTH;52000;66200;2750;pvc,pet;0;0;0;40;1
+meta_5;Мета 5;Meta;5;BOTH;52000;66200;2750;pvc,pet;0;0;0;50;1
+miura_1;Миура 1;Miura;1;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;10;1
+miura_2;Миура 2;Miura;2;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;20;1
+miura_3;Миура 3;Miura;3;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;30;1
+miura_4;Миура 4;Miura;4;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;40;1
+miura_5;Миура 5;Miura;5;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;50;1
+modena_1;Модена 1;Modena;1;BOTH;52000;66200;2750;pvc,pet;0;0;0;10;1
+modena_2;Модена 2;Modena;2;BOTH;52000;66200;2750;pvc,pet;0;0;0;20;1
+modena_3;Модена 3;Modena;3;BOTH;52000;66200;2750;pvc,pet;0;0;0;30;1
+modena_4;Модена 4;Modena;4;BOTH;52000;66200;2750;pvc,pet;0;0;0;40;1
+modena_5;Модена 5;Modena;5;BOTH;52000;66200;2750;pvc,pet;0;0;0;50;1
+mono_1;Моно 1;Mono;1;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;1;10;1
+mono_2;Моно 2;Mono;2;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;1;20;1
+mono_3;Моно 3;Mono;3;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;1;30;1
+mono_4;Моно 4;Mono;4;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;1;40;1
+mono_5;Моно 5;Mono;5;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;1;50;1
+mono_6;Моно 6;Mono;6;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;1;60;1
+mono_7;Моно 7;Mono;7;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;1;70;1
+mono_8;Моно 8;Mono;8;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;1;80;1
+mono_9;Моно 9;Mono;9;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;1;90;1
+mono_10;Моно 10;Mono;10;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;1;100;1
+mono_11;Моно 11;Mono;11;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;1;110;1
+mono_12;Моно 12;Mono;12;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;1;120;1
+neo_1;Нео 1;Neo;1;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;10;1
+neo_2;Нео 2;Neo;2;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;20;1
+neo_3;Нео 3;Neo;3;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;30;1
+neo_4;Нео 4;Neo;4;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;40;1
+neo_5;Нео 5;Neo;5;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;50;1
+neo_6;Нео 6;Neo;6;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;60;1
+oazis_1;Оазис 1;Oazis;1;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;10;1
+oazis_2;Оазис 2;Oazis;2;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;20;1
+oazis_3;Оазис 3;Oazis;3;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;30;1
+oazis_4;Оазис 4;Oazis;4;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;40;1
+oazis_5;Оазис 5;Oazis;5;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;50;1
+palladio_1;Палладио 1;Palladio;1;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;10;1
+palladio_2;Палладио 2;Palladio;2;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;20;1
+palladio_3;Палладио 3;Palladio;3;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;30;1
+palladio_4;Палладио 4;Palladio;4;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;40;1
+palladio_5;Палладио 5;Palladio;5;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;50;1
+palladio_6;Палладио 6;Palladio;6;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;60;1
+plisse;Плиссе;Plisse;0;BOTH;52000;66200;2750;pvc;0;1;0;5;1
+plisse_1;Плиссе 1;Plisse;1;BOTH;52000;66200;2750;pvc;0;1;0;10;1
+plisse_2;Плиссе 2;Plisse;2;BOTH;52000;66200;2750;pvc;0;1;0;20;1
+plisse_3;Плиссе 3;Plisse;3;BOTH;52000;66200;2750;pvc;0;1;0;30;1
+terra_1;Терра 1;Terra;1;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;10;1
+terra_2;Терра 2;Terra;2;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;20;1
+terra_3;Терра 3;Terra;3;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;30;1
+terra_4;Терра 4;Terra;4;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;40;1
+terra_5;Терра 5;Terra;5;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;50;1
+ultra_1;Ультра 1;Ultra;1;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;10;1
+ultra_2;Ультра 2;Ultra;2;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;20;1
+ultra_3;Ультра 3;Ultra;3;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;30;1
+ultra_4;Ультра 4;Ultra;4;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;40;1
+ultra_5_pg;Ультра 5 ПГ;Ultra;5;PG;52000;;2750;pvc,pet,enamel;1;0;0;50;1
+ultra_5;Ультра 5;Ultra;5;BOTH;52000;66200;2750;pvc,pet,enamel;1;0;0;51;1
+vektor_1;Вектор 1;Vektor;1;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;10;1
+vektor_2;Вектор 2;Vektor;2;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;20;1
+vektor_3;Вектор 3;Vektor;3;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;30;1
+vektor_4;Вектор 4;Vektor;4;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;40;1
+vektor_5;Вектор 5;Vektor;5;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;50;1
+vektor_6;Вектор 6;Vektor;6;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;60;1
+vektor_7;Вектор 7;Vektor;7;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;70;1
+vektor_8;Вектор 8;Vektor;8;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;80;1
+vektor_9;Вектор 9;Vektor;9;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;90;1
+vektor_10;Вектор 10;Vektor;10;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;100;1
+vektor_11;Вектор 11;Vektor;11;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;110;1
+verto_1;Верто 1;Verto;1;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;10;1
+verto_2;Верто 2;Verto;2;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;20;1
+verto_3;Верто 3;Verto;3;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;30;1
+verto_4;Верто 4;Verto;4;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;40;1
+verto_5;Верто 5;Verto;5;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;50;1
+verto_6;Верто 6;Verto;6;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;60;1
+verto_7;Верто 7;Verto;7;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;70;1
+verto_8;Верто 8;Verto;8;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;80;1
+verto_9;Верто 9;Verto;9;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;90;1
+verto_10;Верто 10;Verto;10;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;100;1
+vitra_1;Витра 1;Vitra;1;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;10;1
+vitra_2;Витра 2;Vitra;2;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;20;1
+vitra_3;Витра 3;Vitra;3;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;30;1
+vitra_4;Витра 4;Vitra;4;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;40;1
+vitra_5;Витра 5;Vitra;5;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;50;1
+vitra_6;Витра 6;Vitra;6;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;60;1
+vitra_7;Витра 7;Vitra;7;BOTH;52000;66200;2750;pvc,pet,enamel;0;0;0;70;1
