@@ -1,771 +1,1175 @@
 <?xml version="1.0" encoding="utf-8"?>
-<data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <item>
-    <field name="UF_XML_ID">antracit_pet_1</field>
-    <field name="UF_NAME">Антрацит ПЭТ-1</field>
-    <field name="UF_COLOR_HEX">#cccccc</field>
-    <field name="UF_TYPE">pet</field>
-    <field name="UF_SORT">10</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">antracit_pet</field>
-    <field name="UF_NAME">Антрацит ПЭТ</field>
-    <field name="UF_COLOR_HEX">#383838</field>
-    <field name="UF_TYPE">pet</field>
-    <field name="UF_SORT">20</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">brash_blyu_pet</field>
-    <field name="UF_NAME">Браш блю ПЭТ</field>
-    <field name="UF_COLOR_HEX">#6B8FAD</field>
-    <field name="UF_TYPE">pet</field>
-    <field name="UF_SORT">30</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">beysik_vayt_pet</field>
-    <field name="UF_NAME">Бэйсик вайт ПЭТ</field>
-    <field name="UF_COLOR_HEX">#F5F5F0</field>
-    <field name="UF_TYPE">pet</field>
-    <field name="UF_SORT">40</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">layt_grey_pet</field>
-    <field name="UF_NAME">Лайт грей ПЭТ</field>
-    <field name="UF_COLOR_HEX">#D3D3D3</field>
-    <field name="UF_TYPE">pet</field>
-    <field name="UF_SORT">50</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">meni_grin_pet</field>
-    <field name="UF_NAME">Мени грин ПЭТ</field>
-    <field name="UF_COLOR_HEX">#5B7A5E</field>
-    <field name="UF_TYPE">pet</field>
-    <field name="UF_SORT">60</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">snou_pet</field>
-    <field name="UF_NAME">Сноу ПЭТ</field>
-    <field name="UF_COLOR_HEX">#FFFAFA</field>
-    <field name="UF_TYPE">pet</field>
-    <field name="UF_SORT">70</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">tekstura_grey_pet</field>
-    <field name="UF_NAME">Текстура грей ПЭТ</field>
-    <field name="UF_COLOR_HEX">#A9A9A9</field>
-    <field name="UF_TYPE">pet</field>
-    <field name="UF_SORT">80</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">antracit</field>
-    <field name="UF_NAME">Антрацит</field>
-    <field name="UF_COLOR_HEX">#3B3B3B</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">100</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">atlantik_soft</field>
-    <field name="UF_NAME">Атлантик софт</field>
-    <field name="UF_COLOR_HEX">#4B6F8F</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">110</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">belyy_matovyy</field>
-    <field name="UF_NAME">Белый матовый</field>
-    <field name="UF_COLOR_HEX">#F5F5F5</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">120</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">blanzh</field>
-    <field name="UF_NAME">Бланж</field>
-    <field name="UF_COLOR_HEX">#F0E6D8</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">130</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">veluto_vanil</field>
-    <field name="UF_NAME">Велуто ваниль</field>
-    <field name="UF_COLOR_HEX">#F3E5AB</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">140</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">vena</field>
-    <field name="UF_NAME">Вена</field>
-    <field name="UF_COLOR_HEX">#C8B898</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">150</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">venge_premium</field>
-    <field name="UF_NAME">Венге премиум</field>
-    <field name="UF_COLOR_HEX">#2F1B14</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">160</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">vud_silver</field>
-    <field name="UF_NAME">Вуд сильвер</field>
-    <field name="UF_COLOR_HEX">#C0B8A8</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">170</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">vyaz_grafit</field>
-    <field name="UF_NAME">Вяз графит</field>
-    <field name="UF_COLOR_HEX">#5A5A52</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">180</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">vyaz_grey</field>
-    <field name="UF_NAME">Вяз грей</field>
-    <field name="UF_COLOR_HEX">#B0A89C</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">190</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">vyaz_milk</field>
-    <field name="UF_NAME">Вяз милк</field>
-    <field name="UF_COLOR_HEX">#EDE3D0</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">200</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">gorchitsa_soft</field>
-    <field name="UF_NAME">Горчица софт</field>
-    <field name="UF_COLOR_HEX">#FFDB58</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">210</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">grafit_temnyy</field>
-    <field name="UF_NAME">Графит тёмный</field>
-    <field name="UF_COLOR_HEX">#4A4A4A</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">220</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">dub_akvamarin</field>
-    <field name="UF_NAME">Дуб аквамарин</field>
-    <field name="UF_COLOR_HEX">#7FBAAD</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">230</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">dub_bodega_zolotoy</field>
-    <field name="UF_NAME">Дуб бодега золотой</field>
-    <field name="UF_COLOR_HEX">#C8A848</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">240</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">dub_bodega_naturalnyy</field>
-    <field name="UF_NAME">Дуб бодега натуральный</field>
-    <field name="UF_COLOR_HEX">#B5A088</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">250</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">dub_bodega_svetlyy</field>
-    <field name="UF_NAME">Дуб бодега светлый</field>
-    <field name="UF_COLOR_HEX">#CFC0A8</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">260</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">dub_bolotnyy</field>
-    <field name="UF_NAME">Дуб болотный</field>
-    <field name="UF_COLOR_HEX">#5E6E50</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">270</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">dub_krem</field>
-    <field name="UF_NAME">Дуб крем</field>
-    <field name="UF_COLOR_HEX">#EBD9B4</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">280</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">dub_mavella</field>
-    <field name="UF_NAME">Дуб мавелла</field>
-    <field name="UF_COLOR_HEX">#A08060</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">290</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">dub_molochnyy</field>
-    <field name="UF_NAME">Дуб молочный</field>
-    <field name="UF_COLOR_HEX">#E8D5B7</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">300</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">dub_pudra</field>
-    <field name="UF_NAME">Дуб пудра</field>
-    <field name="UF_COLOR_HEX">#D4C4B0</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">310</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">dub_s_patinoy</field>
-    <field name="UF_NAME">Дуб с патиной</field>
-    <field name="UF_COLOR_HEX">#A89060</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">320</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">dub_siena_seryy_diagonal</field>
-    <field name="UF_NAME">Дуб сиена серый диагональ</field>
-    <field name="UF_COLOR_HEX">#9A8A7A</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">330</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">dub_siena_seryy</field>
-    <field name="UF_NAME">Дуб сиена серый</field>
-    <field name="UF_COLOR_HEX">#9E8E7E</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">340</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">dub_siena_yantarnyy_diagonal</field>
-    <field name="UF_NAME">Дуб сиена янтарный диагональ</field>
-    <field name="UF_COLOR_HEX">#C48C4C</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">350</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">dub_siena_yantarnyy</field>
-    <field name="UF_NAME">Дуб сиена янтарный</field>
-    <field name="UF_COLOR_HEX">#C89050</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">360</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">dyuna_briz</field>
-    <field name="UF_NAME">Дюна бриз</field>
-    <field name="UF_COLOR_HEX">#D0C8B8</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">370</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">dyuna_mistral</field>
-    <field name="UF_NAME">Дюна мистраль</field>
-    <field name="UF_COLOR_HEX">#C8BCA8</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">380</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">dyuna_nord</field>
-    <field name="UF_NAME">Дюна норд</field>
-    <field name="UF_COLOR_HEX">#E8D8C0</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">390</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">karagach_svetlyy</field>
-    <field name="UF_NAME">Карагач светлый</field>
-    <field name="UF_COLOR_HEX">#C8A878</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">400</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">kvazar</field>
-    <field name="UF_NAME">Квазар</field>
-    <field name="UF_COLOR_HEX">#5C5470</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">410</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">keramik_belyy</field>
-    <field name="UF_NAME">Керамик белый</field>
-    <field name="UF_COLOR_HEX">#F0EBE3</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">420</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">keramik_kakao</field>
-    <field name="UF_NAME">Керамик какао</field>
-    <field name="UF_COLOR_HEX">#8B6F5E</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">430</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">keramik_kapuchino</field>
-    <field name="UF_NAME">Керамик капучино</field>
-    <field name="UF_COLOR_HEX">#C4A882</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">440</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">keramik_matovyy</field>
-    <field name="UF_NAME">Керамик матовый</field>
-    <field name="UF_COLOR_HEX">#E8E0D8</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">450</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">keramik_seryy</field>
-    <field name="UF_NAME">Керамик серый</field>
-    <field name="UF_COLOR_HEX">#B8B0A8</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">460</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">krasnaya_burgundiya</field>
-    <field name="UF_NAME">Красная бургундия</field>
-    <field name="UF_COLOR_HEX">#800020</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">470</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">kroskat</field>
-    <field name="UF_NAME">Кроскат</field>
-    <field name="UF_COLOR_HEX">#A89880</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">480</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">lipa_amurskaya</field>
-    <field name="UF_NAME">Липа амурская</field>
-    <field name="UF_COLOR_HEX">#B0A080</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">490</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">lipa_olivera</field>
-    <field name="UF_NAME">Липа оливьера</field>
-    <field name="UF_COLOR_HEX">#9A8F68</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">500</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">loft</field>
-    <field name="UF_NAME">Лофт</field>
-    <field name="UF_COLOR_HEX">#7A7267</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">510</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">makassar</field>
-    <field name="UF_NAME">Макассар</field>
-    <field name="UF_COLOR_HEX">#3C2820</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">520</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">manila</field>
-    <field name="UF_NAME">Манила</field>
-    <field name="UF_COLOR_HEX">#FFDB8B</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">530</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">marra</field>
-    <field name="UF_NAME">Марра</field>
-    <field name="UF_COLOR_HEX">#785040</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">540</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">mahagon_klassicheskiy</field>
-    <field name="UF_NAME">Махагон классический</field>
-    <field name="UF_COLOR_HEX">#C04000</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">550</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">merbau</field>
-    <field name="UF_NAME">Мербау</field>
-    <field name="UF_COLOR_HEX">#7B3F00</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">560</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">merino</field>
-    <field name="UF_NAME">Мерино</field>
-    <field name="UF_COLOR_HEX">#F5EEDC</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">570</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">midori</field>
-    <field name="UF_NAME">Мидори</field>
-    <field name="UF_COLOR_HEX">#4DB560</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">580</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">monte_rustik</field>
-    <field name="UF_NAME">Монте рустик</field>
-    <field name="UF_COLOR_HEX">#8B7355</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">590</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">monte_tiberio</field>
-    <field name="UF_NAME">Монте тиберио</field>
-    <field name="UF_COLOR_HEX">#6B5B4B</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">600</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">neapol</field>
-    <field name="UF_NAME">Неаполь</field>
-    <field name="UF_COLOR_HEX">#FADA5E</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">610</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">nefrit</field>
-    <field name="UF_NAME">Нефрит</field>
-    <field name="UF_COLOR_HEX">#00A86B</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">620</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">okeaniya</field>
-    <field name="UF_NAME">Океания</field>
-    <field name="UF_COLOR_HEX">#4A90A4</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">630</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">olivin</field>
-    <field name="UF_NAME">Оливин</field>
-    <field name="UF_COLOR_HEX">#9AB973</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">640</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">oreh_pekan_medovyy</field>
-    <field name="UF_NAME">Орех пекан медовый</field>
-    <field name="UF_COLOR_HEX">#D4A04C</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">650</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">oreh_pekan_slivochnyy_strong</field>
-    <field name="UF_NAME">Орех пекан сливочный стронг</field>
-    <field name="UF_COLOR_HEX">#C8A87C</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">660</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">oreh_pekan_shokolad</field>
-    <field name="UF_NAME">Орех пекан шоколад</field>
-    <field name="UF_COLOR_HEX">#6B4423</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">670</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">oreh_svetlyy</field>
-    <field name="UF_NAME">Орех светлый</field>
-    <field name="UF_COLOR_HEX">#C4A77D</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">680</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">oreh_toskana_karamel</field>
-    <field name="UF_NAME">Орех тоскана карамель</field>
-    <field name="UF_COLOR_HEX">#cccccc</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">690</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">oreh_toskana_kofe</field>
-    <field name="UF_NAME">Орех тоскана кофе</field>
-    <field name="UF_COLOR_HEX">#cccccc</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">700</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">oreh_toskana_tryufel</field>
-    <field name="UF_NAME">Орех тоскана трюфель</field>
-    <field name="UF_COLOR_HEX">#cccccc</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">710</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">platan_shokoladnyy</field>
-    <field name="UF_NAME">Платан шоколадный</field>
-    <field name="UF_COLOR_HEX">#5C4030</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">720</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">platina</field>
-    <field name="UF_NAME">Платина</field>
-    <field name="UF_COLOR_HEX">#E5E4E2</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">730</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">skay_soft</field>
-    <field name="UF_NAME">Скай софт</field>
-    <field name="UF_COLOR_HEX">#87CEEB</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">740</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">skandi_ayvori</field>
-    <field name="UF_NAME">Сканди айвори</field>
-    <field name="UF_COLOR_HEX">#FFFFF0</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">750</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">slanec_belyy</field>
-    <field name="UF_NAME">Сланец белый</field>
-    <field name="UF_COLOR_HEX">#E8E4E0</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">760</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">slanec_chernyy</field>
-    <field name="UF_NAME">Сланец чёрный</field>
-    <field name="UF_COLOR_HEX">#343434</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">770</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">spireya_belaya</field>
-    <field name="UF_NAME">Спирея белая</field>
-    <field name="UF_COLOR_HEX">#FAFAF5</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">780</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">talk</field>
-    <field name="UF_NAME">Тальк</field>
-    <field name="UF_COLOR_HEX">#F0EDE5</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">790</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">tvil_bezh</field>
-    <field name="UF_NAME">Твил беж</field>
-    <field name="UF_COLOR_HEX">#C8B8A0</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">800</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">tvil_len</field>
-    <field name="UF_NAME">Твил лён</field>
-    <field name="UF_COLOR_HEX">#D8CDB8</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">810</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">tvil_fly</field>
-    <field name="UF_NAME">Твил флай</field>
-    <field name="UF_COLOR_HEX">#B0A090</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">820</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">terrakot</field>
-    <field name="UF_NAME">Терракот</field>
-    <field name="UF_COLOR_HEX">#CC6B49</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">830</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">tokio</field>
-    <field name="UF_NAME">Токио</field>
-    <field name="UF_COLOR_HEX">#8B4049</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">840</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">shpon_yasenya_gold</field>
-    <field name="UF_NAME">Шпон ясеня голд</field>
-    <field name="UF_COLOR_HEX">#C8AA58</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">850</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">yasen_belyy_soft</field>
-    <field name="UF_NAME">Ясень белый софт</field>
-    <field name="UF_COLOR_HEX">#F0EAE0</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">860</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">yasen_grafit</field>
-    <field name="UF_NAME">Ясень графит</field>
-    <field name="UF_COLOR_HEX">#58524A</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">870</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">yasen_grey</field>
-    <field name="UF_NAME">Ясень грей</field>
-    <field name="UF_COLOR_HEX">#8F8478</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">880</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">yasen_chernyy_soft</field>
-    <field name="UF_NAME">Ясень чёрный софт</field>
-    <field name="UF_COLOR_HEX">#3A3630</field>
-    <field name="UF_TYPE">pvc</field>
-    <field name="UF_SORT">890</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">belyy_led</field>
-    <field name="UF_NAME">Белый лёд</field>
-    <field name="UF_COLOR_HEX">#EEF2F5</field>
-    <field name="UF_TYPE">enamel</field>
-    <field name="UF_SORT">900</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">emal_1013</field>
-    <field name="UF_NAME">Эмаль 1013</field>
-    <field name="UF_COLOR_HEX">#E3D9C6</field>
-    <field name="UF_TYPE">enamel</field>
-    <field name="UF_SORT">910</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">emal_127</field>
-    <field name="UF_NAME">Эмаль 127</field>
-    <field name="UF_COLOR_HEX">#D4C5A9</field>
-    <field name="UF_TYPE">enamel</field>
-    <field name="UF_SORT">920</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">emal_459</field>
-    <field name="UF_NAME">Эмаль 459</field>
-    <field name="UF_COLOR_HEX">#8B7355</field>
-    <field name="UF_TYPE">enamel</field>
-    <field name="UF_SORT">930</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">emal_7036</field>
-    <field name="UF_NAME">Эмаль 7036</field>
-    <field name="UF_COLOR_HEX">#9C9B9A</field>
-    <field name="UF_TYPE">enamel</field>
-    <field name="UF_SORT">940</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">emal_9001</field>
-    <field name="UF_NAME">Эмаль 9001</field>
-    <field name="UF_COLOR_HEX">#FDF4E3</field>
-    <field name="UF_TYPE">enamel</field>
-    <field name="UF_SORT">950</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">emal_9003</field>
-    <field name="UF_NAME">Эмаль 9003</field>
-    <field name="UF_COLOR_HEX">#F4F4F4</field>
-    <field name="UF_TYPE">enamel</field>
-    <field name="UF_SORT">960</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">custom_color</field>
-    <field name="UF_NAME">Свой цвет по RAL и NCS</field>
-    <field name="UF_COLOR_HEX"/>
-    <field name="UF_TYPE">custom</field>
-    <field name="UF_SORT">970</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-</data>
+<hiblock>
+	<hiblock>
+		<id>1</id>
+		<name>Coatings</name>
+		<table_name>b_hlbd_coatings</table_name>
+	</hiblock>
+	<langs/>
+	<fields>
+		<field>
+			<id>1</id>
+			<entity_id>HLBLOCK_1</entity_id>
+			<field_name>UF_XML_ID</field_name>
+			<user_type_id>string</user_type_id>
+			<xml_id/>
+			<sort>100</sort>
+			<multiple>N</multiple>
+			<mandatory>Y</mandatory>
+			<show_filter>N</show_filter>
+			<show_in_list>Y</show_in_list>
+			<edit_in_list>Y</edit_in_list>
+			<is_searchable>N</is_searchable>
+			<settings>
+				<size>20</size>
+				<rows>1</rows>
+				<regexp/>
+				<min_length>0</min_length>
+				<max_length>0</max_length>
+				<default_value/>
+			</settings>
+			<edit_form_label>
+				<en/>
+				<ru/>
+			</edit_form_label>
+			<list_column_label>
+				<en/>
+				<ru/>
+			</list_column_label>
+			<list_filter_label>
+				<en/>
+				<ru/>
+			</list_filter_label>
+			<error_message>
+				<en/>
+				<ru/>
+			</error_message>
+			<help_message>
+				<en/>
+				<ru/>
+			</help_message>
+			<base_type>string</base_type>
+		</field>
+		<field>
+			<id>2</id>
+			<entity_id>HLBLOCK_1</entity_id>
+			<field_name>UF_NAME</field_name>
+			<user_type_id>string</user_type_id>
+			<xml_id/>
+			<sort>100</sort>
+			<multiple>N</multiple>
+			<mandatory>Y</mandatory>
+			<show_filter>N</show_filter>
+			<show_in_list>Y</show_in_list>
+			<edit_in_list>Y</edit_in_list>
+			<is_searchable>N</is_searchable>
+			<settings>
+				<size>20</size>
+				<rows>1</rows>
+				<regexp/>
+				<min_length>0</min_length>
+				<max_length>0</max_length>
+				<default_value/>
+			</settings>
+			<edit_form_label>
+				<en/>
+				<ru/>
+			</edit_form_label>
+			<list_column_label>
+				<en/>
+				<ru/>
+			</list_column_label>
+			<list_filter_label>
+				<en/>
+				<ru/>
+			</list_filter_label>
+			<error_message>
+				<en/>
+				<ru/>
+			</error_message>
+			<help_message>
+				<en/>
+				<ru/>
+			</help_message>
+			<base_type>string</base_type>
+		</field>
+		<field>
+			<id>3</id>
+			<entity_id>HLBLOCK_1</entity_id>
+			<field_name>UF_COLOR_HEX</field_name>
+			<user_type_id>string</user_type_id>
+			<xml_id/>
+			<sort>100</sort>
+			<multiple>N</multiple>
+			<mandatory>N</mandatory>
+			<show_filter>N</show_filter>
+			<show_in_list>Y</show_in_list>
+			<edit_in_list>Y</edit_in_list>
+			<is_searchable>N</is_searchable>
+			<settings>
+				<size>20</size>
+				<rows>1</rows>
+				<regexp/>
+				<min_length>0</min_length>
+				<max_length>0</max_length>
+				<default_value/>
+			</settings>
+			<edit_form_label>
+				<en/>
+				<ru/>
+			</edit_form_label>
+			<list_column_label>
+				<en/>
+				<ru/>
+			</list_column_label>
+			<list_filter_label>
+				<en/>
+				<ru/>
+			</list_filter_label>
+			<error_message>
+				<en/>
+				<ru/>
+			</error_message>
+			<help_message>
+				<en/>
+				<ru/>
+			</help_message>
+			<base_type>string</base_type>
+		</field>
+		<field>
+			<id>4</id>
+			<entity_id>HLBLOCK_1</entity_id>
+			<field_name>UF_TYPE</field_name>
+			<user_type_id>string</user_type_id>
+			<xml_id/>
+			<sort>100</sort>
+			<multiple>N</multiple>
+			<mandatory>Y</mandatory>
+			<show_filter>N</show_filter>
+			<show_in_list>Y</show_in_list>
+			<edit_in_list>Y</edit_in_list>
+			<is_searchable>N</is_searchable>
+			<settings>
+				<size>20</size>
+				<rows>1</rows>
+				<regexp/>
+				<min_length>0</min_length>
+				<max_length>0</max_length>
+				<default_value/>
+			</settings>
+			<edit_form_label>
+				<en/>
+				<ru/>
+			</edit_form_label>
+			<list_column_label>
+				<en/>
+				<ru/>
+			</list_column_label>
+			<list_filter_label>
+				<en/>
+				<ru/>
+			</list_filter_label>
+			<error_message>
+				<en/>
+				<ru/>
+			</error_message>
+			<help_message>
+				<en/>
+				<ru/>
+			</help_message>
+			<base_type>string</base_type>
+		</field>
+		<field>
+			<id>5</id>
+			<entity_id>HLBLOCK_1</entity_id>
+			<field_name>UF_IMAGE</field_name>
+			<user_type_id>file</user_type_id>
+			<xml_id/>
+			<sort>100</sort>
+			<multiple>N</multiple>
+			<mandatory>N</mandatory>
+			<show_filter>N</show_filter>
+			<show_in_list>Y</show_in_list>
+			<edit_in_list>Y</edit_in_list>
+			<is_searchable>N</is_searchable>
+			<settings>
+				<size>20</size>
+				<list_width>0</list_width>
+				<list_height>0</list_height>
+				<max_show_size>0</max_show_size>
+				<max_allowed_size>0</max_allowed_size>
+				<extensions/>
+				<target_blank>Y</target_blank>
+				<default_view/>
+			</settings>
+			<edit_form_label>
+				<en/>
+				<ru/>
+			</edit_form_label>
+			<list_column_label>
+				<en/>
+				<ru/>
+			</list_column_label>
+			<list_filter_label>
+				<en/>
+				<ru/>
+			</list_filter_label>
+			<error_message>
+				<en/>
+				<ru/>
+			</error_message>
+			<help_message>
+				<en/>
+				<ru/>
+			</help_message>
+			<base_type>file</base_type>
+		</field>
+		<field>
+			<id>6</id>
+			<entity_id>HLBLOCK_1</entity_id>
+			<field_name>UF_SORT</field_name>
+			<user_type_id>double</user_type_id>
+			<xml_id/>
+			<sort>100</sort>
+			<multiple>N</multiple>
+			<mandatory>N</mandatory>
+			<show_filter>N</show_filter>
+			<show_in_list>Y</show_in_list>
+			<edit_in_list>Y</edit_in_list>
+			<is_searchable>N</is_searchable>
+			<settings>
+				<precision>4</precision>
+				<size>20</size>
+				<min_value>0</min_value>
+				<max_value>0</max_value>
+				<default_value/>
+			</settings>
+			<edit_form_label>
+				<en/>
+				<ru/>
+			</edit_form_label>
+			<list_column_label>
+				<en/>
+				<ru/>
+			</list_column_label>
+			<list_filter_label>
+				<en/>
+				<ru/>
+			</list_filter_label>
+			<error_message>
+				<en/>
+				<ru/>
+			</error_message>
+			<help_message>
+				<en/>
+				<ru/>
+			</help_message>
+			<base_type>double</base_type>
+		</field>
+		<field>
+			<id>7</id>
+			<entity_id>HLBLOCK_1</entity_id>
+			<field_name>UF_ACTIVE</field_name>
+			<user_type_id>boolean</user_type_id>
+			<xml_id/>
+			<sort>100</sort>
+			<multiple>N</multiple>
+			<mandatory>Y</mandatory>
+			<show_filter>N</show_filter>
+			<show_in_list>Y</show_in_list>
+			<edit_in_list>Y</edit_in_list>
+			<is_searchable>N</is_searchable>
+			<settings>
+				<default_value>0</default_value>
+				<display>CHECKBOX</display>
+			</settings>
+			<edit_form_label>
+				<en/>
+				<ru/>
+			</edit_form_label>
+			<list_column_label>
+				<en/>
+				<ru/>
+			</list_column_label>
+			<list_filter_label>
+				<en/>
+				<ru/>
+			</list_filter_label>
+			<error_message>
+				<en/>
+				<ru/>
+			</error_message>
+			<help_message>
+				<en/>
+				<ru/>
+			</help_message>
+			<base_type>int</base_type>
+		</field>
+	</fields>
+	<items>
+		<item>
+			<id>1</id>
+			<uf_xml_id>antracit_pet_1</uf_xml_id>
+			<uf_name>Антрацит ПЭТ-1</uf_name>
+			<uf_color_hex>#cccccc</uf_color_hex>
+			<uf_type>pet</uf_type>
+			<uf_sort>10</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>2</id>
+			<uf_xml_id>antracit_pet</uf_xml_id>
+			<uf_name>Антрацит ПЭТ</uf_name>
+			<uf_color_hex>#383838</uf_color_hex>
+			<uf_type>pet</uf_type>
+			<uf_sort>20</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>3</id>
+			<uf_xml_id>brash_blyu_pet</uf_xml_id>
+			<uf_name>Браш блю ПЭТ</uf_name>
+			<uf_color_hex>#6B8FAD</uf_color_hex>
+			<uf_type>pet</uf_type>
+			<uf_sort>30</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>4</id>
+			<uf_xml_id>beysik_vayt_pet</uf_xml_id>
+			<uf_name>Бэйсик вайт ПЭТ</uf_name>
+			<uf_color_hex>#F5F5F0</uf_color_hex>
+			<uf_type>pet</uf_type>
+			<uf_sort>40</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>5</id>
+			<uf_xml_id>layt_grey_pet</uf_xml_id>
+			<uf_name>Лайт грей ПЭТ</uf_name>
+			<uf_color_hex>#D3D3D3</uf_color_hex>
+			<uf_type>pet</uf_type>
+			<uf_sort>50</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>6</id>
+			<uf_xml_id>meni_grin_pet</uf_xml_id>
+			<uf_name>Мени грин ПЭТ</uf_name>
+			<uf_color_hex>#5B7A5E</uf_color_hex>
+			<uf_type>pet</uf_type>
+			<uf_sort>60</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>7</id>
+			<uf_xml_id>snou_pet</uf_xml_id>
+			<uf_name>Сноу ПЭТ</uf_name>
+			<uf_color_hex>#FFFAFA</uf_color_hex>
+			<uf_type>pet</uf_type>
+			<uf_sort>70</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>8</id>
+			<uf_xml_id>tekstura_grey_pet</uf_xml_id>
+			<uf_name>Текстура грей ПЭТ</uf_name>
+			<uf_color_hex>#A9A9A9</uf_color_hex>
+			<uf_type>pet</uf_type>
+			<uf_sort>80</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>9</id>
+			<uf_xml_id>antracit</uf_xml_id>
+			<uf_name>Антрацит</uf_name>
+			<uf_color_hex>#3B3B3B</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>100</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>10</id>
+			<uf_xml_id>atlantik_soft</uf_xml_id>
+			<uf_name>Атлантик софт</uf_name>
+			<uf_color_hex>#4B6F8F</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>110</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>11</id>
+			<uf_xml_id>belyy_matovyy</uf_xml_id>
+			<uf_name>Белый матовый</uf_name>
+			<uf_color_hex>#F5F5F5</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>120</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>12</id>
+			<uf_xml_id>blanzh</uf_xml_id>
+			<uf_name>Бланж</uf_name>
+			<uf_color_hex>#F0E6D8</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>130</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>13</id>
+			<uf_xml_id>veluto_vanil</uf_xml_id>
+			<uf_name>Велуто ваниль</uf_name>
+			<uf_color_hex>#F3E5AB</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>140</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>14</id>
+			<uf_xml_id>vena</uf_xml_id>
+			<uf_name>Вена</uf_name>
+			<uf_color_hex>#C8B898</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>150</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>15</id>
+			<uf_xml_id>venge_premium</uf_xml_id>
+			<uf_name>Венге премиум</uf_name>
+			<uf_color_hex>#2F1B14</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>160</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>16</id>
+			<uf_xml_id>vud_silver</uf_xml_id>
+			<uf_name>Вуд сильвер</uf_name>
+			<uf_color_hex>#C0B8A8</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>170</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>17</id>
+			<uf_xml_id>vyaz_grafit</uf_xml_id>
+			<uf_name>Вяз графит</uf_name>
+			<uf_color_hex>#5A5A52</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>180</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>18</id>
+			<uf_xml_id>vyaz_grey</uf_xml_id>
+			<uf_name>Вяз грей</uf_name>
+			<uf_color_hex>#B0A89C</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>190</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>19</id>
+			<uf_xml_id>vyaz_milk</uf_xml_id>
+			<uf_name>Вяз милк</uf_name>
+			<uf_color_hex>#EDE3D0</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>200</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>20</id>
+			<uf_xml_id>gorchitsa_soft</uf_xml_id>
+			<uf_name>Горчица софт</uf_name>
+			<uf_color_hex>#FFDB58</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>210</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>21</id>
+			<uf_xml_id>grafit_temnyy</uf_xml_id>
+			<uf_name>Графит тёмный</uf_name>
+			<uf_color_hex>#4A4A4A</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>220</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>22</id>
+			<uf_xml_id>dub_akvamarin</uf_xml_id>
+			<uf_name>Дуб аквамарин</uf_name>
+			<uf_color_hex>#7FBAAD</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>230</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>23</id>
+			<uf_xml_id>dub_bodega_zolotoy</uf_xml_id>
+			<uf_name>Дуб бодега золотой</uf_name>
+			<uf_color_hex>#C8A848</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>240</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>24</id>
+			<uf_xml_id>dub_bodega_naturalnyy</uf_xml_id>
+			<uf_name>Дуб бодега натуральный</uf_name>
+			<uf_color_hex>#B5A088</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>250</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>25</id>
+			<uf_xml_id>dub_bodega_svetlyy</uf_xml_id>
+			<uf_name>Дуб бодега светлый</uf_name>
+			<uf_color_hex>#CFC0A8</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>260</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>26</id>
+			<uf_xml_id>dub_bolotnyy</uf_xml_id>
+			<uf_name>Дуб болотный</uf_name>
+			<uf_color_hex>#5E6E50</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>270</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>27</id>
+			<uf_xml_id>dub_krem</uf_xml_id>
+			<uf_name>Дуб крем</uf_name>
+			<uf_color_hex>#EBD9B4</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>280</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>28</id>
+			<uf_xml_id>dub_mavella</uf_xml_id>
+			<uf_name>Дуб мавелла</uf_name>
+			<uf_color_hex>#A08060</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>290</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>29</id>
+			<uf_xml_id>dub_molochnyy</uf_xml_id>
+			<uf_name>Дуб молочный</uf_name>
+			<uf_color_hex>#E8D5B7</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>300</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>30</id>
+			<uf_xml_id>dub_pudra</uf_xml_id>
+			<uf_name>Дуб пудра</uf_name>
+			<uf_color_hex>#D4C4B0</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>310</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>31</id>
+			<uf_xml_id>dub_s_patinoy</uf_xml_id>
+			<uf_name>Дуб с патиной</uf_name>
+			<uf_color_hex>#A89060</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>320</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>32</id>
+			<uf_xml_id>dub_siena_seryy_diagonal</uf_xml_id>
+			<uf_name>Дуб сиена серый диагональ</uf_name>
+			<uf_color_hex>#9A8A7A</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>330</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>33</id>
+			<uf_xml_id>dub_siena_seryy</uf_xml_id>
+			<uf_name>Дуб сиена серый</uf_name>
+			<uf_color_hex>#9E8E7E</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>340</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>34</id>
+			<uf_xml_id>dub_siena_yantarnyy_diagonal</uf_xml_id>
+			<uf_name>Дуб сиена янтарный диагональ</uf_name>
+			<uf_color_hex>#C48C4C</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>350</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>35</id>
+			<uf_xml_id>dub_siena_yantarnyy</uf_xml_id>
+			<uf_name>Дуб сиена янтарный</uf_name>
+			<uf_color_hex>#C89050</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>360</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>36</id>
+			<uf_xml_id>dyuna_briz</uf_xml_id>
+			<uf_name>Дюна бриз</uf_name>
+			<uf_color_hex>#D0C8B8</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>370</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>37</id>
+			<uf_xml_id>dyuna_mistral</uf_xml_id>
+			<uf_name>Дюна мистраль</uf_name>
+			<uf_color_hex>#C8BCA8</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>380</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>38</id>
+			<uf_xml_id>dyuna_nord</uf_xml_id>
+			<uf_name>Дюна норд</uf_name>
+			<uf_color_hex>#E8D8C0</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>390</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>39</id>
+			<uf_xml_id>karagach_svetlyy</uf_xml_id>
+			<uf_name>Карагач светлый</uf_name>
+			<uf_color_hex>#C8A878</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>400</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>40</id>
+			<uf_xml_id>kvazar</uf_xml_id>
+			<uf_name>Квазар</uf_name>
+			<uf_color_hex>#5C5470</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>410</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>41</id>
+			<uf_xml_id>keramik_belyy</uf_xml_id>
+			<uf_name>Керамик белый</uf_name>
+			<uf_color_hex>#F0EBE3</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>420</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>42</id>
+			<uf_xml_id>keramik_kakao</uf_xml_id>
+			<uf_name>Керамик какао</uf_name>
+			<uf_color_hex>#8B6F5E</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>430</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>43</id>
+			<uf_xml_id>keramik_kapuchino</uf_xml_id>
+			<uf_name>Керамик капучино</uf_name>
+			<uf_color_hex>#C4A882</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>440</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>44</id>
+			<uf_xml_id>keramik_matovyy</uf_xml_id>
+			<uf_name>Керамик матовый</uf_name>
+			<uf_color_hex>#E8E0D8</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>450</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>45</id>
+			<uf_xml_id>keramik_seryy</uf_xml_id>
+			<uf_name>Керамик серый</uf_name>
+			<uf_color_hex>#B8B0A8</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>460</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>46</id>
+			<uf_xml_id>krasnaya_burgundiya</uf_xml_id>
+			<uf_name>Красная бургундия</uf_name>
+			<uf_color_hex>#800020</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>470</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>47</id>
+			<uf_xml_id>kroskat</uf_xml_id>
+			<uf_name>Кроскат</uf_name>
+			<uf_color_hex>#A89880</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>480</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>48</id>
+			<uf_xml_id>lipa_amurskaya</uf_xml_id>
+			<uf_name>Липа амурская</uf_name>
+			<uf_color_hex>#B0A080</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>490</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>49</id>
+			<uf_xml_id>lipa_olivera</uf_xml_id>
+			<uf_name>Липа оливьера</uf_name>
+			<uf_color_hex>#9A8F68</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>500</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>50</id>
+			<uf_xml_id>loft</uf_xml_id>
+			<uf_name>Лофт</uf_name>
+			<uf_color_hex>#7A7267</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>510</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>51</id>
+			<uf_xml_id>makassar</uf_xml_id>
+			<uf_name>Макассар</uf_name>
+			<uf_color_hex>#3C2820</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>520</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>52</id>
+			<uf_xml_id>manila</uf_xml_id>
+			<uf_name>Манила</uf_name>
+			<uf_color_hex>#FFDB8B</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>530</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>53</id>
+			<uf_xml_id>marra</uf_xml_id>
+			<uf_name>Марра</uf_name>
+			<uf_color_hex>#785040</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>540</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>54</id>
+			<uf_xml_id>mahagon_klassicheskiy</uf_xml_id>
+			<uf_name>Махагон классический</uf_name>
+			<uf_color_hex>#C04000</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>550</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>55</id>
+			<uf_xml_id>merbau</uf_xml_id>
+			<uf_name>Мербау</uf_name>
+			<uf_color_hex>#7B3F00</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>560</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>56</id>
+			<uf_xml_id>merino</uf_xml_id>
+			<uf_name>Мерино</uf_name>
+			<uf_color_hex>#F5EEDC</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>570</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>57</id>
+			<uf_xml_id>midori</uf_xml_id>
+			<uf_name>Мидори</uf_name>
+			<uf_color_hex>#4DB560</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>580</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>58</id>
+			<uf_xml_id>monte_rustik</uf_xml_id>
+			<uf_name>Монте рустик</uf_name>
+			<uf_color_hex>#8B7355</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>590</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>59</id>
+			<uf_xml_id>monte_tiberio</uf_xml_id>
+			<uf_name>Монте тиберио</uf_name>
+			<uf_color_hex>#6B5B4B</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>600</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>60</id>
+			<uf_xml_id>neapol</uf_xml_id>
+			<uf_name>Неаполь</uf_name>
+			<uf_color_hex>#FADA5E</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>610</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>61</id>
+			<uf_xml_id>nefrit</uf_xml_id>
+			<uf_name>Нефрит</uf_name>
+			<uf_color_hex>#00A86B</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>620</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>62</id>
+			<uf_xml_id>okeaniya</uf_xml_id>
+			<uf_name>Океания</uf_name>
+			<uf_color_hex>#4A90A4</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>630</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>63</id>
+			<uf_xml_id>olivin</uf_xml_id>
+			<uf_name>Оливин</uf_name>
+			<uf_color_hex>#9AB973</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>640</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>64</id>
+			<uf_xml_id>oreh_pekan_medovyy</uf_xml_id>
+			<uf_name>Орех пекан медовый</uf_name>
+			<uf_color_hex>#D4A04C</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>650</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>65</id>
+			<uf_xml_id>oreh_pekan_slivochnyy_strong</uf_xml_id>
+			<uf_name>Орех пекан сливочный стронг</uf_name>
+			<uf_color_hex>#C8A87C</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>660</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>66</id>
+			<uf_xml_id>oreh_pekan_shokolad</uf_xml_id>
+			<uf_name>Орех пекан шоколад</uf_name>
+			<uf_color_hex>#6B4423</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>670</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>67</id>
+			<uf_xml_id>oreh_svetlyy</uf_xml_id>
+			<uf_name>Орех светлый</uf_name>
+			<uf_color_hex>#C4A77D</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>680</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>68</id>
+			<uf_xml_id>oreh_toskana_karamel</uf_xml_id>
+			<uf_name>Орех тоскана карамель</uf_name>
+			<uf_color_hex>#cccccc</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>690</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>69</id>
+			<uf_xml_id>oreh_toskana_kofe</uf_xml_id>
+			<uf_name>Орех тоскана кофе</uf_name>
+			<uf_color_hex>#cccccc</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>700</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>70</id>
+			<uf_xml_id>oreh_toskana_tryufel</uf_xml_id>
+			<uf_name>Орех тоскана трюфель</uf_name>
+			<uf_color_hex>#cccccc</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>710</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>71</id>
+			<uf_xml_id>platan_shokoladnyy</uf_xml_id>
+			<uf_name>Платан шоколадный</uf_name>
+			<uf_color_hex>#5C4030</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>720</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>72</id>
+			<uf_xml_id>platina</uf_xml_id>
+			<uf_name>Платина</uf_name>
+			<uf_color_hex>#E5E4E2</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>730</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>73</id>
+			<uf_xml_id>skay_soft</uf_xml_id>
+			<uf_name>Скай софт</uf_name>
+			<uf_color_hex>#87CEEB</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>740</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>74</id>
+			<uf_xml_id>skandi_ayvori</uf_xml_id>
+			<uf_name>Сканди айвори</uf_name>
+			<uf_color_hex>#FFFFF0</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>750</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>75</id>
+			<uf_xml_id>slanec_belyy</uf_xml_id>
+			<uf_name>Сланец белый</uf_name>
+			<uf_color_hex>#E8E4E0</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>760</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>76</id>
+			<uf_xml_id>slanec_chernyy</uf_xml_id>
+			<uf_name>Сланец чёрный</uf_name>
+			<uf_color_hex>#343434</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>770</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>77</id>
+			<uf_xml_id>spireya_belaya</uf_xml_id>
+			<uf_name>Спирея белая</uf_name>
+			<uf_color_hex>#FAFAF5</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>780</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>78</id>
+			<uf_xml_id>talk</uf_xml_id>
+			<uf_name>Тальк</uf_name>
+			<uf_color_hex>#F0EDE5</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>790</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>79</id>
+			<uf_xml_id>tvil_bezh</uf_xml_id>
+			<uf_name>Твил беж</uf_name>
+			<uf_color_hex>#C8B8A0</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>800</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>80</id>
+			<uf_xml_id>tvil_len</uf_xml_id>
+			<uf_name>Твил лён</uf_name>
+			<uf_color_hex>#D8CDB8</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>810</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>81</id>
+			<uf_xml_id>tvil_fly</uf_xml_id>
+			<uf_name>Твил флай</uf_name>
+			<uf_color_hex>#B0A090</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>820</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>82</id>
+			<uf_xml_id>terrakot</uf_xml_id>
+			<uf_name>Терракот</uf_name>
+			<uf_color_hex>#CC6B49</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>830</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>83</id>
+			<uf_xml_id>tokio</uf_xml_id>
+			<uf_name>Токио</uf_name>
+			<uf_color_hex>#8B4049</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>840</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>84</id>
+			<uf_xml_id>shpon_yasenya_gold</uf_xml_id>
+			<uf_name>Шпон ясеня голд</uf_name>
+			<uf_color_hex>#C8AA58</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>850</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>85</id>
+			<uf_xml_id>yasen_belyy_soft</uf_xml_id>
+			<uf_name>Ясень белый софт</uf_name>
+			<uf_color_hex>#F0EAE0</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>860</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>86</id>
+			<uf_xml_id>yasen_grafit</uf_xml_id>
+			<uf_name>Ясень графит</uf_name>
+			<uf_color_hex>#58524A</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>870</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>87</id>
+			<uf_xml_id>yasen_grey</uf_xml_id>
+			<uf_name>Ясень грей</uf_name>
+			<uf_color_hex>#8F8478</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>880</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>88</id>
+			<uf_xml_id>yasen_chernyy_soft</uf_xml_id>
+			<uf_name>Ясень чёрный софт</uf_name>
+			<uf_color_hex>#3A3630</uf_color_hex>
+			<uf_type>pvc</uf_type>
+			<uf_sort>890</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>89</id>
+			<uf_xml_id>belyy_led</uf_xml_id>
+			<uf_name>Белый лёд</uf_name>
+			<uf_color_hex>#EEF2F5</uf_color_hex>
+			<uf_type>enamel</uf_type>
+			<uf_sort>900</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>90</id>
+			<uf_xml_id>emal_1013</uf_xml_id>
+			<uf_name>Эмаль 1013</uf_name>
+			<uf_color_hex>#E3D9C6</uf_color_hex>
+			<uf_type>enamel</uf_type>
+			<uf_sort>910</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>91</id>
+			<uf_xml_id>emal_127</uf_xml_id>
+			<uf_name>Эмаль 127</uf_name>
+			<uf_color_hex>#D4C5A9</uf_color_hex>
+			<uf_type>enamel</uf_type>
+			<uf_sort>920</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>92</id>
+			<uf_xml_id>emal_459</uf_xml_id>
+			<uf_name>Эмаль 459</uf_name>
+			<uf_color_hex>#8B7355</uf_color_hex>
+			<uf_type>enamel</uf_type>
+			<uf_sort>930</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>93</id>
+			<uf_xml_id>emal_7036</uf_xml_id>
+			<uf_name>Эмаль 7036</uf_name>
+			<uf_color_hex>#9C9B9A</uf_color_hex>
+			<uf_type>enamel</uf_type>
+			<uf_sort>940</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>94</id>
+			<uf_xml_id>emal_9001</uf_xml_id>
+			<uf_name>Эмаль 9001</uf_name>
+			<uf_color_hex>#FDF4E3</uf_color_hex>
+			<uf_type>enamel</uf_type>
+			<uf_sort>950</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>95</id>
+			<uf_xml_id>emal_9003</uf_xml_id>
+			<uf_name>Эмаль 9003</uf_name>
+			<uf_color_hex>#F4F4F4</uf_color_hex>
+			<uf_type>enamel</uf_type>
+			<uf_sort>960</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>96</id>
+			<uf_xml_id>custom_color</uf_xml_id>
+			<uf_name>Свой цвет по RAL и NCS</uf_name>
+			<uf_color_hex/>
+			<uf_type>custom</uf_type>
+			<uf_sort>970</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+	</items>
+</hiblock>

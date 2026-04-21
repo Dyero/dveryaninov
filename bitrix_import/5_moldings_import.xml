@@ -1,129 +1,448 @@
 <?xml version="1.0" encoding="utf-8"?>
-<data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <item>
-    <field name="UF_XML_ID">molding_amfora_chrome</field>
-    <field name="UF_COLOR">Матовый хром</field>
-    <field name="UF_PRICE">0</field>
-    <field name="UF_COLLECTIONS">Амфора</field>
-    <field name="UF_MODEL_RANGE"/>
-    <field name="UF_SORT">10</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">molding_amfora_black</field>
-    <field name="UF_COLOR">Чёрный</field>
-    <field name="UF_PRICE">0</field>
-    <field name="UF_COLLECTIONS">Амфора</field>
-    <field name="UF_MODEL_RANGE"/>
-    <field name="UF_SORT">20</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">molding_amfora_gold</field>
-    <field name="UF_COLOR">Матовое золото</field>
-    <field name="UF_PRICE">470</field>
-    <field name="UF_COLLECTIONS">Амфора</field>
-    <field name="UF_MODEL_RANGE"/>
-    <field name="UF_SORT">30</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">molding_amfora_champagne</field>
-    <field name="UF_COLOR">Шампань</field>
-    <field name="UF_PRICE">0</field>
-    <field name="UF_COLLECTIONS">Амфора</field>
-    <field name="UF_MODEL_RANGE"/>
-    <field name="UF_SORT">40</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">molding_kvant_chrome</field>
-    <field name="UF_COLOR">Матовый хром</field>
-    <field name="UF_PRICE">0</field>
-    <field name="UF_COLLECTIONS">Квант</field>
-    <field name="UF_MODEL_RANGE"/>
-    <field name="UF_SORT">50</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">molding_kvant_black</field>
-    <field name="UF_COLOR">Чёрный</field>
-    <field name="UF_PRICE">0</field>
-    <field name="UF_COLLECTIONS">Квант</field>
-    <field name="UF_MODEL_RANGE"/>
-    <field name="UF_SORT">60</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">molding_kvant_gold</field>
-    <field name="UF_COLOR">Матовое золото</field>
-    <field name="UF_PRICE">0</field>
-    <field name="UF_COLLECTIONS">Квант</field>
-    <field name="UF_MODEL_RANGE"/>
-    <field name="UF_SORT">70</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">molding_mono_1_8_chrome</field>
-    <field name="UF_COLOR">Матовый хром</field>
-    <field name="UF_PRICE">0</field>
-    <field name="UF_COLLECTIONS">Моно</field>
-    <field name="UF_MODEL_RANGE">1-8</field>
-    <field name="UF_SORT">80</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">molding_mono_1_8_black</field>
-    <field name="UF_COLOR">Чёрный</field>
-    <field name="UF_PRICE">0</field>
-    <field name="UF_COLLECTIONS">Моно</field>
-    <field name="UF_MODEL_RANGE">1-8</field>
-    <field name="UF_SORT">90</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">molding_mono_1_8_gold</field>
-    <field name="UF_COLOR">Матовое золото</field>
-    <field name="UF_PRICE">470</field>
-    <field name="UF_COLLECTIONS">Моно</field>
-    <field name="UF_MODEL_RANGE">1-8</field>
-    <field name="UF_SORT">100</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">molding_mono_1_8_champagne</field>
-    <field name="UF_COLOR">Шампань</field>
-    <field name="UF_PRICE">0</field>
-    <field name="UF_COLLECTIONS">Моно</field>
-    <field name="UF_MODEL_RANGE">1-8</field>
-    <field name="UF_SORT">110</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">molding_mono_9_12_chrome</field>
-    <field name="UF_COLOR">Матовый хром</field>
-    <field name="UF_PRICE">0</field>
-    <field name="UF_COLLECTIONS">Моно</field>
-    <field name="UF_MODEL_RANGE">9-12</field>
-    <field name="UF_SORT">120</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">molding_mono_9_12_black</field>
-    <field name="UF_COLOR">Чёрный</field>
-    <field name="UF_PRICE">470</field>
-    <field name="UF_COLLECTIONS">Моно</field>
-    <field name="UF_MODEL_RANGE">9-12</field>
-    <field name="UF_SORT">130</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-  <item>
-    <field name="UF_XML_ID">molding_mono_9_12_gold</field>
-    <field name="UF_COLOR">Матовое золото</field>
-    <field name="UF_PRICE">0</field>
-    <field name="UF_COLLECTIONS">Моно</field>
-    <field name="UF_MODEL_RANGE">9-12</field>
-    <field name="UF_SORT">140</field>
-    <field name="UF_ACTIVE">1</field>
-  </item>
-</data>
+<hiblock>
+	<hiblock>
+		<id>5</id>
+		<name>Moldings</name>
+		<table_name>b_hlbd_moldings</table_name>
+	</hiblock>
+	<langs/>
+	<fields>
+		<field>
+			<id>1</id>
+			<entity_id>HLBLOCK_5</entity_id>
+			<field_name>UF_XML_ID</field_name>
+			<user_type_id>string</user_type_id>
+			<xml_id/>
+			<sort>100</sort>
+			<multiple>N</multiple>
+			<mandatory>Y</mandatory>
+			<show_filter>N</show_filter>
+			<show_in_list>Y</show_in_list>
+			<edit_in_list>Y</edit_in_list>
+			<is_searchable>N</is_searchable>
+			<settings>
+				<size>20</size>
+				<rows>1</rows>
+				<regexp/>
+				<min_length>0</min_length>
+				<max_length>0</max_length>
+				<default_value/>
+			</settings>
+			<edit_form_label>
+				<en/>
+				<ru/>
+			</edit_form_label>
+			<list_column_label>
+				<en/>
+				<ru/>
+			</list_column_label>
+			<list_filter_label>
+				<en/>
+				<ru/>
+			</list_filter_label>
+			<error_message>
+				<en/>
+				<ru/>
+			</error_message>
+			<help_message>
+				<en/>
+				<ru/>
+			</help_message>
+			<base_type>string</base_type>
+		</field>
+		<field>
+			<id>2</id>
+			<entity_id>HLBLOCK_5</entity_id>
+			<field_name>UF_COLOR</field_name>
+			<user_type_id>string</user_type_id>
+			<xml_id/>
+			<sort>100</sort>
+			<multiple>N</multiple>
+			<mandatory>Y</mandatory>
+			<show_filter>N</show_filter>
+			<show_in_list>Y</show_in_list>
+			<edit_in_list>Y</edit_in_list>
+			<is_searchable>N</is_searchable>
+			<settings>
+				<size>20</size>
+				<rows>1</rows>
+				<regexp/>
+				<min_length>0</min_length>
+				<max_length>0</max_length>
+				<default_value/>
+			</settings>
+			<edit_form_label>
+				<en/>
+				<ru/>
+			</edit_form_label>
+			<list_column_label>
+				<en/>
+				<ru/>
+			</list_column_label>
+			<list_filter_label>
+				<en/>
+				<ru/>
+			</list_filter_label>
+			<error_message>
+				<en/>
+				<ru/>
+			</error_message>
+			<help_message>
+				<en/>
+				<ru/>
+			</help_message>
+			<base_type>string</base_type>
+		</field>
+		<field>
+			<id>3</id>
+			<entity_id>HLBLOCK_5</entity_id>
+			<field_name>UF_PRICE</field_name>
+			<user_type_id>double</user_type_id>
+			<xml_id/>
+			<sort>100</sort>
+			<multiple>N</multiple>
+			<mandatory>Y</mandatory>
+			<show_filter>N</show_filter>
+			<show_in_list>Y</show_in_list>
+			<edit_in_list>Y</edit_in_list>
+			<is_searchable>N</is_searchable>
+			<settings>
+				<precision>4</precision>
+				<size>20</size>
+				<min_value>0</min_value>
+				<max_value>0</max_value>
+				<default_value/>
+			</settings>
+			<edit_form_label>
+				<en/>
+				<ru/>
+			</edit_form_label>
+			<list_column_label>
+				<en/>
+				<ru/>
+			</list_column_label>
+			<list_filter_label>
+				<en/>
+				<ru/>
+			</list_filter_label>
+			<error_message>
+				<en/>
+				<ru/>
+			</error_message>
+			<help_message>
+				<en/>
+				<ru/>
+			</help_message>
+			<base_type>double</base_type>
+		</field>
+		<field>
+			<id>4</id>
+			<entity_id>HLBLOCK_5</entity_id>
+			<field_name>UF_COLLECTIONS</field_name>
+			<user_type_id>string</user_type_id>
+			<xml_id/>
+			<sort>100</sort>
+			<multiple>N</multiple>
+			<mandatory>N</mandatory>
+			<show_filter>N</show_filter>
+			<show_in_list>Y</show_in_list>
+			<edit_in_list>Y</edit_in_list>
+			<is_searchable>N</is_searchable>
+			<settings>
+				<size>20</size>
+				<rows>1</rows>
+				<regexp/>
+				<min_length>0</min_length>
+				<max_length>0</max_length>
+				<default_value/>
+			</settings>
+			<edit_form_label>
+				<en/>
+				<ru/>
+			</edit_form_label>
+			<list_column_label>
+				<en/>
+				<ru/>
+			</list_column_label>
+			<list_filter_label>
+				<en/>
+				<ru/>
+			</list_filter_label>
+			<error_message>
+				<en/>
+				<ru/>
+			</error_message>
+			<help_message>
+				<en/>
+				<ru/>
+			</help_message>
+			<base_type>string</base_type>
+		</field>
+		<field>
+			<id>5</id>
+			<entity_id>HLBLOCK_5</entity_id>
+			<field_name>UF_MODEL_RANGE</field_name>
+			<user_type_id>string</user_type_id>
+			<xml_id/>
+			<sort>100</sort>
+			<multiple>N</multiple>
+			<mandatory>N</mandatory>
+			<show_filter>N</show_filter>
+			<show_in_list>Y</show_in_list>
+			<edit_in_list>Y</edit_in_list>
+			<is_searchable>N</is_searchable>
+			<settings>
+				<size>20</size>
+				<rows>1</rows>
+				<regexp/>
+				<min_length>0</min_length>
+				<max_length>0</max_length>
+				<default_value/>
+			</settings>
+			<edit_form_label>
+				<en/>
+				<ru/>
+			</edit_form_label>
+			<list_column_label>
+				<en/>
+				<ru/>
+			</list_column_label>
+			<list_filter_label>
+				<en/>
+				<ru/>
+			</list_filter_label>
+			<error_message>
+				<en/>
+				<ru/>
+			</error_message>
+			<help_message>
+				<en/>
+				<ru/>
+			</help_message>
+			<base_type>string</base_type>
+		</field>
+		<field>
+			<id>6</id>
+			<entity_id>HLBLOCK_5</entity_id>
+			<field_name>UF_SORT</field_name>
+			<user_type_id>double</user_type_id>
+			<xml_id/>
+			<sort>100</sort>
+			<multiple>N</multiple>
+			<mandatory>N</mandatory>
+			<show_filter>N</show_filter>
+			<show_in_list>Y</show_in_list>
+			<edit_in_list>Y</edit_in_list>
+			<is_searchable>N</is_searchable>
+			<settings>
+				<precision>4</precision>
+				<size>20</size>
+				<min_value>0</min_value>
+				<max_value>0</max_value>
+				<default_value/>
+			</settings>
+			<edit_form_label>
+				<en/>
+				<ru/>
+			</edit_form_label>
+			<list_column_label>
+				<en/>
+				<ru/>
+			</list_column_label>
+			<list_filter_label>
+				<en/>
+				<ru/>
+			</list_filter_label>
+			<error_message>
+				<en/>
+				<ru/>
+			</error_message>
+			<help_message>
+				<en/>
+				<ru/>
+			</help_message>
+			<base_type>double</base_type>
+		</field>
+		<field>
+			<id>7</id>
+			<entity_id>HLBLOCK_5</entity_id>
+			<field_name>UF_ACTIVE</field_name>
+			<user_type_id>boolean</user_type_id>
+			<xml_id/>
+			<sort>100</sort>
+			<multiple>N</multiple>
+			<mandatory>Y</mandatory>
+			<show_filter>N</show_filter>
+			<show_in_list>Y</show_in_list>
+			<edit_in_list>Y</edit_in_list>
+			<is_searchable>N</is_searchable>
+			<settings>
+				<default_value>0</default_value>
+				<display>CHECKBOX</display>
+			</settings>
+			<edit_form_label>
+				<en/>
+				<ru/>
+			</edit_form_label>
+			<list_column_label>
+				<en/>
+				<ru/>
+			</list_column_label>
+			<list_filter_label>
+				<en/>
+				<ru/>
+			</list_filter_label>
+			<error_message>
+				<en/>
+				<ru/>
+			</error_message>
+			<help_message>
+				<en/>
+				<ru/>
+			</help_message>
+			<base_type>int</base_type>
+		</field>
+	</fields>
+	<items>
+		<item>
+			<id>1</id>
+			<uf_xml_id>molding_amfora_chrome</uf_xml_id>
+			<uf_color>Матовый хром</uf_color>
+			<uf_price>0</uf_price>
+			<uf_collections>Амфора</uf_collections>
+			<uf_model_range/>
+			<uf_sort>10</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>2</id>
+			<uf_xml_id>molding_amfora_black</uf_xml_id>
+			<uf_color>Чёрный</uf_color>
+			<uf_price>0</uf_price>
+			<uf_collections>Амфора</uf_collections>
+			<uf_model_range/>
+			<uf_sort>20</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>3</id>
+			<uf_xml_id>molding_amfora_gold</uf_xml_id>
+			<uf_color>Матовое золото</uf_color>
+			<uf_price>470</uf_price>
+			<uf_collections>Амфора</uf_collections>
+			<uf_model_range/>
+			<uf_sort>30</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>4</id>
+			<uf_xml_id>molding_amfora_champagne</uf_xml_id>
+			<uf_color>Шампань</uf_color>
+			<uf_price>0</uf_price>
+			<uf_collections>Амфора</uf_collections>
+			<uf_model_range/>
+			<uf_sort>40</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>5</id>
+			<uf_xml_id>molding_kvant_chrome</uf_xml_id>
+			<uf_color>Матовый хром</uf_color>
+			<uf_price>0</uf_price>
+			<uf_collections>Квант</uf_collections>
+			<uf_model_range/>
+			<uf_sort>50</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>6</id>
+			<uf_xml_id>molding_kvant_black</uf_xml_id>
+			<uf_color>Чёрный</uf_color>
+			<uf_price>0</uf_price>
+			<uf_collections>Квант</uf_collections>
+			<uf_model_range/>
+			<uf_sort>60</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>7</id>
+			<uf_xml_id>molding_kvant_gold</uf_xml_id>
+			<uf_color>Матовое золото</uf_color>
+			<uf_price>0</uf_price>
+			<uf_collections>Квант</uf_collections>
+			<uf_model_range/>
+			<uf_sort>70</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>8</id>
+			<uf_xml_id>molding_mono_1_8_chrome</uf_xml_id>
+			<uf_color>Матовый хром</uf_color>
+			<uf_price>0</uf_price>
+			<uf_collections>Моно</uf_collections>
+			<uf_model_range>1-8</uf_model_range>
+			<uf_sort>80</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>9</id>
+			<uf_xml_id>molding_mono_1_8_black</uf_xml_id>
+			<uf_color>Чёрный</uf_color>
+			<uf_price>0</uf_price>
+			<uf_collections>Моно</uf_collections>
+			<uf_model_range>1-8</uf_model_range>
+			<uf_sort>90</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>10</id>
+			<uf_xml_id>molding_mono_1_8_gold</uf_xml_id>
+			<uf_color>Матовое золото</uf_color>
+			<uf_price>470</uf_price>
+			<uf_collections>Моно</uf_collections>
+			<uf_model_range>1-8</uf_model_range>
+			<uf_sort>100</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>11</id>
+			<uf_xml_id>molding_mono_1_8_champagne</uf_xml_id>
+			<uf_color>Шампань</uf_color>
+			<uf_price>0</uf_price>
+			<uf_collections>Моно</uf_collections>
+			<uf_model_range>1-8</uf_model_range>
+			<uf_sort>110</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>12</id>
+			<uf_xml_id>molding_mono_9_12_chrome</uf_xml_id>
+			<uf_color>Матовый хром</uf_color>
+			<uf_price>0</uf_price>
+			<uf_collections>Моно</uf_collections>
+			<uf_model_range>9-12</uf_model_range>
+			<uf_sort>120</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>13</id>
+			<uf_xml_id>molding_mono_9_12_black</uf_xml_id>
+			<uf_color>Чёрный</uf_color>
+			<uf_price>470</uf_price>
+			<uf_collections>Моно</uf_collections>
+			<uf_model_range>9-12</uf_model_range>
+			<uf_sort>130</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+		<item>
+			<id>14</id>
+			<uf_xml_id>molding_mono_9_12_gold</uf_xml_id>
+			<uf_color>Матовое золото</uf_color>
+			<uf_price>0</uf_price>
+			<uf_collections>Моно</uf_collections>
+			<uf_model_range>9-12</uf_model_range>
+			<uf_sort>140</uf_sort>
+			<uf_active>1</uf_active>
+		</item>
+	</items>
+</hiblock>
