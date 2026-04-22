@@ -676,16 +676,13 @@
       for (var key in MOLDING_IMG_MAP) {
         if (name.indexOf(key) !== -1) return MOLDING_IMG_MAP[key];
       }
-      // Fallback heuristics
+      // Fallback heuristics — наличники: всегда продольное фото
       if (/стойк.*телеск/i.test(name)) return MOLDING_IMG_MAP["Телескоп (МДФ)"];
       if (/стойк.*комплан/i.test(name)) return MOLDING_IMG_MAP["Компланарная"];
       if (/наличник.*комплан/i.test(name)) return MOLDING_IMG_MAP["Компланарный"];
-      if (/наличник.*плюс.*прод/i.test(name)) return MOLDING_IMG_MAP["Телескоп плюс прод."];
-      if (/наличник.*плюс.*попер/i.test(name)) return MOLDING_IMG_MAP["Телескоп плюс попер."];
-      if (/наличник.*100.*прод/i.test(name)) return "images/ПОГОНАЖ/Наличник телескоп продольный 2200 х 100 мм х 12 мм.jpg";
-      if (/наличник.*100.*попер/i.test(name)) return "images/ПОГОНАЖ/Наличник телескоп поперечный 2200 х 100 мм х 10 мм.jpg";
-      if (/наличник.*прод/i.test(name)) return MOLDING_IMG_MAP["Телескоп прод."];
-      if (/наличник.*попер/i.test(name)) return MOLDING_IMG_MAP["Телескоп попер."];
+      if (/наличник.*плюс/i.test(name)) return MOLDING_IMG_MAP["Телескоп плюс прод."];
+      if (/наличник.*100/i.test(name)) return "images/ПОГОНАЖ/Наличник телескоп продольный 2200 х 100 мм х 12 мм.jpg";
+      if (/наличник/i.test(name)) return MOLDING_IMG_MAP["Телескоп прод."];
       if (/добор.*купе/i.test(name)) return MOLDING_IMG_MAP["Добор на купе"];
       if (/добор/i.test(name)) return MOLDING_IMG_MAP["Добор"];
       return "";
@@ -763,6 +760,41 @@
       if (item) item.style.display = allowed.length <= 1 ? "none" : "";
     }
 
+    // Resolve glazing image from real file names
+    var GLAZING_IMG_MAP = {
+      "сатинато белое":            "images/Стёкла/сатинато белое.jpg",
+      "сатинато бронза":           "images/Стёкла/сатинато бронза.jpg",
+      "сатинато графит":           "images/Стёкла/сатинато графит.jpg",
+      "рефлектив серебро":         "images/Стёкла/РЕФЛЕКТИВ СЕРЕБРО.jpg",
+      "бронза":                    "images/Стёкла/БРОНЗА.jpg",
+      "грей":                      "images/Стёкла/ГРАФИТ.jpg",
+      "графит":                    "images/Стёкла/ГРАФИТ.jpg",
+      "флутс прозрачный":          "images/Стёкла/ФЛУТС прозрачный.jpg",
+      "флутс графит":              "images/Стёкла/флутс графит.jpg",
+      "флутс бронза":              "images/Стёкла/флутс бронза.jpg",
+      "рефлект с фацетом":         "images/Стёкла/рефлект с фацетом.jpg",
+      "сатинато белое с фацетом":  "images/Стёкла/сатинато с фацетом.jpg",
+      "сатинато с фацетом":        "images/Стёкла/сатинато с фацетом.jpg",
+      "аквалайт":                  "images/Стёкла/АКВАЛАЙТ.jpg",
+      "зеркало графит":            "images/Стёкла/ЗЕРКАЛО ГРАФИТ.jpg",
+      "зеркало серебро":           "images/Стёкла/ЗЕРКАЛО СЕРЕБРО.jpg",
+      "стекло прозрачное":         "images/Стёкла/СТЕКЛО ПРОЗРАЧНОЕ.jpg",
+      "лакобель бежевый":          "images/Стёкла/лакобель бежевый.jpg",
+      "лакобель белый":            "images/Стёкла/лакобель белый.jpg",
+      "лакобель коричневый":       "images/Стёкла/лакобель коричневый.jpg",
+      "лакобель черный":           "images/Стёкла/лакобель черный.jpg",
+      "лакобель шамуа":            "images/Стёкла/лакобель шамуа.jpg"
+    };
+    function resolveGlazingImg(name) {
+      var lower = name.toLowerCase().trim();
+      if (GLAZING_IMG_MAP[lower]) return GLAZING_IMG_MAP[lower];
+      // Partial match fallback
+      for (var key in GLAZING_IMG_MAP) {
+        if (lower.indexOf(key) !== -1 || key.indexOf(lower) !== -1) return GLAZING_IMG_MAP[key];
+      }
+      return "";
+    }
+
     // Заполнить остекление
     function populateGlazing() {
       var container = modal?.querySelector("#cfgGlazingOptions");
@@ -777,9 +809,10 @@
         return;
       }
       if (section) section.style.display = "";
-      // Добавляем стёкла
+      // Добавляем стёкла с реальными фото
       glasses.forEach(function(g) {
-        container.appendChild(buildRadioItem(g.name, g.price, g.img));
+        var img = resolveGlazingImg(g.name) || g.img || "";
+        container.appendChild(buildRadioItem(g.name, g.price, img));
       });
       // «Без остекления»
       container.appendChild(buildRadioItem("Без остекления", 0, ""));
@@ -802,22 +835,37 @@
       });
     }
 
-    // Resolve aluminum edge image by color
+    // Resolve aluminum edge image by color + type
     var ALU_EDGE_IMG = {
       "золот": "images/Алюминиевая кромка/золото кромка.jpg",
       "хром":  "images/Алюминиевая кромка/серебро кромка.jpg",
       "чёрн":  "images/Алюминиевая кромка/черная кромка.jpg",
       "черн":  "images/Алюминиевая кромка/черная кромка.jpg"
     };
+    var ALU_EDGE_LONG_IMG = {
+      "золот": "images/Алюминиевая кромка/золото кромка продольная.jpg",
+      "хром":  "images/Алюминиевая кромка/серебро кромка продольная.jpg",
+      "чёрн":  "images/Алюминиевая кромка/черная кромка продольная.jpg",
+      "черн":  "images/Алюминиевая кромка/черная кромка продольная.jpg"
+    };
     function resolveAluEdgeImg(name) {
       var lower = name.toLowerCase();
-      for (var key in ALU_EDGE_IMG) {
-        if (lower.indexOf(key) !== -1) return ALU_EDGE_IMG[key];
+      var isLong = /продольн/i.test(lower);
+      var map = isLong ? ALU_EDGE_LONG_IMG : ALU_EDGE_IMG;
+      for (var key in map) {
+        if (lower.indexOf(key) !== -1) return map[key];
       }
       return "";
     }
 
-    // Заполнить алюминиевую кромку
+    // Map edge color name to hw-color key
+    var EDGE_COLOR_TO_HW = {
+      "матовый хром": "chrome",
+      "чёрный": "black",
+      "матовое золото": "gold"
+    };
+
+    // Заполнить алюминиевую кромку (с фильтрацией по цвету фурнитуры)
     function populateAluEdge() {
       var container = modal?.querySelector("#cfgAluEdgeOptions");
       var section = modal?.querySelector("#cfgAluEdgeSection");
@@ -829,8 +877,14 @@
       }
       section.style.display = "";
       container.innerHTML = "";
+      var hwColor = state["hw-color"] || "";
       CFG.ALU_EDGE.forEach(function(edge) {
         var name = edge.type + (edge.color ? " — " + edge.color : "");
+        // Filter by hw-color if set (always show "Без кромки")
+        if (hwColor && edge.color) {
+          var edgeHw = EDGE_COLOR_TO_HW[edge.color.toLowerCase()] || "";
+          if (edgeHw && edgeHw !== hwColor) return;
+        }
         var img = resolveAluEdgeImg(name);
         container.appendChild(buildRadioItem(name, edge.price, img));
       });
@@ -1705,6 +1759,7 @@
           if (hwDisplay && hwLabel) hwDisplay.textContent = hwLabel.textContent.trim();
           filterHandlesByColor(hwColor);
           autoSelectHardwareByColor(hwColor);
+          populateAluEdge();
           updateConfigTotal();
           return;
         }
@@ -2051,6 +2106,7 @@
     const promoField = document.getElementById("cart-promo-field");
 
     const labels = {
+      "blade-type": "Тип полотна",
       size: "Размер",
       finish: "Цвет покрытия",
       "coating-type": "Тип покрытия",
@@ -2122,15 +2178,23 @@
         let propsHtml = "";
         if (item.options) {
           const doorKeys = [
-            "size", "coating-type", "finish", "glazing", "engraving", "alu-edge", "moldings",
+            "blade-type", "size", "coating-type", "finish", "glazing", "engraving", "alu-edge", "moldings",
             "opening-system", "opening-type",
             "box", "casing-side1", "casing-side2", "dobor",
             "hw-color", "handle", "locker", "hinges", "stopper"
           ];
           propsHtml = '<div class="cart-item__props">';
           for (const key of doorKeys) {
-            const val = item.options[key];
+            let val = item.options[key];
             if (val && val !== "-") {
+              // Human-readable transforms
+              if (key === "blade-type") val = val === "po" ? "ПО (остеклённое)" : "ПГ (глухое)";
+              if (key === "hw-color") {
+                var hwNames = {black:"Чёрный",chrome:"Мат. хром",gold:"Мат. золото",nickel:"Мат. никель",brass:"Флор. золото",emboss:"Итал. тисненый"};
+                val = hwNames[val] || val;
+              }
+              // Skip blade-surcharge numeric value
+              if (key === "blade-surcharge") continue;
               const label = labels[key] || key;
               propsHtml += '<div class="cart-item__prop-row"><span class="cart-item__prop-label">' + label + ':</span> <span class="cart-item__prop-value">' + val + '</span></div>';
             }

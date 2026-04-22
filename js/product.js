@@ -260,21 +260,40 @@
 
   // Dynamic blade-type selector (ПГ / ПО)
   function initBladeTypeSelector() {
-    // Detect if there's a ПО variant (title contains "ПГ" or product has data-blade-po)
     var title = document.querySelector(".product__title");
     if (!title) return;
-    var titleText = title.textContent.trim();
 
-    // Insert before the coating option (product__option_coating or second product__option)
+    // Detect if door has glazing variants (ПО) by checking thumbs for "ПО" alt
+    function detectHasGlazing() {
+      var thumbs = document.querySelectorAll(".product__thumb img");
+      for (var i = 0; i < thumbs.length; i++) {
+        if (/ПО/i.test(thumbs[i].getAttribute("alt") || "")) return true;
+      }
+      return false;
+    }
+
+    if (!detectHasGlazing()) return; // P2: only show if door has glazing
+
+    // Insert before the coating option
     var coatingOption = document.querySelector(".product__option_coating");
     if (!coatingOption) {
-      // Find containing options and insert before the second one (coating)
       var options = document.querySelectorAll(".product__info .product__option");
       if (options.length >= 2) coatingOption = options[1];
     }
     if (!coatingOption) return;
 
     var surcharge = 14200;
+
+    // Get corner images from gallery thumbnails
+    var pgSrc = "", poSrc = "";
+    var thumbs = document.querySelectorAll(".product__thumb img");
+    thumbs.forEach(function(img) {
+      var alt = img.getAttribute("alt") || "";
+      var src = img.getAttribute("src") || "";
+      if (/ПО/i.test(alt)) { poSrc = src; }
+      else if (!pgSrc) { pgSrc = src; }
+    });
+
     var wrapper = document.createElement("div");
     wrapper.className = "product__option product__option_blade-type";
     wrapper.innerHTML =
@@ -284,11 +303,11 @@
       '</div>' +
       '<div class="product__blade-types">' +
         '<button type="button" class="product__blade-btn product__blade-btn_active" data-blade="pg">' +
-          '<svg class="product__blade-icon" width="32" height="56" viewBox="0 0 32 56" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="30" height="54" rx="1" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="27" cy="28" r="2" fill="currentColor"/></svg>' +
+          (pgSrc ? '<img class="product__blade-corner" src="' + pgSrc + '" alt="ПГ">' : '') +
           '<span class="product__blade-label">ПГ (глухое)</span>' +
         '</button>' +
         '<button type="button" class="product__blade-btn" data-blade="po">' +
-          '<svg class="product__blade-icon" width="32" height="56" viewBox="0 0 32 56" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="30" height="54" rx="1" stroke="currentColor" stroke-width="1.5" fill="none"/><rect x="5" y="8" width="22" height="40" rx="1" stroke="currentColor" stroke-width="1" fill="none" stroke-dasharray="2 2"/><circle cx="27" cy="28" r="2" fill="currentColor"/></svg>' +
+          (poSrc ? '<img class="product__blade-corner" src="' + poSrc + '" alt="ПО">' : '') +
           '<span class="product__blade-label">ПО (остеклённое)</span>' +
           '<span class="product__blade-price">+' + new Intl.NumberFormat("ru-RU").format(surcharge) + ' ₽</span>' +
         '</button>' +
@@ -316,9 +335,19 @@
         var total = base + (val === "po" ? surcharge : 0);
         priceEl.textContent = "от " + new Intl.NumberFormat("ru-RU").format(total) + " ₽";
       }
-      // Swap gallery image
+      // Swap gallery to match blade type
       var mainImg = document.querySelector(".product__main-image img");
-      if (mainImg) {
+      if (mainImg && pgSrc && poSrc) {
+        mainImg.src = val === "po" ? poSrc : pgSrc;
+        // Sync active thumb
+        var allThumbs = document.querySelectorAll(".product__thumb");
+        allThumbs.forEach(function(t) {
+          var thumbImg = t.querySelector("img");
+          if (!thumbImg) return;
+          var match = thumbImg.getAttribute("src") === mainImg.src;
+          t.classList.toggle("product__thumb_active", match);
+        });
+      } else if (mainImg) {
         var origSrc = mainImg.getAttribute("data-src-pg") || mainImg.src;
         if (!mainImg.hasAttribute("data-src-pg")) mainImg.setAttribute("data-src-pg", origSrc);
         mainImg.src = val === "po" ? origSrc.replace(/(\.\w+)$/, " ПО$1") : origSrc;

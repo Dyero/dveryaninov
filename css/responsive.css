@@ -638,6 +638,10 @@ main,
   .product__thumbs { overflow-x: auto; flex-wrap: nowrap; }
   .product__thumb { flex: 0 0 60px; }
 
+  /* ── Configurator accordion grid — 2 cols on mobile ── */
+  .cfg-section__body.is-open { grid-template-columns: repeat(2, 1fr); }
+  .cfg-color-grid { grid-template-columns: repeat(3, 1fr); }
+
   /* ── Blade-type selector ── */
   .product__blade-types { flex-direction: column; }
   .product__blade-btn { width: 100%; justify-content: flex-start; }
