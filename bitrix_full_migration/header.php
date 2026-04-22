@@ -29,38 +29,15 @@ use Bitrix\Main\Page\Asset;
 <body class="page">
     <?php $APPLICATION->ShowPanel(); ?>
 
-    <!-- Header -->
-    <header class="header" role="banner">
-        <div class="header__wrapper">
-            <a href="/" class="header__logo" aria-label="Логотип Дверянинов">
-                <img src="<?= SITE_TEMPLATE_PATH ?>/images/logo.svg" alt="Дверянинов" width="160" height="40">
-            </a>
-
-            <nav class="header__nav" role="navigation" aria-label="Основная навигация">
-                <a class="header__link" href="/catalog/">Каталог</a>
-                <a class="header__link" href="/collections/">Коллекции</a>
-                <a class="header__link" href="/about/">О компании</a>
-                <a class="header__link" href="/contacts/">Контакты</a>
-            </nav>
-
-            <div class="header__actions">
-                <button type="button" class="header__action header__action_search" aria-label="Поиск"></button>
-
-                <?php if ($USER->IsAuthorized()): ?>
-                    <a href="/personal/" class="header__action header__action_profile" aria-label="Личный кабинет"></a>
-                <?php else: ?>
-                    <button type="button" class="header__action header__action_profile" aria-label="Войти" onclick="openAuthPopup()"></button>
-                <?php endif; ?>
-
-                <a href="/personal/cart/" class="header__action header__action_cart" aria-label="Корзина">
-                    <span class="header__cart-count" data-cart-count>0</span>
-                </a>
-            </div>
-
-            <button type="button" class="header__burger" aria-label="Открыть меню" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </header>
+    <?php
+    // Include site header component
+    $APPLICATION->IncludeComponent(
+        "bitrix:main.include",
+        "",
+        array(
+            "AREA_FILE_SHOW" => "file",
+            "PATH" => SITE_TEMPLATE_PATH . "/includes/header.php",
+            "EDIT_TEMPLATE" => ""
+        )
+    );
+    ?>

@@ -2,72 +2,70 @@
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 ?>
 
-    <!-- Footer -->
-    <footer class="footer" role="contentinfo">
-        <div class="footer__wrapper">
-            <div class="footer__top">
-                <div class="footer__col footer__col_logo">
-                    <a href="/" class="footer__logo">
-                        <img src="<?= SITE_TEMPLATE_PATH ?>/images/logo.svg" alt="Дверянинов" width="160" height="40">
-                    </a>
-                    <p class="footer__text">Производитель межкомнатных дверей</p>
-                </div>
+    <?php
+    // Include site footer component
+    $APPLICATION->IncludeComponent(
+        "bitrix:main.include",
+        "",
+        array(
+            "AREA_FILE_SHOW" => "file",
+            "PATH" => SITE_TEMPLATE_PATH . "/includes/footer.php",
+            "EDIT_TEMPLATE" => ""
+        )
+    );
+    ?>
 
-                <div class="footer__col">
-                    <h3 class="footer__title">Каталог</h3>
-                    <ul class="footer__list">
-                        <li><a href="/catalog/" class="footer__link">Все двери</a></li>
-                        <li><a href="/collections/" class="footer__link">Коллекции</a></li>
-                        <li><a href="/molding/" class="footer__link">Погонаж</a></li>
-                        <li><a href="/hardware/" class="footer__link">Фурнитура</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer__col">
-                    <h3 class="footer__title">Компания</h3>
-                    <ul class="footer__list">
-                        <li><a href="/about/" class="footer__link">О компании</a></li>
-                        <li><a href="/contacts/" class="footer__link">Контакты</a></li>
-                        <li><a href="/delivery/" class="footer__link">Доставка</a></li>
-                        <li><a href="/guarantee/" class="footer__link">Гарантия</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer__col">
-                    <h3 class="footer__title">Контакты</h3>
-                    <ul class="footer__list">
-                        <li><a href="tel:+74951234567" class="footer__link">+7 (495) 123-45-67</a></li>
-                        <li><a href="mailto:info@dveryaninov.ru" class="footer__link">info@dveryaninov.ru</a></li>
-                    </ul>
-                </div>
+    <!-- Auth modal -->
+    <div class="auth-modal" id="auth-modal" role="dialog" aria-modal="true" aria-labelledby="auth-modal-title" aria-hidden="true">
+        <div class="auth-modal__backdrop"></div>
+        <div class="auth-modal__panel">
+            <div class="auth-modal__header">
+                <h2 class="auth-modal__title" id="auth-modal-title">Личный кабинет</h2>
+                <button type="button" class="auth-modal__close" data-close-auth aria-label="Закрыть">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <line x1="2" y1="2" x2="18" y2="18" stroke="currentColor" stroke-width="2"/>
+                        <line x1="18" y1="2" x2="2" y2="18" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </button>
             </div>
-
-            <div class="footer__bottom">
-                <p class="footer__copyright">© <?= date("Y") ?> Дверянинов. Все права защищены.</p>
-                <a href="/privacy/" class="footer__link">Политика конфиденциальности</a>
+            <div class="auth-modal__tabs">
+                <button class="modal__tab modal__tab_active" type="button" data-auth-tab="login" aria-selected="true">Войти</button>
+                <button class="modal__tab" type="button" data-auth-tab="register" aria-selected="false">Регистрация</button>
+            </div>
+            <div data-auth-panel="login">
+                <form class="auth-form" id="login-form" novalidate>
+                    <div class="auth-form__field">
+                        <label class="auth-form__label" for="login-email">Email</label>
+                        <input class="auth-form__input" type="email" id="login-email" name="email" autocomplete="email" required>
+                    </div>
+                    <div class="auth-form__field">
+                        <label class="auth-form__label" for="login-password">Пароль</label>
+                        <input class="auth-form__input" type="password" id="login-password" name="password" autocomplete="current-password" required>
+                    </div>
+                    <div class="auth-form__error" aria-live="polite"></div>
+                    <button type="submit" class="auth-form__btn">Войти</button>
+                </form>
+            </div>
+            <div data-auth-panel="register" hidden>
+                <form class="auth-form" id="register-form" novalidate>
+                    <div class="auth-form__field">
+                        <label class="auth-form__label" for="reg-name">Имя</label>
+                        <input class="auth-form__input" type="text" id="reg-name" name="reg-name" autocomplete="name" required>
+                    </div>
+                    <div class="auth-form__field">
+                        <label class="auth-form__label" for="reg-email">Email</label>
+                        <input class="auth-form__input" type="email" id="reg-email" name="reg-email" autocomplete="email" required>
+                    </div>
+                    <div class="auth-form__field">
+                        <label class="auth-form__label" for="reg-password">Пароль</label>
+                        <input class="auth-form__input" type="password" id="reg-password" name="reg-password" autocomplete="new-password" required>
+                    </div>
+                    <div class="auth-form__error" aria-live="polite"></div>
+                    <button type="submit" class="auth-form__btn">Зарегистрироваться</button>
+                </form>
             </div>
         </div>
-    </footer>
-
-    <!-- Mobile Menu -->
-    <nav class="mobile-menu" aria-label="Нижнее меню">
-        <a class="mobile-menu__item" href="/catalog/">
-            <span class="mobile-menu__icon" aria-hidden="true"></span>
-            <span class="mobile-menu__label">Каталог</span>
-        </a>
-        <a class="mobile-menu__item" href="/about/">
-            <span class="mobile-menu__icon mobile-menu__icon_about" aria-hidden="true"></span>
-            <span class="mobile-menu__label">О компании</span>
-        </a>
-        <a class="mobile-menu__item" href="/contacts/">
-            <span class="mobile-menu__icon mobile-menu__icon_contacts" aria-hidden="true"></span>
-            <span class="mobile-menu__label">Контакты</span>
-        </a>
-        <a class="mobile-menu__item" href="/personal/">
-            <span class="mobile-menu__icon mobile-menu__icon_profile" aria-hidden="true"></span>
-            <span class="mobile-menu__label">Профиль</span>
-        </a>
-    </nav>
+    </div>
 
 </body>
 </html>
