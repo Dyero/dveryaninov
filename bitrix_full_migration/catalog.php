@@ -4,6 +4,14 @@ $APPLICATION->SetTitle("Каталог — Дверянинов");
 $APPLICATION->SetPageProperty("description", "Каталог межкомнатных дверей — широкий выбор коллекций, фурнитуры и перегородок");
 ?>
 
+<?php
+// Include site header
+$includeHeaderPath = $_SERVER["DOCUMENT_ROOT"] . SITE_TEMPLATE_PATH . "/includes/header.php";
+if (file_exists($includeHeaderPath)) {
+    include($includeHeaderPath);
+}
+?>
+
 <main class="catalog-page">
     <nav class="breadcrumbs catalog-page__breadcrumbs" aria-label="Хлебные крошки">
         <a class="breadcrumbs__link" href="/">Главная</a>

@@ -26,11 +26,3 @@ use Bitrix\Main\Page\Asset;
 </head>
 <body class="page">
     <?php $APPLICATION->ShowPanel(); ?>
-
-    <?php
-    // Include site header
-    $includeHeaderPath = $_SERVER["DOCUMENT_ROOT"] . SITE_TEMPLATE_PATH . "/includes/header.php";
-    if (file_exists($includeHeaderPath)) {
-        include($includeHeaderPath);
-    }
-    ?>

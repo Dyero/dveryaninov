@@ -35,6 +35,14 @@ if ($elementID > 0) {
 ?>
 
 <?php if ($elementID > 0 && $arProduct): ?>
+<?php
+// Include site header
+$includeHeaderPath = $_SERVER["DOCUMENT_ROOT"] . SITE_TEMPLATE_PATH . "/includes/header.php";
+if (file_exists($includeHeaderPath)) {
+    include($includeHeaderPath);
+}
+?>
+
 <main class="product-page">
     <nav class="breadcrumbs" aria-label="Хлебные крошки">
         <a class="breadcrumbs__link" href="/">Главная</a>

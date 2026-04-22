@@ -4,6 +4,14 @@ $APPLICATION->SetTitle("Дверянинов — Премиальные межк
 $APPLICATION->SetPageProperty("description", "Премиальные межкомнатные двери от фабрики Дверянинов. Собственное производство, широкий выбор коллекций, индивидуальные размеры.");
 ?>
 
+<?php
+// Include site header
+$includeHeaderPath = $_SERVER["DOCUMENT_ROOT"] . SITE_TEMPLATE_PATH . "/includes/header.php";
+if (file_exists($includeHeaderPath)) {
+    include($includeHeaderPath);
+}
+?>
+
 <main>
     <!-- 1. Hero Block -->
     <section class="hero-slider" id="hero-slider">
