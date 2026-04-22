@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <item>
+    <field name="XML_ID">box_telescope_pvc</field>
+    <field name="NAME">Стойка короба телескопическая ПВХ</field>
+    <field name="COATING_TYPE">pvc</field>
+    <field name="SIZE">комплект 2.5 шт</field>
+    <field name="PRICE">3450</field>
+    <field name="QUANTITY_IN_SET">2.5</field>
+    <field name="COMPONENT_TYPE">box</field>
+    <field name="SORT">10</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">box_telescope_enamel</field>
+    <field name="NAME">Стойка короба телескопическая Эмаль</field>
+    <field name="COATING_TYPE">enamel</field>
+    <field name="SIZE">комплект 2.5 шт</field>
+    <field name="PRICE">4980</field>
+    <field name="QUANTITY_IN_SET">2.5</field>
+    <field name="COMPONENT_TYPE">box</field>
+    <field name="SORT">20</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">box_coplanar_pvc</field>
+    <field name="NAME">Стойка короба компланарная ПВХ</field>
+    <field name="COATING_TYPE">pvc</field>
+    <field name="SIZE">комплект 2.5 шт</field>
+    <field name="PRICE">3680</field>
+    <field name="QUANTITY_IN_SET">2.5</field>
+    <field name="COMPONENT_TYPE">box</field>
+    <field name="SORT">30</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">box_coplanar_enamel</field>
+    <field name="NAME">Стойка короба компланарная Эмаль</field>
+    <field name="COATING_TYPE">enamel</field>
+    <field name="SIZE">комплект 2.5 шт</field>
+    <field name="PRICE">5380</field>
+    <field name="QUANTITY_IN_SET">2.5</field>
+    <field name="COMPONENT_TYPE">box</field>
+    <field name="SORT">40</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">casing_telescope_80_pvc</field>
+    <field name="NAME">Наличник телескоп 2200×80 прод.+попер. ПВХ</field>
+    <field name="COATING_TYPE">pvc</field>
+    <field name="SIZE">2200×80</field>
+    <field name="PRICE">2030</field>
+    <field name="QUANTITY_IN_SET">1</field>
+    <field name="COMPONENT_TYPE">casing</field>
+    <field name="SORT">50</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">casing_telescope_80_enamel</field>
+    <field name="NAME">Наличник телескоп 2200×80 прод.+попер. Эмаль</field>
+    <field name="COATING_TYPE">enamel</field>
+    <field name="SIZE">2200×80</field>
+    <field name="PRICE">3150</field>
+    <field name="QUANTITY_IN_SET">1</field>
+    <field name="COMPONENT_TYPE">casing</field>
+    <field name="SORT">60</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">casing_telescope_plus_80_pvc</field>
+    <field name="NAME">Наличник телескоп плюс 2200×80 прод.+попер. ПВХ</field>
+    <field name="COATING_TYPE">pvc</field>
+    <field name="SIZE">2200×80</field>
+    <field name="PRICE">2130</field>
+    <field name="QUANTITY_IN_SET">1</field>
+    <field name="COMPONENT_TYPE">casing</field>
+    <field name="SORT">70</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">casing_telescope_plus_80_enamel</field>
+    <field name="NAME">Наличник телескоп плюс 2200×80 прод.+попер. Эмаль</field>
+    <field name="COATING_TYPE">enamel</field>
+    <field name="SIZE">2200×80</field>
+    <field name="PRICE">3200</field>
+    <field name="QUANTITY_IN_SET">1</field>
+    <field name="COMPONENT_TYPE">casing</field>
+    <field name="SORT">80</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">casing_telescope_100_pvc</field>
+    <field name="NAME">Наличник телескоп 2200×100 прод.+попер. ПВХ</field>
+    <field name="COATING_TYPE">pvc</field>
+    <field name="SIZE">2200×100</field>
+    <field name="PRICE">2900</field>
+    <field name="QUANTITY_IN_SET">1</field>
+    <field name="COMPONENT_TYPE">casing</field>
+    <field name="SORT">90</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">casing_telescope_100_enamel</field>
+    <field name="NAME">Наличник телескоп 2200×100 прод.+попер. Эмаль</field>
+    <field name="COATING_TYPE">enamel</field>
+    <field name="SIZE">2200×100</field>
+    <field name="PRICE">4780</field>
+    <field name="QUANTITY_IN_SET">1</field>
+    <field name="COMPONENT_TYPE">casing</field>
+    <field name="SORT">100</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">casing_telescope_decorative_70_pvc</field>
+    <field name="NAME">Наличник телескоп декоративный 2200×70 ПВХ</field>
+    <field name="COATING_TYPE">pvc</field>
+    <field name="SIZE">2200×70</field>
+    <field name="PRICE">3850</field>
+    <field name="QUANTITY_IN_SET">1</field>
+    <field name="COMPONENT_TYPE">casing</field>
+    <field name="SORT">110</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">casing_telescope_decorative_70_enamel</field>
+    <field name="NAME">Наличник телескоп декоративный 2200×70 Эмаль</field>
+    <field name="COATING_TYPE">enamel</field>
+    <field name="SIZE">2200×70</field>
+    <field name="PRICE">5600</field>
+    <field name="QUANTITY_IN_SET">1</field>
+    <field name="COMPONENT_TYPE">casing</field>
+    <field name="SORT">120</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">casing_telescope_decorative_t10_100_pvc</field>
+    <field name="NAME">Наличник телескоп декоративный тип 10 2200×100 ПВХ</field>
+    <field name="COATING_TYPE">pvc</field>
+    <field name="SIZE">2200×100</field>
+    <field name="PRICE">5510</field>
+    <field name="QUANTITY_IN_SET">1</field>
+    <field name="COMPONENT_TYPE">casing</field>
+    <field name="SORT">130</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">casing_telescope_decorative_t10_100_enamel</field>
+    <field name="NAME">Наличник телескоп декоративный тип 10 2200×100 Эмаль</field>
+    <field name="COATING_TYPE">enamel</field>
+    <field name="SIZE">2200×100</field>
+    <field name="PRICE">8530</field>
+    <field name="QUANTITY_IN_SET">1</field>
+    <field name="COMPONENT_TYPE">casing</field>
+    <field name="SORT">140</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">casing_telescope_decorative_t11_100_pvc</field>
+    <field name="NAME">Наличник телескоп декоративный тип 11 2400×100 ПВХ</field>
+    <field name="COATING_TYPE">pvc</field>
+    <field name="SIZE">2400×100</field>
+    <field name="PRICE">7580</field>
+    <field name="QUANTITY_IN_SET">1</field>
+    <field name="COMPONENT_TYPE">casing</field>
+    <field name="SORT">150</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">casing_telescope_decorative_t11_100_enamel</field>
+    <field name="NAME">Наличник телескоп декоративный тип 11 2400×100 Эмаль</field>
+    <field name="COATING_TYPE">enamel</field>
+    <field name="SIZE">2400×100</field>
+    <field name="PRICE">10590</field>
+    <field name="QUANTITY_IN_SET">1</field>
+    <field name="COMPONENT_TYPE">casing</field>
+    <field name="SORT">160</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">casing_coplanar_80_pvc</field>
+    <field name="NAME">Наличник компланар 2200×80 ПВХ</field>
+    <field name="COATING_TYPE">pvc</field>
+    <field name="SIZE">2200×80</field>
+    <field name="PRICE">2030</field>
+    <field name="QUANTITY_IN_SET">1</field>
+    <field name="COMPONENT_TYPE">casing</field>
+    <field name="SORT">170</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">casing_coplanar_80_enamel</field>
+    <field name="NAME">Наличник компланар 2200×80 Эмаль</field>
+    <field name="COATING_TYPE">enamel</field>
+    <field name="SIZE">2200×80</field>
+    <field name="PRICE">3230</field>
+    <field name="QUANTITY_IN_SET">1</field>
+    <field name="COMPONENT_TYPE">casing</field>
+    <field name="SORT">180</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">dobor_telescope_100_pvc</field>
+    <field name="NAME">Добор телескопический 100 ПВХ</field>
+    <field name="COATING_TYPE">pvc</field>
+    <field name="SIZE">100 мм</field>
+    <field name="PRICE">2880</field>
+    <field name="QUANTITY_IN_SET">3</field>
+    <field name="COMPONENT_TYPE">dobor</field>
+    <field name="SORT">190</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">dobor_telescope_100_enamel</field>
+    <field name="NAME">Добор телескопический 100 Эмаль</field>
+    <field name="COATING_TYPE">enamel</field>
+    <field name="SIZE">100 мм</field>
+    <field name="PRICE">4620</field>
+    <field name="QUANTITY_IN_SET">3</field>
+    <field name="COMPONENT_TYPE">dobor</field>
+    <field name="SORT">200</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">dobor_telescope_150_pvc</field>
+    <field name="NAME">Добор телескопический 150 ПВХ</field>
+    <field name="COATING_TYPE">pvc</field>
+    <field name="SIZE">150 мм</field>
+    <field name="PRICE">3960</field>
+    <field name="QUANTITY_IN_SET">3</field>
+    <field name="COMPONENT_TYPE">dobor</field>
+    <field name="SORT">210</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">dobor_telescope_150_enamel</field>
+    <field name="NAME">Добор телескопический 150 Эмаль</field>
+    <field name="COATING_TYPE">enamel</field>
+    <field name="SIZE">150 мм</field>
+    <field name="PRICE">6930</field>
+    <field name="QUANTITY_IN_SET">3</field>
+    <field name="COMPONENT_TYPE">dobor</field>
+    <field name="SORT">220</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">dobor_telescope_200_pvc</field>
+    <field name="NAME">Добор телескопический 200 ПВХ</field>
+    <field name="COATING_TYPE">pvc</field>
+    <field name="SIZE">200 мм</field>
+    <field name="PRICE">4890</field>
+    <field name="QUANTITY_IN_SET">3</field>
+    <field name="COMPONENT_TYPE">dobor</field>
+    <field name="SORT">230</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">dobor_telescope_200_enamel</field>
+    <field name="NAME">Добор телескопический 200 Эмаль</field>
+    <field name="COATING_TYPE">enamel</field>
+    <field name="SIZE">200 мм</field>
+    <field name="PRICE">9240</field>
+    <field name="QUANTITY_IN_SET">3</field>
+    <field name="COMPONENT_TYPE">dobor</field>
+    <field name="SORT">240</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">dobor_telescope_custom_pvc</field>
+    <field name="NAME">Добор телескопический свой размер ПВХ</field>
+    <field name="COATING_TYPE">pvc</field>
+    <field name="SIZE">свой размер</field>
+    <field name="PRICE">0</field>
+    <field name="QUANTITY_IN_SET">3</field>
+    <field name="COMPONENT_TYPE">dobor</field>
+    <field name="SORT">250</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">dobor_telescope_custom_enamel</field>
+    <field name="NAME">Добор телескопический свой размер Эмаль</field>
+    <field name="COATING_TYPE">enamel</field>
+    <field name="SIZE">свой размер</field>
+    <field name="PRICE">0</field>
+    <field name="QUANTITY_IN_SET">3</field>
+    <field name="COMPONENT_TYPE">dobor</field>
+    <field name="SORT">260</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">threshold_pvc</field>
+    <field name="NAME">Порог 2200×75×35 мм ПВХ</field>
+    <field name="COATING_TYPE">pvc</field>
+    <field name="SIZE">2200×75×35 мм</field>
+    <field name="PRICE">1330</field>
+    <field name="QUANTITY_IN_SET">1</field>
+    <field name="COMPONENT_TYPE">threshold</field>
+    <field name="SORT">270</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">threshold_enamel</field>
+    <field name="NAME">Порог 2200×75×35 мм Эмаль</field>
+    <field name="COATING_TYPE">enamel</field>
+    <field name="SIZE">2200×75×35 мм</field>
+    <field name="PRICE">1940</field>
+    <field name="QUANTITY_IN_SET">1</field>
+    <field name="COMPONENT_TYPE">threshold</field>
+    <field name="SORT">280</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">plinth_pvc</field>
+    <field name="NAME">Плинтус 2070×80×12 мм ПВХ</field>
+    <field name="COATING_TYPE">pvc</field>
+    <field name="SIZE">2070×80×12 мм</field>
+    <field name="PRICE">1150</field>
+    <field name="QUANTITY_IN_SET">1</field>
+    <field name="COMPONENT_TYPE">plinth</field>
+    <field name="SORT">290</field>
+    <field name="ACTIVE">1</field>
+  </item>
+  <item>
+    <field name="XML_ID">plinth_enamel</field>
+    <field name="NAME">Плинтус 2070×80×12 мм Эмаль</field>
+    <field name="COATING_TYPE">enamel</field>
+    <field name="SIZE">2070×80×12 мм</field>
+    <field name="PRICE">1900</field>
+    <field name="QUANTITY_IN_SET">1</field>
+    <field name="COMPONENT_TYPE">plinth</field>
+    <field name="SORT">300</field>
+    <field name="ACTIVE">1</field>
+  </item>
+</data>

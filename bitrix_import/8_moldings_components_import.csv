@@ -1,0 +1,31 @@
+XML_ID;NAME;COATING_TYPE;SIZE;PRICE;QUANTITY_IN_SET;COMPONENT_TYPE;SORT;ACTIVE
+box_telescope_pvc;Стойка короба телескопическая ПВХ;pvc;комплект 2.5 шт;3450;2.5;box;10;1
+box_telescope_enamel;Стойка короба телескопическая Эмаль;enamel;комплект 2.5 шт;4980;2.5;box;20;1
+box_coplanar_pvc;Стойка короба компланарная ПВХ;pvc;комплект 2.5 шт;3680;2.5;box;30;1
+box_coplanar_enamel;Стойка короба компланарная Эмаль;enamel;комплект 2.5 шт;5380;2.5;box;40;1
+casing_telescope_80_pvc;Наличник телескоп 2200×80 прод.+попер. ПВХ;pvc;2200×80;2030;1;casing;50;1
+casing_telescope_80_enamel;Наличник телескоп 2200×80 прод.+попер. Эмаль;enamel;2200×80;3150;1;casing;60;1
+casing_telescope_plus_80_pvc;Наличник телескоп плюс 2200×80 прод.+попер. ПВХ;pvc;2200×80;2130;1;casing;70;1
+casing_telescope_plus_80_enamel;Наличник телескоп плюс 2200×80 прод.+попер. Эмаль;enamel;2200×80;3200;1;casing;80;1
+casing_telescope_100_pvc;Наличник телескоп 2200×100 прод.+попер. ПВХ;pvc;2200×100;2900;1;casing;90;1
+casing_telescope_100_enamel;Наличник телескоп 2200×100 прод.+попер. Эмаль;enamel;2200×100;4780;1;casing;100;1
+casing_telescope_decorative_70_pvc;Наличник телескоп декоративный 2200×70 ПВХ;pvc;2200×70;3850;1;casing;110;1
+casing_telescope_decorative_70_enamel;Наличник телескоп декоративный 2200×70 Эмаль;enamel;2200×70;5600;1;casing;120;1
+casing_telescope_decorative_t10_100_pvc;Наличник телескоп декоративный тип 10 2200×100 ПВХ;pvc;2200×100;5510;1;casing;130;1
+casing_telescope_decorative_t10_100_enamel;Наличник телескоп декоративный тип 10 2200×100 Эмаль;enamel;2200×100;8530;1;casing;140;1
+casing_telescope_decorative_t11_100_pvc;Наличник телескоп декоративный тип 11 2400×100 ПВХ;pvc;2400×100;7580;1;casing;150;1
+casing_telescope_decorative_t11_100_enamel;Наличник телескоп декоративный тип 11 2400×100 Эмаль;enamel;2400×100;10590;1;casing;160;1
+casing_coplanar_80_pvc;Наличник компланар 2200×80 ПВХ;pvc;2200×80;2030;1;casing;170;1
+casing_coplanar_80_enamel;Наличник компланар 2200×80 Эмаль;enamel;2200×80;3230;1;casing;180;1
+dobor_telescope_100_pvc;Добор телескопический 100 ПВХ;pvc;100 мм;2880;3;dobor;190;1
+dobor_telescope_100_enamel;Добор телескопический 100 Эмаль;enamel;100 мм;4620;3;dobor;200;1
+dobor_telescope_150_pvc;Добор телескопический 150 ПВХ;pvc;150 мм;3960;3;dobor;210;1
+dobor_telescope_150_enamel;Добор телескопический 150 Эмаль;enamel;150 мм;6930;3;dobor;220;1
+dobor_telescope_200_pvc;Добор телескопический 200 ПВХ;pvc;200 мм;4890;3;dobor;230;1
+dobor_telescope_200_enamel;Добор телескопический 200 Эмаль;enamel;200 мм;9240;3;dobor;240;1
+dobor_telescope_custom_pvc;Добор телескопический свой размер ПВХ;pvc;свой размер;0;3;dobor;250;1
+dobor_telescope_custom_enamel;Добор телескопический свой размер Эмаль;enamel;свой размер;0;3;dobor;260;1
+threshold_pvc;Порог 2200×75×35 мм ПВХ;pvc;2200×75×35 мм;1330;1;threshold;270;1
+threshold_enamel;Порог 2200×75×35 мм Эмаль;enamel;2200×75×35 мм;1940;1;threshold;280;1
+plinth_pvc;Плинтус 2070×80×12 мм ПВХ;pvc;2070×80×12 мм;1150;1;plinth;290;1
+plinth_enamel;Плинтус 2070×80×12 мм Эмаль;enamel;2070×80×12 мм;1900;1;plinth;300;1

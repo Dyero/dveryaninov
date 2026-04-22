@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hiblock>
+	<hiblock>
+		<id>8</id>
+		<name>OpenVariant</name>
+		<table_name>b_hlbd_openvariant</table_name>
+	</hiblock>
+	<langs>
+		<lang>
+			<id>8</id>
+			<lid>ru</lid>
+			<name>Вариант открывания</name>
+		</lang>
+	</langs>
+	<fields>
+		<field>
+			<id>47</id>
+			<entity_id>HLBLOCK_8</entity_id>
+			<field_name>UF_NAME</field_name>
+			<user_type_id>string</user_type_id>
+			<xml_id />
+			<sort>100</sort>
+			<multiple>N</multiple>
+			<mandatory>N</mandatory>
+			<show_filter>N</show_filter>
+			<show_in_list>Y</show_in_list>
+			<edit_in_list>Y</edit_in_list>
+			<is_searchable>N</is_searchable>
+			<settings>
+				<size>20</size>
+				<rows>1</rows>
+				<regexp />
+				<min_length>0</min_length>
+				<max_length>0</max_length>
+				<default_value />
+			</settings>
+			<edit_form_label>
+				<en />
+				<ru />
+			</edit_form_label>
+			<list_column_label>
+				<en />
+				<ru />
+			</list_column_label>
+			<list_filter_label>
+				<en />
+				<ru />
+			</list_filter_label>
+			<error_message>
+				<en />
+				<ru />
+			</error_message>
+			<help_message>
+				<en />
+				<ru />
+			</help_message>
+			<base_type>string</base_type>
+		</field>
+		<field>
+			<id>48</id>
+			<entity_id>HLBLOCK_8</entity_id>
+			<field_name>UF_FILE</field_name>
+			<user_type_id>file</user_type_id>
+			<xml_id />
+			<sort>100</sort>
+			<multiple>N</multiple>
+			<mandatory>N</mandatory>
+			<show_filter>N</show_filter>
+			<show_in_list>Y</show_in_list>
+			<edit_in_list>Y</edit_in_list>
+			<is_searchable>N</is_searchable>
+			<settings>
+				<size>20</size>
+				<list_width>0</list_width>
+				<list_height>0</list_height>
+				<max_show_size>0</max_show_size>
+				<max_allowed_size>0</max_allowed_size>
+				<extensions />
+				<target_blank>Y</target_blank>
+				<default_view />
+			</settings>
+			<edit_form_label>
+				<en />
+				<ru />
+			</edit_form_label>
+			<list_column_label>
+				<en />
+				<ru />
+			</list_column_label>
+			<list_filter_label>
+				<en />
+				<ru />
+			</list_filter_label>
+			<error_message>
+				<en />
+				<ru />
+			</error_message>
+			<help_message>
+				<en />
+				<ru />
+			</help_message>
+			<base_type>file</base_type>
+		</field>
+		<field>
+			<id>49</id>
+			<entity_id>HLBLOCK_8</entity_id>
+			<field_name>UF_PRICE</field_name>
+			<user_type_id>double</user_type_id>
+			<xml_id />
+			<sort>100</sort>
+			<multiple>N</multiple>
+			<mandatory>N</mandatory>
+			<show_filter>N</show_filter>
+			<show_in_list>Y</show_in_list>
+			<edit_in_list>Y</edit_in_list>
+			<is_searchable>N</is_searchable>
+			<settings>
+				<precision>4</precision>
+				<size>20</size>
+				<min_value>0</min_value>
+				<max_value>0</max_value>
+				<default_value />
+			</settings>
+			<edit_form_label>
+				<en />
+				<ru />
+			</edit_form_label>
+			<list_column_label>
+				<en />
+				<ru />
+			</list_column_label>
+			<list_filter_label>
+				<en />
+				<ru />
+			</list_filter_label>
+			<error_message>
+				<en />
+				<ru />
+			</error_message>
+			<help_message>
+				<en />
+				<ru />
+			</help_message>
+			<base_type>double</base_type>
+		</field>
+		<field>
+			<id>55</id>
+			<entity_id>HLBLOCK_8</entity_id>
+			<field_name>UF_XML_ID</field_name>
+			<user_type_id>string</user_type_id>
+			<xml_id />
+			<sort>100</sort>
+			<multiple>N</multiple>
+			<mandatory>N</mandatory>
+			<show_filter>N</show_filter>
+			<show_in_list>Y</show_in_list>
+			<edit_in_list>Y</edit_in_list>
+			<is_searchable>N</is_searchable>
+			<settings>
+				<size>20</size>
+				<rows>1</rows>
+				<regexp />
+				<min_length>0</min_length>
+				<max_length>0</max_length>
+				<default_value />
+			</settings>
+			<edit_form_label>
+				<en />
+				<ru />
+			</edit_form_label>
+			<list_column_label>
+				<en />
+				<ru />
+			</list_column_label>
+			<list_filter_label>
+				<en />
+				<ru />
+			</list_filter_label>
+			<error_message>
+				<en />
+				<ru />
+			</error_message>
+			<help_message>
+				<en />
+				<ru />
+			</help_message>
+			<base_type>string</base_type>
+		</field>
+		<field>
+			<id>58</id>
+			<entity_id>HLBLOCK_8</entity_id>
+			<field_name>UF_DESCRIPTION</field_name>
+			<user_type_id>string</user_type_id>
+			<xml_id />
+			<sort>100</sort>
+			<multiple>N</multiple>
+			<mandatory>N</mandatory>
+			<show_filter>N</show_filter>
+			<show_in_list>Y</show_in_list>
+			<edit_in_list>Y</edit_in_list>
+			<is_searchable>N</is_searchable>
+			<settings>
+				<size>20</size>
+				<rows>1</rows>
+				<regexp />
+				<min_length>0</min_length>
+				<max_length>0</max_length>
+				<default_value />
+			</settings>
+			<edit_form_label>
+				<ru>Описание</ru>
+			</edit_form_label>
+			<list_column_label>
+				<ru>Описание</ru>
+			</list_column_label>
+			<list_filter_label>
+				<ru>Описание</ru>
+			</list_filter_label>
+			<error_message>
+				<ru />
+			</error_message>
+			<help_message>
+				<ru />
+			</help_message>
+			<base_type>string</base_type>
+		</field>
+		<field>
+			<id>59</id>
+			<entity_id>HLBLOCK_8</entity_id>
+			<field_name>UF_FULL_DESCRIPTION</field_name>
+			<user_type_id>string</user_type_id>
+			<xml_id />
+			<sort>100</sort>
+			<multiple>N</multiple>
+			<mandatory>N</mandatory>
+			<show_filter>N</show_filter>
+			<show_in_list>Y</show_in_list>
+			<edit_in_list>Y</edit_in_list>
+			<is_searchable>N</is_searchable>
+			<settings>
+				<size>20</size>
+				<rows>1</rows>
+				<regexp />
+				<min_length>0</min_length>
+				<max_length>0</max_length>
+				<default_value />
+			</settings>
+			<edit_form_label>
+				<ru>Полное описание</ru>
+			</edit_form_label>
+			<list_column_label>
+				<ru>Полное описание</ru>
+			</list_column_label>
+			<list_filter_label>
+				<ru>Полное описание</ru>
+			</list_filter_label>
+			<error_message>
+				<ru />
+			</error_message>
+			<help_message>
+				<ru />
+			</help_message>
+			<base_type>string</base_type>
+		</field>
+		<field>
+			<id>75</id>
+			<entity_id>HLBLOCK_8</entity_id>
+			<field_name>UF_SORT</field_name>
+			<user_type_id>double</user_type_id>
+			<xml_id />
+			<sort>100</sort>
+			<multiple>N</multiple>
+			<mandatory>N</mandatory>
+			<show_filter>N</show_filter>
+			<show_in_list>Y</show_in_list>
+			<edit_in_list>Y</edit_in_list>
+			<is_searchable>N</is_searchable>
+			<settings>
+				<precision>4</precision>
+				<size>20</size>
+				<min_value>0</min_value>
+				<max_value>0</max_value>
+				<default_value />
+			</settings>
+			<edit_form_label>
+				<en />
+				<ru />
+			</edit_form_label>
+			<list_column_label>
+				<en />
+				<ru />
+			</list_column_label>
+			<list_filter_label>
+				<en />
+				<ru />
+			</list_filter_label>
+			<error_message>
+				<en />
+				<ru />
+			</error_message>
+			<help_message>
+				<en />
+				<ru />
+			</help_message>
+			<base_type>double</base_type>
+		</field>
+	</fields>
+	<items>
+		<item>
+			<id>1</id>
+			<uf_name>Распашные прямые</uf_name>
+			<uf_file>uf/e7a/3zx8ysq74xx96j18ipkysrflza7xmt74.gif</uf_file>
+			<uf_price />
+			<uf_xml_id>6eA3IE3Q</uf_xml_id>
+			<uf_description />
+			<uf_full_description />
+			<uf_sort />
+		</item>
+		<item>
+			<id>2</id>
+			<uf_name>Распашные двухстворчатые</uf_name>
+			<uf_file>uf/a5e/cmcs94351eaxxqb40pd6uj3a66ny1lqs.gif</uf_file>
+			<uf_price />
+			<uf_xml_id>SlGWkctZ</uf_xml_id>
+			<uf_description />
+			<uf_full_description />
+			<uf_sort />
+		</item>
+		<item>
+			<id>3</id>
+			<uf_name>Раздвижные скрытые</uf_name>
+			<uf_file>uf/e2b/5j5j11t8l2fnazvg8xfb2dra72l66qyj.gif</uf_file>
+			<uf_price />
+			<uf_xml_id>kyEWLTKL</uf_xml_id>
+			<uf_description />
+			<uf_full_description />
+			<uf_sort />
+		</item>
+		<item>
+			<id>4</id>
+			<uf_name>Компакт книжка</uf_name>
+			<uf_file>uf/7e5/e83xsc2vtkoon6zrblbi2k7brbw7nfid.gif</uf_file>
+			<uf_price />
+			<uf_xml_id>RuuUZis8</uf_xml_id>
+			<uf_description />
+			<uf_full_description />
+			<uf_sort />
+		</item>
+		<item>
+			<id>5</id>
+			<uf_name>Компакт либра</uf_name>
+			<uf_file>uf/e04/mapl6vt3v6t11rysv4e32rb94vtpgnj3.gif</uf_file>
+			<uf_price />
+			<uf_xml_id>j4VrNPfA</uf_xml_id>
+			<uf_description />
+			<uf_full_description />
+			<uf_sort />
+		</item>
+	</items>
+</hiblock>

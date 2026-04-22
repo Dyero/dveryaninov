@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hiblock>
+	<hiblock>
+		<id>9</id>
+		<name>AluEdges</name>
+		<table_name>b_hlbd_alu_edges</table_name>
+	</hiblock>
+	<langs>
+		<lang>
+			<id>9</id>
+			<lid>ru</lid>
+			<name>Алюминиевые кромки</name>
+		</lang>
+	</langs>
+	<fields>
+		<field>
+			<id>76</id>
+			<entity_id>HLBLOCK_9</entity_id>
+			<field_name>UF_XML_ID</field_name>
+			<user_type_id>string</user_type_id>
+			<xml_id />
+			<sort>100</sort>
+			<multiple>N</multiple>
+			<mandatory>Y</mandatory>
+			<show_filter>N</show_filter>
+			<show_in_list>Y</show_in_list>
+			<edit_in_list>Y</edit_in_list>
+			<is_searchable>N</is_searchable>
+			<settings>
+				<size>20</size>
+				<rows>1</rows>
+				<regexp />
+				<min_length>0</min_length>
+				<max_length>0</max_length>
+				<default_value />
+			</settings>
+			<edit_form_label>
+				<en />
+				<ru />
+			</edit_form_label>
+			<list_column_label>
+				<en />
+				<ru />
+			</list_column_label>
+			<list_filter_label>
+				<en />
+				<ru />
+			</list_filter_label>
+			<error_message>
+				<en />
+				<ru />
+			</error_message>
+			<help_message>
+				<en />
+				<ru />
+			</help_message>
+			<base_type>string</base_type>
+		</field>
+		<field>
+			<id>77</id>
+			<entity_id>HLBLOCK_9</entity_id>
+			<field_name>UF_TYPE</field_name>
+			<user_type_id>string</user_type_id>
+			<xml_id />
+			<sort>100</sort>
+			<multiple>N</multiple>
+			<mandatory>Y</mandatory>
+			<show_filter>N</show_filter>
+			<show_in_list>Y</show_in_list>
+			<edit_in_list>Y</edit_in_list>
+			<is_searchable>N</is_searchable>
+			<settings>
+				<size>20</size>
+				<rows>1</rows>
+				<regexp />
+				<min_length>0</min_length>
+				<max_length>0</max_length>
+				<default_value />
+			</settings>
+			<edit_form_label>
+				<en />
+				<ru />
+			</edit_form_label>
+			<list_column_label>
+				<en />
+				<ru />
+			</list_column_label>
+			<list_filter_label>
+				<en />
+				<ru />
+			</list_filter_label>
+			<error_message>
+				<en />
+				<ru />
+			</error_message>
+			<help_message>
+				<en />
+				<ru />
+			</help_message>
+			<base_type>string</base_type>
+		</field>
+		<field>
+			<id>78</id>
+			<entity_id>HLBLOCK_9</entity_id>
+			<field_name>UF_COLOR</field_name>
+			<user_type_id>string</user_type_id>
+			<xml_id />
+			<sort>100</sort>
+			<multiple>N</multiple>
+			<mandatory>N</mandatory>
+			<show_filter>N</show_filter>
+			<show_in_list>Y</show_in_list>
+			<edit_in_list>Y</edit_in_list>
+			<is_searchable>N</is_searchable>
+			<settings>
+				<size>20</size>
+				<rows>1</rows>
+				<regexp />
+				<min_length>0</min_length>
+				<max_length>0</max_length>
+				<default_value />
+			</settings>
+			<edit_form_label>
+				<en />
+				<ru />
+			</edit_form_label>
+			<list_column_label>
+				<en />
+				<ru />
+			</list_column_label>
+			<list_filter_label>
+				<en />
+				<ru />
+			</list_filter_label>
+			<error_message>
+				<en />
+				<ru />
+			</error_message>
+			<help_message>
+				<en />
+				<ru />
+			</help_message>
+			<base_type>string</base_type>
+		</field>
+		<field>
+			<id>79</id>
+			<entity_id>HLBLOCK_9</entity_id>
+			<field_name>UF_PRICE</field_name>
+			<user_type_id>double</user_type_id>
+			<xml_id />
+			<sort>100</sort>
+			<multiple>N</multiple>
+			<mandatory>Y</mandatory>
+			<show_filter>N</show_filter>
+			<show_in_list>Y</show_in_list>
+			<edit_in_list>Y</edit_in_list>
+			<is_searchable>N</is_searchable>
+			<settings>
+				<precision>4</precision>
+				<size>20</size>
+				<min_value>0</min_value>
+				<max_value>0</max_value>
+				<default_value />
+			</settings>
+			<edit_form_label>
+				<en />
+				<ru />
+			</edit_form_label>
+			<list_column_label>
+				<en />
+				<ru />
+			</list_column_label>
+			<list_filter_label>
+				<en />
+				<ru />
+			</list_filter_label>
+			<error_message>
+				<en />
+				<ru />
+			</error_message>
+			<help_message>
+				<en />
+				<ru />
+			</help_message>
+			<base_type>double</base_type>
+		</field>
+		<field>
+			<id>80</id>
+			<entity_id>HLBLOCK_9</entity_id>
+			<field_name>UF_SORT</field_name>
+			<user_type_id>double</user_type_id>
+			<xml_id />
+			<sort>100</sort>
+			<multiple>N</multiple>
+			<mandatory>N</mandatory>
+			<show_filter>N</show_filter>
+			<show_in_list>Y</show_in_list>
+			<edit_in_list>Y</edit_in_list>
+			<is_searchable>N</is_searchable>
+			<settings>
+				<precision>4</precision>
+				<size>20</size>
+				<min_value>0</min_value>
+				<max_value>0</max_value>
+				<default_value />
+			</settings>
+			<edit_form_label>
+				<en />
+				<ru />
+			</edit_form_label>
+			<list_column_label>
+				<en />
+				<ru />
+			</list_column_label>
+			<list_filter_label>
+				<en />
+				<ru />
+			</list_filter_label>
+			<error_message>
+				<en />
+				<ru />
+			</error_message>
+			<help_message>
+				<en />
+				<ru />
+			</help_message>
+			<base_type>double</base_type>
+		</field>
+		<field>
+			<id>81</id>
+			<entity_id>HLBLOCK_9</entity_id>
+			<field_name>UF_ACTIVE</field_name>
+			<user_type_id>boolean</user_type_id>
+			<xml_id />
+			<sort>100</sort>
+			<multiple>N</multiple>
+			<mandatory>N</mandatory>
+			<show_filter>N</show_filter>
+			<show_in_list>Y</show_in_list>
+			<edit_in_list>Y</edit_in_list>
+			<is_searchable>N</is_searchable>
+			<settings>
+				<default_value>0</default_value>
+				<display>CHECKBOX</display>
+				<label>
+					<0 />
+					<1 />
+				</label>
+				<label_checkbox />
+			</settings>
+			<edit_form_label>
+				<en />
+				<ru />
+			</edit_form_label>
+			<list_column_label>
+				<en />
+				<ru />
+			</list_column_label>
+			<list_filter_label>
+				<en />
+				<ru />
+			</list_filter_label>
+			<error_message>
+				<en />
+				<ru />
+			</error_message>
+			<help_message>
+				<en />
+				<ru />
+			</help_message>
+			<base_type>int</base_type>
+		</field>
+		<field>
+			<id>82</id>
+			<entity_id>HLBLOCK_9</entity_id>
+			<field_name>UF_FILE</field_name>
+			<user_type_id>file</user_type_id>
+			<xml_id />
+			<sort>100</sort>
+			<multiple>N</multiple>
+			<mandatory>Y</mandatory>
+			<show_filter>N</show_filter>
+			<show_in_list>Y</show_in_list>
+			<edit_in_list>Y</edit_in_list>
+			<is_searchable>N</is_searchable>
+			<settings>
+				<size>20</size>
+				<list_width>0</list_width>
+				<list_height>0</list_height>
+				<max_show_size>0</max_show_size>
+				<max_allowed_size>0</max_allowed_size>
+				<extensions />
+				<target_blank>Y</target_blank>
+				<default_view />
+			</settings>
+			<edit_form_label>
+				<en />
+				<ru />
+			</edit_form_label>
+			<list_column_label>
+				<en />
+				<ru />
+			</list_column_label>
+			<list_filter_label>
+				<en />
+				<ru />
+			</list_filter_label>
+			<error_message>
+				<en />
+				<ru />
+			</error_message>
+			<help_message>
+				<en />
+				<ru />
+			</help_message>
+			<base_type>file</base_type>
+		</field>
+	</fields>
+	<items>
+		<item>
+			<id>1</id>
+			<uf_xml_id>alu_edge_long_silver</uf_xml_id>
+			<uf_type>Продольная</uf_type>
+			<uf_color>Серебро</uf_color>
+			<uf_price>1710</uf_price>
+			<uf_sort>10</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_file>uf/1c0/ki5pfyxo1rwp48khjqp2k915ilo53hhv.jpg</uf_file>
+		</item>
+		<item>
+			<id>2</id>
+			<uf_xml_id>alu_edge_long_black</uf_xml_id>
+			<uf_type>Продольная</uf_type>
+			<uf_color>Чёрный</uf_color>
+			<uf_price>2170</uf_price>
+			<uf_sort>20</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_file>uf/729/zxcmhnav19tapktjcu8xs6k070vy8u3v.jpg</uf_file>
+		</item>
+		<item>
+			<id>3</id>
+			<uf_xml_id>alu_edge_long_gold</uf_xml_id>
+			<uf_type>Продольная</uf_type>
+			<uf_color>Золото</uf_color>
+			<uf_price>2640</uf_price>
+			<uf_sort>30</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_file>uf/ea4/lmm1q1vptxm84ptk41lhcmp5wdio1x6n.jpg</uf_file>
+		</item>
+		<item>
+			<id>4</id>
+			<uf_xml_id>alu_edge_perim_silver</uf_xml_id>
+			<uf_type>По периметру</uf_type>
+			<uf_color>Серебро</uf_color>
+			<uf_price>2640</uf_price>
+			<uf_sort>40</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_file>uf/645/wtqwbyj9z8cdw0tab74tjd5rr9z82cu8.jpg</uf_file>
+		</item>
+		<item>
+			<id>5</id>
+			<uf_xml_id>alu_edge_perim_black</uf_xml_id>
+			<uf_type>По периметру</uf_type>
+			<uf_color>Чёрный</uf_color>
+			<uf_price>3100</uf_price>
+			<uf_sort>50</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_file>uf/92f/1pw7tjugzo0f6gj8l2gs6ndjin6j3635.jpg</uf_file>
+		</item>
+		<item>
+			<id>6</id>
+			<uf_xml_id>alu_edge_perim_gold</uf_xml_id>
+			<uf_type>По периметру</uf_type>
+			<uf_color>Золото</uf_color>
+			<uf_price>3570</uf_price>
+			<uf_sort>60</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_file>uf/a49/hli98u1houq45tcvwk0nz2svd6tayuc0.jpg</uf_file>
+		</item>
+		<item>
+			<id>7</id>
+			<uf_xml_id>alu_edge_none</uf_xml_id>
+			<uf_type>Без кромки</uf_type>
+			<uf_color />
+			<uf_price>0</uf_price>
+			<uf_sort>70</uf_sort>
+			<uf_active>1</uf_active>
+			<uf_file>uf/73e/8lqav34sw9dvfrahhjv7zmab80bjhgi2.svg</uf_file>
+		</item>
+	</items>
+</hiblock>

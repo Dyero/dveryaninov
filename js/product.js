@@ -78,15 +78,40 @@
     });
   }
 
-  // Move selected color to first position with 64px gap
+  // Duplicate selected color to first position (not move, to prevent jumping)
   function reorderProductColors(selectedBtn) {
     var container = selectedBtn.closest(".product__colors");
     if (!container) return;
-    // Move selected to first child (before all other color buttons)
+
+    // Check if first child is already a duplicate of the selected button
     var firstChild = container.firstElementChild;
-    if (firstChild !== selectedBtn) {
-      container.insertBefore(selectedBtn, firstChild);
+    if (firstChild && firstChild.classList.contains("product__color_duplicate")) {
+      // Remove existing duplicate
+      firstChild.remove();
     }
+
+    // Create a duplicate of the selected button
+    var duplicate = selectedBtn.cloneNode(true);
+    duplicate.classList.add("product__color_duplicate");
+    duplicate.classList.add("product__color_active");
+
+    // Add click handler to the duplicate
+    duplicate.addEventListener("click", function() {
+      var colors = document.querySelectorAll(".product__color");
+      colors.forEach(function(b) {
+        if (!b.classList.contains("product__color_more")) {
+          b.classList.remove("product__color_active");
+        }
+      });
+      this.classList.add("product__color_active");
+      selectedBtn.classList.add("product__color_active");
+      var val = document.querySelector(".product__option_coating .product__option-value");
+      if (val && this.getAttribute("title")) val.textContent = this.getAttribute("title");
+      syncCoatingToConfigurator(this.getAttribute("aria-label") || this.getAttribute("title"));
+    });
+
+    // Insert duplicate at the beginning
+    container.insertBefore(duplicate, container.firstElementChild);
   }
 
   // Color selection

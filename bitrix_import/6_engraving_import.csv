@@ -1,0 +1,5 @@
+UF_XML_ID;UF_NAME;UF_PRICE;UF_SORT;UF_ACTIVE
+engraving_kontur;Контур;1860;10;1
+engraving_english_grid;Английская решётка;1860;20;1
+engraving_rhombus;Ромб;1860;30;1
+engraving_none;Без гравировки;0;40;1

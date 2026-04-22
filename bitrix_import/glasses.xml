@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hiblock>
+	<hiblock>
+		<id>6</id>
+		<name>Glass</name>
+		<table_name>b_hlbd_glass</table_name>
+	</hiblock>
+	<langs>
+	</langs>
+	<fields>
+		<field>
+			<id>38</id>
+			<entity_id>HLBLOCK_6</entity_id>
+			<field_name>UF_NAME</field_name>
+			<user_type_id>string</user_type_id>
+			<xml_id />
+			<sort>100</sort>
+			<multiple>N</multiple>
+			<mandatory>N</mandatory>
+			<show_filter>N</show_filter>
+			<show_in_list>Y</show_in_list>
+			<edit_in_list>Y</edit_in_list>
+			<is_searchable>N</is_searchable>
+			<settings>
+				<size>20</size>
+				<rows>1</rows>
+				<regexp />
+				<min_length>0</min_length>
+				<max_length>0</max_length>
+				<default_value />
+			</settings>
+			<edit_form_label>
+				<en />
+				<ru />
+			</edit_form_label>
+			<list_column_label>
+				<en />
+				<ru />
+			</list_column_label>
+			<list_filter_label>
+				<en />
+				<ru />
+			</list_filter_label>
+			<error_message>
+				<en />
+				<ru />
+			</error_message>
+			<help_message>
+				<en />
+				<ru />
+			</help_message>
+			<base_type>string</base_type>
+		</field>
+		<field>
+			<id>39</id>
+			<entity_id>HLBLOCK_6</entity_id>
+			<field_name>UF_FILE</field_name>
+			<user_type_id>file</user_type_id>
+			<xml_id />
+			<sort>100</sort>
+			<multiple>N</multiple>
+			<mandatory>N</mandatory>
+			<show_filter>N</show_filter>
+			<show_in_list>Y</show_in_list>
+			<edit_in_list>Y</edit_in_list>
+			<is_searchable>N</is_searchable>
+			<settings>
+				<size>20</size>
+				<list_width>0</list_width>
+				<list_height>0</list_height>
+				<max_show_size>0</max_show_size>
+				<max_allowed_size>0</max_allowed_size>
+				<extensions />
+				<target_blank>Y</target_blank>
+				<default_view />
+			</settings>
+			<edit_form_label>
+				<en />
+				<ru />
+			</edit_form_label>
+			<list_column_label>
+				<en />
+				<ru />
+			</list_column_label>
+			<list_filter_label>
+				<en />
+				<ru />
+			</list_filter_label>
+			<error_message>
+				<en />
+				<ru />
+			</error_message>
+			<help_message>
+				<en />
+				<ru />
+			</help_message>
+			<base_type>file</base_type>
+		</field>
+		<field>
+			<id>40</id>
+			<entity_id>HLBLOCK_6</entity_id>
+			<field_name>UF_PRICE</field_name>
+			<user_type_id>double</user_type_id>
+			<xml_id />
+			<sort>100</sort>
+			<multiple>N</multiple>
+			<mandatory>N</mandatory>
+			<show_filter>N</show_filter>
+			<show_in_list>Y</show_in_list>
+			<edit_in_list>Y</edit_in_list>
+			<is_searchable>N</is_searchable>
+			<settings>
+				<precision>4</precision>
+				<size>20</size>
+				<min_value>0</min_value>
+				<max_value>0</max_value>
+				<default_value />
+			</settings>
+			<edit_form_label>
+				<en />
+				<ru />
+			</edit_form_label>
+			<list_column_label>
+				<en />
+				<ru />
+			</list_column_label>
+			<list_filter_label>
+				<en />
+				<ru />
+			</list_filter_label>
+			<error_message>
+				<en />
+				<ru />
+			</error_message>
+			<help_message>
+				<en />
+				<ru />
+			</help_message>
+			<base_type>double</base_type>
+		</field>
+		<field>
+			<id>54</id>
+			<entity_id>HLBLOCK_6</entity_id>
+			<field_name>UF_XML_ID</field_name>
+			<user_type_id>string</user_type_id>
+			<xml_id />
+			<sort>100</sort>
+			<multiple>N</multiple>
+			<mandatory>N</mandatory>
+			<show_filter>N</show_filter>
+			<show_in_list>Y</show_in_list>
+			<edit_in_list>Y</edit_in_list>
+			<is_searchable>N</is_searchable>
+			<settings>
+				<size>20</size>
+				<rows>1</rows>
+				<regexp />
+				<min_length>0</min_length>
+				<max_length>0</max_length>
+				<default_value />
+			</settings>
+			<edit_form_label>
+				<en />
+				<ru />
+			</edit_form_label>
+			<list_column_label>
+				<en />
+				<ru />
+			</list_column_label>
+			<list_filter_label>
+				<en />
+				<ru />
+			</list_filter_label>
+			<error_message>
+				<en />
+				<ru />
+			</error_message>
+			<help_message>
+				<en />
+				<ru />
+			</help_message>
+			<base_type>string</base_type>
+		</field>
+		<field>
+			<id>56</id>
+			<entity_id>HLBLOCK_6</entity_id>
+			<field_name>UF_DESCRIPTION</field_name>
+			<user_type_id>string</user_type_id>
+			<xml_id />
+			<sort>100</sort>
+			<multiple>N</multiple>
+			<mandatory>N</mandatory>
+			<show_filter>N</show_filter>
+			<show_in_list>Y</show_in_list>
+			<edit_in_list>Y</edit_in_list>
+			<is_searchable>N</is_searchable>
+			<settings>
+				<size>20</size>
+				<rows>1</rows>
+				<regexp />
+				<min_length>0</min_length>
+				<max_length>0</max_length>
+				<default_value />
+			</settings>
+			<edit_form_label>
+				<ru>Описание</ru>
+			</edit_form_label>
+			<list_column_label>
+				<ru>Описание</ru>
+			</list_column_label>
+			<list_filter_label>
+				<ru>Описание</ru>
+			</list_filter_label>
+			<error_message>
+				<ru />
+			</error_message>
+			<help_message>
+				<ru />
+			</help_message>
+			<base_type>string</base_type>
+		</field>
+		<field>
+			<id>57</id>
+			<entity_id>HLBLOCK_6</entity_id>
+			<field_name>UF_FULL_DESCRIPTION</field_name>
+			<user_type_id>string</user_type_id>
+			<xml_id />
+			<sort>100</sort>
+			<multiple>N</multiple>
+			<mandatory>N</mandatory>
+			<show_filter>N</show_filter>
+			<show_in_list>Y</show_in_list>
+			<edit_in_list>Y</edit_in_list>
+			<is_searchable>N</is_searchable>
+			<settings>
+				<size>20</size>
+				<rows>1</rows>
+				<regexp />
+				<min_length>0</min_length>
+				<max_length>0</max_length>
+				<default_value />
+			</settings>
+			<edit_form_label>
+				<ru>Полное описание</ru>
+			</edit_form_label>
+			<list_column_label>
+				<ru>Полное описание</ru>
+			</list_column_label>
+			<list_filter_label>
+				<ru>Полное описание</ru>
+			</list_filter_label>
+			<error_message>
+				<ru />
+			</error_message>
+			<help_message>
+				<ru />
+			</help_message>
+			<base_type>string</base_type>
+		</field>
+	</fields>
+	<items>
+		<item>
+			<id>1</id>
+			<uf_name>Аквалайт</uf_name>
+			<uf_file>uf/464/566qehwpw2wk6mnbv8wm1yuywhw9um2i.jpg</uf_file>
+			<uf_price />
+			<uf_xml_id>glass_1</uf_xml_id>
+			<uf_description />
+			<uf_full_description />
+		</item>
+		<item>
+			<id>2</id>
+			<uf_name>Бронза</uf_name>
+			<uf_file>uf/c8d/1hcmke04xbylcr5k8zu0lbp37opotn88.jpg</uf_file>
+			<uf_price />
+			<uf_xml_id>glass_2</uf_xml_id>
+			<uf_description />
+			<uf_full_description />
+		</item>
+		<item>
+			<id>3</id>
+			<uf_name>Графит</uf_name>
+			<uf_file>uf/536/erjv6uaye5nuluisdgob9rx4s4vu96j4.jpg</uf_file>
+			<uf_price />
+			<uf_xml_id>glass_3</uf_xml_id>
+			<uf_description />
+			<uf_full_description />
+		</item>
+		<item>
+			<id>4</id>
+			<uf_name>Зеркало графит</uf_name>
+			<uf_file>uf/0ad/sxxvapq76gm0eh3wtfa5ywet8w32ruui.jpg</uf_file>
+			<uf_price />
+			<uf_xml_id>jW9Af6I8</uf_xml_id>
+			<uf_description />
+			<uf_full_description />
+		</item>
+		<item>
+			<id>5</id>
+			<uf_name>Зеркало серебро</uf_name>
+			<uf_file>uf/a1b/p548xiagqdz2rhey998xau1dc2g9klxc.jpg</uf_file>
+			<uf_price />
+			<uf_xml_id>DXkv8N5O</uf_xml_id>
+			<uf_description />
+			<uf_full_description />
+		</item>
+		<item>
+			<id>6</id>
+			<uf_name>Лакобель бежевый</uf_name>
+			<uf_file>uf/5f8/rfq7wpqoboz5ekotq9btwxeh2me43y86.jpg</uf_file>
+			<uf_price />
+			<uf_xml_id>lGEfzSDd</uf_xml_id>
+			<uf_description />
+			<uf_full_description />
+		</item>
+		<item>
+			<id>7</id>
+			<uf_name>Лакобель белый</uf_name>
+			<uf_file>uf/d1e/rpioahi617nvcz01p92wqc4v3qgg45z2.jpg</uf_file>
+			<uf_price />
+			<uf_xml_id>DMqek1Zu</uf_xml_id>
+			<uf_description />
+			<uf_full_description />
+		</item>
+		<item>
+			<id>8</id>
+			<uf_name>Лакобель коричневый</uf_name>
+			<uf_file>uf/ec3/fdcnfoxl639q7ibgfw176xkpfbe3uben.jpg</uf_file>
+			<uf_price />
+			<uf_xml_id>W9FMG0qL</uf_xml_id>
+			<uf_description />
+			<uf_full_description />
+		</item>
+		<item>
+			<id>9</id>
+			<uf_name>Лакобель чёрный</uf_name>
+			<uf_file>uf/0ed/tgptx7m47wi2cff0b71jss9a9e003t2c.jpg</uf_file>
+			<uf_price />
+			<uf_xml_id>8SIk3bpn</uf_xml_id>
+			<uf_description />
+			<uf_full_description />
+		</item>
+		<item>
+			<id>10</id>
+			<uf_name>Лакобель шамуа</uf_name>
+			<uf_file>uf/2f3/sde22fz1f4mpj4qf0n9jlt8yc029pc81.jpg</uf_file>
+			<uf_price />
+			<uf_xml_id>VmQB338x</uf_xml_id>
+			<uf_description />
+			<uf_full_description />
+		</item>
+		<item>
+			<id>11</id>
+			<uf_name>Оптимакс 2</uf_name>
+			<uf_file>uf/d62/9eqpbo38moqg3mhauz1qrs8mo14deabn.jpg</uf_file>
+			<uf_price />
+			<uf_xml_id>zWZiDjPU</uf_xml_id>
+			<uf_description />
+			<uf_full_description />
+		</item>
+		<item>
+			<id>12</id>
+			<uf_name>Рефлект с фацетом</uf_name>
+			<uf_file>uf/966/0t10a1g98dbk3r80xoo2hyvqe91ivtx6.jpg</uf_file>
+			<uf_price />
+			<uf_xml_id>MWCBVhEH</uf_xml_id>
+			<uf_description />
+			<uf_full_description />
+		</item>
+		<item>
+			<id>13</id>
+			<uf_name>Рефлект с фацетом 2</uf_name>
+			<uf_file>uf/1a1/338laoaogf1qfunakie30ukns3ueem3q.jpg</uf_file>
+			<uf_price />
+			<uf_xml_id>7VmYHF2m</uf_xml_id>
+			<uf_description />
+			<uf_full_description />
+		</item>
+		<item>
+			<id>14</id>
+			<uf_name>Рефлектив серебро 2</uf_name>
+			<uf_file>uf/46b/h5ljjkczjwdnnedgjyr75ag2b4e427m8.jpg</uf_file>
+			<uf_price />
+			<uf_xml_id>2aUQwoQh</uf_xml_id>
+			<uf_description />
+			<uf_full_description />
+		</item>
+		<item>
+			<id>15</id>
+			<uf_name>Рефлектив серебро</uf_name>
+			<uf_file>uf/e24/lrxfx2rav5qwpgwyf7ldvglkgk1oc6eq.jpg</uf_file>
+			<uf_price />
+			<uf_xml_id>TduqoCna</uf_xml_id>
+			<uf_description />
+			<uf_full_description />
+		</item>
+		<item>
+			<id>16</id>
+			<uf_name>Сатинато белое</uf_name>
+			<uf_file>uf/413/lu1u2a38mfz636m37pinbkas39m4n580.jpg</uf_file>
+			<uf_price />
+			<uf_xml_id>XVKkLKhO</uf_xml_id>
+			<uf_description />
+			<uf_full_description />
+		</item>
+		<item>
+			<id>17</id>
+			<uf_name>Сатинато бронза</uf_name>
+			<uf_file>uf/b86/wto1mzu79qi2f4m80kq3erzjrivpykom.jpg</uf_file>
+			<uf_price />
+			<uf_xml_id>h93kqOrb</uf_xml_id>
+			<uf_description />
+			<uf_full_description />
+		</item>
+		<item>
+			<id>18</id>
+			<uf_name>Сатинато графит</uf_name>
+			<uf_file>uf/559/9cre0d6ndawelsmdd81pvmk51jtwgmd5.jpg</uf_file>
+			<uf_price />
+			<uf_xml_id>2iqcxsmG</uf_xml_id>
+			<uf_description />
+			<uf_full_description />
+		</item>
+		<item>
+			<id>19</id>
+			<uf_name>Сатинато с фацетом</uf_name>
+			<uf_file>uf/8fa/w7gz81i1asbpzcvzx26hq7alol3paz8w.jpg</uf_file>
+			<uf_price />
+			<uf_xml_id>xJK8XAde</uf_xml_id>
+			<uf_description />
+			<uf_full_description />
+		</item>
+		<item>
+			<id>20</id>
+			<uf_name>Стекло прозрачное</uf_name>
+			<uf_file>uf/4f2/udvf9d4jggclwyj7jqsu4p5wmi1wi35e.jpg</uf_file>
+			<uf_price />
+			<uf_xml_id>Xeg3iLyx</uf_xml_id>
+			<uf_description />
+			<uf_full_description />
+		</item>
+		<item>
+			<id>21</id>
+			<uf_name>Флутс бронза</uf_name>
+			<uf_file>uf/444/aze88vhqungf5gu6n07r6w4gp23any77.jpg</uf_file>
+			<uf_price>12400</uf_price>
+			<uf_xml_id>kcYyPkjg</uf_xml_id>
+			<uf_description />
+			<uf_full_description />
+		</item>
+		<item>
+			<id>22</id>
+			<uf_name>Флутс графит</uf_name>
+			<uf_file>uf/a34/1myq4qkdxqgoua4kxtttox6z3nrkd3yb.jpg</uf_file>
+			<uf_price>12400</uf_price>
+			<uf_xml_id>10GNHPXC</uf_xml_id>
+			<uf_description />
+			<uf_full_description />
+		</item>
+		<item>
+			<id>23</id>
+			<uf_name>Флутс прозрачный</uf_name>
+			<uf_file>uf/cb5/884jku23uh66otx4ca3bmmxwg8bgh6a4.jpg</uf_file>
+			<uf_price>12400</uf_price>
+			<uf_xml_id>hUOk6SgB</uf_xml_id>
+			<uf_description />
+			<uf_full_description />
+		</item>
+	</items>
+</hiblock>
