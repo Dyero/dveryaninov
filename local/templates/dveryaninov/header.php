@@ -28,14 +28,9 @@ use Bitrix\Main\Page\Asset;
     <?php $APPLICATION->ShowPanel(); ?>
 
     <?php
-    // Include site header component
-    $APPLICATION->IncludeComponent(
-        "bitrix:main.include",
-        "",
-        array(
-            "AREA_FILE_SHOW" => "file",
-            "PATH" => SITE_TEMPLATE_PATH . "/includes/header.php",
-            "EDIT_TEMPLATE" => ""
-        )
-    );
+    // Include site header
+    $includeHeaderPath = $_SERVER["DOCUMENT_ROOT"] . SITE_TEMPLATE_PATH . "/includes/header.php";
+    if (file_exists($includeHeaderPath)) {
+        include($includeHeaderPath);
+    }
     ?>

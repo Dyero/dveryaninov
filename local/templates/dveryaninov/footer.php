@@ -3,16 +3,11 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 ?>
 
     <?php
-    // Include site footer component
-    $APPLICATION->IncludeComponent(
-        "bitrix:main.include",
-        "",
-        array(
-            "AREA_FILE_SHOW" => "file",
-            "PATH" => SITE_TEMPLATE_PATH . "/includes/footer.php",
-            "EDIT_TEMPLATE" => ""
-        )
-    );
+    // Include site footer
+    $includeFooterPath = $_SERVER["DOCUMENT_ROOT"] . SITE_TEMPLATE_PATH . "/includes/footer.php";
+    if (file_exists($includeFooterPath)) {
+        include($includeFooterPath);
+    }
     ?>
 
     <!-- Auth modal -->
