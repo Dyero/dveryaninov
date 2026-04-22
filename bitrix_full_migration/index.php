@@ -181,6 +181,14 @@ if (file_exists($includeHeaderPath)) {
     </section>
 </main>
 
+<?php
+// Include site footer
+$includeFooterPath = $_SERVER["DOCUMENT_ROOT"] . SITE_TEMPLATE_PATH . "/includes/footer.php";
+if (file_exists($includeFooterPath)) {
+    include($includeFooterPath);
+}
+?>
+
 <script src="<?= SITE_TEMPLATE_PATH ?>/js/slider.js"></script>
 <script>
 // Инициализация слайдеров на главной

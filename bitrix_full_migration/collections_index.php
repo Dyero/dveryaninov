@@ -3,6 +3,14 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Коллекции");
 ?>
 
+<?php
+// Include site header
+$includeHeaderPath = $_SERVER["DOCUMENT_ROOT"] . SITE_TEMPLATE_PATH . "/includes/header.php";
+if (file_exists($includeHeaderPath)) {
+    include($includeHeaderPath);
+}
+?>
+
 <main class="collections-page">
     <nav class="breadcrumbs">
         <a class="breadcrumbs__link" href="/">Главная</a>
@@ -49,6 +57,14 @@ $APPLICATION->SetTitle("Коллекции");
         ?>
     </div>
 </main>
+
+<?php
+// Include site footer
+$includeFooterPath = $_SERVER["DOCUMENT_ROOT"] . SITE_TEMPLATE_PATH . "/includes/footer.php";
+if (file_exists($includeFooterPath)) {
+    include($includeFooterPath);
+}
+?>
 
 <?php
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");

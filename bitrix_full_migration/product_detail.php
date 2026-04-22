@@ -217,6 +217,14 @@ if (file_exists($includeHeaderPath)) {
     </section>
 </main>
 
+<?php
+// Include site footer
+$includeFooterPath = $_SERVER["DOCUMENT_ROOT"] . SITE_TEMPLATE_PATH . "/includes/footer.php";
+if (file_exists($includeFooterPath)) {
+    include($includeFooterPath);
+}
+?>
+
 <!-- Модалка: заказать замер -->
 <div class="modal" id="measureModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Заказать замер">
     <div class="modal__backdrop" data-close-measure></div>

@@ -8,6 +8,14 @@ if (!$USER->IsAuthorized()) {
 }
 ?>
 
+<?php
+// Include site header
+$includeHeaderPath = $_SERVER["DOCUMENT_ROOT"] . SITE_TEMPLATE_PATH . "/includes/header.php";
+if (file_exists($includeHeaderPath)) {
+    include($includeHeaderPath);
+}
+?>
+
 <main class="account-page">
     <nav class="breadcrumbs">
         <a class="breadcrumbs__link" href="/">Главная</a>
@@ -75,6 +83,14 @@ if (!$USER->IsAuthorized()) {
 if ($_REQUEST["logout"] == "yes" && check_bitrix_sessid()) {
     $USER->Logout();
     LocalRedirect("/");
+}
+?>
+
+<?php
+// Include site footer
+$includeFooterPath = $_SERVER["DOCUMENT_ROOT"] . SITE_TEMPLATE_PATH . "/includes/footer.php";
+if (file_exists($includeFooterPath)) {
+    include($includeFooterPath);
 }
 ?>
 

@@ -10,6 +10,14 @@ if (!CModule::IncludeModule("sale")) {
 }
 ?>
 
+<?php
+// Include site header
+$includeHeaderPath = $_SERVER["DOCUMENT_ROOT"] . SITE_TEMPLATE_PATH . "/includes/header.php";
+if (file_exists($includeHeaderPath)) {
+    include($includeHeaderPath);
+}
+?>
+
 <main class="cart-page">
     <nav class="breadcrumbs">
         <a class="breadcrumbs__link" href="/">Главная</a>
@@ -36,6 +44,14 @@ if (!CModule::IncludeModule("sale")) {
         )
     );?>
 </main>
+
+<?php
+// Include site footer
+$includeFooterPath = $_SERVER["DOCUMENT_ROOT"] . SITE_TEMPLATE_PATH . "/includes/footer.php";
+if (file_exists($includeFooterPath)) {
+    include($includeFooterPath);
+}
+?>
 
 <?php
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");

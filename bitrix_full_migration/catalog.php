@@ -83,11 +83,11 @@ if (file_exists($includeHeaderPath)) {
                 <div class="section__cards section__cards_wrap catalog__grid">
                     <?php
                     // Получаем все товары из инфоблока "Каталог"
-                    // Предполагается что инфоблок с товарами имеет ID = 2
+                    // ID инфоблока: 6 - Двери, 5 - Погонаж
                     $rsProducts = CIBlockElement::GetList(
                         ["SORT" => "ASC", "NAME" => "ASC"],
                         [
-                            "IBLOCK_ID" => 2, // ID инфоблока "Каталог" (нужно будет настроить)
+                            "IBLOCK_ID" => 6, // ID инфоблока "Двери"
                             "ACTIVE" => "Y"
                         ],
                         false,
@@ -130,6 +130,14 @@ if (file_exists($includeHeaderPath)) {
         </div>
     </section>
 </main>
+
+<?php
+// Include site footer
+$includeFooterPath = $_SERVER["DOCUMENT_ROOT"] . SITE_TEMPLATE_PATH . "/includes/footer.php";
+if (file_exists($includeFooterPath)) {
+    include($includeFooterPath);
+}
+?>
 
 <script src="<?= SITE_TEMPLATE_PATH ?>/js/shop.js"></script>
 

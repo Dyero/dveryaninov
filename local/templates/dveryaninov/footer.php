@@ -2,14 +2,6 @@
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 ?>
 
-    <?php
-    // Include site footer
-    $includeFooterPath = $_SERVER["DOCUMENT_ROOT"] . SITE_TEMPLATE_PATH . "/includes/footer.php";
-    if (file_exists($includeFooterPath)) {
-        include($includeFooterPath);
-    }
-    ?>
-
     <!-- Auth modal -->
     <div class="auth-modal" id="auth-modal" role="dialog" aria-modal="true" aria-labelledby="auth-modal-title" aria-hidden="true">
         <div class="auth-modal__backdrop"></div>
