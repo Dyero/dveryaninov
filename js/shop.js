@@ -2827,3 +2827,109 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   })();
 });
+
+/* ==========================================================================
+   P3: initDefaultCoating + renderCoatingsInAccordion
+   Добавлено для Битрикс-режима (window.BITRIX_MODE).
+   Эти функции НЕ влияют на статические HTML-страницы
+   ========================================================================== */
+
+/**
+ * Автоматически выбирает первое покрытие при загрузке страницы товара.
+ * Вызывается после того, как DOM готов (у Битрикс-страниц — сразу,
+ * у статических — через initConfigurator).
+ */
+function initDefaultCoating() {
+  var firstCoating = document.querySelector(
+    '.coating-option:not(.is-selected), .product__coating-btn:not(.is-active)'
+  );
+  if (!firstCoating) return;
+
+  // Кликаем первую доступную опцию покрытия чтобы инициализировать цену/галерею
+  firstCoating.click();
+}
+
+/**
+ * Рендерит свотчи покрытий в аккордеоне панели конфигуратора.
+ * BITRIX_MODE: данные о покрытиях задаются атрибутом data-coatings-json
+ * на корневом элементе .product-configurator или .config-panel.
+ *
+ * @param {HTMLElement} [root] — корень панели конфигуратора (по умолчанию — первый .config-panel)
+ */
+function renderCoatingsInAccordion(root) {
+  root = root || document.querySelector('.config-panel, .product-configurator');
+  if (!root) return;
+
+  var raw = root.getAttribute('data-coatings-json');
+  if (!raw) return;
+
+  var coatings;
+  try { coatings = JSON.parse(raw); } catch (e) { return; }
+  if (!Array.isArray(coatings) || !coatings.length) return;
+
+  var container = root.querySelector('.coating-accordion__swatches, .coatings-list');
+  if (!container) return;
+
+  container.innerHTML = '';
+
+  coatings.forEach(function (c, idx) {
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'coating-swatch' + (idx === 0 ? ' is-selected' : '');
+    btn.setAttribute('data-coating-id',    c.id    || '');
+    btn.setAttribute('data-coating-name',  c.name  || '');
+    btn.setAttribute('data-coating-price', c.price || 0);
+    btn.setAttribute('aria-label',         c.name  || '');
+    btn.setAttribute('title',              c.name  || '');
+
+    if (c.img) {
+      var img = document.createElement('img');
+      img.src     = c.img;
+      img.alt     = c.name || '';
+      img.width   = 40;
+      img.height  = 40;
+      img.loading = 'lazy';
+      btn.appendChild(img);
+    } else {
+      // Цветовой квадрат через inline-стиль
+      btn.style.background = c.color || '#ccc';
+    }
+
+    btn.addEventListener('click', function () {
+      container.querySelectorAll('.coating-swatch').forEach(function (s) {
+        s.classList.remove('is-selected');
+        s.setAttribute('aria-pressed', 'false');
+      });
+      btn.classList.add('is-selected');
+      btn.setAttribute('aria-pressed', 'true');
+
+      // Обновляем лейбл выбранного покрытия
+      var label = root.querySelector('.coating-accordion__selected-name, .coating-selected-label');
+      if (label) label.textContent = c.name || '';
+
+      // Публикуем событие для shop.js
+      root.dispatchEvent(new CustomEvent('coatingChange', {
+        bubbles: true,
+        detail: { id: c.id, name: c.name, price: c.price }
+      }));
+    });
+
+    container.appendChild(btn);
+  });
+
+  // Первое покрытие выбрано по умолчанию — оповещаем shop.js
+  if (coatings[0]) {
+    root.dispatchEvent(new CustomEvent('coatingChange', {
+      bubbles: true,
+      detail: { id: coatings[0].id, name: coatings[0].name, price: coatings[0].price }
+    }));
+  }
+}
+
+/* Автозапуск на Битрикс-страницах */
+if (window.BITRIX_MODE) {
+  document.addEventListener('DOMContentLoaded', function () {
+    renderCoatingsInAccordion();
+    initDefaultCoating();
+  });
+}

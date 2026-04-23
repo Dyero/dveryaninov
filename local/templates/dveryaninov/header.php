@@ -9,7 +9,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 $tplDir = SITE_TEMPLATE_PATH; // /local/templates/dveryaninov
 ?>
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-bitrix>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,6 +20,7 @@ $tplDir = SITE_TEMPLATE_PATH; // /local/templates/dveryaninov
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/css/responsive.css">
+  <link rel="stylesheet" href="/local/templates/dveryaninov/css/bitrix.css">
 </head>
 <body class="page">
 <?php $APPLICATION->ShowPanel(); ?>

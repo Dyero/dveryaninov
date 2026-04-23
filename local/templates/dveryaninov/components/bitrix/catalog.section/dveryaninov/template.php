@@ -4,6 +4,15 @@
  * Шаблон списка каталога (аналог catalog.html, но динамический)
  */
 if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
+
+$activeStyle = htmlspecialchars($_GET['style'] ?? '');
+$styles = [
+    ''           => 'Все стили',
+    'modern'     => 'Современные',
+    'classic'    => 'Классические',
+    'neoclassic' => 'Неоклассика',
+    'design'     => 'Дизайнерские',
+];
 ?>
 
 <main class="catalog-page">
@@ -14,6 +23,16 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
           ? htmlspecialchars($arResult['SECTION']['NAME'])
           : 'Каталог дверей' ?>
     </h1>
+
+    <!-- Фильтр по стилю -->
+    <div class="catalog-filter" role="toolbar" aria-label="Фильтр по стилю">
+      <?php foreach ($styles as $key => $label): ?>
+        <a href="<?= $key ? '/catalog/?style=' . urlencode($key) : '/catalog/' ?>"
+           class="catalog-filter__btn<?= $activeStyle === $key ? ' is-active' : '' ?>">
+          <?= htmlspecialchars($label) ?>
+        </a>
+      <?php endforeach; ?>
+    </div>
 
     <div class="catalog-layout">
 
@@ -46,6 +65,12 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
         <?php endif; ?>
 
         <?php foreach ($arResult['ITEMS'] as $arItem):
+          // Фильтрация по стилю на стороне шаблона (если Битрикс не фильтрует)
+          if ($activeStyle) {
+              $itemStyle = strtolower($arItem['PROPERTIES']['STYLE']['VALUE'] ?? '');
+              if ($itemStyle && $itemStyle !== $activeStyle) continue;
+          }
+
           $imgPath = $arItem['PREVIEW_PICTURE']
             ? CFile::GetPath($arItem['PREVIEW_PICTURE'])
             : '';

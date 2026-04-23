@@ -9,9 +9,9 @@
     '        <img src="images/icon-location.svg" alt="" width="24" height="24" class="header__icon-img">',
     '        <span class="header__city">Новочебоксарск</span>',
     '      </div>',
-    '      <a class="header__link" href="contacts.html">Адреса салонов</a>',
-    '      <a class="header__link" href="about.html">О компании</a>',
-    '      <a class="header__link" href="contacts.html">Контакты</a>',
+    '      <a class="header__link" href="/contacts/">Адреса салонов</a>',
+    '      <a class="header__link" href="/about/">О компании</a>',
+    '      <a class="header__link" href="/contacts/">Контакты</a>',
     '      <div class="header__right">',
     '        <a class="header__link" href="#">Блог</a>',
     '        <a class="header__link" href="#">Проекты</a>',
@@ -24,19 +24,19 @@
     '      <img src="images/Burger.svg" alt="" width="24" height="36">',
     '    </button>',
     '    <nav class="header__nav">',
-    '      <a class="header__nav-item" href="catalog.html">Каталог</a>',
-    '      <a class="header__nav-item" href="service.html">Услуги</a>',
-    '      <a class="header__nav-item" href="#">Партнёрам</a>',
+    '      <a class="header__nav-item" href="/catalog/">Каталог</a>',
+    '      <a class="header__nav-item" href="/services/">Услуги</a>',
+    '      <a class="header__nav-item" href="/collections/">Коллекции</a>',
     '    </nav>',
-    '    <a class="header__logo" href="index.html">',
+    '    <a class="header__logo" href="/">',
     '      <img src="images/logo.svg" alt="Дверянинов" width="196" height="59">',
     '    </a>',
     '    <div class="header__actions">',
     '      <a class="header__phone" href="tel:88005508869">8 800 550-88-69</a>',
-    '      <a href="wishlist.html" id="header-wishlist-btn" class="header__icon-btn" aria-label="Избранное" style="position:relative">',
+    '      <a href="/wishlist/" id="header-wishlist-btn" class="header__icon-btn" aria-label="Избранное" style="position:relative">',
     '        <img src="images/icon-heart.svg" alt="" width="24" height="24">',
     '      </a>',
-    '      <a href="cart.html" class="header__icon-btn" aria-label="Корзина">',
+    '      <a href="/cart/" class="header__icon-btn" aria-label="Корзина">',
     '        <img src="images/icon-bag.svg" alt="" width="24" height="24">',
     '      </a>',
     '      <button type="button" class="header__icon-btn header__profile-btn" aria-label="Профиль">',
@@ -118,13 +118,13 @@
     '    </div>',
     '    <nav class="mob-nav">',
     '      <button class="mob-nav__item mob-nav__item_arrow" data-panel="catalog">Каталог<svg class="mob-nav__chevron" width="7" height="12" viewBox="0 0 7 12"><path d="M1 1l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></button>',
-    '      <a class="mob-nav__item" href="collections.html">Коллекции</a>',
+    '      <a class="mob-nav__item" href="/collections/">Коллекции</a>',
     '      <button class="mob-nav__item mob-nav__item_arrow" data-panel="services">Услуги<svg class="mob-nav__chevron" width="7" height="12" viewBox="0 0 7 12"><path d="M1 1l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></button>',
-    '      <a class="mob-nav__item" href="about.html">О компании</a>',
+    '      <a class="mob-nav__item" href="/about/">О компании</a>',
     '      <a class="mob-nav__item" href="#">Блог</a>',
     '      <a class="mob-nav__item" href="#">Проекты</a>',
-    '      <a class="mob-nav__item" href="contacts.html">Адреса салонов</a>',
-    '      <a class="mob-nav__item" href="contacts.html">Контакты</a>',
+    '      <a class="mob-nav__item" href="/contacts/">Адреса салонов</a>',
+    '      <a class="mob-nav__item" href="/contacts/">Контакты</a>',
     '    </nav>',
     '    <div class="mob-menu__footer">',
     '      <button class="mob-menu__cta" id="mob-callback-btn" type="button">ЗАКАЗАТЬ ЗВОНОК</button>',
@@ -779,15 +779,19 @@
     (m || document.body).insertAdjacentHTML(m ? 'afterend' : 'beforeend', FOOTER_HTML);
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function () {
+  window.BITRIX_MODE = document.documentElement.hasAttribute('data-bitrix');
+
+  if (!window.BITRIX_MODE) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function () {
+        insertHeader();
+        insertFooter();
+        insertBottomNav();
+      });
+    } else {
       insertHeader();
       insertFooter();
       insertBottomNav();
-    });
-  } else {
-    insertHeader();
-    insertFooter();
-    insertBottomNav();
+    }
   }
 }());

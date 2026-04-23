@@ -67,3 +67,35 @@ function dver_get_hl_by_id(int $hlId, array $filter = [], array $order = ['ID' =
     } catch (\Exception $e) {}
     return $result;
 }
+
+/**
+ * Безопасный URL к файлу Битрикс.
+ *
+ * @param int|string $fileId  ID файла CFile
+ * @return string  Абсолютный путь к файлу или пустая строка
+ */
+function dver_file_url($fileId): string
+{
+    if (empty($fileId)) return '';
+    $path = \CFile::GetPath((int)$fileId);
+    return $path ?: '';
+}
+
+/**
+ * HTML тег <img> для файла Битрикс.
+ *
+ * @param int|string $fileId  ID файла CFile
+ * @param string     $alt     Атрибут alt
+ * @param array      $attrs   Дополнительные атрибуты [width, height, class, loading, ...]
+ * @return string  HTML строка или пустая строка если файл не найден
+ */
+function dver_img($fileId, string $alt = '', array $attrs = []): string
+{
+    $url = dver_file_url($fileId);
+    if (!$url) return '';
+    $attrStr = '';
+    foreach ($attrs as $k => $v) {
+        $attrStr .= ' ' . htmlspecialchars((string)$k) . '="' . htmlspecialchars((string)$v) . '"';
+    }
+    return '<img src="' . htmlspecialchars($url) . '" alt="' . htmlspecialchars($alt) . '"' . $attrStr . '>';
+}
